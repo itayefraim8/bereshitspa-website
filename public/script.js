@@ -23,47 +23,47 @@
       'slider.dot_aria':'שקופית',
       'cart.empty.alert':'העגלה ריקה.',
 
-/* Why Us */
-'why.title':'למה לבחור דווקא בנו',
+      /* Why Us */
+      'why.title':'למה לבחור דווקא בנו',
 
-'why.point1.title':'טיפול אמיתי מהלב',
-'why.point1.text':'מטפלות ומטפלים תאילנדים מקצועיים.\nהתאמה אישית לכל לקוח – כי כל גוף הוא אחר.\nאווירה רגועה וחמימה שעוטפת מהרגע הראשון.\nתוצאות שמרגישים מיד – בגוף ובראש.',
+      'why.point1.title':'טיפול אמיתי מהלב',
+      'why.point1.text':'מטפלות ומטפלים תאילנדים מקצועיים.\nהתאמה אישית לכל לקוח – כי כל גוף הוא אחר.\nאווירה רגועה וחמימה שעוטפת מהרגע הראשון.\nתוצאות שמרגישים מיד – בגוף ובראש.',
 
-'why.point2.title':'לא עוד “טיפול” – חוויה מלאה',
-'why.point2.text':'שילוב של טכניקות יפניות ותאילנדיות ברמה גבוהה.\nשירות אישי, רגיש ומקצועי לכל אורך הדרך.\nמרחב שמאפשר לנשום, להרפות ולהרגיש נעים.\nרגע של שקט אמיתי בתוך היום.',
+      'why.point2.title':'לא עוד “טיפול” – חוויה מלאה',
+      'why.point2.text':'שילוב של טכניקות יפניות ותאילנדיות ברמה גבוהה.\nשירות אישי, רגיש ומקצועי לכל אורך הדרך.\nמרחב שמאפשר לנשום, להרפות ולהרגיש נעים.\nרגע של שקט אמיתי בתוך היום.',
 
-'why.point3.title':'צוות מנוסה ומוסמך',
-'why.point3.text':'ניסיון רב במגע טיפולי.\nעבודה מדויקת שמבינה עומס וכאבים באמת.\nסטנדרט נקי ומוקפד ללא פשרות.\nתוצאות שמורגשות ולא רק “נחמד”.',
+      'why.point3.title':'צוות מנוסה ומוסמך',
+      'why.point3.text':'ניסיון רב במגע טיפולי.\nעבודה מדויקת שמבינה עומס וכאבים באמת.\nסטנדרט נקי ומוקפד ללא פשרות.\nתוצאות שמורגשות ולא רק “נחמד”.',
 
-'why.point4.title':'מגע שהוא ריפוי',
-'why.point4.text':'מגע מדויק ולא חזק סתם.\nהתאמה למה שהגוף באמת צריך היום.\nשילוב בין מסורת עתיקה לגישות מודרניות.\nתחושת קלילות שמלווה אותך שעות אחרי.',
+      'why.point4.title':'מגע שהוא ריפוי',
+      'why.point4.text':'מגע מדויק ולא חזק סתם.\nהתאמה למה שהגוף באמת צריך היום.\nשילוב בין מסורת עתיקה לגישות מודרניות.\nתחושת קלילות שמלווה אותך שעות אחרי.',
 
-'why.point5.title':'שקט, ניקיון ופרטיות',
-'why.point5.text':'מרחב נקי ומסודר שמרגיש טוב בעיניים.\nכל תשומת הלב מטפל/ת–לקוח בזמן הטיפול.\nרוגע שלא פוגשים בכל מקום.\nוגם חיוך בסוף – מובטח.',
+      'why.point5.title':'שקט, ניקיון ופרטיות',
+      'why.point5.text':'מרחב נקי ומסודר שמרגיש טוב בעיניים.\nכל תשומת הלב מטפל/ת–לקוח בזמן הטיפול.\nרוגע שלא פוגשים בכל מקום.\nוגם חיוך בסוף – מובטח.',
 
-'why.point6.title':'טקס של רוגע והתחדשות',
-'why.point6.text':'כל טיפול מרגיש כמו טקס קטן של איזון פנימי.\nשימוש בשמנים איכותיים וקומפרסים תאילנדיים.\nשילוב נעים של ריח, מגע ונשימה.\nחוויה שמחברת אותך לעצמך.',
+      'why.point6.title':'טקס של רוגע והתחדשות',
+      'why.point6.text':'כל טיפול מרגיש כמו טקס קטן של איזון פנימי.\nשימוש בשמנים איכותיים וקומפרסים תאילנדיים.\nשילוב נעים של ריח, מגע ונשימה.\nחוויה שמחברת אותך לעצמך.',
 
-'why.point7.title':'אנחנו רואים אותך',
-'why.point7.text':'לא עוד “עוד לקוח” – כל אחד מקבל יחס אישי.\nמטפלים שמקשיבים באמת לצרכים שלך.\nגישה עדינה, מקצועית ומכילה.\nפשוט טיפול שבא ממקום של אכפתיות.',
+      'why.point7.title':'אנחנו רואים אותך',
+      'why.point7.text':'לא עוד “עוד לקוח” – כל אחד מקבל יחס אישי.\nמטפלים שמקשיבים באמת לצרכים שלך.\nגישה עדינה, מקצועית ומכילה.\nפשוט טיפול שבא ממקום של אכפתיות.',
 
-'why.point8.title':'הפסקה לנשמה באמצע היום',
-'why.point8.text':'טיפול קצר שמחזיר אנרגיה לשאר היום.\nאווירה שקטה שמנתקת מהעומס.\nהתאוששות מהירה בראש ובגוף.\nרגע קטן שמרגיש כמו חופש גדול.',
+      'why.point8.title':'הפסקה לנשמה באמצע היום',
+      'why.point8.text':'טיפול קצר שמחזיר אנרגיה לשאר היום.\nאווירה שקטה שמנתקת מהעומס.\nהתאוששות מהירה בראש ובגוף.\nרגע קטן שמרגיש כמו חופש גדול.',
 
-'why.point9.title':'מיקום מושלם בבטומי',
-'why.point9.text':'קרוב, נוח וקל להגיע.\nבלי פקקים, בלי חניה מסובכת.\nמגיעים, נרגעים ויוצאים כמו חדשים.\nפשוט קל ונעים לכל אחד.',
+      'why.point9.title':'מיקום מושלם בבטומי',
+      'why.point9.text':'קרוב, נוח וקל להגיע.\nבלי פקקים, בלי חניה מסובכת.\nמגיעים, נרגעים ויוצאים כמו חדשים.\nפשוט קל ונעים לכל אחד.',
 
-'why.point10.title':'סטנדרט ספא בינלאומי',
-'why.point10.text':'איכות טיפולים, אווירה ושירות ברמה של ספא מוביל בעולם.\nהתייחסות מדויקת לכל פרט.\nחוויה שמרגישה מושקעת ואמיתית.\nהכול קרוב ונוח – בלי לטוס לשום מקום.',
+      'why.point10.title':'סטנדרט ספא בינלאומי',
+      'why.point10.text':'איכות טיפולים, אווירה ושירות ברמה של ספא מוביל בעולם.\nהתייחסות מדויקת לכל פרט.\nחוויה שמרגישה מושקעת ואמיתית.\nהכול קרוב ונוח – בלי לטוס לשום מקום.',
 
-'why.point11.title':'נגיעה מהעולם הגדול',
-'why.point11.text':'טכניקות מתאילנד ויפן.\nחום ושירות ברוח ישראלית.\nשילוב שמייצר טיפול ייחודי שאין בשום ספא אחר.\nחוויה שאי אפשר לחקות.',
+      'why.point11.title':'נגיעה מהעולם הגדול',
+      'why.point11.text':'טכניקות מתאילנד ויפן.\nחום ושירות ברוח ישראלית.\nשילוב שמייצר טיפול ייחודי שאין בשום ספא אחר.\nחוויה שאי אפשר לחקות.',
 
-'why.point12.title':'ליווי לפני ואחרי הטיפול',
-'why.point12.text':'הסבר מלא לפני הטיפול.\nטיפים לשימור התוצאה לאחריו.\nמענה לכל שאלה גם אחרי הביקור.\nכדי שההשפעה הטובה תישאר איתך לאורך זמן.',
+      'why.point12.title':'ליווי לפני ואחרי הטיפול',
+      'why.point12.text':'הסבר מלא לפני הטיפול.\nטיפים לשימור התוצאה לאחריו.\nמענה לכל שאלה גם אחרי הביקור.\nכדי שההשפעה הטובה תישאר איתך לאורך זמן.',
 
-'why.more':'למידע נוסף',
-'why.cta':'קביעת תור'
+      'why.more':'למידע נוסף',
+      'why.cta':'קביעת תור'
 
     },
 
@@ -82,47 +82,47 @@
       'slider.dot_aria':'Slide',
       'cart.empty.alert':'Your cart is empty.',
 
-/* Why Us – English */
-'why.title':'Why Choose Us',
+      /* Why Us – English */
+      'why.title':'Why Choose Us',
 
-'why.point1.title':'Care From the Heart',
-'why.point1.text':'Professional Thai therapists.\nPersonalised treatment for every body.\nA warm, calm atmosphere from the first moment.\nResults you feel immediately – in body and mind.',
+      'why.point1.title':'Care From the Heart',
+      'why.point1.text':'Professional Thai therapists.\nPersonalised treatment for every body.\nA warm, calm atmosphere from the first moment.\nResults you feel immediately – in body and mind.',
 
-'why.point2.title':'Not Just a “Treatment” – A Full Experience',
-'why.point2.text':'A blend of Japanese and Thai techniques.\nPersonal, attentive and professional service.\nA space that lets you breathe, release and feel good.\nA true moment of peace in the middle of the day.',
+      'why.point2.title':'Not Just a “Treatment” – A Full Experience',
+      'why.point2.text':'A blend of Japanese and Thai techniques.\nPersonal, attentive and professional service.\nA space that lets you breathe, release and feel good.\nA true moment of peace in the middle of the day.',
 
-'why.point3.title':'Experienced & Certified Team',
-'why.point3.text':'Extensive therapeutic-touch experience.\nPrecise work that truly understands tension and pain.\nHigh hygiene standards with no compromises.\nResults you can genuinely feel.',
+      'why.point3.title':'Experienced & Certified Team',
+      'why.point3.text':'Extensive therapeutic-touch experience.\nPrecise work that truly understands tension and pain.\nHigh hygiene standards with no compromises.\nResults you can genuinely feel.',
 
-'why.point4.title':'A Touch That Heals',
-'why.point4.text':'Precise, not forceful, touch.\nAdapted to what your body needs today.\nA blend of ancient tradition and modern methods.\nA feeling of lightness that stays with you.',
+      'why.point4.title':'A Touch That Heals',
+      'why.point4.text':'Precise, not forceful, touch.\nAdapted to what your body needs today.\nA blend of ancient tradition and modern methods.\nA feeling of lightness that stays with you.',
 
-'why.point5.title':'Calm, Clean & Private',
-'why.point5.text':'A tidy, pleasant treatment space.\nFull therapist attention during the session.\nA rare level of quiet and privacy.\nAnd yes — a smile at the end.',
+      'why.point5.title':'Calm, Clean & Private',
+      'why.point5.text':'A tidy, pleasant treatment space.\nFull therapist attention during the session.\nA rare level of quiet and privacy.\nAnd yes — a smile at the end.',
 
-'why.point6.title':'A Ritual of Relaxation & Renewal',
-'why.point6.text':'Each session feels like a small inner-reset ritual.\nQuality oils and warm Thai herbal compresses.\nA soothing mix of scent, touch and breath.\nAn experience that reconnects you to yourself.',
+      'why.point6.title':'A Ritual of Relaxation & Renewal',
+      'why.point6.text':'Each session feels like a small inner-reset ritual.\nQuality oils and warm Thai herbal compresses.\nA soothing mix of scent, touch and breath.\nAn experience that reconnects you to yourself.',
 
-'why.point7.title':'We Truly See You',
-'why.point7.text':'No “just another client”.\nReal listening and personalised care.\nGentle, professional and supportive approach.\nA treatment driven by genuine care.',
+      'why.point7.title':'We Truly See You',
+      'why.point7.text':'No “just another client”.\nReal listening and personalised care.\nGentle, professional and supportive approach.\nA treatment driven by genuine care.',
 
-'why.point8.title':'A Mid-Day Pause for the Soul',
-'why.point8.text':'A short treatment that restores energy.\nQuiet atmosphere that disconnects from stress.\nFast recovery for body and mind.\nA small moment that feels like a big vacation.',
+      'why.point8.title':'A Mid-Day Pause for the Soul',
+      'why.point8.text':'A short treatment that restores energy.\nQuiet atmosphere that disconnects from stress.\nFast recovery for body and mind.\nA small moment that feels like a big vacation.',
 
-'why.point9.title':'Perfect Location in Batumi',
-'why.point9.text':'Easy to reach, easy to return.\nNo traffic, no parking headaches.\nArrive, relax and leave renewed.\nSimply comfortable for everyone.',
+      'why.point9.title':'Perfect Location in Batumi',
+      'why.point9.text':'Easy to reach, easy to return.\nNo traffic, no parking headaches.\nArrive, relax and leave renewed.\nSimply comfortable for everyone.',
 
-'why.point10.title':'International Spa Standard',
-'why.point10.text':'Treatments, atmosphere and service matching top world-class spas.\nAttention to every detail.\nAn experience that feels premium and authentic.\nAll close to home — no flights needed.',
+      'why.point10.title':'International Spa Standard',
+      'why.point10.text':'Treatments, atmosphere and service matching top world-class spas.\nAttention to every detail.\nAn experience that feels premium and authentic.\nAll close to home — no flights needed.',
 
-'why.point11.title':'A Touch of the World',
-'why.point11.text':'Techniques from Thailand and Japan.\nWarm, welcoming Israeli-style hospitality.\nA unique combination found nowhere else.\nAn experience impossible to imitate.',
+      'why.point11.title':'A Touch of the World',
+      'why.point11.text':'Techniques from Thailand and Japan.\nWarm, welcoming Israeli-style hospitality.\nA unique combination found nowhere else.\nAn experience impossible to imitate.',
 
-'why.point12.title':'Guidance Before & After Your Treatment',
-'why.point12.text':'Full explanation before the session.\nTips for keeping the results afterwards.\nSupport even after your visit.\nSo the benefits stay with you longer.',
+      'why.point12.title':'Guidance Before & After Your Treatment',
+      'why.point12.text':'Full explanation before the session.\nTips for keeping the results afterwards.\nSupport even after your visit.\nSo the benefits stay with you longer.',
 
-'why.more':'Learn more',
-'why.cta':'Book an appointment'
+      'why.more':'Learn more',
+      'why.cta':'Book an appointment'
 
     },
 
@@ -141,47 +141,47 @@
       'slider.dot_aria':'Слайд',
       'cart.empty.alert':'Корзина пуста.',
 
-/* Why Us – Russian */
-'why.title':'Почему выбирают нас',
+      /* Why Us – Russian */
+      'why.title':'Почему выбирают нас',
 
-'why.point1.title':'Забота от всего сердца',
-'why.point1.text':'Профессиональные тайские терапевты.\nИндивидуальный подход к каждому телу.\nТёплая и спокойная атмосфера с первой минуты.\nРезультаты ощущаются сразу — в теле и душе.',
+      'why.point1.title':'Забота от всего сердца',
+      'why.point1.text':'Профессиональные тайские терапевты.\nИндивидуальный подход к каждому телу.\nТёплая и спокойная атмосфера с первой минуты.\nРезультаты ощущаются сразу — в теле и душе.',
 
-'why.point2.title':'Не просто «процедура» — полноценный опыт',
-'why.point2.text':'Сочетание японских и тайских техник высокого уровня.\nЛичное, внимательное и профессиональное обслуживание.\nПространство, в котором легко расслабиться.\nМомент настоящего покоя среди дня.',
+      'why.point2.title':'Не просто «процедура» — полноценный опыт',
+      'why.point2.text':'Сочетание японских и тайских техник высокого уровня.\nЛичное, внимательное и профессиональное обслуживание.\nПространство, в котором легко расслабиться.\nМомент настоящего покоя среди дня.',
 
-'why.point3.title':'Опытный и сертифицированный персонал',
-'why.point3.text':'Большой опыт лечебного массажа.\nТочное понимание боли и напряжения.\nВысокие стандарты чистоты и порядка.\nРезультаты, которые действительно чувствуются.',
+      'why.point3.title':'Опытный и сертифицированный персонал',
+      'why.point3.text':'Большой опыт лечебного массажа.\nТочное понимание боли и напряжения.\nВысокие стандарты чистоты и порядка.\nРезультаты, которые действительно чувствуются.',
 
-'why.point4.title':'Прикосновение, которое исцеляет',
-'why.point4.text':'Точное и мягкое воздействие.\nПодстройка под то, что вашему телу нужно сегодня.\nСлияние древних традиций и современных подходов.\nЧувство лёгкости, сохраняющееся надолго.',
+      'why.point4.title':'Прикосновение, которое исцеляет',
+      'why.point4.text':'Точное и мягкое воздействие.\nПодстройка под то, что вашему телу нужно сегодня.\nСлияние древних традиций и современных подходов.\nЧувство лёгкости, сохраняющееся надолго.',
 
-'why.point5.title':'Тишина, чистота и приватность',
-'why.point5.text':'Чистое, уютное пространство.\nПолное внимание терапевта во время сеанса.\nСпокойствие, которое редко где встретишь.\nИ да — улыбка в конце гарантирована.',
+      'why.point5.title':'Тишина, чистота и приватность',
+      'why.point5.text':'Чистое, уютное пространство.\nПолное внимание терапевта во время сеанса.\nСпокойствие, которое редко где встретишь.\nИ да — улыбка в конце гарантирована.',
 
-'why.point6.title':'Ритуал спокойствия и обновления',
-'why.point6.text':'Каждый сеанс — маленький ритуал внутреннего баланса.\nКачественные масла и тёплые тайские компрессы.\nГармония аромата, дыхания и прикосновения.\nОпыт, который возвращает к себе.',
+      'why.point6.title':'Ритуал спокойствия и обновления',
+      'why.point6.text':'Каждый сеанс — маленький ритуал внутреннего баланса.\nКачественные масла и тёплые тайские компрессы.\nГармония аромата, дыхания и прикосновения.\nОпыт, который возвращает к себе.',
 
-'why.point7.title':'Мы действительно видим вас',
-'why.point7.text':'Вы — не «очередной клиент».\nНастоящее внимание и индивидуальный подход.\nНежная, профессиональная и заботливая работа.\nПроцедура с искренним участием.',
+      'why.point7.title':'Мы действительно видим вас',
+      'why.point7.text':'Вы — не «очередной клиент».\nНастоящее внимание и индивидуальный подход.\nНежная, профессиональная и заботливая работа.\nПроцедура с искренним участием.',
 
-'why.point8.title':'Пауза для души среди дня',
-'why.point8.text':'Короткий сеанс, который восстанавливает силы.\nСпокойная атмосфера, отключающая от стресса.\nБыстрое облегчение для тела и ума.\nНебольшой момент, ощущающийся как отпуск.',
+      'why.point8.title':'Пауза для души среди дня',
+      'why.point8.text':'Короткий сеанс, который восстанавливает силы.\nСпокойная атмосфера, отключающая от стресса.\nБыстрое облегчение для тела и ума.\nНебольшой момент, ощущающийся как отпуск.',
 
-'why.point9.title':'Идеальное расположение в Батуми',
-'why.point9.text':'Легко добраться — легко вернуться.\nБез пробок, без сложной парковки.\nПриходите, расслабьтесь и уходите обновлёнными.\nУдобно и приятно для всех.',
+      'why.point9.title':'Идеальное расположение в Батуми',
+      'why.point9.text':'Легко добраться — легко вернуться.\nБез пробок, без сложной парковки.\nПриходите, расслабьтесь и уходите обновлёнными.\nУдобно и приятно для всех.',
 
-'why.point10.title':'Международный спа-уровень',
-'why.point10.text':'Качество процедур и сервиса на уровне ведущих мировых спа.\nВнимание к каждой детали.\nОпыт, который ощущается премиальным.\nИ всё это — рядом с домом.',
+      'why.point10.title':'Международный спа-уровень',
+      'why.point10.text':'Качество процедур и сервиса на уровне ведущих мировых спа.\nВнимание к каждой детали.\nОпыт, который ощущается премиальным.\nИ всё это — рядом с домом.',
 
-'why.point11.title':'Прикосновение мира',
-'why.point11.text':'Техники из Таиланда и Японии.\nТёплый приём в израильском стиле.\nУникальное сочетание, которого нет больше нигде.\nОпыт, который невозможно повторить.',
+      'why.point11.title':'Прикосновение мира',
+      'why.point11.text':'Техники из Таиланда и Японии.\nТёплый приём в израильском стиле.\nУникальное сочетание, которого нет больше нигде.\nОпыт, который невозможно повторить.',
 
-'why.point12.title':'Поддержка до и после сеанса',
-'why.point12.text':'Понятное объяснение перед процедурой.\nРекомендации для сохранения результата.\nПоддержка и после вашего визита.\nЧтобы эффект оставался с вами дольше.',
+      'why.point12.title':'Поддержка до и после сеанса',
+      'why.point12.text':'Понятное объяснение перед процедурой.\nРекомендации для сохранения результата.\nПоддержка и после вашего визита.\nЧтобы эффект оставался с вами дольше.',
 
-'why.more':'Подробнее',
-'why.cta':'Записаться'
+      'why.more':'Подробнее',
+      'why.cta':'Записаться'
 
     },
 
@@ -200,47 +200,47 @@
       'slider.dot_aria':'სლაიდი',
       'cart.empty.alert':'კალათა ცარიელია.',
 
-/* Why Us – Georgian */
-'why.title':'რატომ ჩვენ',
+      /* Why Us – Georgian */
+      'why.title':'რატომ ჩვენ',
 
-'why.point1.title':'ზრუნვა გულით',
-'why.point1.text':'პროფესიონალი ტაიელი თერაპევტები.\nინდივიდუალური მიდგომა თითოეულ სხეულთან.\nთბილი და მშვიდი გარემო პირველივე წუთიდან.\nშედეგი, რომელიც მაშინვე იგრძნობა — სხეულშიც და გონებაშიც.',
+      'why.point1.title':'ზრუნვა გულით',
+      'why.point1.text':'პროფესიონალი ტაიელი თერაპევტები.\nინდივიდუალური მიდგომა თითოეულ სხეულთან.\nთბილი და მშვიდი გარემო პირველივე წუთიდან.\nშედეგი, რომელიც მაშინვე იგრძნობა — სხეულშიც და გონებაშიც.',
 
-'why.point2.title':'არ არის უბრალოდ „პროცედურა“ — ეს გამოცდილებაა',
-'why.point2.text':'იაპონური და ტაილანდური ტექნიკების შერწყმა.\nპირადი, ყურადღებიანი და პროფესიონალური მომსახურება.\nსივრცე, სადაც შეგიძლია ამოისუნთქო და მოდუნდე.\nმშვიდი პაუზა დღის შუაგულში.',
+      'why.point2.title':'არ არის უბრალოდ „პროცედურა“ — ეს გამოცდილებაა',
+      'why.point2.text':'იაპონური და ტაილანდური ტექნიკების შერწყმა.\nპირადი, ყურადღებიანი და პროფესიონალური მომსახურება.\nსივრცე, სადაც შეგიძლია ამოისუნთქო და მოდუნდე.\nმშვიდი პაუზა დღის შუაგულში.',
 
-'why.point3.title':'გამოცდილი და სანდო გუნდი',
-'why.point3.text':'დიდი გამოცდილება თერაპიულ შეხებაში.\nსწორი და ზუსტი მუშაობა სხეულის ნამდვილი საჭიროების მიხედვით.\nსისუფთავის მაღალი სტანდარტი.\nრეალური შედეგი, რომელსაც იგრძნობთ.',
+      'why.point3.title':'გამოცდილი და სანდო გუნდი',
+      'why.point3.text':'დიდი გამოცდილება თერაპიულ შეხებაში.\nსწორი და ზუსტი მუშაობა სხეულის ნამდვილი საჭიროების მიხედვით.\nსისუფთავის 높은 სტანდარტი.\nრეალური შედეგი, რომელსაც იგრძნობთ.',
 
-'why.point4.title':'შეხება, რომელიც კურნავს',
-'why.point4.text':'რბილი, მაგრამ ეფექტური შეხება.\nმიესადაგება სხეულის დღევანდელ მდგომარეობას.\nტრადიციებისა და თანამედროვე მიდგომების შერწყმა.\nსიმსუბუქის გრძნობა, რომელიც დიდხანს გრძელდება.',
+      'why.point4.title':'შეხება, რომელიც კურნავს',
+      'why.point4.text':'რბილი, მაგრამ ეფექტური შეხება.\nმიესადაგება სხეულის დღევანდელ მდგომარეობას.\nტრადიციებისა და თანამედროვე მიდგომების შერწყმა.\nსიმსუბუქის გრძნობა, რომელიც დიდხანს გრძელდება.',
 
-'why.point5.title':'სიმშვიდე, სისუფთავე და კონფიდენციალურობა',
-'why.point5.text':'სუფთა, მოწესრიგებული სივრცე.\nთერაპევტის სრული ყურადღება.\nსიმშვიდე, რომელიც იშვიათად გვხვდება.\nდა ბოლოს — ღიმილი.',
+      'why.point5.title':'სიმშვიდე, სისუფთავე და კონფიდენციალურობა',
+      'why.point5.text':'სუფთა, მოწესრიგებული სივრცე.\nთერაპევტის სრული ყურადღება.\nსიმშვიდე, რომელიც იშვიათად გვხვდება.\nდა ბოლოს — ღიმილი.',
 
-'why.point6.title':'დამშვიდების პატარა რიტუალი',
-'why.point6.text':'ყოველი სეანსი პატარა შიდა ბალანსის რიტუალს ჰგავს.\nხარისხიანი ზეთები და თბილი ტაილანდური კომპრესები.\nსუნი, შეხება და სუნთქვა ერთიანად.\nგამოცდილება, რომელიც გაწონასწორებს.',
+      'why.point6.title':'დამშვიდების პატარა რიტუალი',
+      'why.point6.text':'ყოველი სეანსი პატარა შიდა ბალანსის რიტუალს ჰგავს.\nხარისხიანი ზეთები და თბილი ტაილანდური კომპრესები.\nსუნი, შეხება და სუნთქვა ერთიანად.\nგამოცდილება, რომელიც გაწონასწორებს.',
 
-'why.point7.title':'ჩვენ ნამდვილად გისმენთ',
-'why.point7.text':'თქვენ არ ხართ „უბრალოდ კიდევ ერთი კლიენტი“.\nჭეშმარიტი ყურადღება და ინდივიდუალური მიდგომა.\nნაზი, პროფესიონალური და მზრუნველი პროცედურა.\nსერვისი, რომელიც გულიდან მოდის.',
+      'why.point7.title':'ჩვენ ნამდვილად გისმენთ',
+      'why.point7.text':'თქვენ არ ხართ „უბრალოდ კიდევ ერთი კლიენტი“.\nჭეშმარიტი ყურადღება და ინდივიდუალური მიდგომა.\nნაზი, პროფესიონალური და მზრუნველი პროცედურა.\nსერვისი, რომელიც გულიდან მოდის.',
 
-'why.point8.title':'პატარა პაუზა დღის შუაგულში',
-'why.point8.text':'მოკლე, მაგრამ ენერგიის მაბრუნებელი სეანსი.\nმშვიდი გარემო, რომელიც სტრესისგან აშორებს.\nსწრაფი აღდგენა სხეულისთვის და გონებისთვის.\nპატარა მომენტი, რომელიც დიდ დასვენებად იგრძნობა.',
+      'why.point8.title':'პატარა პაუზა დღის შუაგულში',
+      'why.point8.text':'მოკლე, მაგრამ ენერგიის მაბრუნებელი სეანსი.\nმშვიდი გარემო, რომელიც სტრესისგან აშორებს.\nსწრაფი აღდგენა სხეულისთვის და გონებისთვის.\nპატარა მომენტი, რომელიც დიდ დასვენებად იგრძნობა.',
 
-'why.point9.title':'მოსახერხებელი მდებარეობა ბათუმში',
-'why.point9.text':'ადვილად მისადგომი — ადვილად დასაბრუნებელი.\nგარეშე საცობები და პარკინგის პრობლემა.\nმოდიხართ, ისვენებთ და ახალდგები გადიხართ.\nმარტივი და სასიამოვნო ყველასთვის.',
+      'why.point9.title':'მოსახერხებელი მდებარეობა ბათუმში',
+      'why.point9.text':'ადვილად მისადგომი — ადვილად დასაბრუნებელი.\nგარეშე საცობები და პარკინგის პრობლემა.\nმოდიხართ, ისვენებთ და ახალდგები გადიხართ.\nმარტივი და სასიამოვნო ყველასთვის.',
 
-'why.point10.title':'სპა სტანდარტი საერთაშორისო დონეზე',
-'why.point10.text':'პროცედურების ხარისხი და მომსახურება მსოფლიო დონის სპას ადარებს.\nყურადღება დეტალებზე.\nგამოცდილება, რომელიც პრემიუმად იგრძნობა.\nდა ყველაფერი — აქვე, ბათუმში.',
+      'why.point10.title':'სპა სტანდარტი საერთაშორისო დონეზე',
+      'why.point10.text':'პროცედურების ხარისხი და მომსახურება მსოფლიო დონის სპას ადარებს.\nყურადღება დეტალებზე.\nგამოცდილება, რომელიც პრემიუმად იგრძნობა.\nდა ყველაფერი — აქვე, ბათუმში.',
 
-'why.point11.title':'სხვა კულტურების შეხება',
-'why.point11.text':'ტაილანდური და იაპონური ტექნიკები.\nთბილი და მეგობრული მომსახურება.\nუნიკალური კომბინაცია, რომელიც სხვაგან ვერ ნახავთ.\nგამოცდილება, რომელიც დასამახსოვრებელია.',
+      'why.point11.title':'სხვა კულტურების შეხება',
+      'why.point11.text':'ტაილანდური და იაპონური ტექნიკები.\nთბილი და მეგობრული მომსახურება.\nუნიკალური კომბინაცია, რომელიც სხვაგან ვერ ნახავთ.\nგამოცდილება, რომელიც დასამახსოვრებელია.',
 
-'why.point12.title':'მხარდაჭერა სეანსამდე და შემდეგ',
-'why.point12.text':'გასაგები ახსნა პროცედურამდე.\nრჩევები შედეგის შესანარჩუნებლად.\nმხარდაჭერა ვიზიტის შემდეგაც.\nფასიანი ეფექტი უფრო დიდხანს დაგრჩეთ.',
+      'why.point12.title':'მხარდაჭერა სეანსამდე და შემდეგ',
+      'why.point12.text':'გასაგები ახსნა პროცედურამდე.\nრჩევები შედეგის შესანარჩუნებლად.\nმხარდაჭერა ვიზიტის შემდეგაც.\nფასიანი ეფექტი უფრო დიდხანს დაგრჩეთ.',
 
-'why.more':'დამატებითი ინფორმაცია',
-'why.cta':'ჩაწერა'
+      'why.more':'დამატებითი ინფორმაცია',
+      'why.cta':'ჩაწერა'
 
     }
   };
@@ -579,7 +579,11 @@
           alert(t('contact.sent')); form.reset(); return;
         }catch(err){ console.warn('EmailJS error:', err); }
       }
-      const mailto=`mailto:info@bergamot.com?subject=${encodeURIComponent(t('contact.mail_subject'))}&body=${encodeURIComponent(`שם: ${data.name}\nדוא״ל: ${data.email}\נטלפון: ${data.phone||''}\n\nהודעה:\n${data.message||''}`)}`;
+
+      // ✅ שורות טלפון ומייל + שליחה לכתובת info@bereshitspa.com
+      const mailto = `mailto:info@bereshitspa.com?subject=${encodeURIComponent(t('contact.mail_subject'))}&body=${encodeURIComponent(
+        `שם: ${data.name}\nטלפון: ${data.phone || ''}\nמייל: ${data.email}\n\nהודעה:\n${data.message || ''}`
+      )}`;
       window.location.href=mailto;
     });
   }
@@ -720,7 +724,7 @@
     },
     'PROD-3': {
       name:{ he:'שמן ורדים 15ml', en:'Rose Oil 15ml', ru:'Масло розы 15 мл', ka:'ვარდის ზეთი 15 მლ' },
-      tag :{ he:'ארומה', en:'Aroma', ru:'Аромა', ka:'არომა' },
+      tag :{ he:'ארומה', en:'Aroma', ru:'Арома', ka:'არომა' },
       desc:{ he:'ניחוח עדין ותמיכה בהרגעת העור.', en:'Delicate aroma; calms the skin.', ru:'Нежный аромат; успокаивает кожу.', ka:'დელიკატური სურნელი, ამშვიდებს კანს.' }
     },
     'PROD-4': {
@@ -739,7 +743,7 @@
       desc:{ he:'תמיכה באחידות גוון ובהירות.', en:'Supports even tone and brightness.', ru:'Выравнивает тон и придаёт сияние.', ka:'ტონის ერთგვაროვნებას და ნათებას უწყობს ხელს.' }
     },
     'PROD-7': {
-      name:{ he:'קרם לחות היאלורוני 50ml', en:'Hyaluronic Moisturizing Cream 50ml', ru:'Увлажняющий крем с гиалурონовой кислотой 50 мл', ka:'ჰიალურონის დატენიანებელი კრემი 50 მლ' },
+      name:{ he:'קרם לחות היאלורוני 50ml', en:'Hyaluronic Moisturizing Cream 50ml', ru:'Увлажняющий крем с гиалуроновой кислотой 50 мл', ka:'ჰიალურონის დატენიანებელი კრემი 50 მლ' },
       tag :{ he:'לחות', en:'Hydration', ru:'Увлажнение', ka:'დატენიანება' },
       desc:{ he:'קרם קליל לעור צמא – מעניק לחות ורכות לאורך היום.', en:'Lightweight cream for thirsty skin; lasting hydration.', ru:'Лёгкий крем для жаждущей кожи; длительное увлажнение.', ka:'თხელი კრემი მშრალი კანისთვის – ხანგრძლივი დატენიანება.' }
     },
@@ -765,8 +769,8 @@
     },
     'PROD-12': {
       name:{ he:'פילינג עדין אנזימטי 75ml', en:'Gentle Enzyme Peel 75ml', ru:'Деликатный энзимный пилинг 75 мл', ka:'რბილი ფერმენტული პილინგი 75 მლ' },
-      tag :{ he:'ניקוי', en:'Exfoliation', ru:'Экфოლიация', ka:'ექსფოლიაცია' },
-      desc:{ he:'מסיר תאים מתים בעדינות לקבלת מראה חלק וזוהר.', en:'Gently lifts dead cells for smooth, glowing skin.', ru:'Деликატно удаляет ороговевшие клетки для гладкости და сияния.', ka:'რბილად აშორებს მკვდარ უჯრედებს – გლუვი, ნათელი კანი.' }
+      tag :{ he:'ניקוי', en:'Exfoliation', ru:'Экფოლიация', ka:'ექსფოლიაცია' },
+      desc:{ he:'מסיר תאים מתים בעדינות לקבלת מראה חלק וזוהר.', en:'Gently lifts dead cells for smooth, glowing skin.', ru:'Деликатно удаляет ороговевшие клетки для гладкости და сияния.', ka:'რბილად აშორებს მკვდარ უჯრედებს – გლუვი, ნათელი კანი.' }
     },
     'PROD-13': {
       name:{ he:'קיט טיפוח בסיסי (3 פריטים)', en:'Basic Skincare Kit (3 items)', ru:'Базовый набор ухода (3 предмета)', ka:'საბაზისო სკინკერის კიტი (3 ერთეული)' },
@@ -910,11 +914,10 @@
     setupNavHover();
 
     // סליידרים
-   makeSlider($('#heroSlider'));
-   makeSlider($('#gallery1'));
-   makeSlider($('#testiSlider'));
-   makeSlider($('#whySlider'), { autoPlayMs: 4000, pauseOnHover: true });
-
+    makeSlider($('#heroSlider'));
+    makeSlider($('#gallery1'));
+    makeSlider($('#testiSlider'));
+    makeSlider($('#whySlider'), { autoPlayMs: 4000, pauseOnHover: true });
 
     // הוספה לעגלה מכל כרטיס מוצר
     $$('.add-to-cart').forEach(btn=>{
@@ -940,29 +943,28 @@
     // תשלום בכרטיס עבור מוצרים (החנות)
     $('#payCardBtn')?.addEventListener('click', payWithCard);
 
-// ✅ כפתורי "הזמנת עיסוי ותשלום" – מעבר לעמוד checkout.html
-$$('.book-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
+    // ✅ כפתורי "הזמנת עיסוי ותשלום" – מעבר לעמוד checkout.html
+    $$('.book-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
 
-    const treatment = btn.dataset.treatment || 'עיסוי בספא';
-    const base  = Number(btn.dataset.base  || 0);
-    const addon = Number(btn.dataset.addon || 0);
+        const treatment = btn.dataset.treatment || 'עיסוי בספא';
+        const base  = Number(btn.dataset.base  || 0);
+        const addon = Number(btn.dataset.addon || 0);
 
-    // שומרים גם finalPrice ו-duration ברירת מחדל = בסיסי
-    const bookingMeta = {
-      treatment,
-      base,
-      addon,
-      finalPrice: base,   // מחיר ברירת מחדל לתשלום
-      duration: 'base'    // "בסיסי" כברירת מחדל
-    };
+        // שומרים גם finalPrice ו-duration ברירת מחדל = בסיסי
+        const bookingMeta = {
+          treatment,
+          base,
+          addon,
+          finalPrice: base,   // מחיר ברירת מחדל לתשלום
+          duration: 'base'    // "בסיסי" כברירת מחדל
+        };
 
-    localStorage.setItem('bereshit_booking', JSON.stringify(bookingMeta));
-    window.location.href = 'checkout.html';
-  });
-});
-
+        localStorage.setItem('bereshit_booking', JSON.stringify(bookingMeta));
+        window.location.href = 'checkout.html';
+      });
+    });
 
     // i18n ללשוניות ולמוצרים
     const langNow = getLang();
@@ -1007,100 +1009,98 @@ $$('.book-btn').forEach(btn => {
         selectorModal.style.display = "none";
       });
 
-// ✅ כפתור "המשך" – מושך מחירים ישירות מהסקשן המתאים (מהכפתור .book-btn)
-confirmTreatment.addEventListener("click", () => {
-  const option = selectField.options[selectField.selectedIndex];
-  const label  = option ? option.textContent.trim() : '';
+      // ✅ כפתור "המשך" – מושך מחירים ישירות מהסקשן המתאים (מהכפתור .book-btn)
+      confirmTreatment.addEventListener("click", () => {
+        const option = selectField.options[selectField.selectedIndex];
+        const label  = option ? option.textContent.trim() : '';
 
-  if (!label) {
-    alert("נא לבחור טיפול מהרשימה.");
-    return;
-  }
+        if (!label) {
+          alert("נא לבחור טיפול מהרשימה.");
+          return;
+        }
 
-  // 1. מיפוי טקסט בסיסי של הטיפול → ה-id של הסקשן
-  const LABEL_TO_SECTION = {
-    // ספא ראש
-    'ספא ראש יפני': 'services-head-spa',
+        // 1. מיפוי טקסט בסיסי של הטיפול → ה-id של הסקשן
+        const LABEL_TO_SECTION = {
+          // ספא ראש
+          'ספא ראש יפני': 'services-head-spa',
 
-    // 🌸 עיסויי פנים
-    'עיסוי פנים בקומפרסים תאילנדיים': 'services-thai-compress',
-    'עיסוי פנים באבנים חמות':         'services-hot-stones',
-    'עיסוי פנים תאילנדי מסורתי':      'services-thai-facial',
-    'עיסוי פנים ארומתרפי':            'services-aroma-facial',
+          // 🌸 עיסויי פנים
+          'עיסוי פנים בקומפרסים תאילנדיים': 'services-thai-compress',
+          'עיסוי פנים באבנים חמות':         'services-hot-stones',
+          'עיסוי פנים תאילנדי מסורתי':      'services-thai-facial',
+          'עיסוי פנים ארומתרפי':            'services-aroma-facial',
 
-    // 💆‍♂️ גב–כתפיים–צוואר
-    'עיסוי גב–כתפיים–צוואר':               'services-back-massage',
-    'עיסוי גב–כתפיים–צוואר עם אבנים חמות': 'services-back-hotstones',
+          // 💆‍♂️ גב–כתפיים–צוואר
+          'עיסוי גב–כתפיים–צוואר':               'services-back-massage',
+          'עיסוי גב–כתפיים–צוואר עם אבנים חמות': 'services-back-hotstones',
 
-    // 🧘‍♀️ גוף מלא
-    'עיסוי גוף מלא':                       'services-full-body', // אם תרצה – קטגוריה
-    'עיסוי תאילנדי מסורתי':                'thai-traditional',
-    'עיסוי שמן תאילנדי':                   'thai-oil',
-    'עיסוי ארומתרפי':                      'thai-aroma',
-    'עיסוי תאילנדי רפואי':                 'thai-therapeutic',
-    'עיסוי באבנים חמות':                   'hot-stone-body',
-    'עיסוי קומפרסים תאילנדי חמים בצמחי מרפא': 'thai-compress',
-    'עיסוי שיאצו':                         'shiatsu',
+          // 🧘‍♀️ גוף מלא
+          'עיסוי גוף מלא':                       'services-full-body', // אם תרצה – קטגוריה
+          'עיסוי תאילנדי מסורתי':                'thai-traditional',
+          'עיסוי שמן תאילנדי':                   'thai-oil',
+          'עיסוי ארומתרפי':                      'thai-aroma',
+          'עיסוי תאילנדי רפואי':                 'thai-therapeutic',
+          'עיסוי באבנים חמות':                   'hot-stone-body',
+          'עיסוי קומפרסים תאילנדי חמים בצמחי מרפא': 'thai-compress',
+          'עיסוי שיאצו':                         'shiatsu',
 
-    // 🦶 כפות רגליים
-    "פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי": 'foot-massage'
-  };
+          // 🦶 כפות רגליים
+          "פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי": 'foot-massage'
+        };
 
-  // קודם ננסה התאמה ישירה
-  let sectionId = LABEL_TO_SECTION[label];
+        // קודם ננסה התאמה ישירה
+        let sectionId = LABEL_TO_SECTION[label];
 
-  // אם לא נמצא – ננסה התאמה לפי "הטקסט מתחיל ב..."
-  if (!sectionId) {
-    const normalized = label.replace(/\s+/g, ' ').trim();
-    for (const [key, id] of Object.entries(LABEL_TO_SECTION)) {
-      if (normalized.startsWith(key)) {
-        sectionId = id;
-        break;
-      }
-    }
-  }
+        // אם לא נמצא – ננסה התאמה לפי "הטקסט מתחיל ב..."
+        if (!sectionId) {
+          const normalized = label.replace(/\s+/g, ' ').trim();
+          for (const [key, id] of Object.entries(LABEL_TO_SECTION)) {
+            if (normalized.startsWith(key)) {
+              sectionId = id;
+              break;
+            }
+          }
+        }
 
-  if (!sectionId) {
-    alert(
-      'לא נמצא טיפול תואם לטקסט: ' + label +
-      '\nבדוק שהטקסט ב<select> מתחיל כמו המפתח במפה LABEL_TO_SECTION.'
-    );
-    return;
-  }
+        if (!sectionId) {
+          alert(
+            'לא נמצא טיפול תואם לטקסט: ' + label +
+            '\nבדוק שהטקסט ב<select> מתחיל כמו המפתח במפה LABEL_TO_SECTION.'
+          );
+          return;
+        }
 
-  // 2. מוצאים את כפתור .book-btn בסקשן המתאים ולוקחים ממנו את המחירים
-  const btn = document.querySelector(`#${sectionId} .book-btn`);
-  if (!btn) {
-    alert('לא נמצא כפתור הזמנת טיפול בסקשן #' + sectionId);
-    return;
-  }
+        // 2. מוצאים את כפתור .book-btn בסקשן המתאים ולוקחים ממנו את המחירים
+        const btn = document.querySelector(`#${sectionId} .book-btn`);
+        if (!btn) {
+          alert('לא נמצא כפתור הזמנת טיפול בסקשן #' + sectionId);
+          return;
+        }
 
-  const treatmentName = btn.dataset.treatment || label;
-  const base  = Number(btn.dataset.base  || 0);
-  const addon = Number(btn.dataset.addon || 0);
+        const treatmentName = btn.dataset.treatment || label;
+        const base  = Number(btn.dataset.base  || 0);
+        const addon = Number(btn.dataset.addon || 0);
 
-  if (!base) {
-    alert('לא נמצא מחיר בסיס לטיפול הזה (data-base בכפתור .book-btn הוא 0 או חסר).');
-    return;
-  }
+        if (!base) {
+          alert('לא נמצא מחיר בסיס לטיפול הזה (data-base בכפתור .book-btn הוא 0 או חסר).');
+          return;
+        }
 
-  // 3. שמירה ב-localStorage – כמו בכפתורי .book-btn
-  const bookingMeta = {
-    treatment:  treatmentName,
-    base,
-    addon,
-    finalPrice: base,   // ברירת מחדל: בסיסי
-    duration:   'base'
-  };
+        // 3. שמירה ב-localStorage – כמו בכפתורי .book-btn
+        const bookingMeta = {
+          treatment:  treatmentName,
+          base,
+          addon,
+          finalPrice: base,   // ברירת מחדל: בסיסי
+          duration:   'base'
+        };
 
-  localStorage.setItem('bereshit_booking', JSON.stringify(bookingMeta));
+        localStorage.setItem('bereshit_booking', JSON.stringify(bookingMeta));
 
-  // 4. מעבר ל-checkout
-  selectorModal.style.display = "none";
-  window.location.href = 'checkout.html';
-});
-
-
+        // 4. מעבר ל-checkout
+        selectorModal.style.display = "none";
+        window.location.href = 'checkout.html';
+      });
     }
 
     openFromHash();
