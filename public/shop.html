@@ -237,7 +237,7 @@
       opacity:0;
       pointer-events:none;
       transform:translateY(10px);
-      transition:opacity .2s ease, transform .2s ease;
+      transition:opacity .2s ease, transform .2s.ease;
       z-index:9999;
     }
     .cart-notice.visible{
@@ -444,35 +444,45 @@
           </article>
 
           <!-- ===== תשתית למוצרים 7–50 (שמות קבצים 7.jpg עד 50.jpg) ===== -->
-          <!-- אפשר לערוך שם, מחיר ותיאור לכל מוצר לפי הצורך -->
+          <!-- כאן בניתי תשתית i18n מלאה למוצר 7:
+               name  -> data-i18n="p7.name"
+               tag   -> data-i18n="p7.tag"
+               desc  -> data-i18n="p7.desc"
+               כפתורים -> ui.add_to_cart / ui.view_cart / ui.buy_now (קיים כבר במילון) -->
 
-          <!-- מוצר 7–50 – תבנית דומה; כרגע עם טקסט כללי -->
-          <!-- כדי לחסוך מקום הדוגמה הבאה חוזרת, רק עם מספר שונה -->
-          <!-- אתה יכול לשנות שם/תיאור/מחיר חופשי -->
-
-          <!-- להלן כמה דוגמאות; אפשר להעתיק/לערוך לפי הצורך עד PROD-50 -->
-
+          <!-- מוצר 7 – תשתית מלאה לתרגום ל-4 שפות -->
           <article class="product-card" data-sku="PROD-7" data-title="מוצר 7" data-price="99">
             <img src="images/products/7.jpg" alt="מוצר 7" onerror="this.src='https://picsum.photos/seed/7/600/400'"/>
             <div class="product-title">
-              מוצר 7
-              <span class="tag">תיאור קצר</span>
+              <span data-i18n="p7.name">מוצר 7</span>
+              <span class="tag" data-i18n="p7.tag">תיאור קצר</span>
             </div>
-            <div class="muted">תיאור מוצר 7 – ערוך לפי הצורך.</div>
+            <div class="muted" data-i18n="p7.desc">תיאור מוצר 7 – ערוך לפי הצורך.</div>
             <div><span class="price">₾99</span></div>
             <div class="qty-group">
               כמות:
               <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
             </div>
             <div class="btn-row">
-              <button class="button add-to-cart">הוסף לעגלה</button>
-              <button class="btn-outline view-cart" onclick="window.location.href='index.html#cart'">צפה בעגלה</button>
-              <button class="button small buy-now">קנה עכשיו</button>
+              <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+              <button class="btn-outline view-cart" onclick="window.location.href='index.html#cart'" data-i18n="ui.view_cart">צפה בעגלה</button>
+              <button class="button small buy-now" data-i18n="ui.buy_now">קנה עכשיו</button>
             </div>
           </article>
 
-          <!-- כאן תוכל להעתיק את הבלוק של מוצר 7 ולהחליף רק את המספרים:
-               PROD-8, 8.jpg, "מוצר 8" ... עד PROD-50 / 50.jpg -->
+          <!--
+            מכאן והלאה עבור PROD-8 עד PROD-50:
+            1. העתק את הבלוק של מוצר 7.
+            2. החלף:
+               - data-sku="PROD-8"
+               - src="images/products/8.jpg"
+               - alt="מוצר 8"
+               - data-title="מוצר 8"
+               - data-i18n="p8.name" / "p8.tag" / "p8.desc"
+               - הטקסטים בתוך הספנים, למשל "מוצר 8", "תיאור קצר", "תיאור מוצר 8..."
+            3. אל תשכח להוסיף במילון ה-JS שלך (script.js / מילון i18n) את המפתחות:
+               p8.name, p8.tag, p8.desc, p9.name... עד p50.desc לכל שפה.
+          -->
 
         </div>
       </section>
@@ -543,15 +553,30 @@
         }
       });
 
+      // ✅ סנכרון lang + dir + דגל פעיל עבור הדף הזה
+      const currentLang = (localStorage.getItem('site_lang') || (navigator.language || 'he').slice(0,2)).replace(/[^a-z]/gi,'');
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir  = (currentLang === 'he' || currentLang === 'ar') ? 'rtl' : 'ltr';
+
       // מתגי שפה – שימוש באותה לוגיקה של script.js אם קיימת
       document.querySelectorAll('.lang-switch [data-lang]').forEach(function (btn) {
+        const lang = btn.getAttribute('data-lang');
+        if (lang === currentLang) {
+          btn.classList.add('active');
+        }
+
         btn.addEventListener('click', function () {
-          const lang = btn.getAttribute('data-lang');
+          const chosen = btn.getAttribute('data-lang');
+          // עדכון דגל פעיל
+          document.querySelectorAll('.lang-switch [data-lang]').forEach(function (b){
+            b.classList.toggle('active', b.getAttribute('data-lang') === chosen);
+          });
+
           if (window.setLang && typeof window.setLang === 'function') {
-            window.setLang(lang);
+            window.setLang(chosen);
           } else {
             // fallback פשוט – שמירת שפה ב-localStorage וריענון
-            localStorage.setItem('site_lang', lang);
+            localStorage.setItem('site_lang', chosen);
             location.reload();
           }
         });
