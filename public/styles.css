@@ -132,15 +132,6 @@ p{ color:var(--text) }
 .btn-outline:hover{ background:rgba(140,106,60,.06) }
 .btn-outline:active{ transform:translateY(1px) }
 
-/* ✅ שורת כפתורי פעולה (למשל כפתור חנות) – ממורכזת בכל הרזולוציות */
-.cta-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  justify-content:center;
-  align-items:center;
-}
-
 /* ============================
    Hero
    ============================ */
@@ -406,7 +397,7 @@ footer a:hover{ text-decoration:underline }
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 
-qbtn:hover {
+.qbtn:hover {
   transform: translateY(-1px);
   background: var(--brand-2, #a5753a);
   box-shadow: 0 6px 16px rgba(0,0,0,.10);
@@ -854,14 +845,10 @@ qbtn:hover {
   }
 }
 
-/* מובייל קטן – תפריט בעמודה אחת, כרטיס אחד בשורה, טקסטים יותר קומפקטיים
-   ✅ כאן דואגים גם לכך שהדגלים וכפתור החנות/CTA יהיו ממורכזים בגלאקסי */
+/* מובייל קטן – כפתורי ניווט ממורכזים (כולל חנות), כרטיס אחד בשורה, טקסטים קומפקטיים */
 @media (max-width: 540px) {
   .header-inner {
     padding-inline: 10px;
-    flex-direction: column;   /* לוגו למעלה, מתחתיו תפריט ואז דגלים */
-    align-items: center;
-    gap: 6px;
   }
 
   .logo {
@@ -870,22 +857,18 @@ qbtn:hover {
 
   .main-nav {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;          /* מרכז את כל הכפתורים, כולל "חנות" */
   }
 
   .main-nav > .nav-item {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
   }
 
   .navlink {
     font-size: 14px;
-    padding: 8px 10px;
-  }
-
-  /* דגלים – מתחת לניווט ובמרכז, מתאים למסכים צרים (גלאקסי וכו') */
-  .lang-switch {
-    margin-top: 4px;
-    justify-content: center;
+    padding: 8px 16px;
+    width: auto;                  /* לא תופס 100% רוחב */
+    min-width: min(240px, 100%);  /* כפתור נוח במרכז גם בגלאקסי */
   }
 
   .container {
@@ -914,11 +897,6 @@ qbtn:hover {
 
   .why-us-section {
     padding: 32px 12px;
-  }
-
-  /* כפתורי CTA (כולל כפתור חנות) תמיד ממורכזים במסך צר */
-  .cta-row{
-    justify-content:center;
   }
 }
 
@@ -1132,9 +1110,9 @@ qbtn:hover {
   }
 }
 
-/* ============================
-   Booking Modal – הזמנת טיפול (Luxury)
-   ============================ */
+/* =========================
+   Booking Modal – עיצוב חלון ההזמנה (Luxury)
+   ========================= */
 
 .booking-modal{
   position:fixed;
@@ -1499,7 +1477,7 @@ body.cancel-page{
   }
 }
 
-/* מתג שפה כללי (דגלים בראש האתר) */
+/* ===== מתגי שפה (דגלים) ===== */
 .lang-switch {
   display: flex;
   gap: 8px;
@@ -1537,6 +1515,20 @@ body.cancel-page{
   opacity: 1;
   border: 2px solid var(--brand);
   border-radius: 6px;
+}
+
+/* התאמה לגלאקסי / מובייל קטן – דגלים במרכז ושבירת שורה נעימה */
+@media (max-width: 540px) {
+  .lang-switch {
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  .lang-btn {
+    width: 28px;
+    height: 20px;
+  }
 }
 
 .why-slider {
