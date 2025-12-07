@@ -132,6 +132,15 @@ p{ color:var(--text) }
 .btn-outline:hover{ background:rgba(140,106,60,.06) }
 .btn-outline:active{ transform:translateY(1px) }
 
+/* ✅ שורת כפתורי פעולה (למשל כפתור חנות) – ממורכזת בכל הרזולוציות */
+.cta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+}
+
 /* ============================
    Hero
    ============================ */
@@ -394,7 +403,7 @@ footer a:hover{ text-decoration:underline }
   background: var(--brand, #c39b64);
   color: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,.06);
-  transition: transform .15s ease, box-shadow .15s.ease, background .15s ease;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 
 qbtn:hover {
@@ -530,7 +539,7 @@ qbtn:hover {
   width: auto;               /* רוחב דינמי */
   min-width: 140px;          /* מינימום אסתטי */
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s.ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .qbtn:hover {
@@ -637,7 +646,7 @@ qbtn:hover {
   cursor:pointer;
   font-size:28px; line-height:1; color:#333;
   display:flex; align-items:center; justify-content:center;
-  transition: transform .12s ease, box-shadow .12s.ease, background .12s.ease, opacity .2s;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease, opacity .2s;
   opacity: .95;
 }
 #testi .testi-btn:hover{ transform:translateY(-50%) scale(1.06); box-shadow:0 8px 18px rgba(0,0,0,.18); background:#fafafa; }
@@ -828,13 +837,6 @@ qbtn:hover {
     padding: 20px 14px;
   }
 
-  .hero .button {
-    width: 100%;
-    max-width: 260px;      /* כפתור "חנות" נוח במובייל רחב */
-    margin-inline: auto;
-    display: inline-block;
-  }
-
   .home-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -852,10 +854,14 @@ qbtn:hover {
   }
 }
 
-/* מובייל קטן – תפריט בעמודה אחת, כרטיס אחד בשורה, טקסטים יותר קומפקטיים */
+/* מובייל קטן – תפריט בעמודה אחת, כרטיס אחד בשורה, טקסטים יותר קומפקטיים
+   ✅ כאן דואגים גם לכך שהדגלים וכפתור החנות/CTA יהיו ממורכזים בגלאקסי */
 @media (max-width: 540px) {
   .header-inner {
     padding-inline: 10px;
+    flex-direction: column;   /* לוגו למעלה, מתחתיו תפריט ואז דגלים */
+    align-items: center;
+    gap: 6px;
   }
 
   .logo {
@@ -876,6 +882,12 @@ qbtn:hover {
     padding: 8px 10px;
   }
 
+  /* דגלים – מתחת לניווט ובמרכז, מתאים למסכים צרים (גלאקסי וכו') */
+  .lang-switch {
+    margin-top: 4px;
+    justify-content: center;
+  }
+
   .container {
     padding-inline: 10px;
   }
@@ -892,12 +904,6 @@ qbtn:hover {
     padding: 18px 12px;
   }
 
-  .hero .button {
-    width: 100%;
-    max-width: 280px;      /* מותאם לגלקסי – כפתור חנות מלא ונקי */
-    margin-inline: auto;
-  }
-
   .product-card {
     padding: 10px;
   }
@@ -910,46 +916,9 @@ qbtn:hover {
     padding: 32px 12px;
   }
 
-  /* דגלים – כיווץ והתאמה לגלקסי */
-  .lang-switch {
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 4px;
-  }
-
-  .lang-btn,
-  .lang-switch button {
-    width: 26px;
-    height: 18px;
-  }
-
-  .lang-btn img,
-  .lang-switch button img {
-    width: 26px;
-    height: 18px;
-  }
-}
-
-/* מסכים ממש צרים (320–380px, חלק מדגמי גלקסי ישנים) */
-@media (max-width: 400px) {
-  .header-inner {
-    gap: 6px;
-  }
-
-  .lang-switch {
-    gap: 4px;
-  }
-
-  .lang-btn,
-  .lang-switch button {
-    width: 24px;
-    height: 16px;
-  }
-
-  .lang-btn img,
-  .lang-switch button img {
-    width: 24px;
-    height: 16px;
+  /* כפתורי CTA (כולל כפתור חנות) תמיד ממורכזים במסך צר */
+  .cta-row{
+    justify-content:center;
   }
 }
 
@@ -1126,7 +1095,7 @@ qbtn:hover {
   font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 6px 14px var(--ring);
-  transition: transform .12s.ease, box-shadow .12s.ease, background .15s.ease;
+  transition: transform .12s ease, box-shadow .12s ease, background .15s ease;
 }
 
 .booking-panel button:hover,
@@ -1163,9 +1132,9 @@ qbtn:hover {
   }
 }
 
-/* =========================
+/* ============================
    Booking Modal – הזמנת טיפול (Luxury)
-   ========================= */
+   ============================ */
 
 .booking-modal{
   position:fixed;
@@ -1238,7 +1207,7 @@ qbtn:hover {
   display:flex;
   align-items:center;
   justify-content:center;
-  transition:background .15s.ease, transform .12s.ease, box-shadow .12s.ease;
+  transition:background .15s ease, transform .12s ease, box-shadow .12s ease;
 }
 
 .booking-close:hover{
@@ -1330,10 +1299,10 @@ qbtn:hover {
   outline:none;
   background:rgba(255,255,255,.96);
   transition:
-    border-color .15s.ease,
-    box-shadow .15s.ease,
-    background-color .15s.ease,
-    transform .08s.ease;
+    border-color .15s ease,
+    box-shadow .15s ease,
+    background-color .15s ease,
+    transform .08s ease;
 }
 
 .booking-row textarea{
@@ -1365,7 +1334,7 @@ qbtn:hover {
   background:linear-gradient(135deg,#f9fafb,#f3f4f6);
   cursor:pointer;
   font-size:.9rem;
-  transition:background .15s.ease, border-color .15s.ease, transform .08s.ease;
+  transition:background .15s ease, border-color .15s ease, transform .08s ease;
 }
 
 .duration-options input[type="radio"]{
@@ -1389,7 +1358,7 @@ qbtn:hover {
   font-weight:600;
   cursor:pointer;
   box-shadow:0 18px 35px rgba(165,117,58,.55);
-  transition:transform .12s.ease, box-shadow .12s.ease, filter .12s.ease;
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
 
 .booking-submit:hover{
@@ -1530,12 +1499,11 @@ body.cancel-page{
   }
 }
 
-/* ===== דגלי שפה (Header וכו') ===== */
+/* מתג שפה כללי (דגלים בראש האתר) */
 .lang-switch {
   display: flex;
   gap: 8px;
   align-items: center;
-  flex-wrap: wrap;            /* כדי שלא יישברו בגלקסי */
 }
 
 .lang-btn {
@@ -1549,12 +1517,11 @@ body.cancel-page{
   align-items: center;
   justify-content: center;
   opacity: 0.7;
-  transition: opacity .2s ease, transform .15s ease;
+  transition: opacity .2s ease;
 }
 
 .lang-btn:hover {
   opacity: 1;
-  transform: translateY(-1px);
 }
 
 .lang-btn img {
@@ -1572,12 +1539,12 @@ body.cancel-page{
   border-radius: 6px;
 }
 
-/* ===== WHY-US SLIDER (מבוסס makeSlider) ===== */
 .why-slider {
   width: 100%;
   overflow: hidden;
   position: relative;
 }
+/* ===== WHY-US SLIDER (מבוסס makeSlider) ===== */
 .why-us h2{
   text-align:center;
   margin-bottom:12px;
@@ -1633,7 +1600,7 @@ body.cancel-page{
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background .2s.ease, transform .2s.ease;
+  transition: background .2s ease, transform .2s ease;
   z-index: 5;
 }
 
@@ -1686,7 +1653,6 @@ body.cancel-page{
     font-size: 16px;
   }
 }
-
 /* ===== Why-Us – Center CTA Button + Animation ===== */
 #why-us .treatment.cta-row {
   justify-content: center !important;
@@ -1706,9 +1672,9 @@ body.cancel-page{
   border: none;
   cursor: pointer;
   transition: 
-      transform 0.25s.ease,
-      box-shadow 0.25s.ease,
-      background 0.25s.ease;
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
   box-shadow: 0 6px 18px rgba(0,0,0,.12);
 }
 
