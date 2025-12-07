@@ -270,8 +270,7 @@
         <img id="siteLogo" src="images/logo.png" alt="bereshit logo" class="logo" />
         <nav class="shop-nav">
           <a href="index.html" data-i18n="nav.home">דף הבית</a>
-          <!-- הסרתי class="active" כדי שלא יהיה רקע אוטומטי -->
-          <a href="shop.html" data-i18n="nav.shop">חנות</a>
+          <a href="shop.html" class="active" data-i18n="nav.shop">חנות</a>
           <!-- עגלה מפנה לעגלה הקיימת בעמוד הראשי -->
           <a href="index.html#cart" data-i18n="nav.cart">עגלה</a>
 
@@ -314,8 +313,8 @@
           <!-- מוצר 1 -->
           <article class="product-card" data-sku="PROD-1" data-title="סרום חומצה היאלורונית 30ml" data-price="119">
             <img src="images/products/1.jpg" alt="סרום חומצה היאלורונית 30ml" onerror="this.src='https://picsum.photos/seed/1/600/400'"/>
-            <div class="product-title" data-i18n="p1.title">
-              סרום חומצה היאלורונית 30ml
+            <div class="product-title">
+              <span data-i18n="p1.title">סרום חומצה היאלורונית 30ml</span>
               <span class="tag" data-i18n="tags.deep_moist">לחות עמוקה</span>
             </div>
             <div class="muted" data-i18n="p1.desc">לחות אינטנסיבית למראה עור רענן.</div>
@@ -324,7 +323,7 @@
               <span class="old-price">₾149</span>
             </div>
             <div class="qty-group" data-i18n-attr="aria-label:ui.qty_label">
-              <span data-i18n="ui.qty_label">כמות:</span>
+              כמות:
               <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
             </div>
             <div class="btn-row">
@@ -337,8 +336,8 @@
           <!-- מוצר 2 -->
           <article class="product-card" data-sku="PROD-2" data-title="קרם לילה רטינול 50ml" data-price="169">
             <img src="images/products/2.jpg" alt="קרם לילה רטינול 50ml" onerror="this.src='https://picsum.photos/seed/2/600/400'"/>
-            <div class="product-title" data-i18n="p2.title">
-              קרם לילה רטינול 50ml
+            <div class="product-title">
+              <span data-i18n="p2.title">קרם לילה רטינול 50ml</span>
               <span class="tag" data-i18n="tags.antiaging">אנטי-אייג׳ינג</span>
             </div>
             <div class="muted" data-i18n="p2.desc">תמיכה בהחלקת מרקם והאצת התחדשות.</div>
@@ -346,7 +345,7 @@
               <span class="price">₾169</span>
             </div>
             <div class="qty-group">
-              <span data-i18n="ui.qty_label">כמות:</span>
+              כמות:
               <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
             </div>
             <div class="btn-row">
@@ -359,8 +358,8 @@
           <!-- מוצר 3 -->
           <article class="product-card" data-sku="PROD-3" data-title="שמן ורדים 15ml" data-price="89">
             <img src="images/products/3.jpg" alt="שמן ורדים 15ml" onerror="this.src='https://picsum.photos/seed/3/600/400'"/>
-            <div class="product-title" data-i18n="p3.title">
-              שמן ורדים 15ml
+            <div class="product-title">
+              <span data-i18n="p3.title">שמן ורדים 15ml</span>
               <span class="tag" data-i18n="tags.aroma">ארומה</span>
             </div>
             <div class="muted" data-i18n="p3.desc">ניחוח עדין ותמיכה בהרגעת העור.</div>
@@ -368,7 +367,7 @@
               <span class="price">₾89</span>
             </div>
             <div class="qty-group">
-              <span data-i18n="ui.qty_label">כמות:</span>
+              כמות:
               <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
             </div>
             <div class="btn-row">
@@ -381,8 +380,8 @@
           <!-- מוצר 4 -->
           <article class="product-card" data-sku="PROD-4" data-title="מסכת חימר ירוק 75ml" data-price="99">
             <img src="images/products/4.jpg" alt="מסכת חימר ירוק 75ml" onerror="this.src='https://picsum.photos/seed/4/600/400'"/>
-            <div class="product-title" data-i18n="p4.title">
-              מסכת חימר ירוק 75ml
+            <div class="product-title">
+              <span data-i18n="p4.title">מסכת חימר ירוק 75ml</span>
               <span class="tag" data-i18n="tags.balance">איזון</span>
             </div>
             <div class="muted" data-i18n="p4.desc">ניקוי עמוק וספיחת שומן עודף.</div>
@@ -390,7 +389,7 @@
               <span class="price">₾99</span>
             </div>
             <div class="qty-group">
-              <span data-i18n="ui.qty_label">כמות:</span>
+              כמות:
               <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
             </div>
             <div class="btn-row">
@@ -403,8 +402,8 @@
           <!-- מוצר 5 -->
           <article class="product-card" data-sku="PROD-5" data-title="קרם עיניים 15ml" data-price="139">
             <img src="images/products/5.jpg" alt="קרם עיניים 15ml" onerror="this.src='https://picsum.photos/seed/5/600/400'"/>
-            <div class="product-title" data-i18n="p5.title">
-              קרם עיניים 15ml
+            <div class="product-title">
+              <span data-i18n="p5.title">קרם עיניים 15ml</span>
               <span class="tag" data-i18n="tags.eye">אזור העיניים</span>
             </div>
             <div class="muted" data-i18n="p5.desc">סיוע למראה רענן באזור עדין.</div>
@@ -412,7 +411,7 @@
               <span class="price">₾139</span>
             </div>
             <div class="qty-group">
-              <span data-i18n="ui.qty_label">כמות:</span>
+              כמות:
               <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
             </div>
             <div class="btn-row">
@@ -425,8 +424,8 @@
           <!-- מוצר 6 -->
           <article class="product-card" data-sku="PROD-6" data-title="סרום ויטמין C 30ml" data-price="159">
             <img src="images/products/6.jpg" alt="סרום ויטמין C 30ml" onerror="this.src='https://picsum.photos/seed/6/600/400'"/>
-            <div class="product-title" data-i18n="p6.title">
-              סרום ויטמין C 30ml
+            <div class="product-title">
+              <span data-i18n="p6.title">סרום ויטמין C 30ml</span>
               <span class="tag" data-i18n="tags.glow">זוהר</span>
             </div>
             <div class="muted" data-i18n="p6.desc">תמיכה באחידות גוון ובהירות.</div>
@@ -434,7 +433,7 @@
               <span class="price">₾159</span>
             </div>
             <div class="qty-group">
-              <span data-i18n="ui.qty_label">כמות:</span>
+              כמות:
               <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
             </div>
             <div class="btn-row">
@@ -444,23 +443,18 @@
             </div>
           </article>
 
-          <!-- ===== תשתית למוצרים 7–50 (שמות קבצים 7.jpg עד 50.jpg) ===== -->
-          <!-- אפשר לערוך שם, מחיר ותיאור לכל מוצר לפי הצורך -->
-
-          <!-- מוצר 7–50 – תבנית דומה; כרגע עם טקסט כללי -->
-          <!-- כדי לחסוך מקום הדוגמה הבאה חוזרת, רק עם מספר שונה -->
-          <!-- אתה יכול לשנות שם/תיאור/מחיר חופשי, וגם לשכפל עד PROD-50 ולשנות את מספר ה־data-i18n (p8.title, p8.desc וכו') -->
-
+          <!-- ===== תשתית למוצרים 7–50 ===== -->
+          <!-- מוצר 7 – אתה יכול לערוך שם/תיאור/מחיר; יש כבר data-i18n ל-4 שפות -->
           <article class="product-card" data-sku="PROD-7" data-title="מוצר 7" data-price="99">
             <img src="images/products/7.jpg" alt="מוצר 7" onerror="this.src='https://picsum.photos/seed/7/600/400'"/>
-            <div class="product-title" data-i18n="p7.title">
-              מוצר 7
+            <div class="product-title">
+              <span data-i18n="p7.title">מוצר 7</span>
               <span class="tag" data-i18n="p7.tag">תיאור קצר</span>
             </div>
             <div class="muted" data-i18n="p7.desc">תיאור מוצר 7 – ערוך לפי הצורך.</div>
             <div><span class="price">₾99</span></div>
             <div class="qty-group">
-              <span data-i18n="ui.qty_label">כמות:</span>
+              כמות:
               <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
             </div>
             <div class="btn-row">
@@ -470,8 +464,11 @@
             </div>
           </article>
 
-          <!-- כאן תוכל להעתיק את הבלוק של מוצר 7 ולהחליף רק את המספרים:
-               PROD-8, 8.jpg, "מוצר 8", data-i18n="p8.title" / "p8.tag" / "p8.desc" ... עד PROD-50 / 50.jpg -->
+          <!-- כאן אתה יכול לשכפל את הבלוק של מוצר 7 עד PROD-50
+               רק לשנות:
+               data-sku="PROD-8", data-title, data-price, src="images/products/8.jpg"
+               ובמקביל להשתמש ב-keys p8.title / p8.tag / p8.desc וכו'.
+               המילון למטה כבר כולל p8–p50 בכל 4 השפות. -->
 
         </div>
       </section>
@@ -483,6 +480,24 @@
 
   <!-- קובץ הסקריפט הראשי שלך (עגלה + i18n וכו') -->
   <script src="script.js"></script>
+
+  <!-- אתחול שפה + dir + דגל פעיל -->
+  <script>
+    (function initLangDirAndFlags(){
+      var raw = localStorage.getItem('site_lang') || (navigator.language||'he').slice(0,2);
+      var lang = (raw || 'he').toLowerCase().replace(/[^a-z]/g,'');
+      if (['he','en','ru','ka'].indexOf(lang) === -1) lang = 'he';
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir  = (lang === 'he' || lang === 'ar') ? 'rtl' : 'ltr';
+      window.__siteLang = lang;
+
+      var flags = document.querySelectorAll('.lang-btn[data-lang]');
+      Array.prototype.forEach.call(flags, function(btn){
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    })();
+  </script>
 
   <!-- סקריפט ייעודי לחנות: טיפול בכפתורים + הודעת "נוסף מוצר X לעגלה" -->
   <script>
@@ -546,41 +561,376 @@
       document.querySelectorAll('.lang-switch [data-lang]').forEach(function (btn) {
         btn.addEventListener('click', function () {
           const lang = btn.getAttribute('data-lang');
+
+          // עדכון מיידי של html lang/dir והדגל הפעיל
+          document.documentElement.lang = lang;
+          document.documentElement.dir  = (lang === 'he' || lang === 'ar') ? 'rtl' : 'ltr';
+          document.querySelectorAll('.lang-btn[data-lang]').forEach(function (b) {
+            b.classList.toggle('active', b === btn);
+          });
+
           if (window.setLang && typeof window.setLang === 'function') {
             window.setLang(lang);
           } else {
-            // fallback פשוט – שמירת שפה ב-localStorage וריענון
+            // fallback – שמירת שפה וריענון
             localStorage.setItem('site_lang', lang);
             location.reload();
           }
         });
       });
+    })();
+  </script>
 
-      // ✅ סנכרון lang/dir + דגל פעיל
-      (function syncLangDirAndFlags(){
-        let lang = localStorage.getItem('site_lang') || (navigator.language || 'he').slice(0,2);
-        lang = lang.toLowerCase().replace(/[^a-z]/g,'');
+  <!-- תרגום טקסטים בדף החנות בלבד (מוצרים 1–50, כותרות, כפתורים) -->
+  <script>
+    (function hydrateShopTexts(){
+      const lang = window.__siteLang || (localStorage.getItem('site_lang') || 'he');
 
-        document.documentElement.lang = lang;
-        document.documentElement.dir  = (lang === 'he' || lang === 'ar') ? 'rtl' : 'ltr';
+      const STRINGS = {
+        he: {
+          'shop.title':      'חנות – Bereshit Spa',
+          'shop.heading':    'חנות – כל המוצרים',
+          'shop.subheading': 'כאן תוכלו לראות את כל מוצרי הקו המקצועי שלנו ולהוסיף לעגלה בקלות.',
 
-        document.querySelectorAll('.lang-btn').forEach(btn=>{
-          const btnLang = btn.getAttribute('data-lang');
-          btn.classList.toggle('active', btnLang === lang);
-        });
-      })();
+          'nav.home':  'דף הבית',
+          'nav.shop':  'חנות',
+          'nav.cart':  'עגלה',
 
-      // ✅ nav ACTIVE – רק אחרי לחיצה, לא אוטומטי בכניסה
-      (function setupShopNavActive(){
-        const links = document.querySelectorAll('.shop-nav a');
-        links.forEach(link=>{
-          link.addEventListener('click', function(){
-            links.forEach(l=>l.classList.remove('active'));
-            this.classList.add('active');
-          });
-        });
-      })();
+          'ui.add_to_cart': 'הוסף לעגלה',
+          'ui.view_cart':   'צפה בעגלה',
+          'ui.buy_now':     'קנה עכשיו',
 
+          'tags.deep_moist': 'לחות עמוקה',
+          'tags.antiaging':  'אנטי-אייג׳ינג',
+          'tags.aroma':      'ארומה',
+          'tags.balance':    'איזון',
+          'tags.eye':        'אזור העיניים',
+          'tags.glow':       'זוהר',
+
+          'p1.title':'סרום חומצה היאלורונית 30ml',
+          'p1.desc':'לחות אינטנסיבית למראה עור רענן.',
+          'p2.title':'קרם לילה רטינול 50ml',
+          'p2.desc':'תמיכה בהחלקת מרקם והאצת התחדשות.',
+          'p3.title':'שמן ורדים 15ml',
+          'p3.desc':'ניחוח עדין ותמיכה בהרגעת העור.',
+          'p4.title':'מסכת חימר ירוק 75ml',
+          'p4.desc':'ניקוי עמוק וספיחת שומן עודף.',
+          'p5.title':'קרם עיניים 15ml',
+          'p5.desc':'סיוע למראה רענן באזור עדין.',
+          'p6.title':'סרום ויטמין C 30ml',
+          'p6.desc':'תמיכה באחידות גוון ובהירות.',
+
+          'p7.title':'מוצר 7',
+          'p7.tag':'תיאור קצר',
+          'p7.desc':'תיאור מוצר 7 – ערוך לפי הצורך.',
+
+          /* תשתית למוצרים 8–50 – אתה יכול לערוך שמות/תיאורים כרצונך */
+          'p8.title':'מוצר 8','p8.tag':'תיאור קצר','p8.desc':'תיאור מוצר 8 – ערוך לפי הצורך.',
+          'p9.title':'מוצר 9','p9.tag':'תיאור קצר','p9.desc':'תיאור מוצר 9 – ערוך לפי הצורך.',
+          'p10.title':'מוצר 10','p10.tag':'תיאור קצר','p10.desc':'תיאור מוצר 10 – ערוך לפי הצורך.',
+          'p11.title':'מוצר 11','p11.tag':'תיאור קצר','p11.desc':'תיאור מוצר 11 – ערוך לפי הצורך.',
+          'p12.title':'מוצר 12','p12.tag':'תיאור קצר','p12.desc':'תיאור מוצר 12 – ערוך לפי הצורך.',
+          'p13.title':'מוצר 13','p13.tag':'תיאור קצר','p13.desc':'תיאור מוצר 13 – ערוך לפי הצורך.',
+          'p14.title':'מוצר 14','p14.tag':'תיאור קצר','p14.desc':'תיאור מוצר 14 – ערוך לפי הצורך.',
+          'p15.title':'מוצר 15','p15.tag':'תיאור קצר','p15.desc':'תיאור מוצר 15 – ערוך לפי הצורך.',
+          'p16.title':'מוצר 16','p16.tag':'תיאור קצר','p16.desc':'תיאור מוצר 16 – ערוך לפי הצורך.',
+          'p17.title':'מוצר 17','p17.tag':'תיאור קצר','p17.desc':'תיאור מוצר 17 – ערוך לפי הצורך.',
+          'p18.title':'מוצר 18','p18.tag':'תיאור קצר','p18.desc':'תיאור מוצר 18 – ערוך לפי הצורך.',
+          'p19.title':'מוצר 19','p19.tag':'תיאור קצר','p19.desc':'תיאור מוצר 19 – ערוך לפי הצורך.',
+          'p20.title':'מוצר 20','p20.tag':'תיאור קצר','p20.desc':'תיאור מוצר 20 – ערוך לפי הצורך.',
+          'p21.title':'מוצר 21','p21.tag':'תיאור קצר','p21.desc':'תיאור מוצר 21 – ערוך לפי הצורך.',
+          'p22.title':'מוצר 22','p22.tag':'תיאור קצר','p22.desc':'תיאור מוצר 22 – ערוך לפי הצורך.',
+          'p23.title':'מוצר 23','p23.tag':'תיאור קצר','p23.desc':'תיאור מוצר 23 – ערוך לפי הצורך.',
+          'p24.title':'מוצר 24','p24.tag':'תיאור קצר','p24.desc':'תיאור מוצר 24 – ערוך לפי הצורך.',
+          'p25.title':'מוצר 25','p25.tag':'תיאור קצר','p25.desc':'תיאור מוצר 25 – ערוך לפי הצורך.',
+          'p26.title':'מוצר 26','p26.tag':'תיאור קצר','p26.desc':'תיאור מוצר 26 – ערוך לפי הצורך.',
+          'p27.title':'מוצר 27','p27.tag':'תיאור קצר','p27.desc':'תיאור מוצר 27 – ערוך לפי הצורך.',
+          'p28.title':'מוצר 28','p28.tag':'תיאור קצר','p28.desc':'תיאור מוצר 28 – ערוך לפי הצורך.',
+          'p29.title':'מוצר 29','p29.tag':'תיאור קצר','p29.desc':'תיאור מוצר 29 – ערוך לפי הצורך.',
+          'p30.title':'מוצר 30','p30.tag':'תיאור קצר','p30.desc':'תיאור מוצר 30 – ערוך לפי הצורך.',
+          'p31.title':'מוצר 31','p31.tag':'תיאור קצר','p31.desc':'תיאור מוצר 31 – ערוך לפי הצורך.',
+          'p32.title':'מוצר 32','p32.tag':'תיאור קצר','p32.desc':'תיאור מוצר 32 – ערוך לפי הצורך.',
+          'p33.title':'מוצר 33','p33.tag':'תיאור קצר','p33.desc':'תיאור מוצר 33 – ערוך לפי הצורך.',
+          'p34.title':'מוצר 34','p34.tag':'תיאור קצר','p34.desc':'תיאור מוצר 34 – ערוך לפי הצורך.',
+          'p35.title':'מוצר 35','p35.tag':'תיאור קצר','p35.desc':'תיאור מוצר 35 – ערוך לפי הצורך.',
+          'p36.title':'מוצר 36','p36.tag':'תיאור קצר','p36.desc':'תיאור מוצר 36 – ערוך לפי הצורך.',
+          'p37.title':'מוצר 37','p37.tag':'תיאור קצר','p37.desc':'תיאור מוצר 37 – ערוך לפי הצורך.',
+          'p38.title':'מוצר 38','p38.tag':'תיאור קצר','p38.desc':'תיאור מוצר 38 – ערוך לפי הצורך.',
+          'p39.title':'מוצר 39','p39.tag':'תיאור קצר','p39.desc':'תיאור מוצר 39 – ערוך לפי הצורך.',
+          'p40.title':'מוצר 40','p40.tag':'תיאור קצר','p40.desc':'תיאור מוצר 40 – ערוך לפי הצורך.',
+          'p41.title':'מוצר 41','p41.tag':'תיאור קצר','p41.desc':'תיאור מוצר 41 – ערוך לפי הצורך.',
+          'p42.title':'מוצר 42','p42.tag':'תיאור קצר','p42.desc':'תיאור מוצר 42 – ערוך לפי הצורך.',
+          'p43.title':'מוצר 43','p43.tag':'תיאור קצר','p43.desc':'תיאור מוצר 43 – ערוך לפי הצורך.',
+          'p44.title':'מוצר 44','p44.tag':'תיאור קצר','p44.desc':'תיאור מוצר 44 – ערוך לפי הצורך.',
+          'p45.title':'מוצר 45','p45.tag':'תיאור קצר','p45.desc':'תיאור מוצר 45 – ערוך לפי הצורך.',
+          'p46.title':'מוצר 46','p46.tag':'תיאור קצר','p46.desc':'תיאור מוצר 46 – ערוך לפי הצורך.',
+          'p47.title':'מוצר 47','p47.tag':'תיאור קצר','p47.desc':'תיאור מוצר 47 – ערוך לפי הצורך.',
+          'p48.title':'מוצר 48','p48.tag':'תיאור קצר','p48.desc':'תיאור מוצר 48 – ערוך לפי הצורך.',
+          'p49.title':'מוצר 49','p49.tag':'תיאור קצר','p49.desc':'תיאור מוצר 49 – ערוך לפי הצורך.',
+          'p50.title':'מוצר 50','p50.tag':'תיאור קצר','p50.desc':'תיאור מוצר 50 – ערוך לפי הצורך.',
+        },
+
+        /* אנגלית – אתה יכול לשפר את הניסוחים, זה רק בסיס */
+        en: {
+          'shop.title':'Shop – Bereshit Spa',
+          'shop.heading':'Shop – All Products',
+          'shop.subheading':'Browse all our professional line products and add to cart easily.',
+
+          'nav.home':'Home',
+          'nav.shop':'Shop',
+          'nav.cart':'Cart',
+
+          'ui.add_to_cart':'Add to cart',
+          'ui.view_cart':'View cart',
+          'ui.buy_now':'Buy now',
+
+          'tags.deep_moist':'Deep moisture',
+          'tags.antiaging':'Anti-aging',
+          'tags.aroma':'Aroma',
+          'tags.balance':'Balance',
+          'tags.eye':'Eye area',
+          'tags.glow':'Glow',
+
+          'p1.title':'Hyaluronic Acid Serum 30ml',
+          'p1.desc':'Intensive hydration for a fresh look.',
+          'p2.title':'Retinol Night Cream 50ml',
+          'p2.desc':'Helps smooth texture and support renewal.',
+          'p3.title':'Rose Oil 15ml',
+          'p3.desc':'Delicate scent and soothing support.',
+          'p4.title':'Green Clay Mask 75ml',
+          'p4.desc':'Deep cleansing and oil absorption.',
+          'p5.title':'Eye Cream 15ml',
+          'p5.desc':'Helps refresh the delicate eye area.',
+          'p6.title':'Vitamin C Serum 30ml',
+          'p6.desc':'Supports even tone and radiance.',
+
+          'p7.title':'Product 7','p7.tag':'Short text','p7.desc':'Product 7 description – edit as needed.',
+          'p8.title':'Product 8','p8.tag':'Short text','p8.desc':'Product 8 description – edit as needed.',
+          'p9.title':'Product 9','p9.tag':'Short text','p9.desc':'Product 9 description – edit as needed.',
+          'p10.title':'Product 10','p10.tag':'Short text','p10.desc':'Product 10 description – edit as needed.',
+          'p11.title':'Product 11','p11.tag':'Short text','p11.desc':'Product 11 description – edit as needed.',
+          'p12.title':'Product 12','p12.tag':'Short text','p12.desc':'Product 12 description – edit as needed.',
+          'p13.title':'Product 13','p13.tag':'Short text','p13.desc':'Product 13 description – edit as needed.',
+          'p14.title':'Product 14','p14.tag':'Short text','p14.desc':'Product 14 description – edit as needed.',
+          'p15.title':'Product 15','p15.tag':'Short text','p15.desc':'Product 15 description – edit as needed.',
+          'p16.title':'Product 16','p16.tag':'Short text','p16.desc':'Product 16 description – edit as needed.',
+          'p17.title':'Product 17','p17.tag':'Short text','p17.desc':'Product 17 description – edit as needed.',
+          'p18.title':'Product 18','p18.tag':'Short text','p18.desc':'Product 18 description – edit as needed.',
+          'p19.title':'Product 19','p19.tag':'Short text','p19.desc':'Product 19 description – edit as needed.',
+          'p20.title':'Product 20','p20.tag':'Short text','p20.desc':'Product 20 description – edit as needed.',
+          'p21.title':'Product 21','p21.tag':'Short text','p21.desc':'Product 21 description – edit as needed.',
+          'p22.title':'Product 22','p22.tag':'Short text','p22.desc':'Product 22 description – edit as needed.',
+          'p23.title':'Product 23','p23.tag':'Short text','p23.desc':'Product 23 description – edit as needed.',
+          'p24.title':'Product 24','p24.tag':'Short text','p24.desc':'Product 24 description – edit as needed.',
+          'p25.title':'Product 25','p25.tag':'Short text','p25.desc':'Product 25 description – edit as needed.',
+          'p26.title':'Product 26','p26.tag':'Short text','p26.desc':'Product 26 description – edit as needed.',
+          'p27.title':'Product 27','p27.tag':'Short text','p27.desc':'Product 27 description – edit as needed.',
+          'p28.title':'Product 28','p28.tag':'Short text','p28.desc':'Product 28 description – edit as needed.',
+          'p29.title':'Product 29','p29.tag':'Short text','p29.desc':'Product 29 description – edit as needed.',
+          'p30.title':'Product 30','p30.tag':'Short text','p30.desc':'Product 30 description – edit as needed.',
+          'p31.title':'Product 31','p31.tag':'Short text','p31.desc':'Product 31 description – edit as needed.',
+          'p32.title':'Product 32','p32.tag':'Short text','p32.desc':'Product 32 description – edit as needed.',
+          'p33.title':'Product 33','p33.tag':'Short text','p33.desc':'Product 33 description – edit as needed.',
+          'p34.title':'Product 34','p34.tag':'Short text','p34.desc':'Product 34 description – edit as needed.',
+          'p35.title':'Product 35','p35.tag':'Short text','p35.desc':'Product 35 description – edit as needed.',
+          'p36.title':'Product 36','p36.tag':'Short text','p36.desc':'Product 36 description – edit as needed.',
+          'p37.title':'Product 37','p37.tag':'Short text','p37.desc':'Product 37 description – edit as needed.',
+          'p38.title':'Product 38','p38.tag':'Short text','p38.desc':'Product 38 description – edit as needed.',
+          'p39.title':'Product 39','p39.tag':'Short text','p39.desc':'Product 39 description – edit as needed.',
+          'p40.title':'Product 40','p40.tag':'Short text','p40.desc':'Product 40 description – edit as needed.',
+          'p41.title':'Product 41','p41.tag':'Short text','p41.desc':'Product 41 description – edit as needed.',
+          'p42.title':'Product 42','p42.tag':'Short text','p42.desc':'Product 42 description – edit as needed.',
+          'p43.title':'Product 43','p43.tag':'Short text','p43.desc':'Product 43 description – edit as needed.',
+          'p44.title':'Product 44','p44.tag':'Short text','p44.desc':'Product 44 description – edit as needed.',
+          'p45.title':'Product 45','p45.tag':'Short text','p45.desc':'Product 45 description – edit as needed.',
+          'p46.title':'Product 46','p46.tag':'Short text','p46.desc':'Product 46 description – edit as needed.',
+          'p47.title':'Product 47','p47.tag':'Short text','p47.desc':'Product 47 description – edit as needed.',
+          'p48.title':'Product 48','p48.tag':'Short text','p48.desc':'Product 48 description – edit as needed.',
+          'p49.title':'Product 49','p49.tag':'Short text','p49.desc':'Product 49 description – edit as needed.',
+          'p50.title':'Product 50','p50.tag':'Short text','p50.desc':'Product 50 description – edit as needed.',
+        },
+
+        /* רוסית וגאורגית – כרגע בסיס כללי, תוכל לעדכן לניסוחים שלך */
+        ru: {
+          'shop.title':'Магазин – Bereshit Spa',
+          'shop.heading':'Магазин – все товары',
+          'shop.subheading':'Здесь вы можете увидеть все профессиональные продукты и добавить их в корзину.',
+
+          'nav.home':'Главная',
+          'nav.shop':'Магазин',
+          'nav.cart':'Корзина',
+
+          'ui.add_to_cart':'В корзину',
+          'ui.view_cart':'Смотреть корзину',
+          'ui.buy_now':'Купить сейчас',
+
+          'tags.deep_moist':'Глубокое увлажнение',
+          'tags.antiaging':'Антивозрастной',
+          'tags.aroma':'Арома',
+          'tags.balance':'Баланс',
+          'tags.eye':'Область вокруг глаз',
+          'tags.glow':'Сияние',
+
+          'p1.title':'Сыворотка с гиалуроновой кислотой 30 мл',
+          'p1.desc':'Интенсивное увлажнение для свежего вида.',
+          'p2.title':'Ночной крем с ретинолом 50 мл',
+          'p2.desc':'Помогает разгладить текстуру и обновить кожу.',
+          'p3.title':'Масло розы 15 мл',
+          'p3.desc':'Нежный аромат и успокаивающий эффект.',
+          'p4.title':'Маска из зелёной глины 75 мл',
+          'p4.desc':'Глубокое очищение и поглощение жира.',
+          'p5.title':'Крем для глаз 15 мл',
+          'p5.desc':'Помогает освежить деликатную область вокруг глаз.',
+          'p6.title':'Сыворотка с витамином C 30 мл',
+          'p6.desc':'Помогает выровнять тон и придать сияние.',
+
+          'p7.title':'Продукт 7','p7.tag':'Краткое описание','p7.desc':'Описание продукта 7 – измените при необходимости.',
+          'p8.title':'Продукт 8','p8.tag':'Краткое описание','p8.desc':'Описание продукта 8 – измените при необходимости.',
+          'p9.title':'Продукт 9','p9.tag':'Краткое описание','p9.desc':'Описание продукта 9 – измените при необходимости.',
+          'p10.title':'Продукт 10','p10.tag':'Краткое описание','p10.desc':'Описание продукта 10 – измените при необходимости.',
+
+          'p11.title':'Продукт 11','p11.tag':'Краткое описание','p11.desc':'Описание продукта 11 – измените при необходимости.',
+          'p12.title':'Продукт 12','p12.tag':'Краткое описание','p12.desc':'Описание продукта 12 – измените при необходимости.',
+          'p13.title':'Продукт 13','p13.tag':'Краткое описание','p13.desc':'Описание продукта 13 – измените при необходимости.',
+          'p14.title':'Продукт 14','p14.tag':'Краткое описание','p14.desc':'Описание продукта 14 – измените при необходимости.',
+          'p15.title':'Продукт 15','p15.tag':'Краткое описание','p15.desc':'Описание продукта 15 – измените при необходимости.',
+          'p16.title':'Продукт 16','p16.tag':'Краткое описание','p16.desc':'Описание продукта 16 – измените при необходимости.',
+          'p17.title':'Продукт 17','p17.tag':'Краткое описание','p17.desc':'Описание продукта 17 – измените при необходимости.',
+          'p18.title':'Продукт 18','p18.tag':'Краткое описание','p18.desc':'Описание продукта 18 – измените при необходимости.',
+          'p19.title':'Продукт 19','p19.tag':'Краткое описание','p19.desc':'Описание продукта 19 – измените при необходимости.',
+          'p20.title':'Продукт 20','p20.tag':'Краткое описание','p20.desc':'Описание продукта 20 – измените при необходимости.',
+
+          'p21.title':'Продукт 21','p21.tag':'Краткое описание','p21.desc':'Описание продукта 21 – измените при необходимости.',
+          'p22.title':'Продукт 22','p22.tag':'Краткое описание','p22.desc':'Описание продукта 22 – измените при необходимости.',
+          'p23.title':'Продукт 23','p23.tag':'Краткое описание','p23.desc':'Описание продукта 23 – измените при необходимости.',
+          'p24.title':'Продукт 24','p24.tag':'Краткое описание','p24.desc':'Описание продукта 24 – измените при необходимости.',
+          'p25.title':'Продукт 25','p25.tag':'Краткое описание','p25.desc':'Описание продукта 25 – измените при необходимости.',
+          'p26.title':'Продукт 26','p26.tag':'Краткое описание','p26.desc':'Описание продукта 26 – измените при необходимости.',
+          'p27.title':'Продукт 27','p27.tag':'Краткое описание','p27.desc':'Описание продукта 27 – измените при необходимости.',
+          'p28.title':'Продукт 28','p28.tag':'Краткое описание','p28.desc':'Описание продукта 28 – измените при необходимости.',
+          'p29.title':'Продукт 29','p29.tag':'Краткое описание','p29.desc':'Описание продукта 29 – измените при необходимости.',
+          'p30.title':'Продукт 30','p30.tag':'Краткое описание','p30.desc':'Описание продукта 30 – измените при необходимости.',
+
+          'p31.title':'Продукт 31','p31.tag':'Краткое описание','p31.desc':'Описание продукта 31 – измените при необходимости.',
+          'p32.title':'Продукт 32','p32.tag':'Краткое описание','p32.desc':'Описание продукта 32 – измените при необходимости.',
+          'p33.title':'Продукт 33','p33.tag':'Краткое описание','p33.desc':'Описание продукта 33 – измените при необходимости.',
+          'p34.title':'Продукт 34','p34.tag':'Краткое описание','p34.desc':'Описание продукта 34 – измените при необходимости.',
+          'p35.title':'Продукт 35','p35.tag':'Краткое описание','p35.desc':'Описание продукта 35 – измените при необходимости.',
+          'p36.title':'Продукт 36','p36.tag':'Краткое описание','p36.desc':'Описание продукта 36 – измените при необходимости.',
+          'p37.title':'Продукт 37','p37.tag':'Краткое описание','p37.desc':'Описание продукта 37 – измените при необходимости.',
+          'p38.title':'Продукт 38','p38.tag':'Краткое описание','p38.desc':'Описание продукта 38 – измените при необходимости.',
+          'p39.title':'Продукт 39','p39.tag':'Краткое описание','p39.desc':'Описание продукта 39 – измените при необходимости.',
+          'p40.title':'Продукт 40','p40.tag':'Краткое описание','p40.desc':'Описание продукта 40 – измените при необходимости.',
+
+          'p41.title':'Продукт 41','p41.tag':'Краткое описание','p41.desc':'Описание продукта 41 – измените при необходимости.',
+          'p42.title':'Продукт 42','p42.tag':'Краткое описание','p42.desc':'Описание продукта 42 – измените при необходимости.',
+          'p43.title':'Продукт 43','p43.tag':'Краткое описание','p43.desc':'Описание продукта 43 – измените при необходимости.',
+          'p44.title':'Продукт 44','p44.tag':'Краткое описание','p44.desc':'Описание продукта 44 – измените при необходимости.',
+          'p45.title':'Продукт 45','p45.tag':'Краткое описание','p45.desc':'Описание продукта 45 – измените при необходимости.',
+          'p46.title':'Продукт 46','p46.tag':'Краткое описание','p46.desc':'Описание продукта 46 – измените при необходимости.',
+          'p47.title':'Продукт 47','p47.tag':'Краткое описание','p47.desc':'Описание продукта 47 – измените при необходимости.',
+          'p48.title':'Продукт 48','p48.tag':'Краткое описание','p48.desc':'Описание продукта 48 – измените при необходимости.',
+          'p49.title':'Продукт 49','p49.tag':'Краткое описание','p49.desc':'Описание продукта 49 – измените при необходимости.',
+          'p50.title':'Продукт 50','p50.tag':'Краткое описание','p50.desc':'Описание продукта 50 – измените при необходимости.',
+        },
+
+        ka: {
+          'shop.title':'მაღაზია – Bereshit Spa',
+          'shop.heading':'მაღაზია – ყველა პროდუქტი',
+          'shop.subheading':'აქ ნახავთ ჩვენს პროფესიონალურ ხაზს და მარტივად დაამატებთ კალათაში.',
+
+          'nav.home':'მთავარი',
+          'nav.shop':'მაღაზია',
+          'nav.cart':'კალათა',
+
+          'ui.add_to_cart':'დამატება კალათაში',
+          'ui.view_cart':'კალათის ნახვა',
+          'ui.buy_now':'ყიდვა ახლა',
+
+          'tags.deep_moist':'ღრმა დატენიანება',
+          'tags.antiaging':'ანტი-ეიჯინგი',
+          'tags.aroma':'არომა',
+          'tags.balance':'ბალანსი',
+          'tags.eye':'თვალის არეალი',
+          'tags.glow':'ციმციმი',
+
+          'p1.title':'ჰიალურონის მჟავის შრატი 30მლ',
+          'p1.desc':'ინტენსიური დატენიანება ახალი იერისთვის.',
+          'p2.title':'რეტინოლის ღამის კრემი 50მლ',
+          'p2.desc':'ეხმარება ტექსტურის გამსუბუქებას და განახლებას.',
+          'p3.title':'ვარდის ზეთი 15მლ',
+          'p3.desc':'ნაზი არომატი და დამამშვიდებელი ეფექტი.',
+          'p4.title':'მწვანე თიხის ნიღაბი 75მლ',
+          'p4.desc':'ღრმა გაწმენდა და ცხიმის შთანთქმა.',
+          'p5.title':'თვალის კრემი 15მლ',
+          'p5.desc':'ეხმარება თვალის არეს გამოცოცხლებაში.',
+          'p6.title':'ვიტამინ C-ის შრატი 30მლ',
+          'p6.desc':'უწყობს ხელს ტონის გათანაბრებას და კანს ანიჭებს სიჯანსაღეს.',
+
+          'p7.title':'პროდუქტი 7','p7.tag':'მოკლე აღწერა','p7.desc':'პროდუქტი 7 – შეცვალეთ საჭიროებისამებრ.',
+          'p8.title':'პროდუქტი 8','p8.tag':'მოკლე აღწერა','p8.desc':'პროდუქტი 8 – შეცვალეთ საჭიროებისამებრ.',
+          'p9.title':'პროდუქტი 9','p9.tag':'მოკლე აღწერა','p9.desc':'პროდუქტი 9 – შეცვალეთ საჭიროებისამებრ.',
+          'p10.title':'პროდუქტი 10','p10.tag':'მოკლე აღწერა','p10.desc':'პროდუქტი 10 – შეცვალეთ საჭიროებისამებრ.',
+
+          'p11.title':'პროდუქტი 11','p11.tag':'მოკლე აღწერა','p11.desc':'პროდუქტი 11 – შეცვალეთ საჭიროებისამებრ.',
+          'p12.title':'პროდუქტი 12','p12.tag':'მოკლე აღწერა','p12.desc':'პროდუქტი 12 – შეცვალეთ საჭიროებისამებრ.',
+          'p13.title':'პროდუქტი 13','p13.tag':'მოკლე აღწერა','p13.desc':'პროდუქტი 13 – შეცვალეთ საჭიროებისამებრ.',
+          'p14.title':'პროდუქტი 14','p14.tag':'მოკლე აღწერა','p14.desc':'პროდუქტი 14 – შეცვალეთ საჭიროებისამებრ.',
+          'p15.title':'პროდუქტი 15','p15.tag':'მოკლე აღწერა','p15.desc':'პროდუქტი 15 – შეცვალეთ საჭიროებისამებრ.',
+          'p16.title':'პროდუქტი 16','p16.tag':'მოკლე აღწერა','p16.desc':'პროდუქტი 16 – შეცვალეთ საჭიროებისამებრ.',
+          'p17.title':'პროდუქტი 17','p17.tag':'მოკლე აღწერა','p17.desc':'პროდუქტი 17 – შეცვალეთ საჭიროებისამებრ.',
+          'p18.title':'პროდუქტი 18','p18.tag':'მოკლე აღწერა','p18.desc':'პროდუქტი 18 – შეცვალეთ საჭიროებისამებრ.',
+          'p19.title':'პროდუქტი 19','p19.tag':'მოკლე აღწერა','p19.desc':'პროდუქტი 19 – შეცვალეთ საჭიროებისამებრ.',
+          'p20.title':'პროდუქტი 20','p20.tag':'მოკლე აღწერა','p20.desc':'პროდუქტი 20 – შეცვალეთ საჭიროებისამებრ.',
+
+          'p21.title':'პროდუქტი 21','p21.tag':'მოკლე აღწერა','p21.desc':'პროდუქტი 21 – შეცვალეთ საჭიროებისამებრ.',
+          'p22.title':'პროდუქტი 22','p22.tag':'მოკლე აღწერა','p22.desc':'პროდუქტი 22 – შეცვალეთ საჭიროებისამებრ.',
+          'p23.title':'პროდუქტი 23','p23.tag':'მოკლე აღწერა','p23.desc':'პროდუქტი 23 – შეცვალეთ საჭიროებისამებრ.',
+          'p24.title':'პროდუქტი 24','p24.tag':'მოკლე აღწერა','p24.desc':'პროდუქტი 24 – შეცვალეთ საჭიროებისამებრ.',
+          'p25.title':'პროდუქტი 25','p25.tag':'მოკლე აღწერა','p25.desc':'პროდუქტი 25 – შეცვალეთ საჭიროებისამებრ.',
+          'p26.title':'პროდუქტი 26','p26.tag':'მოკლე აღწერა','p26.desc':'პროდუქტი 26 – შეცვალეთ საჭიროებისამებრ.',
+          'p27.title':'პროდუქტი 27','p27.tag':'მოკლე აღწერა','p27.desc':'პროდუქტი 27 – შეცვალეთ საჭიროებისამებრ.',
+          'p28.title':'პროდუქტი 28','p28.tag':'მოკლე აღწერა','p28.desc':'პროდუქტი 28 – შეცვალეთ საჭიროებისამებრ.',
+          'p29.title':'პროდუქტი 29','p29.tag':'მოკლე აღწერა','p29.desc':'პროდუქტი 29 – შეცვალეთ საჭიროებისამებრ.',
+          'p30.title':'პროდუქტი 30','p30.tag':'მოკლე აღწერა','p30.desc':'პროდუქტი 30 – შეცვალეთ საჭიროებისამებრ.',
+
+          'p31.title':'პროდუქტი 31','p31.tag':'მოკლე აღ.' ,'p31.desc':'პროდუქტი 31 – შეცვალეთ საჭიროებისამებრ.',
+          'p32.title':'პროდუქტი 32','p32.tag':'მოკლე აღ.' ,'p32.desc':'პროდუქტი 32 – შეცვალეთ საჭიროებისამებრ.',
+          'p33.title':'პროდუქტი 33','p33.tag':'მოკლე აღ.' ,'p33.desc':'პროდუქტი 33 – შეცვალეთ საჭიროებისამებრ.',
+          'p34.title':'პროდუქტი 34','p34.tag':'მოკლე აღ.' ,'p34.desc':'პროდუქტი 34 – შეცვალეთ საჭიროებისამებრ.',
+          'p35.title':'პროდუქტი 35','p35.tag':'მოკლე აღ.' ,'p35.desc':'პროდუქტი 35 – შეცვალეთ საჭიროებისამებრ.',
+          'p36.title':'პროდუქტი 36','p36.tag':'მოკლე აღ.' ,'p36.desc':'პროდუქტი 36 – შეცვალეთ საჭიროებისამებრ.',
+          'p37.title':'პროდუქტი 37','p37.tag':'მოკლე აღ.' ,'p37.desc':'პროდუქტი 37 – შეცვალეთ საჭიროებისამებრ.',
+          'p38.title':'პროდუქტი 38','p38.tag':'მოკლე აღ.' ,'p38.desc':'პროდუქტი 38 – შეცვალეთ საჭიროებისამებრ.',
+          'p39.title':'პროდუქტი 39','p39.tag':'მოკლე აღ.' ,'p39.desc':'პროდუქტი 39 – შეცვალეთ საჭიროებისამებრ.',
+          'p40.title':'პროდუქტი 40','p40.tag':'მოკლე აღ.' ,'p40.desc':'პროდუქტი 40 – შეცვალეთ საჭიროებისამებრ.',
+
+          'p41.title':'პროდუქტი 41','p41.tag':'მოკლე აღ.' ,'p41.desc':'პრონავირუს 41 – შეცვალეთ საჭიროებისამებრ.',
+          'p42.title':'პროდუქტი 42','p42.tag':'მოკლე აღ.' ,'p42.desc':'პროდუქტი 42 – შეცვალეთ საჭიროებისამებრ.',
+          'p43.title':'პროდუქტი 43','p43.tag':'მოკლე აღ.' ,'p43.desc':'პროდუქტი 43 – შეცვალეთ საჭიროებისამებრ.',
+          'p44.title':'პროდუქტი 44','p44.tag':'მოკლე აღ.' ,'p44.desc':'პროდუქტი 44 – შეცვალეთ საჭიროებისამებრ.',
+          'p45.title':'პროდუქტი 45','p45.tag':'მოკლე აღ.' ,'p45.desc':'პროდუქტი 45 – შეცვალეთ საჭიროებისამებრ.',
+          'p46.title':'პროდუქტი 46','p46.tag':'მოკლე აღ.' ,'p46.desc':'პროდუქტი 46 – შეცვალეთ საჭიროებისამებრ.',
+          'p47.title':'პროდუქტი 47','p47.tag':'მოკლე აღ.' ,'p47.desc':'პროდუქტი 47 – შეცვალეთ საჭიროებისამებრ.',
+          'p48.title':'პროდუქტი 48','p48.tag':'მოკლე აღ.' ,'p48.desc':'პროდუქტი 48 – შეცვალეთ საჭიროებისამებრ.',
+          'p49.title':'პროდუქტი 49','p49.tag':'მოკლე აღ.' ,'p49.desc':'პროდუქტი 49 – შეცვალეთ საჭიროებისამებრ.',
+          'p50.title':'პროდუქტი 50','p50.tag':'მოკლე აღ.' ,'p50.desc':'პროდუქტი 50 – შეცვალეთ საჭიროებისამებრ.',
+        }
+      };
+
+      // הגדרת כותרת החלון
+      if (STRINGS[lang] && STRINGS[lang]['shop.title']) {
+        document.title = STRINGS[lang]['shop.title'];
+      }
+
+      // עדכון כל האלמנטים עם data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(function(el){
+        const key = el.getAttribute('data-i18n');
+        const dict = STRINGS[lang] && STRINGS[lang][key];
+        const fallback = STRINGS.he && STRINGS.he[key];
+        const value = dict || fallback;
+        if (value) el.textContent = value;
+      });
     })();
   </script>
 </body>
