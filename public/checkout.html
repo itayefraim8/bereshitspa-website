@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-i18n="checkout.title">תשלום</title>
+
+  <!-- פונט ועיצוב כללי (כמו בעמוד הראשי) -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    /* מעט ליטושים מקומיים לדף התשלום */
+    .summary-line{ display:flex; justify-content:space-between; gap:12px; padding:6px 0; border-bottom:1px solid #f1f5f9 }
+    .summary-line:last-child{ border-bottom:0 }
+    .summary-wrap{ display:grid; gap:8px }
+    .summary-total{ display:flex; justify-content:space-between; font-weight:700; margin-top:8px }
+    .visually-hidden{ position:absolute !important; width:1px; height:1px; margin:-1px; border:0; padding:0; clip:rect(0 0 0 0); overflow:hidden }
+  </style>
+</head>
+<body>
+  <!-- פס עליון (אחיד) -->
+  <div class="topbar" role="note">🚚 <span data-i18n="topbar.free_ship">משלוח חינם מעל 100₾</span></div>
+
+  <!-- Header קצר עם לוגו + מתג שפה -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html#home" class="brand" aria-label="דף הבית">
+        <img id="siteLogo" src="images/logo.png" alt="bergamot logo" class="logo"/>
+      </a>
+
+      <!-- ✅ הוספתי id="primary-nav" כדי להתאים ל-script.js -->
+      <nav id="primary-nav" class="main-nav" aria-label="ניווט ראשי">
+        
+        <div class="nav-item"><a class="navlink" href="index.html#home" data-i18n="nav.home">דף הבית</a></div>
+        <div class="nav-item"><a class="navlink" href="index.html#shop" data-i18n="nav.shop">חנות</a></div>
+        <div class="nav-item"><a class="navlink" href="index.html#cart" data-i18n="nav.cart">עגלה</a></div>
+        <div class="nav-item"><a class="navlink" href="index.html#contact" data-i18n="nav.contact">צור קשר</a></div>
+      </nav>
+
+      <!-- מתג שפה -->
+      <div class="lang-switch" aria-label="Language">
+        <label for="langSel" class="visually-hidden">Language</label>
+        <select id="langSel">
+          <option value="he">HE</option>
+          <option value="en">EN</option>
+          <option value="ru">RU</option>
+          <option value="ka">KA</option>
+        </select>
+      </div>
+
+      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="פתח/סגור תפריט">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ===== תשלום לפי עגלה (חנות מוצרים) ===== -->
+    <section id="cartCheckoutSection" class="tabcontent" style="display:block">
+      <h2 data-i18n="checkout.heading">סיכום הזמנה ותשלום</h2>
+      <p class="muted" data-i18n="checkout.sub">בדוק/י את הפריטים והמשיכו לתשלום מאובטח.</p>
+
+      <!-- סיכום ההזמנה מתוך localStorage (כמו בעגלה) -->
+      <div id="orderSummary" class="hero" aria-live="polite">
+        <h3 data-i18n="checkout.summary">סיכום</h3>
+        <div id="summaryList" class="summary-wrap"></div>
+        <div class="summary-total">
+          <span data-i18n="checkout.total">סה״כ</span>
+          <span id="summaryTotal">₾0</span>
+        </div>
+      </div>
+
+      <div class="cta-row" style="margin-top:16px">
+        <a id="backBtn" class="btn-outline" href="index.html#cart" data-i18n="checkout.back">חזרה לעגלה</a>
+        <button id="payBtn" class="button" data-i18n="checkout.pay">לתשלום בכרטיס אשראי</button>
+      </div>
+
+      <p class="muted" style="margin-top:12px" data-i18n="checkout.secure">התשלום מתבצע ב־Stripe, בצורה מאובטחת.</p>
+    </section>
+
+    <!-- ===== הזמנת עיסוי מתפריט הספא (book-btn) ===== -->
+    <section id="treatmentCheckoutSection" class="tabcontent" style="display:none">
+      <h2>הזמנת עיסוי ותשלום</h2>
+      <p class="muted">בחר/י מועד, מלא/י פרטים והמשיכ/י לתשלום עבור העיסוי שנבחר.</p>
+
+      <div class="hero">
+        <div>עיסוי נבחר: <strong id="treat_name">—</strong></div>
+        <div>
+          מחיר בסיס: <strong id="treat_base">0</strong>₾
+          <span id="treat_addon_wrap" style="display:none">
+            &nbsp;|&nbsp; מחיר מורחב: <strong id="treat_addon">0</strong>₾
+          </span>
+        </div>
+        <div class="summary-total">
+          <span>מחיר לחיוב</span>
+          <span id="treat_final">₾0</span>
+        </div>
+      </div>
+
+      <form id="treat_form" style="margin-top:16px; max-width:480px">
+        <div class="booking-row">
+          <label>שם מלא</label>
+          <input type="text" name="name" required placeholder="שם פרטי ושם משפחה">
+        </div>
+
+        <div class="booking-row">
+          <label>טלפון נייד</label>
+          <input type="tel" name="phone" required placeholder="מספר טלפון ליצירת קשר">
+        </div>
+
+        <div class="booking-row two-cols">
+          <div>
+            <label>תאריך עיסוי</label>
+            <input type="date" name="date" required>
+          </div>
+          <div>
+            <label>שעת עיסוי</label>
+            <input type="time" name="time" required>
+          </div>
+        </div>
+
+        <div class="booking-row">
+          <label>משך העיסוי</label>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="durationOption" value="base" checked>
+              בסיסי
+            </label>
+            <label id="treat_addon_option" style="display:none">
+              <input type="radio" name="durationOption" value="addon">
+              מורחב
+            </label>
+          </div>
+        </div>
+
+        <!-- ✅ אמצעי תשלום – רק אונליין, בלי בחירה במזומן -->
+        <div class="booking-row">
+          <label>אמצעי תשלום</label>
+          <div class="pay-methods">
+            <span>התשלום מתבצע בכרטיס אשראי אונליין בלבד.</span>
+            <input type="hidden" name="payMethod" value="card">
+          </div>
+        </div>
+
+        <div class="booking-row">
+          <label>הערות נוספות (אופציונלי)</label>
+          <textarea name="notes" rows="3" placeholder="רגישויות, העדפות, הערות מיוחדות"></textarea>
+        </div>
+
+        <button type="submit" class="button">
+          אישור הזמנה ותשלום
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-title" data-i18n="footer.title">פרטי יצירת קשר</div>
+      <div>
+        <span data-i18n="footer.phone">טלפון:</span>
+        <a href="tel:0502686862">0502686862</a> ·
+        <span data-i18n="footer.email">מייל:</span>info@bereshitspa.com</a>
+        <a href="mailto:info@bereshitspa.com">
+
+      </div>
+      <div class="fb-cta">
+        <strong data-i18n="footer.fb_title">בקרו אותנו בדף הפייסבוק</strong><br/>
+        <a class="button" href="https://www.facebook.com/profile.php?id=61583311067341" target="_blank" rel="noopener" data-i18n="footer.fb_btn">לדף הפייסבוק</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- קבצי הסקריפט הכלליים של האתר שלך -->
+  <script src="script.js"></script>
+
+  <!-- ✅ השורה המקורית שנשלחה – נשמרה ללא שינוי -->
+  <script src="/payment.js"></script>
+
+  <script>
+    // סנכרון שפה/כיווניות
+    (function syncLangDir(){
+      const lang = localStorage.getItem('site_lang') || (navigator.language||'he').slice(0,2);
+      document.documentElement.lang = lang;
+      document.documentElement.dir  = (lang === 'he' || lang === 'ar') ? 'rtl' : 'ltr';
+      const sel = document.getElementById('langSel');
+      if (sel) {
+        sel.value = lang;
+        sel.addEventListener('change', (e) => {
+          localStorage.setItem('site_lang', e.target.value);
+          location.reload();
+        });
+      }
+    })();
+
+    // מילון מקומי לדף (נשען על אותו פורמט של index)
+    (function hydrateTexts(){
+      const map = {
+        'checkout.title':   { he:'תשלום', en:'Checkout', ru:'Оплата', ka:'გადახდა' },
+        'checkout.heading': { he:'סיכום הזמנה ותשלום', en:'Order Summary & Payment', ru:'Сводка заказа и оплата', ka:'შეკვეთის შეჯამება და გადახადა' },
+        'checkout.sub':     { he:'בדוק/י את הפריטים והמשיכו לתשלום מאובטח.', en:'Review your items and proceed to secure payment.', ru:'Проверьте товары и перейдите к безопасной оплате.', ka:'გადახედეთ ნივთებს და გაიარეთ უსაფრთხო გადახდა.' },
+        'checkout.summary': { he:'סיכום', en:'Summary', ru:'Сводка', ka:'შეჯამება' },
+        'checkout.total':   { he:'סה״כ', en:'Total', ru:'Итого', ka:'ჯამი' },
+        'checkout.back':    { he:'חזרה לעגלה', en:'Back to Cart', ru:'Назад в корзину', ka:'უკან კალათაში' },
+        'checkout.pay':     { he:'לתשלום בכרטיס אשראי', en:'Pay by Card', ru:'Оплатить картой', ka:'ბარათით გადახდა' },
+        'checkout.secure':  { he:'התשלום מתבצע ב־Stripe, בצורה מאובטחת.', en:'Payment is processed securely via Stripe.', ru:'Оплата обрабатывается безопасно через Stripe.', ka:'გადახდა უსაფრთხოდ მუშავდება Stripe-ის საშუალებით.' },
+        'topbar.free_ship': { he:'משלוח חינם מעל ₾399', en:'Free shipping over ₾399', ru:'Бесплатная доставка от ₾399', ka:'უფასო მიტანა ₾399–ზე ზემოთ' },
+        'nav.shop':         { he:'חנות', en:'Shop', ru:'Магазин', ka:'მაღაზია' },
+        'nav.cart':         { he:'עגלה', en:'Cart', ru:'Корзина', ka:'კალათა' },
+        'nav.contact':      { he:'צור קשר', en:'Contact', ru:'Контакты', ka:'კონტაქტი' },
+        'footer.title':     { he:'פרטי יצירת קשר', en:'Contact Details', ru:'Контакты', ka:'საკონტაქტო ინფორმაცია' },
+        'footer.phone':     { he:'טלפון:', en:'Phone:', ru:'Телефон:', ka:'ტელ:' },
+        'footer.email':     { he:'מייל:', en:'Email:', ru:'Email:', ka:'ელ.ფოსტა:' },
+        'footer.fb_title':  { he:'בקרו אותנו בדף הפייסבוק', en:'Visit our Facebook page', ru:'Посетите нашу страницу в Facebook', ka:'ეწვიეთ ჩვენს Facebook გვერდს' },
+        'footer.fb_btn':    { he:'לדף הפייסבוק', en:'Open Facebook', ru:'Открыть Facebook', ka:'Facebook გვერდი' }
+      };
+      const lang = (localStorage.getItem('site_lang')||'he');
+      document.title = (map['checkout.title'][lang] || map['checkout.title'].he);
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const k = el.getAttribute('data-i18n');
+        const v = (map[k] && (map[k][lang] || map[k].he)) || el.textContent;
+        el.textContent = v;
+      });
+    })();
+
+    // רינדור סיכום מהעגלה + חיבור הכפתור ל-payWithCard הקיימת
+    (function renderSummary(){
+      const LS_KEY='bergamot_cart';
+      const toILS = (n)=>`₾${Number(n).toFixed(0)}`;
+      let cart = [];
+      try { cart = JSON.parse(localStorage.getItem(LS_KEY)) || []; } catch { cart = []; }
+
+      const list = document.getElementById('summaryList');
+      const totalEl = document.getElementById('summaryTotal');
+      list.innerHTML = '';
+      let sum = 0;
+
+      if (!Array.isArray(cart) || cart.length===0) {
+        const p = document.createElement('p');
+        p.className='muted';
+        const lang = (localStorage.getItem('site_lang')||'he');
+        const emptyMap = { he:'העגלה ריקה.', en:'Your cart is empty.', ru:'Корзина пуста.', ka:'კალათა ცარიელია.' };
+        p.textContent = emptyMap[lang] || emptyMap.he;
+        list.appendChild(p);
+      } else {
+        cart.forEach(it=>{
+          const line = document.createElement('div'); line.className='summary-line';
+          const left = document.createElement('span'); left.textContent = `${it.title} × ${it.qty}`;
+          const right = document.createElement('span'); right.textContent = toILS(it.price * it.qty);
+          line.append(left, right); list.appendChild(line);
+          sum += it.price * it.qty;
+        });
+      }
+      totalEl.textContent = toILS(sum);
+
+      // כפתור תשלום
+      document.getElementById('payBtn')?.addEventListener('click', ()=>{
+        if (typeof window.payWithCard === 'function') return window.payWithCard();
+        // fallback: אם אין payWithCard (אמור להיות ב-script.js), נחזור לעגלה
+        location.href = 'index.html#cart';
+      });
+    })();
+
+    // ✅ מצב הזמנת עיסוי מתפריט הספא (book-btn → localStorage.bereshit_booking)
+    (function setupTreatmentCheckout(){
+      const bookingRaw = localStorage.getItem('bereshit_booking');
+      if (!bookingRaw) return;
+
+      let booking;
+      try { booking = JSON.parse(bookingRaw); } catch(e){ return; }
+
+      const cartSection  = document.getElementById('cartCheckoutSection');
+      const treatSection = document.getElementById('treatmentCheckoutSection');
+      if (!treatSection) return;
+
+      // מסתירים את checkout של העגלה, מציגים את דף העיסוי
+      if (cartSection) cartSection.style.display = 'none';
+      treatSection.style.display = 'block';
+
+      const nameEl    = document.getElementById('treat_name');
+      const baseEl    = document.getElementById('treat_base');
+      const addonEl   = document.getElementById('treat_addon');
+      const addonWrap = document.getElementById('treat_addon_wrap');
+      const finalEl   = document.getElementById('treat_final');
+      const addonOpt  = document.getElementById('treat_addon_option');
+      const form      = document.getElementById('treat_form');
+
+      let basePrice  = Number(booking.base || 0);
+      let addonPrice = Number(booking.addon || 0);
+
+      if (nameEl)  nameEl.textContent  = booking.treatment || 'עיסוי בספא';
+      if (baseEl)  baseEl.textContent  = basePrice.toString();
+      if (addonEl) addonEl.textContent = addonPrice.toString();
+
+      if (addonPrice > 0) {
+        if (addonWrap) addonWrap.style.display = '';
+        if (addonOpt)  addonOpt.style.display  = '';
+      }
+
+function updateFinal(){
+  if (!finalEl || !form) return;
+  const chosen = (form.querySelector('input[name="durationOption"]:checked') || {}).value || 'base';
+
+  let final;
+  if (chosen === 'addon' && addonPrice > 0) {
+    // אם ה-addon קטן מה-base – נניח שהוא "תוספת" (delta) ונחבר.
+    // אם הוא גדול/שווה – נניח שהוא מחיר מלא לגרסה המורחבת.
+    final = (addonPrice >= basePrice) ? addonPrice : (basePrice + addonPrice);
+  } else {
+    final = basePrice;
+  }
+
+  finalEl.textContent = `₾${final}`;
+}
+
+      if (form){
+        // תאריך מינימלי – היום
+        const today = new Date().toISOString().slice(0,10);
+        const dateInput = form.querySelector('input[name="date"]');
+        if (dateInput) dateInput.min = today;
+
+        form.querySelectorAll('input[name="durationOption"]').forEach(r=>{
+          r.addEventListener('change', updateFinal);
+        });
+
+        updateFinal();
+
+        /* ✅ שינוי יחיד: חיבור הטופס לנתיב create-booking-session בשרת ושליחה ל-Stripe */
+        form.addEventListener('submit', async function(e){
+          e.preventDefault();
+          const fd = new FormData(form);
+          const duration = fd.get('durationOption') || 'base';
+          const finalStr = finalEl ? finalEl.textContent.replace(/[^\d.]/g,'') : basePrice;
+          const finalPrice = Number(finalStr || basePrice || 0);
+
+          const payload = {
+            treatment: booking.treatment || 'עיסוי בספא',
+            basePrice,
+            addonPrice,
+            duration,
+            finalPrice,
+            name:  fd.get('name')  || '',
+            phone: fd.get('phone') || '',
+            date:  fd.get('date')  || '',
+            time:  fd.get('time')  || '',
+            notes: fd.get('notes') || ''
+          };
+
+          console.log('Treatment booking (send to server):', payload);
+
+          try {
+            const resp = await fetch('http://localhost:4242/create-booking-session', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            const raw = await resp.text();
+            let data = {};
+            try { data = raw ? JSON.parse(raw) : {}; } catch(e){}
+
+            if (!resp.ok) {
+              const msg = (data && data.error && data.error.message) || `שגיאה בשרת (סטטוס ${resp.status})`;
+              alert('אירעה שגיאה ביצירת תשלום: ' + msg);
+              return;
+            }
+
+            if (data && data.url) {
+              // מעבר למסך התשלום של Stripe
+              window.location.href = data.url;
+            } else {
+              alert('לא התקבלה כתובת תשלום מהשרת.');
+            }
+          } catch (err) {
+            console.error('Treatment pay error:', err);
+            alert('אירעה שגיאה בתקשורת עם השרת. נסה/י שוב מאוחר יותר.');
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!-- shop.html -->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="shop.title">חנות – Bereshit Spa</title>
+
+  <!-- פונט לדוגמה – כמו בעמודים האחרים -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- קובץ העיצוב הראשי שלך -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body.shop-page{
+      font-family: Heebo, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:#faf7f4;
+      color:#1f2937;
+    }
+
+    /* === פס לבן רחב ללוגו + ניווט + דגלים === */
+    .shop-topbar{
+      background:#ffffff;
+      box-shadow:0 4px 18px rgba(0,0,0,.04);
+      margin-bottom:24px;
+    }
+    .shop-topbar-inner{
+      max-width:1080px;
+      margin:0 auto;
+      padding:10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .shop-container{
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    header.shop-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin:0;
+      width:100%;
+    }
+
+    .shop-logo{
+      font-weight:700;
+      font-size:1.25rem;
+    }
+
+    .shop-nav{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    /* כפתורי ניווט – זהב */
+    .shop-nav a{
+      text-decoration:none;
+      padding:8px 18px;
+      border-radius:999px;
+      border:1px solid #c39b64;
+      font-size:.95rem;
+      background:#ffffff;
+      color:#1f2937;
+      box-shadow:0 3px 8px rgba(0,0,0,.05);
+      transition:
+        background .15s ease,
+        color .15s ease,
+        box-shadow .15s ease,
+        transform .08s ease;
+    }
+    .shop-nav a:hover{
+      background:#c39b64;
+      color:#ffffff;
+      transform:translateY(-1px);
+      box-shadow:0 6px 14px rgba(0,0,0,.12);
+    }
+    .shop-nav a.active{
+      background:#c39b64;
+      color:#ffffff;
+    }
+
+    .lang-switch{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:.85rem;
+    }
+    .lang-switch span{
+      font-size:1.1rem;
+    }
+    .lang-switch button{
+      border:1px solid rgba(0,0,0,.12);
+      padding:0;
+      border-radius:999px;
+      background:#fff;
+      cursor:pointer;
+      font-size:.8rem;
+      width:32px;
+      height:22px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .lang-switch button img{
+      width:32px;
+      height:22px;
+      border-radius:4px;
+      border:1px solid #ccc;
+      object-fit:cover;
+    }
+
+    .shop-main-title{
+      font-size:1.6rem;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .shop-subtitle{
+      font-size:.95rem;
+      color:#6b7280;
+      margin-bottom:24px;
+    }
+
+    .products-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:16px;
+    }
+
+    .product-card{
+      background:#fff;
+      border-radius:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .product-card img{
+      width:100%;
+      border-radius:12px;
+      object-fit:cover;
+      max-height:220px;
+    }
+    .product-title{
+      font-weight:600;
+      font-size:.95rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px;
+      align-items:center;
+    }
+    .product-title .tag{
+      font-size:.7rem;
+      padding:2px 6px;
+      border-radius:999px;
+      background:rgba(195,155,100,.1);
+    }
+    .muted{
+      font-size:.85rem;
+      color:#6b7280;
+    }
+    .price{
+      font-weight:700;
+      margin-left:4px;
+    }
+    .old-price{
+      text-decoration:line-through;
+      font-size:.8rem;
+      color:#9ca3af;
+      margin-left:4px;
+    }
+    .qty-group{
+      font-size:.85rem;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .qty-group input.qty{
+      width:60px;
+      padding:4px 6px;
+      border-radius:8px;
+      border:1px solid rgba(0,0,0,.15);
+      text-align:center;
+    }
+    .btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:4px;
+    }
+    .button,
+    .btn-outline{
+      padding:6px 10px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-size:.85rem;
+    }
+    .button{
+      background:#c39b64;
+      color:#fff;
+      border:1px solid #c39b64;
+    }
+    .btn-outline{
+      background:#fff;
+      color:#c39b64;
+      border:1px solid #c39b64;
+    }
+    .button.small{
+      font-size:.8rem;
+      padding:4px 8px;
+    }
+
+    /* הודעת "נוסף מוצר לעגלה" */
+    .cart-notice{
+      position:fixed;
+      bottom:16px;
+      inset-inline:0;
+      margin-inline:auto;
+      max-width:260px;
+      background:#1f2937;
+      color:#fff;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:.85rem;
+      text-align:center;
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(10px);
+      transition:opacity .2s ease, transform .2s ease;
+      z-index:9999;
+    }
+    .cart-notice.visible{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0);
+    }
+
+    @media (max-width:600px){
+      .shop-topbar-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      header.shop-header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .shop-main-title{
+        font-size:1.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="shop-page">
+
+  <!-- פס לבן ללוגו + ניווט + דגלים -->
+  <div class="shop-topbar">
+    <div class="shop-topbar-inner">
+      <header class="shop-header">
+        <img id="siteLogo" src="images/logo.png" alt="bereshit logo" class="logo" />
+        <nav class="shop-nav">
+          <a href="index.html" data-i18n="nav.home">דף הבית</a>
+          <a href="shop.html" class="active" data-i18n="nav.shop">חנות</a>
+          <!-- עגלה מפנה לעגלה הקיימת בעמוד הראשי -->
+          <a href="index.html#cart" data-i18n="nav.cart">עגלה</a>
+
+          <div class="lang-switch">
+            <span>🌐</span>
+
+            <button class="lang-btn" data-lang="he">
+              <img src="images/flags/he.svg" alt="Hebrew">
+            </button>
+
+            <button class="lang-btn" data-lang="en">
+              <img src="images/flags/en.svg" alt="English">
+            </button>
+
+            <button class="lang-btn" data-lang="ru">
+              <img src="images/flags/ru.svg" alt="Russian">
+            </button>
+
+            <button class="lang-btn" data-lang="ka">
+              <img src="images/flags/ka.svg" alt="Georgian">
+            </button>
+          </div>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div class="shop-container">
+    <main>
+      <h1 class="shop-main-title" data-i18n="shop.heading">חנות – כל המוצרים</h1>
+      <p class="shop-subtitle" data-i18n="shop.subheading">
+        כאן תוכלו לראות את כל מוצרי הקו המקצועי שלנו ולהוסיף לעגלה בקלות.
+      </p>
+
+      <section id="shop" class="shop-section" aria-label="חנות – כל המוצרים">
+        <div class="products-grid">
+
+          <!-- ===== מוצרים 1–6 המקוריים ===== -->
+
+          <!-- מוצר 1 -->
+          <article class="product-card" data-sku="PROD-1" data-title="סרום חומצה היאלורונית 30ml" data-price="119">
+            <img src="images/products/1.jpg" alt="סרום חומצה היאלורונית 30ml" onerror="this.src='https://picsum.photos/seed/1/600/400'"/>
+            <div class="product-title">
+              סרום חומצה היאלורונית 30ml
+              <span class="tag" data-i18n="tags.deep_moist">לחות עמוקה</span>
+            </div>
+            <div class="muted" data-i18n="p1.desc">לחות אינטנסיבית למראה עור רענן.</div>
+            <div>
+              <span class="price">₾119</span>
+              <span class="old-price">₾149</span>
+            </div>
+            <div class="qty-group" data-i18n-attr="aria-label:ui.qty_label">
+              כמות:
+              <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
+            </div>
+            <div class="btn-row">
+              <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+              <button class="btn-outline view-cart" onclick="window.location.href='index.html#cart'" data-i18n="ui.view_cart">צפה בעגלה</button>
+              <button class="button small buy-now" data-i18n="ui.buy_now">קנה עכשיו</button>
+            </div>
+          </article>
+
+          <!-- מוצר 2 -->
+          <article class="product-card" data-sku="PROD-2" data-title="קרם לילה רטינול 50ml" data-price="169">
+            <img src="images/products/2.jpg" alt="קרם לילה רטינול 50ml" onerror="this.src='https://picsum.photos/seed/2/600/400'"/>
+            <div class="product-title">
+              קרם לילה רטינול 50ml
+              <span class="tag" data-i18n="tags.antiaging">אנטי-אייג׳ינג</span>
+            </div>
+            <div class="muted" data-i18n="p2.desc">תמיכה בהחלקת מרקם והאצת התחדשות.</div>
+            <div>
+              <span class="price">₾169</span>
+            </div>
+            <div class="qty-group">
+              כמות:
+              <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
+            </div>
+            <div class="btn-row">
+              <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+              <button class="btn-outline view-cart" onclick="window.location.href='index.html#cart'" data-i18n="ui.view_cart">צפה בעגלה</button>
+              <button class="button small buy-now" data-i18n="ui.buy_now">קנה עכשיו</button>
+            </div>
+          </article>
+
+          <!-- מוצר 3 -->
+          <article class="product-card" data-sku="PROD-3" data-title="שמן ורדים 15ml" data-price="89">
+            <img src="images/products/3.jpg" alt="שמן ורדים 15ml" onerror="this.src='https://picsum.photos/seed/3/600/400'"/>
+            <div class="product-title">
+              שמן ורדים 15ml
+              <span class="tag" data-i18n="tags.aroma">ארומה</span>
+            </div>
+            <div class="muted" data-i18n="p3.desc">ניחוח עדין ותמיכה בהרגעת העור.</div>
+            <div>
+              <span class="price">₾89</span>
+            </div>
+            <div class="qty-group">
+              כמות:
+              <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
+            </div>
+            <div class="btn-row">
+              <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+              <button class="btn-outline view-cart" onclick="window.location.href='index.html#cart'" data-i18n="ui.view_cart">צפה בעגלה</button>
+              <button class="button small buy-now" data-i18n="ui.buy_now">קנה עכשיו</button>
+            </div>
+          </article>
+
+          <!-- מוצר 4 -->
+          <article class="product-card" data-sku="PROD-4" data-title="מסכת חימר ירוק 75ml" data-price="99">
+            <img src="images/products/4.jpg" alt="מסכת חימר ירוק 75ml" onerror="this.src='https://picsum.photos/seed/4/600/400'"/>
+            <div class="product-title">
+              מסכת חימר ירוק 75ml
+              <span class="tag" data-i18n="tags.balance">איזון</span>
+            </div>
+            <div class="muted" data-i18n="p4.desc">ניקוי עמוק וספיחת שומן עודף.</div>
+            <div>
+              <span class="price">₾99</span>
+            </div>
+            <div class="qty-group">
+              כמות:
+              <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
+            </div>
+            <div class="btn-row">
+              <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+              <button class="btn-outline view-cart" onclick="window.location.href='index.html#cart'" data-i18n="ui.view_cart">צפה בעגלה</button>
+              <button class="button small buy-now" data-i18n="ui.buy_now">קנה עכשיו</button>
+            </div>
+          </article>
+
+          <!-- מוצר 5 -->
+          <article class="product-card" data-sku="PROD-5" data-title="קרם עיניים 15ml" data-price="139">
+            <img src="images/products/5.jpg" alt="קרם עיניים 15ml" onerror="this.src='https://picsum.photos/seed/5/600/400'"/>
+            <div class="product-title">
+              קרם עיניים 15ml
+              <span class="tag" data-i18n="tags.eye">אזור העיניים</span>
+            </div>
+            <div class="muted" data-i18n="p5.desc">סיוע למראה רענן באזור עדין.</div>
+            <div>
+              <span class="price">₾139</span>
+            </div>
+            <div class="qty-group">
+              כמות:
+              <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
+            </div>
+            <div class="btn-row">
+              <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+              <button class="btn-outline view-cart" onclick="window.location.href='index.html#cart'" data-i18n="ui.view_cart">צפה בעגלה</button>
+              <button class="button small buy-now" data-i18n="ui.buy_now">קנה עכשיו</button>
+            </div>
+          </article>
+
+          <!-- מוצר 6 -->
+          <article class="product-card" data-sku="PROD-6" data-title="סרום ויטמין C 30ml" data-price="159">
+            <img src="images/products/6.jpg" alt="סרום ויטמין C 30ml" onerror="this.src='https://picsum.photos/seed/6/600/400'"/>
+            <div class="product-title">
+              סרום ויטמין C 30ml
+              <span class="tag" data-i18n="tags.glow">זוהר</span>
+            </div>
+            <div class="muted" data-i18n="p6.desc">תמיכה באחידות גוון ובהירות.</div>
+            <div>
+              <span class="price">₾159</span>
+            </div>
+            <div class="qty-group">
+              כמות:
+              <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
+            </div>
+            <div class="btn-row">
+              <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+              <button class="btn-outline view-cart" onclick="window.location.href='index.html#cart'" data-i18n="ui.view_cart">צפה בעגלה</button>
+              <button class="button small buy-now" data-i18n="ui.buy_now">קנה עכשיו</button>
+            </div>
+          </article>
+
+          <!-- ===== תשתית למוצרים 7–50 (שמות קבצים 7.jpg עד 50.jpg) ===== -->
+          <!-- אפשר לערוך שם, מחיר ותיאור לכל מוצר לפי הצורך -->
+
+          <!-- מוצר 7–50 – תבנית דומה; כרגע עם טקסט כללי -->
+          <!-- כדי לחסוך מקום הדוגמה הבאה חוזרת, רק עם מספר שונה -->
+          <!-- אתה יכול לשנות שם/תיאור/מחיר חופשי -->
+
+          <!-- להלן כמה דוגמאות; אפשר להעתיק/לערוך לפי הצורך עד PROD-50 -->
+
+          <article class="product-card" data-sku="PROD-7" data-title="מוצר 7" data-price="99">
+            <img src="images/products/7.jpg" alt="מוצר 7" onerror="this.src='https://picsum.photos/seed/7/600/400'"/>
+            <div class="product-title">
+              מוצר 7
+              <span class="tag">תיאור קצר</span>
+            </div>
+            <div class="muted">תיאור מוצר 7 – ערוך לפי הצורך.</div>
+            <div><span class="price">₾99</span></div>
+            <div class="qty-group">
+              כמות:
+              <input type="number" min="1" value="1" class="qty" aria-label="כמות" />
+            </div>
+            <div class="btn-row">
+              <button class="button add-to-cart">הוסף לעגלה</button>
+              <button class="btn-outline view-cart" onclick="window.location.href='index.html#cart'">צפה בעגלה</button>
+              <button class="button small buy-now">קנה עכשיו</button>
+            </div>
+          </article>
+
+          <!-- כאן תוכל להעתיק את הבלוק של מוצר 7 ולהחליף רק את המספרים:
+               PROD-8, 8.jpg, "מוצר 8" ... עד PROD-50 / 50.jpg -->
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- הודעת "נוסף מוצר לעגלה" -->
+  <div id="cart-notice" class="cart-notice" aria-live="polite"></div>
+
+  <!-- קובץ הסקריפט הראשי שלך (עגלה + i18n וכו') -->
+  <script src="script.js"></script>
+
+  <!-- סקריפט ייעודי לחנות: טיפול בכפתורים + הודעת "נוסף מוצר X לעגלה" -->
+  <script>
+    (function () {
+      const noticeEl = document.getElementById('cart-notice');
+
+      function showCartNotice(count) {
+        if (!noticeEl) return;
+        const msg = count === 1
+          ? 'נוסף מוצר 1 לעגלה'
+          : 'נוספו ' + count + ' מוצרים לעגלה';
+        noticeEl.textContent = msg;
+        noticeEl.classList.add('visible');
+
+        clearTimeout(noticeEl._timer);
+        noticeEl._timer = setTimeout(function () {
+          noticeEl.classList.remove('visible');
+        }, 3000);
+      }
+
+      function handleAddOrBuy(btn) {
+        const card = btn.closest('.product-card');
+        if (!card) return;
+
+        const qtyInput = card.querySelector('.qty');
+        const qty = Math.max(1, parseInt(qtyInput && qtyInput.value, 10) || 1);
+
+        const sku   = card.dataset.sku;
+        const title = card.dataset.title;
+        const price = Number(card.dataset.price || 0);
+
+        // שימוש בפונקציה גלובלית קיימת אם יש (מה-script.js שלך)
+        if (window.addToCart && typeof window.addToCart === 'function') {
+          window.addToCart({
+            sku: sku,
+            title: title,
+            price: price,
+            qty: qty
+          });
+        }
+
+        showCartNotice(qty);
+      }
+
+      document.addEventListener('click', function (e) {
+        const addBtn = e.target.closest('.add-to-cart');
+        const buyBtn = e.target.closest('.buy-now');
+
+        if (addBtn) {
+          handleAddOrBuy(addBtn);
+        }
+
+        if (buyBtn) {
+          handleAddOrBuy(buyBtn);
+          // אחרי "קנה עכשיו" – מעבר לעגלה הקיימת בעמוד הראשי
+          window.location.href = 'index.html#cart';
+        }
+      });
+
+      // מתגי שפה – שימוש באותה לוגיקה של script.js אם קיימת
+      document.querySelectorAll('.lang-switch [data-lang]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const lang = btn.getAttribute('data-lang');
+          if (window.setLang && typeof window.setLang === 'function') {
+            window.setLang(lang);
+          } else {
+            // fallback פשוט – שמירת שפה ב-localStorage וריענון
+            localStorage.setItem('site_lang', lang);
+            location.reload();
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,2353 @@
+<!-- index.html (i18n-ready, he/en/ru/ka) -->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="meta.title">בראשית קוסמטיקה</title>
+
+  <!-- Fonts for multilingual support -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- EmailJS (אופציונלי) -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    // emailjs.init('PUBLIC_KEY_HERE');
+  </script>
+</head>
+<body>
+
+  <!-- פס עליון -->
+  <div class="topbar" role="note" data-i18n="topbar.free_ship">🚚 משלוח חינם מעל 100₾</div>
+
+  <!-- HEADER: לוגו מימין + ניווט + תפריטי משנה -->
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- לוגו ממש בקצה הימני -->
+      <a href="#home" class="brand" aria-label="דף הבית" onclick="openTab(event,'home')">
+        <img id="siteLogo" src="images/logo.png" alt="bereshit logo" class="logo" />
+      </a>
+
+      <!-- ניווט ראשי עם תפריטי משנה -->
+      <nav id="primary-nav" class="main-nav" aria-label="ניווט ראשי">
+        <div class="nav-item">
+          <button class="navlink active" data-tab="home" onclick="openTab(event,'home')" data-i18n="nav.home">דף הבית</button>
+        </div>
+
+<!-- הטיפולים שלנו -->
+<div class="nav-item has-submenu">
+  <button class="navlink" data-tab="services" aria-haspopup="true" aria-expanded="false" data-i18n="nav.services">
+    תפריט טיפולים <span class="caret" aria-hidden="true"></span>
+  </button>
+
+  <div class="submenu" role="menu" aria-label="קטגוריות - תפריט טיפולים">
+
+    <!-- Japanese Head Spa -->
+    <button class="subnavlink" onclick="openTab(event,'services-head-spa')">
+      ספא ראש יפני מסורתי
+    </button>
+
+    <!-- קטגוריית עיסויי פנים -->
+    <button class="subnavlink" onclick="openTab(event,'services-facial')">
+      עיסויי פנים
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'services-thai-compress')">
+      עיסוי פנים בקומפרסים תאילנדיים
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'services-hot-stones')">
+      עיסוי פנים באבנים חמות
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'services-thai-facial')">
+      עיסוי פנים תאילנדי מסורתי
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'services-aroma-facial')">
+      עיסוי פנים ארומתרפי
+    </button>
+
+    <!-- גב / צוואר -->
+    <button class="subnavlink" onclick="openTab(event,'services-back-massage')">
+      עיסוי גב–כתפיים–צוואר
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'services-back-hotstones')">
+      עיסוי גב–כתפיים–צוואר עם אבנים חמות
+    </button>
+
+    <!-- גוף מלא – דף קטגוריה -->
+    <button class="subnavlink" onclick="openTab(event,'services-full-body')">
+      עיסוי גוף מלא
+    </button>
+
+    <!-- טיפולי גוף מלא -->
+    <button class="subnavlink" onclick="openTab(event,'thai-traditional')">
+      עיסוי תאילנדי מסורתי
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'thai-oil')">
+      עיסוי שמן תאילנדי
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'thai-aroma')">
+      עיסוי ארומתרפי
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'thai-therapeutic')">
+      עיסוי תאילנדי רפואי
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'hot-stone-body')">
+      עיסוי באבנים חמות
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'thai-compress')">
+      עיסוי קומפרסים תאילנדי חמים בצמחי מרפא
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'shiatsu')">
+      עיסוי שיאצו
+    </button>
+
+    <button class="subnavlink" onclick="openTab(event,'foot-massage')">
+      פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי
+    </button>
+
+  </div>
+</div>
+
+
+<!-- חנות -->
+<div class="nav-item">
+  <a class="navlink active" href="shop.html" data-i18n="nav.shop">
+    חנות
+  </a>
+</div>
+
+
+
+
+        <div class="nav-item">
+          <button class="navlink" data-tab="gallery" onclick="openTab(event,'gallery')" data-i18n="nav.gallery">גלריה</button>
+        </div>
+        <div class="nav-item">
+  <button class="navlink"
+          data-tab="about"
+          onclick="openTab(event,'about')"
+          data-i18n="nav.about">
+    אודות
+  </button>
+</div>
+        <div class="nav-item">
+          <button class="navlink" data-tab="contact" onclick="openTab(event,'contact')" data-i18n="nav.contact">צור קשר</button>
+        </div>
+        <div class="nav-item">
+          <button class="navlink" data-tab="cart" onclick="openTab(event,'cart')" data-i18n="nav.cart">עגלה</button>
+        </div>
+      </nav>
+
+        <!-- מתג שפה – דגלים -->
+<div class="lang-switch">
+  <button class="lang-btn" data-lang="he">
+    <img src="images/flags/he.svg" alt="Hebrew">
+  </button>
+
+  <button class="lang-btn" data-lang="en">
+    <img src="images/flags/en.svg" alt="English">
+  </button>
+
+  <button class="lang-btn" data-lang="ru">
+    <img src="images/flags/ru.svg" alt="Russian">
+  </button>
+
+  <button class="lang-btn" data-lang="ka">
+    <img src="images/flags/ka.svg" alt="Georgian">
+  </button>
+</div>
+
+
+
+      <!-- המבורגר (מובייל) -->
+      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="פתח/סגור תפריט">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- סליידר ענק ברוחב מלא: 3 וידאוים -->
+
+  <section id="heroSlider" class="promo-slider promo-full js-slider" data-autoplay="4500" aria-label="סליידר ראשי רחב">
+    <div class="slides">
+      <article class="promo-slide is-video" data-video="Videos/spa.mp4">
+        <div class="promo-overlay center">
+          <div class="promo-eyebrow" data-i18n="hero.headspa.eyebrow">בראשית • ספא ראש יפני</div>
+          <h2 class="promo-title xl" data-i18n="hero.headspa.title">ספא ראש – רוגע עמוק ובריאות לשיער</h2>
+          <p class="promo-text lg" data-i18n="hero.headspa.text">טיפול ייחודי לקרקפת, צוואר ושיער – חוויה של רגיעה מלאה</p>
+          <div class="promo-cta">
+            <button class="button" onclick="openTab(event,'services-head-spa')" data-i18n="hero.headspa.read">לקרוא על הטיפול</button>
+            <button class="btn-outline" onclick="openTab(event,'contact')" data-i18n="hero.headspa.book">לקביעת תור</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- massage -->
+      <article class="promo-slide is-video" data-video="Videos/massage.mp4">
+        <div class="promo-overlay center">
+          <div class="promo-eyebrow" data-i18n="hero.massage.eyebrow">בראשית • הדגמה</div>
+          <h2 class="promo-title xl" data-i18n="hero.massage.title">מיצוק וזוהר – תראו את זה קורה</h2>
+          <p class="promo-text lg" data-i18n="hero.massage.text">המקום שבו העור נרגע — ואת זוהרת</p>
+          <div class="promo-cta">
+            <button class="button" onclick="openTab(event,'pro-rf')" data-i18n="hero.massage.read">לקרוא על הטיפול</button>
+            <button class="btn-outline" onclick="openTab(event,'contact')" data-i18n="hero.massage.book">לקביעת תור</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- stone -->
+      <article class="promo-slide is-video" data-video="Videos/stone.mp4">
+        <div class="promo-overlay center">
+          <div class="promo-eyebrow" data-i18n="hero.stone.eyebrow">בראשית • טיפול באבנים חמות</div>
+          <h2 class="promo-title xl" data-i18n="hero.stone.title">חום עדין, זרימה, זוהר</h2>
+          <p class="promo-text lg" data-i18n="hero.stone.text">עיסוי באבני בזלת מחוממות להרפיה עמוקה ושיפור המראה.</p>
+          <div class="promo-cta">
+            <button class="button" onclick="openTab(event,'services-hot-stones')" data-i18n="hero.stone.more">לפרטי הטיפול</button>
+            <button class="btn-outline" onclick="openTab(event,'contact')" data-i18n="hero.stone.book">קביעת תור</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- steamer -->
+      <article class="promo-slide is-video" data-video="Videos/steamer.mp4">
+        <div class="promo-overlay center">
+          <div class="promo-eyebrow" data-i18n="hero.steamer.eyebrow">בראשית • הכנה מושלמת</div>
+          <h2 class="promo-title xl" data-i18n="hero.steamer.title">אדי לחות לפתיחת נקבוביות</h2>
+          <p class="promo-text lg" data-i18n="hero.steamer.text">ריכוך וניקוי עדין — הכנה אופטימלית לחומרים פעילים.</p>
+          <div class="promo-cta">
+            <button class="button" onclick="openTab(event,'services')" data-i18n="hero.steamer.all">לכל הטיפולים</button>
+            <button class="btn-outline" onclick="openTab(event,'shop')" data-i18n="hero.steamer.shop">למוצרי תמיכה</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <button class="slider-btn prev" aria-label="הקודם" data-i18n-attr="aria-label:ui.prev">‹</button>
+    <button class="slider-btn next" aria-label="הבא" data-i18n-attr="aria-label:ui.next">›</button>
+    <div class="dots" role="tablist" aria-label="ניווט שקופיות" data-i18n-attr="aria-label:ui.slidenav"></div>
+  </section>
+
+  <div class="container">
+<!-- ===== Why Us / למה לבחור דווקא בנו ===== -->
+<section id="why-us" class="why-us" style="display:block; margin-top:16px">
+  <h2 data-i18n="why.title">למה לבחור דווקא בנו</h2>
+
+  <!-- סליידר "למה לבחור בנו" -->
+  <div id="whySlider" class="why-slider" data-autoplay="6000">
+    <div class="slides">
+
+      <!-- שקופית 1 -->
+      <div class="slide">
+        <div class="home-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+
+          <article class="t-card" style="align-items:flex-start">
+            <div class="t-name" data-i18n="why.point1.title">טיפול אמיתי מהלב</div>
+            <div class="t-meta" data-i18n="why.point1.text">
+              מטפלות ומטפלים תאילנדים מקצועיים.<br>
+              התאמה אישית לכל לקוח – כי כל גוף הוא אחר.<br>
+              אווירה רגועה וחמימה שעוטפת מהרגע הראשון.<br>
+              תוצאות שמרגישים מיד – בגוף ובראש.
+            </div>
+          </article>
+
+          <article class="t-card" style="align-items:flex-start">
+            <div class="t-name" data-i18n="why.point2.title">לא עוד “טיפול” – חוויה מלאה</div>
+            <div class="t-meta" data-i18n="why.point2.text">
+              שילוב של טכניקות יפניות ותאילנדיות ברמה גבוהה.<br>
+              שירות אישי, רגיש ומקצועי לכל אורך הדרך.<br>
+              מרחב שמאפשר לנשום, להרפות ולהרגיש נעים.<br>
+              רגע של שקט אמיתי בתוך היום.
+            </div>
+          </article>
+
+          <article class="t-card" style="align-items:flex-start">
+            <div class="t-name" data-i18n="why.point3.title">צוות מנוסה ומוסמך</div>
+            <div class="t-meta" data-i18n="why.point3.text">
+              ניסיון רב במגע טיפולי.<br>
+              עבודה מדויקת שמבינה עומס וכאבים באמת.<br>
+              סטנדרט נקי ומוקפד ללא פשרות.<br>
+              תוצאות שמורגשות ולא רק "נחמד".
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- שקופית 2 -->
+      <div class="slide">
+        <div class="home-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+
+          <article class="t-card" style="align-items:flex-start">
+            <div class="t-name" data-i18n="why.point4.title">מגע שהוא ריפוי</div>
+            <div class="t-meta" data-i18n="why.point4.text">
+              מגע מדויק ולא חזק סתם.<br>
+              התאמה למה שהגוף באמת צריך היום.<br>
+              שילוב בין מסורת עתיקה לגישות מודרניות.<br>
+              תחושת קלילות שמלווה אותך שעות אחרי.
+            </div>
+          </article>
+
+          <article class="t-card" style="align-items:flex-start">
+            <div class="t-name" data-i18n="why.point5.title">שקט, ניקיון ופרטיות</div>
+            <div class="t-meta" data-i18n="why.point5.text">
+              מרחב נקי ומסודר שמרגיש טוב בעיניים.<br>
+              כל תשומת הלב מטפל/ת–לקוח בזמן הטיפול.<br>
+              רוגע שלא פוגשים בכל מקום.<br>
+              וגם חיוך בסוף – מובטח.
+            </div>
+          </article>
+
+          <article class="t-card" style="align-items:flex-start">
+            <div class="t-name" data-i18n="why.point6.title">טקס של רוגע והתחדשות</div>
+            <div class="t-meta" data-i18n="why.point6.text">
+              כל טיפול מרגיש כמו טקס קטן של איזון פנימי.<br>
+              שימוש בשמנים איכותיים וקומפרסים תאילנדיים.<br>
+              שילוב נעים של ריח, מגע ונשימה.<br>
+              חוויה שמחברת אותך לעצמך.
+            </div>
+
+            <div class="cta-row" style="margin-top:8px">
+              <button class="btn-outline"
+                      onclick="openTab(event,'services-head-spa')"
+                      data-i18n="why.more">
+                למידע נוסף
+              </button>
+            </div>
+
+          </article>
+
+        </div>
+      </div>
+
+      <!-- שקופית 3 – נוסחים חדשים -->
+      <div class="slide">
+        <div class="home-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+
+          <article class="t-card" style="align-items:flex-start">
+            <div class="t-name" data-i18n="why.point7.title">אנחנו רואים אותך</div>
+            <div class="t-meta" data-i18n="why.point7.text">
+              לא עוד “עוד לקוח” – כל אחד מקבל יחס אישי.<br>
+              מטפלים שמקשיבים באמת לצרכים שלך.<br>
+              גישה עדינה, מקצועית ומכילה.<br>
+              פשוט טיפול שבא ממקום של אכפתיות.
+            </div>
+          </article>
+
+          <article class="t-card" style="align-items:flex-start">
+            <div class="t-name" data-i18n="why.point8.title">הפסקה לנשמה באמצע היום</div>
+            <div class="t-meta" data-i18n="why.point8.text">
+              טיפול קצר שמחזיר אנרגיה לשאר היום.<br>
+              אווירה שקטה שמנתקת מהעומס.<br>
+              התאוששות מהירה בראש ובגוף.<br>
+              רגע קטן שמרגיש כמו חופש גדול.
+            </div>
+          </article>
+
+          <article class="t-card" style="align-items:flex-start">
+            <div class="t-name" data-i18n="why.point9.title">מיקום מושלם בבטומי</div>
+            <div class="t-meta" data-i18n="why.point9.text">
+              קרוב, נוח וקל להגיע.<br>
+              בלי פקקים, בלי חניה מסובכת.<br>
+              מגיעים, נרגעים ויוצאים כמו חדשים.<br>
+              פשוט קל ונעים לכל אחד.
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- חצים (ימין / שמאל) -->
+    <button class="prev" type="button" aria-label="הקודם">&#10094;</button>
+    <button class="next" type="button" aria-label="הבא">&#10095;</button>
+
+    <!-- נקודות ניווט -->
+    <div class="dots"></div>
+  </div>
+
+  <div class="treatment cta-row" style="justify-content:center; margin-top:16px">
+    <button class="button"
+            onclick="openTab(event,'services-head-spa')"
+            data-i18n="why.cta">
+      קביעת תור לספא ראש יפני
+    </button>
+  </div>
+</section>
+
+    <!-- HOME -->
+    <section id="home" class="tabcontent" style="display:block">
+      <div class="hero fade-in">
+        <h2 class="hero-title" data-i18n="home.welcome">ברוכים הבאים לבראשית</h2>
+        <p class="hero-sub" data-i18n="home.sub">קוסמטיקה טבעית, טיפולי פנים וארומתרפיה – איכות שמרגישים בעור.</p>
+        <div class="hero-cta">
+          <button class="button" onclick="openTab(event,'shop')" data-i18n="home.cta.shop">לחנות המוצרים</button>
+          <button class="btn-outline" onclick="openTab(event,'services')" data-i18n="home.cta.services">לטיפולים</button>
+        </div>
+      </div>
+
+      <h3 class="section-title" data-i18n="home.featured">מוצרים נבחרים</h3>
+
+      <div class="home-grid">
+        <!-- מוצרים נבחרים 1..6 -->
+        <article class="product-card" data-sku="PROD-1" data-title="סרום חומצה היאלורונית 30ml" data-price="119">
+          <img src="images/products/1.jpg" alt="סרום חומצה היאלורונית 30ml" onerror="this.src='https://picsum.photos/seed/1/600/400'"/>
+          <div class="product-title">סרום חומצה היאלורונית 30ml <span class="tag" data-i18n="tags.deep_moist">לחות עמוקה</span></div>
+          <div class="muted" data-i18n="p1.desc">לחות אינטנסיבית למראה עור רענן.</div>
+          <div><span class="price">₾119</span> <span class="old-price">₾149</span></div>
+          <div class="qty-group" data-i18n-attr="aria-label:ui.qty_label">כמות: <input type="number" min="1" value="1" class="qty" aria-label="כמות" /></div>
+          <div class="btn-row">
+            <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+            <button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-sku="PROD-2" data-title="קרם לילה רטינול 50ml" data-price="169">
+          <img src="images/products/2.jpg" alt="קרם לילה רטינול 50ml" onerror="this.src='https://picsum.photos/seed/2/600/400'"/>
+          <div class="product-title">קרם לילה רטינול 50ml <span class="tag" data-i18n="tags.antiaging">אנטי-אייג׳ינג</span></div>
+          <div class="muted" data-i18n="p2.desc">תמיכה בהחלקת מרקם והאצת התחדשות.</div>
+          <div><span class="price">₾169</span></div>
+          <div class="qty-group">כמות: <input type="number" min="1" value="1" class="qty" aria-label="כמות" /></div>
+          <div class="btn-row">
+            <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+            <button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-sku="PROD-3" data-title="שמן ורדים 15ml" data-price="89">
+          <img src="images/products/3.jpg" alt="שמן ורדים 15ml" onerror="this.src='https://picsum.photos/seed/3/600/400'"/>
+          <div class="product-title">שמן ורדים 15ml <span class="tag" data-i18n="tags.aroma">ארומה</span></div>
+          <div class="muted" data-i18n="p3.desc">ניחוח עדין ותמיכה בהרגעת העור.</div>
+          <div><span class="price">₾89</span></div>
+          <div class="qty-group">כמות: <input type="number" min="1" value="1" class="qty" aria-label="כמות" /></div>
+          <div class="btn-row">
+            <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+            <button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-sku="PROD-4" data-title="מסכת חימר ירוק 75ml" data-price="99">
+          <img src="images/products/4.jpg" alt="מסכת חימר ירוק 75ml" onerror="this.src='https://picsum.photos/seed/4/600/400'"/>
+          <div class="product-title">מסכת חימר ירוק 75ml <span class="tag" data-i18n="tags.balance">איזון</span></div>
+          <div class="muted" data-i18n="p4.desc">ניקוי עמוק וספיחת שומן עודף.</div>
+          <div><span class="price">₾99</span></div>
+          <div class="qty-group">כמות: <input type="number" min="1" value="1" class="qty" aria-label="כמות" /></div>
+          <div class="btn-row">
+            <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+            <button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-sku="PROD-5" data-title="קרם עיניים 15ml" data-price="139">
+          <img src="images/products/5.jpg" alt="קרם עיניים 15ml" onerror="this.src='https://picsum.photos/seed/5/600/400'"/>
+          <div class="product-title">קרם עיניים 15ml <span class="tag" data-i18n="tags.eye">אזור העיניים</span></div>
+          <div class="muted" data-i18n="p5.desc">סיוע למראה רענן באזור עדין.</div>
+          <div><span class="price">₾139</span></div>
+          <div class="qty-group">כמות: <input type="number" min="1" value="1" class="qty" aria-label="כמות" /></div>
+          <div class="btn-row">
+            <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+            <button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-sku="PROD-6" data-title="סרום ויטמין C 30ml" data-price="159">
+          <img src="images/products/6.jpg" alt="סרום ויטמין C 30ml" onerror="this.src='https://picsum.photos/seed/6/600/400'"/>
+          <div class="product-title">סרום ויטמין C 30ml <span class="tag" data-i18n="tags.glow">זוהר</span></div>
+          <div class="muted" data-i18n="p6.desc">תמיכה באחידות גוון ובהירות.</div>
+          <div><span class="price">₾159</span></div>
+          <div class="qty-group">כמות: <input type="number" min="1" value="1" class="qty" aria-label="כמות" /></div>
+          <div class="btn-row">
+            <button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button>
+            <button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="deal-card">
+        <div class="deal-badge" data-i18n="deal.badge">מבצע החודש</div>
+        <div class="deal-content">
+          <div class="deal-title">מסכת חימר ירוק 75ml</div>
+          <div class="deal-desc muted" data-i18n="deal.desc">ניקוי עמוק ואיזון מאט — מושלם לעונות מעבר.</div>
+        </div>
+        <div class="deal-price">
+          <span class="old-price">₾129</span>
+          <span class="price">₾99</span>
+          <button class="button small" onclick="openTab(event,'shop')" data-i18n="deal.cta">קנה עכשיו</button>
+        </div>
+      </div>
+    </section>
+    <!-- ABOUT – אודות בראשית ספא -->
+ <section id="about"
+         class="tabcontent about-section"
+         style="display:none; margin-top:32px; margin-bottom:32px;">
+      <h2 class="section-title">אודות בראשית ספא</h2>
+
+      <div class="home-grid" style="align-items:flex-start; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+
+        <!-- טור 1 – הסיפור -->
+        <article class="t-card" style="align-items:flex-start;">
+          <div class="t-name">איך הכל התחיל</div>
+          <div class="t-meta">
+            <p>
+              בראשית ספא לא נולד ביום אחד.  
+              הכול התחיל דווקא בקליניקה קטנה וצנועה – חדר טיפולים פשוט שבו גילינו כמה כוח יש במגע,
+              בשקט ובחיבור האנושי.
+            </p>
+
+            <p>
+              שם, במקום הקטן ההוא, הבנו שמשהו עמוק קורה לאדם כשהוא עוצם עיניים,
+              לוקח נשימה איטית ומאפשר לעצמו להרפות באמת.
+              הבנו שגם טיפול בסיסי – כשהוא נעשה מתוך לב וקשב – יכול להפוך לרגע שמרפא מבפנים.
+            </p>
+
+            <p>
+              עם השנים התרחבו הידע, הניסיון והאהבה לתחום ההוליסטי,
+              והחזון התגבש: ליצור מרחב אמיתי של רוגע, סימון עצירה,
+              וחוויה שמחזירה את האדם לעצמו.
+            </p>
+
+            <p>
+              בראשית ספא בבטומי הוא ההמשך של הדרך הזו – מרחב אינטימי, חמים ושקט,
+              שבו כל טיפול הוא מסע קטן של נשימה, ריפוי ואיזון.
+            </p>
+          </div>
+        </article>
+
+        <!-- טור 2 – פילוסופיית הטיפול -->
+        <article class="t-card" style="align-items:flex-start;">
+          <div class="t-name">הפילוסופיה של בראשית</div>
+          <div class="t-meta">
+            <p>
+              הפילוסופיה שלנו פשוטה:  
+              <strong>הגוף יודע לרפא את עצמו – אנחנו רק מאפשרים לו את המרחב, הזמן והנשימה לעשות זאת.</strong>
+            </p>
+
+            <p>לכן בכל טיפול אנו משלבים:</p>
+            <ul>
+              <li>💆‍♂️ מגע איטי ומודע שמרגיע את מערכת העצבים</li>
+              <li>🌿 טכניקות הוליסטיות מסורתיות מרחבי העולם</li>
+              <li>🧘‍♀️ חיבור לנשימה ולרגע הנוכחי</li>
+              <li>🔁 התאמה מלאה למצב הגוף והאנרגיה של כל אדם</li>
+            </ul>
+
+            <p>
+              אין אצלנו “טיפול סטנדרטי”.  
+              כל טיפול נבנה מחדש לפי האדם שמגיע, לפי הסיפור שלו, ולפי מה שהגוף שלו מבקש באותו יום.
+            </p>
+          </div>
+        </article>
+
+        <!-- טור 3 – בראשית בבטומי -->
+        <article class="t-card" style="align-items:flex-start;">
+          <div class="t-name">בראשית בבטומי</div>
+          <div class="t-meta">
+            <p>
+              את בראשית הקמנו בבטומי מתוך תחושת שליחות: להביא לעיר תיירותית ותוססת
+              מקום שמרגיש כמו אי קטן של שקט. מקום שבו הדלת נסגרת מאחורייך,
+              והעולם כולו מרפה יחד איתך.
+            </p>
+
+            <p>
+              כאן תמצאו טיפולים הוליסטיים עמוקים, ספא ראש יפני, עיסוי תאילנדי מסורתי,
+              וטיפולי גוף שנועדו לשחרר עומס, לאזן אנרגיה ולהחזיר חיות.
+            </p>
+
+            <p>
+              בראשית הוא לא רק ספא – הוא חוויה.  
+              רגע שבו הגוף נרגע, המחשבות שקטות יותר,  
+              ואתה חוזר לעצמך – מחוזק, רגוע ובהיר.
+            </p>
+          </div>
+        </article>
+<div style="text-align:center; margin-top:24px;">
+  <button id="openTreatmentSelector" class="cta-button" style="
+    background: var(--brand);
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    color:#fff;
+    font-size:1.1rem;
+    cursor:pointer;
+    border:0;
+    box-shadow: var(--shadow);
+  ">
+    קבע טיפול
+  </button>
+</div>
+
+      </div>
+    </section>
+
+<!-- ======= הטיפולים שלנו (סקירה) ======= -->
+
+<!-- ספא ראש יפני – Japanese Head Spa -->
+<section id="services-head-spa"
+         class="tabcontent treatment"
+         data-parent="services"
+         data-file="Videos/headmassage.mp4">
+  <h2>🌸 Japanese Head Spa</h2>
+
+  <p>
+    טיפול יפני מסורתי המשלב ניקוי, עיסוי קרקפת, מסכות ופינוקי מים חמימים.<br>
+    הטכניקה ממריצה את זרימת הדם, מחזקת את שורשי השיער ומרגיעה עומקים.<br>
+    כולל שטיפה, מגבת חמה, סרום לקרקפת וייבוש שיער מלא.<br>
+    מסיים במנוחה קצרה עם תה וניחוח ארומטי עדין.
+  </p>
+
+  <p><strong>60 דק' – 200₾</strong><br>
+     <strong>90 דק' – 250₾</strong> (כולל עיסוי ידיים ורגליים)
+  </p>
+
+  <button
+    class="button book-btn"
+    data-treatment="ספא ראש יפני – Japanese Head Spa"
+    data-base="200"
+    data-addon="250"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="headmassage"></div>
+  </div>
+</section>
+
+<!-- עיסויי פנים – דף קטגוריה -->
+<section id="services-facial"
+         class="tabcontent treatment"
+         data-parent="services"
+         data-file="Videos/facial-overview.mp4">
+  <h2>✨ עיסויי פנים</h2>
+
+  <p>
+    סדרת טיפולי פנים מפנקים המשלבים מגע עדין, חום מרגיע ושמנים איכותיים,
+    לשחרור מתחים מהפנים, הלסת והצוואר ולהחזרת זוהר ורכות לעור.
+  </p>
+
+  <ul>
+    <li>🌼 עיסוי פנים בקומפרסים תאילנדים – Thai Herbal Compress Facial</li>
+    <li>🔥 עיסוי פנים באבנים חמות – Hot Stone Facial</li>
+    <li>🌺 עיסוי פנים תאילנדי מסורתי – Traditional Thai Face Massage</li>
+    <li>🌿 עיסוי פנים ארומתרפי – Aromatherapy Facial Massage</li>
+  </ul>
+
+  <p>בחרי/ה בטיפול המועדף עלייך מהתפריט כדי לראות פירוט מלא ומחירים.</p>
+
+  <button
+    class="button book-btn"
+    data-treatment="קטגוריית עיסויי פנים"
+    data-base="0"
+    data-addon="0"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון עיסויי פנים"></div>
+  </div>
+</section>
+
+<!-- עיסוי פנים בקומפרסים תאילנדים -->
+<section id="services-thai-compress"
+         class="tabcontent treatment"
+         data-parent="services"
+         data-file="Videos/thai-pads-facial.mp4">
+  <h2>🌼 עיסוי פנים בקומפרסים תאילנדיים – Thai Herbal Compress Facial Massage</h2>
+
+  <p>
+    קומפרסים תאילנדיים חמים מרפים את שרירי הפנים ומשפרים את זרימת הדם.<br>
+    החום מעודד ספיגת לחות ומעניק לעור תחושת רכות והתחדשות טבעית.<br>
+    כולל עיסוי פנים מעמיק, עיסוי קרקפת מרגיע ועבודה על פלג גוף עליון.<br>
+    טיפול חמים, מפנק ועוטף שמעניק רוגע עמוק.
+  </p>
+
+  <p><strong>60 דק' – 150₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="עיסוי פנים בקומפרסים תאילנדים"
+    data-base="150"
+    data-addon="0"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון עיסוי פנים בקומפרסים תאילנדים"></div>
+  </div>
+</section>
+
+<!-- עיסוי פנים באבנים חמות -->
+<section id="services-hot-stones"
+         class="tabcontent treatment"
+         data-parent="services"
+         data-file="Videos/hot-stones-facial.mp4">
+  <h2>🔥 עיסוי פנים באבנים חמות – Hot Stone Facial</h2>
+
+  <p>
+    אבני בזלת חמות נעות בעדינות על הפנים והצוואר ומשחררות מתחים.<br>
+    כולל עיסוי פנים, קרקפת, צוואר ופלג גוף עליון.<br>
+    החום משפר זרימת דם, מרכך שרירים ומעניק שחרור עמוק.<br>
+    מתאים במיוחד לעומס נפשי ועייפות באזור הראש.
+  </p>
+
+  <p><strong>60 דק' – 160₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="עיסוי פנים באבנים חמות"
+    data-base="160"
+    data-addon="0"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון עיסוי פנים באבנים חמות"></div>
+  </div>
+</section>
+
+<!-- עיסוי פנים תאילנדי מסורתי -->
+<section id="services-thai-facial"
+         class="tabcontent treatment"
+         data-parent="services"
+         data-file="Videos/thai-facial.mp4">
+  <h2>🌺 עיסוי פנים תאילנדי מסורתי – Traditional Thai Face Massage</h2>
+
+  <p>
+    עיסוי עדין המבוסס על טכניקות תאילנדיות עתיקות ולחיצות אנרגטיות.<br>
+    משחרר מתח מהפנים, הלסת והצוואר.<br>
+    בגרסת 60 דקות כולל גם עיסוי כתפיים ופלג גוף עליון.<br>
+    מעודד רגיעה, זרימה ואיזון עצבי עמוק.
+  </p>
+
+  <p><strong>30 דק' – 90₾ | 60 דק' – 150₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="עיסוי פנים תאילנדי מסורתי"
+    data-base="90"
+    data-addon="150"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון עיסוי פנים תאילנדי מסורתי"></div>
+  </div>
+</section>
+
+<!-- עיסוי פנים ארומתרפי -->
+<section id="services-aroma-facial"
+         class="tabcontent treatment"
+         data-parent="services"
+         data-file="Videos/aroma-facial.mp4">
+  <h2>🌿 עיסוי פנים ארומתרפי – Aromatherapy Facial Massage</h2>
+
+  <p>
+    טיפול עדין עם שמנים אתריים טהורים המותאמים לנשימה ולעור הפנים.<br>
+    מרגיע את מערכת העצבים ומשפר את זרימת הדם בעור.<br>
+    בגרסת 60 דקות כולל עיסוי כתפיים עמוק וקרקפת מורחבת.<br>
+    מעניק תחושת רכות, זוהר ואיזון רגשי עמוק.
+  </p>
+
+  <p><strong>30 דק' – 80₾ | 60 דק' – 140₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="עיסוי פנים ארומתרפי"
+    data-base="80"
+    data-addon="140"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון עיסוי פנים ארומתרפי"></div>
+  </div>
+</section>
+
+<!-- עיסוי גב–כתפיים–צוואר -->
+<section id="services-back-massage"
+         class="tabcontent treatment"
+         data-parent="services"
+         data-file="Videos/back-massage.mp4">
+  <h2>💆‍♂️ עיסוי גב–כתפיים–צוואר</h2>
+
+  <p>
+    עיסוי ממוקד לשחרור מתחים וחסימות באזורי העומס המרכזיים.<br>
+    משחרר שרירים תפוסים ומחזיר גמישות ותנועתיות טבעית.<br>
+    כולל לחיצות עמוקות ותנועות ארוכות לשחרור מדויק ומיידי.<br>
+    מומלץ לכאבי צוואר, ישיבה ממושכת ועומס יומיומי.
+  </p>
+
+  <p><strong>60 דק' – 150₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="עיסוי גב–כתפיים–צוואר"
+    data-base="150"
+    data-addon="0"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון עיסוי גב–כתפיים–צוואר"></div>
+  </div>
+</section>
+
+<!-- עיסוי גב–כתפיים–צוואר עם אבנים חמות -->
+<section id="services-back-hotstones"
+         class="tabcontent treatment"
+         data-parent="services"
+         data-file="Videos/back-hotstones.mp4">
+  <h2>🔥 עיסוי גב–כתפיים–צוואר עם אבנים חמות</h2>
+
+  <p>
+    אבני בזלת חמות חודרות לשרירים וממיסות מתחים עמוקים.<br>
+    החום מאפשר עבודה יעילה ובטוחה על אזורי עומס וכאב כרוני.<br>
+    משלב עיסוי ידני מעמיק ליצירת הרפיה מלאה של פלג הגוף העליון.<br>
+    מומלץ לעומס חוזר, כאבים כרוניים ומתח נפשי.
+  </p>
+
+  <p><strong>60 דק' – 180₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="עיסוי גב–כתפיים–צוואר עם אבנים חמות"
+    data-base="180"
+    data-addon="0"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון עיסוי גב–כתפיים–צוואר עם אבנים חמות"></div>
+  </div>
+</section>
+
+<!-- עיסוי גוף מלא – דף קטגוריה -->
+<section id="services-full-body"
+         class="tabcontent treatment"
+         data-parent="services"
+         data-file="Videos/full-body-overview.mp4">
+  <h2>🧘‍♂️ עיסוי גוף מלא – Full Body Massage Treatments</h2>
+
+  <p>
+    סדרת עיסויים לגוף מלא במגוון סגנונות – תאילנדי, שמנים, ארומתרפי, אבנים חמות, קומפרסים ועוד.<br>
+    כל טיפול מותאם לצורך אחר: שחרור עומק, הרגעה, שיקום תנועתי או איזון אנרגטי.
+  </p>
+
+  <ul>
+    <li>🇹🇭 Traditional Thai Massage</li>
+    <li>🇹🇭 Thai Oil Massage</li>
+    <li>🌿 Aromatherapy Oil Massage</li>
+    <li>🇹🇭 Thai Therapeutic Massage</li>
+    <li>🔥 Hot Stone Massage</li>
+    <li>🌼 Thai Herbal Compress Massage</li>
+    <li>🇯🇵 Shiatsu Massage – עיסוי שיאצו יפני</li>
+  </ul>
+
+  <p>בחר/י את סוג העיסוי המתאים לך מהתפריט לקבלת פירוט מלא.</p>
+
+  <button
+    class="button book-btn"
+    data-treatment="קטגוריית עיסויי גוף מלא"
+    data-base="0"
+    data-addon="0"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון עיסויי גוף מלא"></div>
+  </div>
+</section>
+
+<!-- Traditional Thai Massage -->
+<section id="thai-traditional"
+         class="tabcontent treatment"
+         data-parent="services-full-body"
+         data-file="Videos/thai-traditional.mp4">
+  <h2>🇹🇭 Traditional Thai Massage</h2>
+
+  <p>
+    טיפול עתיק ללא שמן המשלב לחיצות, מתיחות ועבודה על קווי האנרגיה (Sen).<br>
+    משפר גמישות, מפיג עומס ומחזיר תנועה חופשית לגוף.<br>
+    הטכניקה מעוררת זרימה אנרגטית ומעניקה חיוניות עמוקה.
+  </p>
+
+  <p><strong>60 דק' – 170₾ | 90 דק' – 220₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="Traditional Thai Massage"
+    data-base="170"
+    data-addon="220"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון Traditional Thai Massage"></div>
+  </div>
+</section>
+
+<!-- Thai Oil Massage -->
+<section id="thai-oil"
+         class="tabcontent treatment"
+         data-parent="services-full-body"
+         data-file="Videos/thai-oil.mp4">
+  <h2>🇹🇭 Thai Oil Massage</h2>
+
+  <p>
+    עיסוי גוף מלא בשמן חם בתנועות זורמות ועמוקות.<br>
+    משלב לחיצות תאילנדיות להמסה של מתח ועומס שרירי.<br>
+    מאזן את מערכת העצבים ומשרה רוגע מפנק בכל הגוף.
+  </p>
+
+  <p><strong>60 דק' – 180₾ | 90 דק' – 230₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="Thai Oil Massage"
+    data-base="180"
+    data-addon="230"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון Thai Oil Massage"></div>
+  </div>
+</section>
+
+<!-- Aromatherapy Oil Massage -->
+<section id="thai-aroma"
+         class="tabcontent treatment"
+         data-parent="services-full-body"
+         data-file="Videos/thai-aroma.mp4">
+  <h2>🌿 Aromatherapy Oil Massage</h2>
+
+  <p>
+    שמנים אתריים טהורים בשילוב עיסוי גוף מרגיע ומלטף.<br>
+    הריחות הטבעיים מאזנים את מערכת העצבים ומפחיתים מתחים.<br>
+    התנועות האיטיות מרפות עומס שרירי ויוצרות תחושת שלווה עמוקה.
+  </p>
+
+  <p><strong>60 דק' – 190₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="Aromatherapy Oil Massage"
+    data-base="190"
+    data-addon="0"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון Aromatherapy Oil Massage"></div>
+  </div>
+</section>
+
+<!-- Thai Therapeutic Massage -->
+<section id="thai-therapeutic"
+         class="tabcontent treatment"
+         data-parent="services-full-body"
+         data-file="Videos/thai-therapeutic.mp4">
+  <h2>🇹🇭 Thai Therapeutic Massage</h2>
+
+  <p>
+    עיסוי טיפולי עמוק המשלב לחיצות ממוקדות ומתיחות מדויקות.<br>
+    מטפל בכאבי גב, צוואר וכתפיים ובשרירים תפוסים כרונית.<br>
+    מעודד שיקום תנועתי והקלה אמיתית ומתמשכת.
+  </p>
+
+  <p><strong>60 דק' – 230₾ | 90 דק' – 280₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="Thai Therapeutic Massage"
+    data-base="230"
+    data-addon="280"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון Thai Therapeutic Massage"></div>
+  </div>
+</section>
+
+<!-- Hot Stone Massage (גוף מלא) -->
+<section id="hot-stone-body"
+         class="tabcontent treatment"
+         data-parent="services-full-body"
+         data-file="Videos/hot-stone-body.mp4">
+  <h2>🔥 Hot Stone Massage</h2>
+
+  <p>
+    אבני בזלת חמות מחליקות על הגוף וממיסות מתחים עמוקים.<br>
+    החום חודר לרקמות ומעניק רוגע עמוק וזרימת דם טובה.<br>
+    מאפשר עבודה רכה אך יעילה על עייפות וכאבים.
+  </p>
+
+  <p><strong>60 דק' – 210₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="Hot Stone Massage – גוף מלא"
+    data-base="210"
+    data-addon="0"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון Hot Stone Massage"></div>
+  </div>
+</section>
+
+<!-- Thai Herbal Compress Massage (גוף מלא) -->
+<section id="thai-compress"
+         class="tabcontent treatment"
+         data-parent="services-full-body"
+         data-file="Videos/thai-compress-body.mp4">
+  <h2>🌼 Thai Herbal Compress Massage</h2>
+
+  <p>
+    שקיות צמחים תאילנדים חמות מעניקות ריפוי טבעי וניקוז עומק.<br>
+    החום והעשבים מרגיעים כאבים, מפחיתים דלקת ומשפרים חיוניות.<br>
+    משלב עיסוי עשיר להעצמת תחושת השחרור.
+  </p>
+
+  <p><strong>60 דק' – 220₾ | 90 דק' – 260₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="Thai Herbal Compress Massage – גוף מלא"
+    data-base="220"
+    data-addon="260"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון Thai Herbal Compress Massage"></div>
+  </div>
+</section>
+
+<!-- Shiatsu Massage – עיסוי שיאצו יפני -->
+<section id="shiatsu"
+         class="tabcontent treatment"
+         data-parent="services-full-body"
+         data-file="Videos/shiatsu.mp4">
+  <h2>🇯🇵 Shiatsu Massage – עיסוי שיאצו יפני</h2>
+
+  <p>
+    עיסוי ללא שמן המתבצע בלחיצות לאורך מרידיאני הגוף.<br>
+    מאזן אנרגיה פנימית ומשחרר עומס מהמערכת העצבית.<br>
+    מתאים לעייפות, מתח נפשי וחוסר ריכוז.
+  </p>
+
+  <p><strong>60 דק' – 180₾ | 90 דק' – 230₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="Shiatsu Massage – עיסוי שיאצו יפני"
+    data-base="180"
+    data-addon="230"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון Shiatsu Massage"></div>
+  </div>
+</section>
+
+<!-- Foot Massage – פוט מסאז' -->
+<section id="foot-massage"
+         class="tabcontent treatment"
+         data-parent="services"
+         data-file="Videos/foot-massage.mp4">
+  <h2>🦶 פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי</h2>
+
+  <p>
+    עיסוי עמוק ועדין המשלב טכניקות תאילנדיות ולחיצות רפלקסולוגיות.<br>
+    מפעיל נקודות השתקפות, משפר זרימת דם ומאזן מערכות גוף שונות.<br>
+    מרפה עומסים מצטברים ומעניק רוגע עמוק לגוף ולנפש.<br>
+    מומלץ לאחר הליכה מרובה, עמידה ממושכת או יום עמוס.
+  </p>
+
+  <p><strong>30 דק' – 80₾ | 60 דק' – 120₾</strong></p>
+
+  <button
+    class="button book-btn"
+    data-treatment="Foot Massage – פוט מסאז'"
+    data-base="80"
+    data-addon="120"
+  >
+    הזמנת עיסוי ותשלום
+  </button>
+
+  <div class="video-wrap">
+    <div class="video-slot" aria-label="סרטון Foot Massage"></div>
+  </div>
+</section>
+
+    <!-- SHOP -->
+    <section id="shop" class="tabcontent">
+      <h2 data-i18n="shop.title">חנות</h2>
+      <p class="muted" data-i18n="shop.subtitle">בחרו מוצר, הגדירו כמות והוסיפו לעגלה.</p>
+
+      <div class="home-grid" id="productGrid">
+        <!-- מוצרים עם תמונות 1..15.jpg -->
+        <article class="product-card" data-sku="PROD-1" data-title="סרום חומצה היאלורונית 30ml" data-price="119">
+          <img src="images/products/1.jpg" alt="סרום חומצה היאלורונית 30ml" onerror="this.src='https://picsum.photos/seed/1/600/400'"/>
+          <div class="product-title">סרום חומצה היאלורונית 30ml <span class="tag" data-i18n="tags.deep_moist">לחות עמוקה</span></div>
+          <div class="muted" data-i18n="p1.desc">לחות אינטנסיבית למראה עור רענן.</div>
+          <div><span class="price">₾119</span> <span class="old-price">₾149</span></div>
+          <div class="qty-group" data-i18n-attr="aria-label:ui.qty_label"><input type="number" min="1" value="1" class="qty" /></div>
+          <div class="btn-row"><button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button><button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button></div>
+        </article>
+
+        <article class="product-card" data-sku="PROD-2" data-title="קרם לילה רטינול 50ml" data-price="169">
+          <img src="images/products/2.jpg" alt="קרם לילה רטינול 50ml" onerror="this.src='https://picsum.photos/seed/2/600/400'"/>
+          <div class="product-title">קרם לילה רטינול 50ml <span class="tag" data-i18n="tags.antiaging">אנטי-אייג׳ינג</span></div>
+          <div class="muted" data-i18n="p2.desc">תמיכה בהחלקת מרקם והאצת התחדשות.</div>
+          <div><span class="price">₾169</span></div>
+          <div class="qty-group"><input type="number" min="1" value="1" class="qty" /></div>
+          <div class="btn-row"><button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button><button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button></div>
+        </article>
+
+        <article class="product-card" data-sku="PROD-3" data-title="שמן ורדים 15ml" data-price="89">
+          <img src="images/products/3.jpg" alt="שמן ורדים 15ml" onerror="this.src='https://picsum.photos/seed/3/600/400'"/>
+          <div class="product-title">שמן ורדים 15ml <span class="tag" data-i18n="tags.aroma">ארומה</span></div>
+          <div class="muted" data-i18n="p3.desc">ניחוח עדין ותמיכה בהרגעת העור.</div>
+          <div><span class="price">₾89</span></div>
+          <div class="qty-group"><input type="number" min="1" value="1" class="qty" /></div>
+          <div class="btn-row"><button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button><button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button></div>
+        </article>
+
+        <article class="product-card" data-sku="PROD-4" data-title="מסכת חימר ירוק 75ml" data-price="99">
+          <img src="images/products/4.jpg" alt="מסכת חימר ירוק 75ml" onerror="this.src='https://picsum.photos/seed/4/600/400'"/>
+          <div class="product-title">מסכת חימר ירוק 75ml <span class="tag" data-i18n="tags.balance">איזון</span></div>
+          <div class="muted" data-i18n="p4.desc">ניקוי עמוק וספיחת שומן עודף.</div>
+          <div><span class="price">₾99</span></div>
+          <div class="qty-group"><input type="number" min="1" value="1" class="qty" /></div>
+          <div class="btn-row"><button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button><button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button></div>
+        </article>
+
+        <article class="product-card" data-sku="PROD-5" data-title="קרם עיניים 15ml" data-price="139">
+          <img src="images/products/5.jpg" alt="קרם עיניים 15ml" onerror="this.src='https://picsum.photos/seed/5/600/400'"/>
+          <div class="product-title">קרם עיניים 15ml <span class="tag" data-i18n="tags.eye">אזור העיניים</span></div>
+          <div class="muted" data-i18n="p5.desc">סיוע למראה רענן באזור עדין.</div>
+          <div><span class="price">₾139</span></div>
+          <div class="qty-group"><input type="number" min="1" value="1" class="qty" /></div>
+          <div class="btn-row"><button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button><button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button></div>
+        </article>
+
+        <article class="product-card" data-sku="PROD-6" data-title="סרום ויטמין C 30ml" data-price="159">
+          <img src="images/products/6.jpg" alt="סרום ויטמין C 30ml" onerror="this.src='https://picsum.photos/seed/6/600/400'"/>
+          <div class="product-title">סרום ויטמין C 30ml <span class="tag" data-i18n="tags.glow">זוהר</span></div>
+          <div class="muted" data-i18n="p6.desc">תמיכה באחידות גוון ובהירות.</div>
+          <div><span class="price">₾159</span></div>
+          <div class="qty-group"><input type="number" min="1" value="1" class="qty" /></div>
+          <div class="btn-row"><button class="button add-to-cart" data-i18n="ui.add_to_cart">הוסף לעגלה</button><button class="btn-outline" onclick="openTab(event,'cart')" data-i18n="ui.view_cart">צפה בעגלה</button></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="tabcontent">
+      <h2 data-i18n="blog.title">הבלוג של בראשית</h2>
+      <p class="muted" data-i18n="blog.subtitle">טיפים, מדריכים ומאמרים על טיפוח העור.</p>
+    </section>
+
+    <!-- CART -->
+    <section id="cart" class="tabcontent">
+      <h2 data-i18n="cart.title">עגלת קניות</h2>
+      <div class="cart-wrap">
+        <table class="cart" id="cartTable" aria-live="polite">
+          <thead>
+            <tr>
+              <th data-i18n="cart.th.product">מוצר</th>
+              <th data-i18n="cart.th.price">מחיר יח'</th>
+              <th data-i18n="cart.th.qty">כמות</th>
+              <th data-i18n="cart.th.total">סך־הכל</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" style="text-align:left" data-i18n="cart.subtotal">סה״כ ביניים</td>
+              <td id="cartSubtotal">₾0</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="cart-actions">
+        <button class="btn-outline" id="clearCartBtn" data-i18n="cart.clear">נקה עגלה</button>
+        <button class="button" id="payCardBtn" data-i18n="cart.pay_card">לתשלום בכרטיס אשראי</button>
+        <button class="button" id="checkoutBtn" data-i18n="cart.pay_whatsapp">לתשלום ב-WhatsApp</button>
+      </div>
+      <p class="muted" style="margin-top:10px" data-i18n="cart.note">ניתן לעדכן כמויות ישירות בעגלה. הסכומים יתעדכנו אוטומטית.</p>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="tabcontent">
+      <h2 data-i18n="gallery.title">גלריה</h2>
+
+      <div class="gallery" id="gallery1" aria-label="סליידר גלריה" data-i18n-attr="aria-label:gallery.aria">
+        <div class="slides">
+          <figure class="slide active">
+            <img src="https://picsum.photos/seed/face1/1200/700" alt="תוצאה לפני/אחרי 1" data-i18n-attr="alt:gallery.alt1">
+            <figcaption class="muted" data-i18n="gallery.cap1">טיפול ניקוי וזוהר</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="https://picsum.photos/seed/face2/1200/700" alt="תוצאה לפני/אחרי 2" data-i18n-attr="alt:gallery.alt2">
+            <figcaption class="muted" data-i18n="gallery.cap2">אנטי-אייג'ינג</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="https://picsum.photos/seed/clinic/1200/700" alt="הקליניקה" data-i18n-attr="alt:gallery.alt3">
+            <figcaption class="muted" data-i18n="gallery.cap3">הקליניקה שלנו</figcaption>
+          </figure>
+        </div>
+        <button class="gallery-btn prev" aria-label="הקודם" data-i18n-attr="aria-label:ui.prev">‹</button>
+        <button class="gallery-btn next" aria-label="הבא" data-i18n-attr="aria-label:ui.next">›</button>
+        <div class="dots" role="tablist" aria-label="ניווט שקופיות" data-i18n-attr="aria-label:ui.slidenav"></div>
+      </div>
+      <div class="gallery-grid">
+
+  <figure class="gallery-item"><img src="images/gallery/1.jpg"  alt="Gallery photo 1"  loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/2.jpg"  alt="Gallery photo 2"  loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/3.jpg"  alt="Gallery photo 3"  loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/4.jpg"  alt="Gallery photo 4"  loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/5.jpg"  alt="Gallery photo 5"  loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/6.jpg"  alt="Gallery photo 6"  loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/7.jpg"  alt="Gallery photo 7"  loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/8.jpg"  alt="Gallery photo 8"  loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/9.jpg"  alt="Gallery photo 9"  loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/10.jpg" alt="Gallery photo 10" loading="lazy"></figure>
+
+  <figure class="gallery-item"><img src="images/gallery/11.jpg" alt="Gallery photo 11" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/12.jpg" alt="Gallery photo 12" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/13.jpg" alt="Gallery photo 13" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/14.jpg" alt="Gallery photo 14" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/15.jpg" alt="Gallery photo 15" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/16.jpg" alt="Gallery photo 16" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/17.jpg" alt="Gallery photo 17" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/18.jpg" alt="Gallery photo 18" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/19.jpg" alt="Gallery photo 19" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/20.jpg" alt="Gallery photo 20" loading="lazy"></figure>
+
+  <figure class="gallery-item"><img src="images/gallery/21.jpg" alt="Gallery photo 21" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/22.jpg" alt="Gallery photo 22" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/23.jpg" alt="Gallery photo 23" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/24.jpg" alt="Gallery photo 24" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/25.jpg" alt="Gallery photo 25" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/26.jpg" alt="Gallery photo 26" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/27.jpg" alt="Gallery photo 27" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/28.jpg" alt="Gallery photo 28" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/29.jpg" alt="Gallery photo 29" loading="lazy"></figure>
+  <figure class="gallery-item"><img src="images/gallery/30.jpg" alt="Gallery photo 30" loading="lazy"></figure>
+
+</div>
+
+    </section>
+    <!-- CONTACT -->
+    <section id="contact" class="tabcontent contact-section">
+      <h2>צור קשר</h2>
+      <p class="muted">
+        נשמח לענות על כל שאלה, להתאים עבורך טיפול אישי או לעזור בקביעת תור.
+        אפשר לפנות בטלפון, ב-WhatsApp או דרך הטופס הבא.
+      </p>
+
+      <div class="home-grid" style="align-items:flex-start; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); margin-top:16px;">
+        <!-- צד ימין: פרטי התקשרות -->
+        <article class="t-card" style="align-items:flex-start;">
+          <div class="t-name">פרטי קליניקה</div>
+          <div class="t-meta">
+            <p><strong>כתובת:</strong><br>
+              8 Vaja Pshavela St, Batumi
+            </p>
+            <p><strong>טלפון:</strong><br>
+              <a href="tel:+995599078676">+995 599 07 86 76</a>
+            </p>
+            <p><strong>WhatsApp:</strong><br>
+              <a href="https://wa.me/995559078676" target="_blank" rel="noopener">שליחת הודעה ב-WhatsApp</a>
+            </p>
+            <p><strong>דוא״ל:</strong><br>
+              <a href="mailto:info@bereshitspa.com">info@bereshitspa.com</a>
+            </p>
+          </div>
+        </article>
+
+        <!-- צד שמאל: טופס יצירת קשר -->
+        <article class="t-card" style="align-items:flex-start;">
+          <div class="t-name">השאירו פרטים ונחזור אליכם</div>
+          <div class="t-meta">
+            <form id="contactForm">
+              <div class="booking-row">
+                <label for="cfName">שם מלא</label>
+                <input id="cfName" name="name" type="text" required placeholder="שם מלא">
+              </div>
+
+              <div class="booking-row">
+                <label for="cfPhone">טלפון</label>
+                <input id="cfPhone" name="phone" type="tel" required placeholder="מספר נייד">
+              </div>
+
+              <!-- חדש: בחירת טיפול מתוך רשימה -->
+              <div class="booking-row">
+                <label for="cfTreatment">בחר/י מתוך רשימת העיסויים (אופציונלי)</label>
+                <select id="cfTreatment" name="treatment">
+                  <option value="">בחרו טיפול שמעניין אתכם…</option>
+
+                  <!-- ספא ראש -->
+                  <option>ספא ראש יפני – 60 דק' – 200₾</option>
+                  <option>ספא ראש יפני – 90 דק' – 250₾</option>
+
+                  <!-- עיסויי פנים -->
+                  <option>עיסוי פנים בקומפרסים תאילנדיים – 60 דק' – 150₾</option>
+                  <option>עיסוי פנים באבנים חמות – 60 דק' – 160₾</option>
+                  <option>עיסוי פנים תאילנדי מסורתי – 30 דק' – 90₾</option>
+                  <option>עיסוי פנים תאילנדי מסורתי – 60 דק' – 150₾</option>
+                  <option>עיסוי פנים ארומתרפי – 30 דק' – 80₾</option>
+                  <option>עיסוי פנים ארומתרפי – 60 דק' – 140₾</option>
+
+                  <!-- גב–כתפיים–צוואר -->
+                  <option>עיסוי גב–כתפיים–צוואר – 60 דק' – 150₾</option>
+                  <option>עיסוי גב–כתפיים–צוואר עם אבנים חמות – 60 דק' – 180₾</option>
+
+                  <!-- גוף מלא -->
+                  <option>Traditional Thai Massage – 60 דק' – 170₾</option>
+                  <option>Traditional Thai Massage – 90 דק' – 220₾</option>
+                  <option>Thai Oil Massage – 60 דק' – 180₾</option>
+                  <option>Thai Oil Massage – 90 דק' – 230₾</option>
+                  <option>Aromatherapy Oil Massage – 60 דק' – 190₾</option>
+                  <option>Thai Therapeutic Massage – 60 דק' – 230₾</option>
+                  <option>Thai Therapeutic Massage – 90 דק' – 280₾</option>
+                  <option>Hot Stone Massage – גוף מלא – 60 דק' – 210₾</option>
+                  <option>Thai Herbal Compress Massage – גוף מלא – 60 דק' – 220₾</option>
+                  <option>Thai Herbal Compress Massage – גוף מלא – 90 דק' – 260₾</option>
+                  <option>Shiatsu Massage – 60 דק' – 180₾</option>
+                  <option>Shiatsu Massage – 90 דק' – 230₾</option>
+
+                  <!-- פוט מסאז' -->
+                  <option>Foot Massage – 30 דק' – 80₾</option>
+                  <option>Foot Massage – 60 דק' – 120₾</option>
+                </select>
+              </div>
+
+              <div class="booking-row">
+                <label for="cfMsg">איך נוכל לעזור?</label>
+                <textarea id="cfMsg" name="message" rows="3" placeholder="שאלה, סוג טיפול שמעניין אותך, העדפות ועוד"></textarea>
+              </div>
+
+              <button type="submit" class="button">
+                שליחה
+              </button>
+            </form>
+            <p class="muted" style="margin-top:8px;">
+              אפשר כמובן גם לשלוח הודעה ישירה ב-WhatsApp או להתקשר אלינו.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+<!-- ===== Testimonials (לקוחות ממליצות) – לשים מעל הפוטר ===== -->
+<section id="testimonials" class="testimonials">
+  <h2 class="footer-title">לקוחות ממליצים</h2>
+
+  <div class="testi-slider" id="testi">
+    <!-- כפתורי ניווט -->
+    <button class="testi-btn prev" type="button" aria-label="הקודם">‹</button>
+
+    <!-- מסילת הסליידר -->
+    <div class="testi-track">
+      <!-- 👑 טיפול הדגל – ספא ראש יפני -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar1.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">דנה לוי</div>
+            <div class="t-meta">👑 טיפול הדגל – ספא ראש יפני</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״טינטיתיפט פשוט יודעת מה היא עושה. מהדקה הראשונה הרגשתי שאני בידיים טובות, והעיסוי בראש שחרר לי מתחים שלא הצלחתי לפתור חודשים. הכול היה נעים, מדויק ומרגיע בטירוף. יצאתי קלילה.״</p>
+      </article>
+
+      <!-- 🌸 Japanese Head Spa -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar2.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">ליאת א.</div>
+            <div class="t-meta">🌸 Japanese Head Spa</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״ויפאויני הפתיעה אותי ברמות. טיפול עדין אבל כל כך אפקטיבי, כאילו היא קוראת את השרירים מבפנים. הראש נהיה קל והנשימה נפתחה בלי מאמץ. באמת חוויה שלא רציתי שתיגמר.״</p>
+      </article>
+
+      <!-- עוד חוות דעת לראש יפני -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar3.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">רוני כץ</div>
+            <div class="t-meta">👑 טיפול הדגל – ספא ראש יפני</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״רצ'ן נתן טיפול ברמה שאין בבטומי. המים החמימים, העיסוי בקרקפת והאווירה – הכול התחבר בצורה מושלמת. ממש הרגשתי איך הראש מתרוקן מהמחשבות. ממליצה בענק.״</p>
+      </article>
+
+      <!-- 🌼 עיסוי פנים בקומפרסים תאילנדים – Thai Herbal Compress Facial -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar4.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">עדי מור</div>
+            <div class="t-meta">🌼 עיסוי פנים בקומפרסים תאילנדים – Thai Herbal Compress Facial</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״נריסרה עשתה לי טיפול שהפתיע אותי לגמרי. הקומפרסים החמים פשוט ממיסים את הפנים, והעיסוי שלה עושה קסמים. יצאתי עם עור זוהר ורגוע. הרגשתי ממש מחודשת.״</p>
+      </article>
+
+      <!-- 🔥 עיסוי פנים באבנים חמות – Hot Stone Facial -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar5.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">מורן ח.</div>
+            <div class="t-meta">🔥 עיסוי פנים באבנים חמות – Hot Stone Facial</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״טינטיתיפט השתמשה באבנים חמות בצורה מושלמת. החום בדיוק במידה והידיים שלה פשוט פותחות את כל השרירים. זה עשה לי שקט בראש וגם בפנים. חוויה שעושים שוב.״</p>
+      </article>
+
+      <!-- 🌺 עיסוי פנים תאילנדי מסורתי – Traditional Thai Face Massage -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar6.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">הילה ב.</div>
+            <div class="t-meta">🌺 עיסוי פנים תאילנדי מסורתי – Traditional Thai Face Massage</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״ויפאויני יודעת ללחוץ בדיוק איפה שצריך. זה עיסוי פנים, אבל מרגיש כמו טיפול עמוק שמרגיע את כל הגוף. הלחץ מהלסת נעלם והנשימה נהיית קלילה יותר. באמת מיוחד.״</p>
+      </article>
+
+      <!-- 🌿 עיסוי פנים ארומתרפי – Aromatherapy Facial Massage -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar7.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">שירי ה.</div>
+            <div class="t-meta">🌿 עיסוי פנים ארומתרפי – Aromatherapy Facial Massage</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״רצ'ן עבד עם שמנים בריח עדין ומפנק, והמגע שלו היה נעים ומאוזן. העור מרגיש רך ובריא, ואני יצאתי הרבה יותר רגועה ממה שנכנסתי. ממש טיפול לנשמה.״</p>
+      </article>
+
+      <!-- 💆‍♂️ עיסוי גב–כתפיים–צוואר -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar8.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">סיון ט.</div>
+            <div class="t-meta">💆‍♂️ עיסוי גב–כתפיים–צוואר</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״נריסרה פשוט יודעת למצוא את המקומות הכואבים. כל לחיצה שלה במקום, בלי שנגיד מילה. הכאבים בכתפיים ירדו כבר באמצע הטיפול. טיפול שמחזירים עליו.״</p>
+      </article>
+
+      <!-- 🔥 עיסוי גב–כתפיים–צוואר עם אבנים חמות -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar9.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">מאיה ג.</div>
+            <div class="t-meta">🔥 עיסוי גב–כתפיים–צוואר עם אבנים חמות</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״טינטיתיפט עשתה לי טיפול עם אבנים חמות שפשוט הרגיע אותי לגמרי. זה שילוב של חום עדין ועיסוי שמרגיש מקצועי מהשורש. יצאתי בלי הצוואר התקוע שהיה לי שבועות.״</p>
+      </article>
+
+      <!-- 🇹🇭 Traditional Thai Massage -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar10.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">יואב ר.</div>
+            <div class="t-meta">🇹🇭 Traditional Thai Massage</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״ויפאויני העניקה לי עיסוי תאילנדי מסורתי שכאילו החזיר את הגוף למסלול. המתיחות והלחיצות הרגישו מדויקות ולא כואבות מדי. אחרי הטיפול הרגשתי תנועה חופשית שלא הייתה לי הרבה זמן. פשוט מעולה.״</p>
+      </article>
+
+      <!-- 🇹🇭 Thai Oil Massage -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar11.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">אורית ש.</div>
+            <div class="t-meta">🇹🇭 Thai Oil Massage</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״רצ'ן עשה לי עיסוי שמנים כמו שצריך – עמוק אבל מלטף. הגוף שחרר המון עומס, ואפילו הנשימה שלי נהייתה רגועה יותר. אחת החוויות הכי טובות שהיו לי פה.״</p>
+      </article>
+
+      <!-- 🌿 Aromatherapy Oil Massage -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar13.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">אלינה פ.</div>
+            <div class="t-meta">🌿 Aromatherapy Oil Massage</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״נריסרה השתמשה בשמנים בריח עדין וכל הגוף פשוט נרגע. העיסוי היה איטי, מלטף ומדויק, והרגשתי שהראש מתנקה יחד עם הגוף. יצאתי הרבה יותר רגועה ושקולה.״</p>
+      </article>
+
+      <!-- 🇹🇭 Thai Therapeutic Massage -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar14.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">גיל ד.</div>
+            <div class="t-meta">🇹🇭 Thai Therapeutic Massage</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״טינטיתיפט נתנה לי עיסוי טיפולי אמיתי, לא רק 'כיף'. היא מצאה כל נקודה כואבת ושיחררה אותה בסבלנות. יצאתי עם גב אחר לגמרי. סוף סוף משהו שעוזר באמת.״</p>
+      </article>
+
+      <!-- 🔥 Hot Stone Massage -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar15.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">נועה ל.</div>
+            <div class="t-meta">🔥 Hot Stone Massage</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״ויפאויני עשתה לי טיפול באבני בזלת חמות שהיה פשוט חלום. השרירים נמסו אחד אחד, והרגשתי כאילו הגוף עבר ריסטרט. זו חוויה של רוגע עמוק, לא רק עיסוי.״</p>
+      </article>
+
+      <!-- 🌼 Thai Herbal Compress Massage -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar16.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">מיטל ס.</div>
+            <div class="t-meta">🌼 Thai Herbal Compress Massage</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״רצ'ן עבד עם הקומפרסים החמים בעדינות אבל בעומק. החום של הצמחים יחד עם העיסוי הורידו לי כאבים בכתפיים ובגב שלא זזו הרבה זמן. יצאתי קלילה ממש.״</p>
+      </article>
+
+      <!-- 🇯🇵 Shiatsu Massage – עיסוי שיאצו יפני -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar17.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">תומר ק.</div>
+            <div class="t-meta">🇯🇵 Shiatsu Massage – עיסוי שיאצו יפני</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״נריסרה עשתה לי שיאצו יפני שונה מכל עיסוי שהכרתי. בלי שמן, רק לחיצות מאוד מדויקות שהחזירו לי שקט בראש ובגוף. זה טיפול שממש מאזין לגוף. לגמרי ממליץ.״</p>
+      </article>
+
+      <!-- 🦶 פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי -->
+      <article class="t-card">
+        <div class="t-head">
+          <img class="t-avatar" src="images/avatar12.jpg" alt="" onerror="this.style.display='none'">
+          <div>
+            <div class="t-name">קרן ל.</div>
+            <div class="t-meta">🦶 פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי</div>
+          </div>
+        </div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">״נריסרה עשתה לי פוט מסאז' ברמה שלא ציפיתי לה. לחיצות מדויקות, עבודה עמוקה ששחררה לי את כל הגוף דרך כפות הרגליים. הרגליים הרגישו קלות והראש נקי. תענוג אמיתי.״</p>
+      </article>
+    </div>
+
+    <button class="testi-btn next" type="button" aria-label="הבא">›</button>
+  </div>
+</section>
+
+
+<footer id="site-footer" class="footer">
+  <div class="footer-grid">
+
+
+    <!-- עמודה 1: טקסט + לוגו + אייקונים (בצד ימין) -->
+    <section class="col about" style="grid-area: about;">
+            <img class="brand-mark" src="images/logo.png" alt="BERESHIT SPA" />
+
+      <p>
+        בראשית ספא בבטומי מזמינה אותך לחוות עולם של רגע, יופי ואיזון פנימי.
+        טיפולים ייחודיים , עיסויים מפנקים ושמנים טבעיים – לכל טיפול
+        מותאם אישי כדי לרענן את העור ולהשיב רוגע והרמוניה.
+      </p>
+
+
+<nav class="social">
+  <a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61583311067341" target="_blank" rel="noopener">
+    <i class="svg fb"></i>
+  </a>
+  <a aria-label="Instagram" href="https://instagram.com/bereshitspa" target="_blank" rel="noopener">
+    <i class="svg ig"></i>
+  </a>
+  <a aria-label="YouTube" href="https://www.youtube.com/@bereshitspa" target="_blank" rel="noopener">
+    <i class="svg yt"></i>
+  </a>
+</nav>
+    </section>
+
+    <!--ניווט מהיר עמודה 2-->
+<section class="col nav-col" style="grid-area: nav;">
+  <h3 class="nav-title">ניווט מהיר</h3>
+
+  <nav class="quick-nav" aria-label="ניווט מהיר">
+    <a class="navlink active" href="shop.html" data-i18n="nav.shop">חנות</a>
+    <button class="navlink" data-tab="gallery" onclick="openTab(event,'gallery')" data-i18n="nav.gallery">גלריה</button>
+    <button class="navlink" data-tab="cart" onclick="openTab(event,'cart')" data-i18n="nav.cart">עגלה</button>
+      <button class="navlink" data-tab="about" onclick="openTab(event,'about')" data-i18n="nav.about">אודות</button>
+
+</section>
+
+    <!-- עמודה3: שעות פעילות -->
+    <section class="col hours" style="grid-area: hours;">
+      <h3>שעות פעילות הקליניקה</h3>
+      <ul class="hours-list">
+        <li><span>יום ראשון</span><b>10:00–21:00</b></li>
+        <li><span>יום שני</span><b>10:00–21:00</b></li>
+        <li><span>יום שלישי</span><b>10:00–21:00</b></li>
+        <li><span>יום רביעי</span><b>10:00–21:00</b></li>
+        <li><span>יום חמישי</span><b>10:00–21:00</b></li>
+        <li><span>יום שישי</span><b>9:00–14:00</b></li>
+        <li class="closed"><span>יום שבת</span><b>סגור</b></li>
+      </ul>
+    </section>
+
+    <!-- עמודה4: פרטי יצירת קשר -->
+    <section class="col contact" style="grid-area: contact;">
+      <h3>כתובתנו</h3>
+    <ul class="contact-list">
+  <li>
+    <span class="ico">📍</span>
+    <div class="val">
+      <a href="https://maps.google.com/?q=8 Vaja Pshavela St, Batumi" target="_blank" rel="noopener">
+        8 Vaja Pshavela St, Batumi
+      </a>
+    </div>
+  </li>
+
+  <li>
+  <span class="ico">
+    <img src="assets/icons/whatsapp.svg" alt="WhatsApp" />
+  </span>
+  <div class="val">
+    <a href="https://wa.me/972502686862" target="_blank" rel="noopener">0502686862</a>
+    <a href="https://wa.me/972508248243" target="_blank" rel="noopener">0508248243</a>
+  </div>
+</li>
+
+  <li>
+    <span class="ico">📞</span>
+    <div class="val">
+      <a href="tel:+995599078676">+995599078676</a>
+    </div>
+  </li>
+
+  <li>
+    <span class="ico">✉️</span>
+    <div class="val">
+      <a href="mailto:info@bereshitspa.com">info@bereshitspa.com</a>
+    </div>
+  </li>
+</ul>
+    </section>
+
+    <!-- עמודה5: מפה בצד שמאל -->
+    <section class="col map" style="grid-area: map;">
+      <iframe
+        title="מפה - Bereshit Spa"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=8%20Vaja%20Pshavela%20St,%20Batumi&output=embed">
+      </iframe>
+    </section>
+
+  </div>
+</footer>
+<script>
+(function(){
+  const track = document.querySelector('#testi .testi-track');
+  if(!track) return;
+
+  let dir = 1; // 1 קדימה, -1 אחורה
+  let timer = null;
+
+  function step(){
+    if (!track || track.matches(':hover')) return;
+
+    const firstCard = track.querySelector('.t-card');
+    if(!firstCard) return;
+
+    const gap = parseInt(getComputedStyle(track).gap) || 0;
+    const cardW = firstCard.offsetWidth + gap;
+    const max = track.scrollWidth - track.clientWidth;
+
+    let next = track.scrollLeft + dir * cardW;
+
+    if (next >= max - 2) { dir = -1; next = max; }
+    if (next <= 2)       { dir =  1; next = 0;   }
+
+    track.scrollTo({ left: next, behavior: 'smooth' });
+  }
+
+  function start(){ if(!timer) timer = setInterval(step, 2800); }
+  function stop(){ clearInterval(timer); timer = null; }
+
+  start();
+  track.addEventListener('mouseenter', stop);
+  track.addEventListener('mouseleave', start);
+  track.addEventListener('touchstart', stop, {passive:true});
+  track.addEventListener('touchend', start, {passive:true});
+})();
+</script>
+
+  </div>
+
+  <div id="appToast" class="toast" aria-live="polite" hidden></div>
+
+  <!-- ===== i18n engine + dictionaries (inline) ===== -->
+  <script>
+    const $ = (s, c=document) => c.querySelector(s);
+    const $$ = (s, c=document) => Array.from(c.querySelectorAll(s));
+
+    const DICTS = {
+      he: {
+        'meta.title':'בראשית קוסמטיקה',
+        'topbar.free_ship':'🚚 משלוח חינם מעל 100₾',
+        'ui.language':'שפה',
+        'ui.prev':'הקודם',
+        'ui.next':'הבא',
+        'ui.slidenav':'ניווט שקופיות',
+        'ui.add_to_cart':'הוסף לעגלה',
+        'ui.view_cart':'צפה בעגלה',
+        'ui.qty_label':'כמות',
+        'ui.suits':'למי מתאים:',
+        'ui.flow':'מה קורה בטיפול:',
+        'ui.benefits':'תועלות:',
+        'ui.duration':'משך:',
+        'ui.freq':'תדירות:',
+        'ui.principle':'עיקרון:',
+        'nav.home':'דף הבית',
+        'nav.about':'אודות',
+        'nav.services':'הטיפולים שלנו',
+        'nav.shop':'חנות',
+        'nav.gallery':'גלריה',
+        'nav.contact':'צור קשר',
+        'nav.cart':'עגלה',
+
+
+
+        'hero.massage.eyebrow':'בראשית • הדגמה',
+        'hero.massage.title':'מיצוק וזוהר – תראו את זה קורה',
+        'hero.massage.text':'המקום שבו העור נרגע — ואת זוהרת',
+        'hero.massage.read':'לקרוא על הטיפול',
+        'hero.massage.book':'לקביעת תור',
+
+        'hero.stone.eyebrow':'בראשית • טיפול באבנים חמות',
+        'hero.stone.title':'חום עדין, זרימה, זוהר',
+        'hero.stone.text':'עיסוי באבני בזלת מחוממות להרפיה עמוקה ושיפור המראה.',
+        'hero.stone.more':'לפרטי הטיפול',
+        'hero.stone.book':'קביעת תור',
+
+        'hero.steamer.eyebrow':'בראשית • הכנה מושלמת',
+        'hero.steamer.title':'אדי לחות לפתיחת נקבוביות',
+        'hero.steamer.text':'ריכוך וניקוי עדין — הכנה אופטימלית לחומרים פעילים.',
+        'hero.steamer.all':'לכל הטיפולים',
+        'hero.steamer.shop':'למוצרי תמיכה',
+
+        'home.welcome':'ברוכים הבאים לבראשית',
+        'home.sub':'קוסמטיקה טבעית, טיפולי פנים וארומתרפיה – איכות שמרגישים בעור.',
+        'home.cta.shop':'לחנות המוצרים',
+        'home.cta.services':'לטיפולים',
+        'home.featured':'מוצרים נבחרים',
+
+        'tags.deep_moist':'לחות עמוקה',
+        'tags.antiaging':'אנטי-אייג׳ינג',
+        'tags.aroma':'ארומה',
+        'tags.balance':'איזון',
+        'tags.eye':'אזור העיניים',
+        'tags.glow':'זוהר',
+
+        'p1.desc':'לחות אינטנסיבית למראה עור רענן.',
+        'p2.desc':'תמיכה בהחלקת מרקם והאצת התחדשות.',
+        'p3.desc':'ניחוח עדין ותמיכה בהרגעת העור.',
+        'p4.desc':'ניקוי עמוק וספיחת שומן עודף.',
+        'p5.desc':'סיוע למראה רענן באזור עדין.',
+        'p6.desc':'תמיכה באחידות גוון ובהירות.',
+
+        'deal.badge':'מבצע החודש',
+        'deal.desc':'ניקוי עמוק ואיזון מאט — מושלם לעונות מעבר.',
+        'deal.cta':'קנה עכשיו',
+
+        'services.title':'הטיפולים שלנו',
+        'services.menu.headspa':'ספא ראש יפני',
+        'services.menu.hotstones':'עיסוי פנים באבנים חמות',
+        'services.menu.thaipads':'עיסוי פנים בקומפרסורים תאילנדים',
+        'services.menu.aroma':'טיפול ארומה לשחרור סטרס',
+        'services.menu.bowls':'קול ושקט פנימי (קערות טיבטיות)',
+
+        'headspa.title':'ספא ראש יפני',
+        'headspa.suits':'לכל מי שחווה עומס ומתחים בצוואר, בקרקפת או באזור הרקות; לעובדים שעות ארוכות מול מחשב; לסובלים מעייפות בעיניים, קושי להירגע או תחושת כבדות בראש. הטיפול מתאים גם למי שמחפש רגע של שקט פנימי, איזון והרפיה עמוקה.',
+        'headspa.flow':'ניקוי עדין ומרענן של הקרקפת בהתאמה אישית → עיסוי יפני בהשראת שיאצו עם לחיצות בנקודות מפתח בקרקפת, צוואר, רקות ועורף לשחרור חסימות והמרצת זרימה → טכניקות עיטוף וחימום להרגעה עמוקה → מסכה מזינה לקרקפת ולשיער, עשירה בשמנים אתריים וצמחי מרפא → סרום טיפולי לאיזון ושיקום הקרקפת.',
+        'headspa.benefits':'שחרור מתחים ולחץ מצטבר, תחושת קלילות בראש, המרצת זרימת דם עדינה לקרקפת, הפחתת עומס ועייפות בעיניים ובמצח, הזנה ולחות לקרקפת ולשיער, רוגע ואיזון פנימי ושיפור איכות השינה.',
+        'headspa.video_aria':'סרטון ספא ראש יפני',
+
+        'hotstones.title':'עיסוי פנים באבנים חמות',
+        'hotstones.suits':'עור עייף/מתוח, מתח גבוה, צורך בהרגעה והזרמת דם.',
+        'hotstones.flow':'ניקוי עדין → פילינג רך → עיסוי מרפה עם אבני בזלת מחוממות (פנים, צוואר וכתפיים) → מסכה מרגיעה → סרום וקרם גמר.',
+        'hotstones.benefits':'שחרור מתחים, שיפור זרימה, זוהר ורכות, ספיגת חומרים טובה יותר.',
+        'hotstones.video_aria':'סרטון טיפול אבנים חמות',
+
+        'thaipads.title':'עיסוי פנים בקומפרסורים תאילנדים',
+        'thaipads.suits':'עור עמום/לחוץ, צורך בניקוז והרפיה.',
+        'thaipads.flow':'ניקוי → פילינג אנזימטי → עיסוי בפדי צמחים תאילנדים מחוממים → מסכת לחות/רגיעה → גמר.',
+        'thaipads.benefits':'ריכוך והרגעה, המרצת מיקרו־סירקולציה, ניחוח צמחי נעים.',
+        'thaipads.video_aria':'סרטון עיסוי פנים בקומפרסורים תאילנדים   ',
+
+        'aroma.title':'טיפול ארומה לשחרור סטרס',
+        'aroma.suits':'עומס רגשי, קשיי שינה קלים, עור תגובתי/מתוח.',
+        'aroma.flow':'אבחון קצר → תערובת שמנים אתריים מותאמת → ניקוי עדין → עיסוי ארומתרפי מרפה + תרגיל נשימה קצר → מסכת הרגעה → גמר.',
+        'aroma.benefits':'ויסות סימפתטי, שחרור מתח, רכות וזוהר.',
+        'aroma.video_aria':'סרטון טיפול ארומה לשחרור סטרס',
+
+        'bowls.title':'קול ושקט פנימי (קערות טיבטיות)',
+        'bowls.suits':'עומס נפשי/קוגניטיבי, צורך בהאטה והרפיה.',
+        'bowls.note':'טיפול רילקסציה ואיזון — אינו טיפול רפואי.',
+        'bowls.video_aria':'סרטון טיפול קערות טיבטיות',
+
+        'shop.title':'חנות',
+        'shop.subtitle':'בחרו מוצר, הגדירו כמות והוסיפו לעגלה.',
+
+     
+
+        'cart.title':'עגלת קניות',
+        'cart.th.product':'מוצר',
+        'cart.th.price':'מחיר יח\'',
+        'cart.th.qty':'כמות',
+        'cart.th.total':'סך־הכל',
+        'cart.subtotal':'סה\"כ ביניים',
+        'cart.clear':'נקה עגלה',
+        'cart.pay_card':'לתשלום בכרטיס אשראי',
+        'cart.pay_whatsapp':'לתשלום ב-WhatsApp',
+        'cart.note':'ניתן לעדכן כמויות ישירות בעגלה. הסכומים יתעדכנו אוטומטית.',
+
+        'gallery.title':'גלריה',
+        'gallery.aria':'סליידר גלריה',
+        'gallery.alt1':'תוצאה לפני/אחרי 1',
+        'gallery.alt2':'תוצאה לפני/אחרי 2',
+        'gallery.alt3':'הקליניקה',
+        'gallery.cap1':'טיפול ניקוי וזוהר',
+        'gallery.cap2':'אנטי-אייג\'ינג',
+        'gallery.cap3':'הקליניקה שלנו',
+
+        'footer.contact_title':'פרטי יצירת קשר',
+        'footer.fb_title':'בקרו אותנו בדף הפייסבוק',
+        'footer.fb_btn':'לדף הפייסבוק'
+      },
+
+      en: {
+        'meta.title':'Bereshit Cosmetics',
+        'topbar.free_ship':'🚚 Free shipping over 100₾',
+        'ui.language':'Language','ui.prev':'Previous','ui.next':'Next','ui.slidenav':'Slide navigation',
+        'ui.add_to_cart':'Add to cart','ui.view_cart':'View cart','ui.qty_label':'Quantity','ui.suits':'Suited for:','ui.flow':'What happens:','ui.benefits':'Benefits:','ui.duration':'Duration:','ui.freq':'Frequency:','ui.principle':'Principle:',
+        'nav.home':'Home','nav.services':'Our Treatments','nav.pro_services':'Advanced','nav.shop':'Shop','nav.blog':'Bereshit Blog','nav.gallery':'Gallery','nav.contact':'Contact','nav.cart':'Cart',
+
+
+
+        'hero.massage.eyebrow':'Bereshit • Demo','hero.massage.title':'Firm & Glow — see it happen','hero.massage.text':'Where skin unwinds — and you glow','hero.massage.read':'Read about the treatment','hero.massage.book':'Book now',
+        'hero.stone.eyebrow':'Bereshit • Hot Stones','hero.stone.title':'Gentle warmth, flow, glow','hero.stone.text':'Heated basalt stones for deep relaxation and improved appearance.','hero.stone.more':'Treatment details','hero.stone.book':'Book now',
+        'hero.steamer.eyebrow':'Bereshit • Perfect Prep','hero.steamer.title':'Moist steam to open pores','hero.steamer.text':'Softening & gentle cleanse — optimal prep for actives.','hero.steamer.all':'All treatments','hero.steamer.shop':'Supportive products',
+
+        'home.welcome':'Welcome to Bereshit','home.sub':'Natural cosmetics, facials & aromatherapy — quality you feel.','home.cta.shop':'Go to shop','home.cta.services':'See treatments','home.featured':'Featured products',
+        'tags.deep_moist':'Deep moisture','tags.antiaging':'Anti-aging','tags.aroma':'Aroma','tags.balance':'Balance','tags.eye':'Eye area','tags.glow':'Glow',
+        'p1.desc':'Intense hydration for a fresh look.','p2.desc':'Smoother texture & faster renewal.','p3.desc':'Delicate scent; helps calm the skin.','p4.desc':'Deep cleanse and oil absorption.','p5.desc':'Helps a fresh look in a delicate area.','p6.desc':'Supports even tone and brightness.',
+        'deal.badge':'Deal of the month','deal.desc':'Deep cleanse & matte balance — perfect for transitional seasons.','deal.cta':'Buy now',
+        'services.title':'Our Treatments','services.menu.hotstones':'Hot Stone Facial','services.menu.thaipads':'Thai Herbal Pad Facial','services.menu.aroma':'Aroma Stress-Relief Facial','services.menu.bowls':'Sound & Inner Calm (Tibetan Bowls)',
+        'hotstones.title':'Hot Stone Facial','hotstones.suits':'Tense/tired skin, high stress, need for relaxation and circulation.','hotstones.flow':'Gentle cleanse → soft peel → relaxing massage with heated basalt stones (face, neck, shoulders) → calming mask → serum & finish cream.','hotstones.benefits':'Releases tension, improves flow, glow & softness; better absorption.','hotstones.video_aria':'Hot stones treatment video',
+        'thaipads.title':'Thai Herbal Pad Facial','thaipads.suits':'Dull/stressed skin; needs drainage and relaxation.','thaipads.flow':'Cleanse → enzymatic peel → massage with warmed Thai herbal pads → hydrating/soothing mask → finish.','thaipads.benefits':'Softening, soothing, micro-circulation boost; pleasant herbal aroma.','thaipads.video_aria':'Thai pads treatment video',
+        'aroma.title':'Aroma Stress-Relief Facial','aroma.suits':'Emotional load, mild sleep issues, reactive/tense skin.','aroma.flow':'Brief consult → tailored essential-oil blend → gentle cleanse → relaxing aromatherapy massage + short breathwork → calming mask → finish.','aroma.benefits':'Sympathetic down-regulation, tension relief, softness & glow.','aroma.video_aria':'Aroma stress-relief video',
+        'bowls.title':'Sound & Inner Calm (Tibetan Bowls)','bowls.suits':'Mental/cognitive load; need to slow down & relax.','bowls.note':'Relaxation and balancing session — not a medical treatment.','bowls.video_aria':'Tibetan bowls video',
+        'pro.title':'Advanced Treatments','pro.menu.classic':'Classic Extraction Facial','pro.menu.rf':'Advanced RF Facial — firm & glow','pro.menu.epn':'Firming & fine-line softening — EPN microneedling','pro.menu.frf':'Scar care — Fractional RF Microneedling','pro.menu.pigment':'Pigmentation — Fractional / Q-Switch',
+        'classic.title':'Classic Extraction Facial','classic.flow':'Double cleanse → softening (steam/enzymes) → sterile extraction → disinfect/soothing serum → calming mask → SPF.','classic.video_aria':'Classic extraction video',
+        'rf.title':'Advanced RF Facial — firm & glow','rf.principle':'Gentle dermal heating via RF → collagen/elastin recruitment.','rf.video_aria':'RF treatment video','rf.hint':'Video auto-loads from data-file.',
+        'shop.title':'Shop','shop.subtitle':'Pick a product, set quantity and add to cart.',
+        'blog.title':'Bereshit Blog','blog.subtitle':'Tips, guides and articles about skincare.',
+        'cart.title':'Shopping cart','cart.th.product':'Product','cart.th.price':'Unit price','cart.th.qty':'Qty','cart.th.total':'Total','cart.subtotal':'Subtotal','cart.clear':'Clear cart','cart.pay_card':'Pay by card','cart.pay_whatsapp':'Pay via WhatsApp','cart.note':'You can update quantities directly in the cart; totals update automatically.',
+        'gallery.title':'Gallery','gallery.aria':'Gallery slider','gallery.alt1':'Before/After 1','gallery.alt2':'Before/After 2','gallery.alt3':'Clinic','gallery.cap1':'Cleansing & glow facial','gallery.cap2':'Anti-aging','gallery.cap3':'Our clinic',
+        'footer.contact_title':'Contact details','footer.fb_title':'Visit our Facebook page','footer.fb_btn':'Open Facebook'
+      },
+
+      ru: {
+        'meta.title':'Bereshit Косметология',
+        'topbar.free_ship':'🚚 Бесплатная доставка от 100₾',
+        'ui.language':'Язык','ui.prev':'Назад','ui.next':'Далее','ui.slidenav':'Навигация по слайдам',
+        'ui.add_to_cart':'В корзину','ui.view_cart':'Просмотр корзины','ui.qty_label':'Количество','ui.suits':'Кому подходит:','ui.flow':'Как проходит:','ui.benefits':'Преимущества:','ui.duration':'Длительность:','ui.freq':'Частота:','ui.principle':'Принцип:',
+        'nav.home':'Главная','nav.services':'Наши процедуры','nav.pro_services':'Продвинутые','nav.shop':'Магазин','nav.blog':'Блог Bereshit','nav.gallery':'Галерея','nav.contact':'Контакты','nav.cart':'Корзина',
+
+
+
+        'hero.massage.eyebrow':'Bereshit • Демонстрация','hero.massage.title':'Упругость и сияние — прямо на глазах','hero.massage.text':'Там, где кожа отдыхает — и вы сияете','hero.massage.read':'Подробнее о процедуре','hero.massage.book':'Записаться',
+        'hero.stone.eyebrow':'Bereshit • Горячие камни','hero.stone.title':'Мягкое тепло, поток, сияние','hero.stone.text':'Прогретые базальтовые камни для глубокого расслабления и улучшения вида.','hero.stone.more':'Подробнее','hero.stone.book':'Записаться',
+        'hero.steamer.eyebrow':'Bereshit • Идеальная подготовка','hero.steamer.title':'Увлажняющий пар для раскрытия пор','hero.steamer.text':'Смягчение и деликатное очищение — оптимальная подготовка к активам.','hero.steamer.all':'Все процедуры','hero.steamer.shop':'Сопутствующие продукты',
+
+        'home.welcome':'Добро пожаловать в Bereshit','home.sub':'Натуральная косметика, уходы и ароматерапия — качество, которое чувствуется.','home.cta.shop':'В магазин','home.cta.services':'К процедурам','home.featured':'Рекомендуемые товары',
+        'tags.deep_moist':'Глубокое увлажнение','tags.antiaging':'Anti-aging','tags.aroma':'Арома','tags.balance':'Баланс','tags.eye':'Зона вокруг глаз','tags.glow':'Сияние',
+        'p1.desc':'Интенсивное увлажнение для свежего вида.','p2.desc':'Более гладкая текстура и ускоренное обновление.','p3.desc':'Деликатный аромат; помогает успокоить кожу.','p4.desc':'Глубокое очищение и абсорбция жира.','p5.desc':'Помогает освежить деликатную область.','p6.desc':'Поддерживает ровный тон и яркость.',
+        'deal.badge':'Акция месяца','deal.desc':'Глубокое очищение и матирующий баланс — идеально в межсезонье.','deal.cta':'Купить сейчас',
+        'services.title':'Наши процедуры','services.menu.hotstones':'Уход с горячими камнями','services.menu.thaipads':'Уход с тайскими травяными мешочками','services.menu.aroma':'Арома-уход от стресса','services.menu.bowls':'Звук и внутреннее спокойствие (тибетские чаши)',
+        'hotstones.title':'Уход с горячими камнями','hotstones.suits':'Уставшая/напряжённая кожа, высокий стресс, потребность в релаксации и кровообращении.','hotstones.flow':'Нежное очищение → мягкий пилинг → расслабляющий массаж тёплыми базальтовыми камнями (лицо, шея, плечи) → успокаивающая маска → сыворотка и крем.','hotstones.benefits':'Снятие напряжения, улучшение кровотока, сияние и мягкость; лучшая абсорбция.','hotstones.video_aria':'Видео ухода с горячими камнями',
+        'thaipads.title':'Уход с тайскими травяными мешочками','thaipads.suits':'Тусклая/напряжённая кожа; нужен дренаж и релаксация.','thaipads.flow':'Очищение → энзимный пилинг → массаж тёплыми тайскими травяными мешочками → увлажняющая/успокаивающая маска → завершение.','thaipads.benefits':'Смягчение, успокоение, микроциркуляция; приятный травяной аромат.','thaipads.video_aria':'Видео ухода с тайскими мешочками',
+        'aroma.title':'Арома-уход от стресса','aroma.suits':'Эмоциональная нагрузка, лёгкие проблемы со сном, реактивная/напряжённая кожа.','aroma.flow':'Короткая консультация → индивидуальная смесь эфирных масел → мягкое очищение → расслабляющий арома-массаж + дыхание → успокаивающая маска → завершение.','aroma.benefits':'Снижение симпатической активности, релаксация, мягкость и сияние.','aroma.video_aria':'Видео арома-ухода',
+        'bowls.title':'Звук и внутреннее спокойствие (тибетские чаши)','bowls.suits':'Психическая/кognitive нагрузка; потребность замедлиться и расслабиться.','bowls.note':'Сеанс релаксации и баланса — не медицинская процедура.','bowls.video_aria':'Видео с тибетскими чашами',
+        'pro.title':'Продвинутые процедуры','pro.menu.classic':'Классический уход (экстракции)','pro.menu.rf':'Продвинутый RF-уход — упругость и сияние','pro.menu.epn':'Упругость и разглаживание — EPN микронидлинг','pro.menu.frf':'Шрамы — фракционный RF микронидлинг','pro.menu.pigment':'Пигментация — фракционный / Q-Switch',
+        'classic.title':'Классический уход (экстракции)','classic.flow':'Двойное очищение → размягчение (пар/ферменты) → стерильные экстракции → дезинфекция/успокаивающая сыворотка → успокаивающая маска → SPF.','classic.video_aria':'Видео классического ухода',
+        'rf.title':'Продвинутый RF-уход — упругость и сияние','rf.principle':'Мягкий прогрев дермы радиочастотой → стимуляция коллагена/эластина.','rf.video_aria':'Видео RF-процедуры','rf.hint':'Видео загружается из data-file.',
+        'shop.title':'Магазин','shop.subtitle':'Выберите товар, задайте количество и добавьте в корзину.',
+        'blog.title':'Блог Bereshit','blog.subtitle':'Советы, руководства и статьи об уходе за кожей.',
+        'cart.title':'Корзина','cart.th.product':'Товар','cart.th.price':'Цена','cart.th.qty':'Кол-во','cart.th.total':'Итого','cart.subtotal':'Промежуточный итог','cart.clear':'Очистить корзину','cart.pay_card':'Оплатить картой','cart.pay_whatsapp':'Оплатить через WhatsApp','cart.note':'Количество можно менять прямо в корзине; суммы обновляются автоматически.',
+        'gallery.title':'Галерея','gallery.aria':'Слайдер галереи','gallery.alt1':'До/после 1','gallery.alt2':'До/после 2','gallery.alt3':'Клиника','gallery.cap1':'Очищение и сияние','gallery.cap2':'Anti-aging','gallery.cap3':'Наша клиника',
+        'footer.contact_title':'Контактные данные','footer.fb_title':'Посетите нашу страницу в Facebook','footer.fb_btn':'Открыть Facebook'
+      },
+
+      ka: {
+        'meta.title':'Bereshit კოსმეტიკა',
+        'topbar.free_ship':'🚚 უფასო მიწოდება 100₾-ზე ზემოთ',
+        'ui.language':'ენა','ui.prev':'წინა','ui.next':'შემდეგი','ui.slidenav':'სლაიდების ნავიგაცია',
+        'ui.add_to_cart':'კალათაში დამატება','ui.view_cart':'კალათის ნახვა','ui.qty_label':'რაოდენობა','ui.suits':'ვისთვისაა:','ui.flow':'რა ხდება:','ui.benefits':'სარგებელი:','ui.duration':'ხანგრძლივობა:','ui.freq':'სიხშირე:','ui.principle':'საკვანძო პრინციპი:',
+        'nav.home':'მთავარი','nav.services':'ჩვენი მომსახურებები','nav.pro_services':'გაფართოებული','nav.shop':'მაღაზია','nav.blog':'Bereshit ბლოგი','nav.gallery':'გალერია','nav.contact':'კონტაქტი','nav.cart':'კალათა',
+
+
+        
+
+        'hero.massage.eyebrow':'Bereshit • დემო','hero.massage.title':'გამკაცრება და სიკაშკაშე — ნახეთ პროცესში','hero.massage.text':'სადაც კანი ისვენებს — და თქვენ ანათებთ','hero.massage.read':'წაიკითხეთ მეტი','hero.massage.book':'ჩანიშვნა',
+        'hero.stone.eyebrow':'Bereshit • ცხელი ქვები','hero.stone.title':'მოფერება, ნაკადი, ბრწყინვალება','hero.stone.text':'გათბობილი ბაზალტის ქვები ღრმა მოდუნებისთვის და იერსახის გაუმჯობესებისთვის.','hero.stone.more':'იხილეთ დეტალები','hero.stone.book':'ჩანიშვნა',
+        'hero.steamer.eyebrow':'Bereshit • იდეალური მომზადება','hero.steamer.title':'სითბოს ორთქლი ფორების გასახსნელად','hero.steamer.text':'შერბილება და ნაზი წმენდა — ოპტימალური მომზადება აქტივებისთვის.','hero.steamer.all':'ყველა მომსახურება','hero.steamer.shop':'მხარდამჭერი პროდუქტები',
+
+        'home.welcome':'კეთილი იყოს თქვენი მობრძანება Bereshit-ში','home.sub':'ბუნებრივი კოსმეტიკა, სახის პროცედურები და არომათერაპია — ხარისხი, რომელიც იგრძნობა.','home.cta.shop':'მაღაზიაში','home.cta.services':'სერვისები','home.featured':'არჩეული პროდუქტები',
+        'tags.deep_moist':'ღრმა ტენიანობა','tags.antiaging':'ანტიეიჯინგი','tags.aroma':'არომა','tags.balance':'ბალანსი','tags.eye':'თვალის არე','tags.glow':'ბზინვარება',
+        'p1.desc':'ინტენსიური დატენიანება ახალი იერისთვის.','p2.desc':'უფრო გლუვი ტექსტურა და სწრაფი განახლება.','p3.desc':'დელიკატური არომატი; ამშვიდებს კანს.','p4.desc':'ღრმა წმენდა და ცხიმის შთანთქმა.','p5.desc':'ახალგაზრდა იერი დელიკატურ ზონაში.','p6.desc':'ტონის გათანაბრება და კაშკაშა იერი.',
+        'deal.badge':'თვიის შეთავაზება','deal.desc':'ღრმა წმენდა და მატებალიზაცია — იდეალურია სეზონურ გადასვლებზე.','deal.cta':'შეიძინე ახლა',
+        'services.title':'ჩვენი მომსახურებები','services.menu.hotstones':'ცხელი ქვების სახის მოვლა','services.menu.thaipads':'ტაი ბალიშები — სახის მოვლა','services.menu.aroma':'არომა — სტრესის განმუხტვა','services.menu.bowls':'ხმა და შინაგანი სიმშვიდე (ტიბეტური თასები)',
+
+        'hotstones.title':'ცხელი ქვების სახის მოვლა','hotstones.suits':'დაღლილი/დაჭიმული კანი, მაღალი სტრესი, მოდუნებისა და ცირკულაციის საჭიროება.','hotstones.flow':'ნაზი წმენდა → რბილი პილინგი → მოდუნების მასაჟი გახურებული ბაზალტის ქვებით (სახე, კისერი, მხრები) → დამამშვიდებელი ნიღაბი → შრატი და შემასრულებელი კრემი.','hotstones.benefits':'სტრესის მოხსნა, ნაკადის გაუმჯობესება, ბზინვარება და რბილობა; უკეთესი შთანთქმა.','hotstones.video_aria':'ცხელი ზღვის ვიდეო',
+        'thaipads.title':'ტაილანდური ბალიშების სახის მოვლა','thaipads.suits':'მოღრუბლული/დაძაბული კანი; საჭიროა დრენაჟი და მოდუნება.','thaipads.flow':'წმენდა → ენზიმური პილინგი → მასაჟი გამთბარი ტაილანდური ბალიშებით → დამტენიანებელი/დამამშვიდებელი ნიღაბი → დასრულება.','thaipads.benefits':'შერბილება და დამშვიდება, მიკროცირკულაციის სტიმულაცია; სასიამოვნო მცენარეული არომატი.','thaipads.video_aria':'ტაილანდური ბალიშების ვიდეო',
+        'aroma.title':'არომათერაპია — სტრესის განმუხტვა','aroma.suits':'ემოციური დატვირთვა, მსუბუქი ძილის პრობლემები, რეაქტიული/დაძაბული კანი.','aroma.flow':'კონსულტაცია → ინდივიდუალური ეთერზეთების ნაზავი → ნაზი წმენდა → მოდუნების არომა-მასაჟი + სუნთქვის ვარჯიში → დამამშვიდებელი ნიღაბი → დასრულება.','aroma.benefits':'სიმპათიკური აქტივობის დაქვეითება, მოდუნება, რბილობა და ბზინვარება.','aroma.video_aria':'არომათერაპიის ვიდეო',
+        'bowls.title':'ხმა და შინაგანი სიმშვიდე (ტიბეტური თასები)','bowls.suits':'გონებრივი/კოგნიტური დატვირთვა; საჭიროა შენელება და მოდუნება.','bowls.note':'რელაქსაციის სესია — არა სამედიცინო პროცედურა.','bowls.video_aria':'ტიბეტური თასების ვიდეო',
+        'pro.title':'გაფართოებული მკურნალობები','pro.menu.classic':'კლასიკური წმენდა (ექსტრაქციები)','pro.menu.rf':'RF — გამკაცრება და ბზინვარება','pro.menu.epn':'EPN მიკრონიდლინგი — გამკაცრება და ხაზების რბილება','pro.menu.frf':'ფრაქციული RF მიკრონიდლინგი — ნაიარევები','pro.menu.pigment':'პიგმენტაცია — ფრაქციული / Q-Switch',
+        'classic.title':'კლასიკური წმენდა (ექსტრაქციები)','classic.flow':'ორმაგი წმენა → შერბილება (ორთქლი/ფერმენტები) → სტერილური ექსტრაქციები → დეზინფექცია/დამამშვიდებელი შრატი → დამამშვიდებელი ნიღაბი → SPF.','classic.video_aria':'კლასიკური წმენდის ვიდეო',
+        'rf.title':'RF — გამკაცრება და ბზინვარება','rf.principle':'დერმის ნაზი გათბობა RF-ით → კოლაგენის/ელასტინის სტიმულაცია.','rf.video_aria':'RF ვიდეო','rf.hint':'ვიდეო იტვირთება data-file-დან.',
+        'shop.title':'მაღაზია','shop.subtitle':'აირჩიეთ პროდუქტი, შეიყვანეთ რაოდენობა და დაამატეთ კალათაში.',
+        'blog.title':'Bereshit ბლოგი','blog.subtitle':'რჩევები, გზამკვლევები და სტატიები კანის მოვლაზე.',
+        'cart.title':'კალათა','cart.th.product':'პროდუქტი','cart.th.price':'ფასი','cart.th.qty':'რაოდენობა','cart.th.total':'ჯამი','cart.subtotal':'ქვეჯამი','cart.clear':'კალათის გასუფთავება','cart.pay_card':'ბარათით გადახდა','cart.pay_whatsapp':'WhatsApp-ით გადახდა','cart.note':'რაოდენობა შეგიძლიათ შეცვალოთ პირდაპირ კალათაში; ჯამები ავტომატურად განახლდება.',
+        'gallery.title':'გალერია','gallery.aria':'გალერეის სლაიდერი','gallery.alt1':'სანაცვლო/შემდეგი 1','gallery.alt2':'სანაცვლო/შემდეგი 2','gallery.alt3':'კლინიკა','gallery.cap1':'წმენდა და ბზინვარება','gallery.cap2':'ანტიეიჯინგი','gallery.cap3':'ჩვენი კლინიკა',
+        'footer.contact_title':'საკონტაქტო ინფორმაცია','footer.fb_title':'ეწვიეთ ჩვენს Facebook გვერდს','footer.fb_btn':'გახსენით Facebook'
+      }
+    };
+
+    const RTL_LANGS = new Set(['he','ar','fa','ur']);
+
+    function setLang(lang){
+      const dict = DICTS[lang] || DICTS.he;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = RTL_LANGS.has(lang) ? 'rtl' : 'ltr';
+
+      // text
+      $$('[data-i18n]').forEach(el=>{
+        const k=el.getAttribute('data-i18n');
+        if(dict[k]) el.textContent = dict[k];
+      });
+
+      // attributes: data-i18n-attr="attr:key"
+      $$('[data-i18n-attr]').forEach(el=>{
+        el.getAttribute('data-i18n-attr').split(',').forEach(pair=>{
+          const [attr,key] = pair.split(':');
+          if(dict[key]) el.setAttribute(attr.trim(), dict[key]);
+        });
+      });
+
+      // title
+      if(dict['meta.title']) document.title = dict['meta.title'];
+
+      localStorage.setItem('site_lang', lang);
+    }
+
+(function initI18n(){
+  const buttons   = $$('.lang-flag');
+  const preferred = localStorage.getItem('site_lang') || (navigator.language||'he').slice(0,2);
+  const initial   = DICTS[preferred] ? preferred : 'he';
+
+  function markActive(lang){
+    buttons.forEach(btn => {
+      if (btn.dataset.lang === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  // שפה התחלתית
+  setLang(initial);
+  markActive(initial);
+
+  // לחיצה על דגל מחליפה שפה
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      setLang(lang);
+      markActive(lang);
+    });
+  });
+})();
+
+  </script>
+
+<script>
+(function(){
+  const root  = document.getElementById('testi');
+  if(!root) return;
+
+  const track   = root.querySelector('.testi-track');
+  const btnPrev = root.querySelector('.testi-btn.prev');
+  const btnNext = root.querySelector('.testi-btn.next');
+
+  const AUTOPLAY   = true;   // אפשר לכבות אם רוצים
+  const INTERVALMS = 2800;   // כל כמה זמן לעבור שקופית
+
+  let dir = 1;               // 1 קדימה, -1 אחורה (פינג-פונג)
+  let timer = null;
+
+  function cardWidth(){
+    const first = track.querySelector('.t-card');
+    if(!first) return 0;
+    const gap = parseInt(getComputedStyle(track).gap)||0;
+    return first.offsetWidth + gap;
+  }
+
+  function atEdges(){
+    const max = track.scrollWidth - track.clientWidth;
+    const x = Math.round(track.scrollLeft);
+    return { atStart: x <= 2, atEnd: x >= max - 2, max };
+  }
+
+  function snapBy(sign){
+    const w = cardWidth();
+    if(!w) return;
+    track.scrollTo({ left: track.scrollLeft + sign*w, behavior: 'smooth' });
+  }
+
+  function step(){
+    // עצירה בזמן hover/פוקוס כדי לא להציק
+    if (root.matches(':hover') || root.contains(document.activeElement)) return;
+
+    const { atStart, atEnd, max } = atEdges();
+    if (atEnd) dir = -1;
+    if (atStart) dir =  1;
+
+    const w = cardWidth();
+    if(!w) return;
+
+    let next = track.scrollLeft + dir*w;
+    if (next < 0)   next = 0;
+    if (next > max) next = max;
+
+    track.scrollTo({ left: next, behavior: 'smooth' });
+  }
+
+  function start(){ if(AUTOPLAY && !timer) timer = setInterval(step, INTERVALMS); }
+  function stop(){ clearInterval(timer); timer = null; }
+
+  // חצים
+  if (btnPrev) btnPrev.addEventListener('click', () => { stop(); snapBy(-1); start(); });
+  if (btnNext) btnNext.addEventListener('click', () => { stop(); snapBy(+1); start(); });
+
+  // עצירה/המשך במגע/הובר/פוקוס
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('touchstart', stop, {passive:true});
+  root.addEventListener('touchend', start,   {passive:true});
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+
+  // ניווט במקלדת כשהסליידר בפוקוס
+  root.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowRight'){ e.preventDefault(); snapBy(+1); }
+    if(e.key === 'ArrowLeft'){  e.preventDefault(); snapBy(-1); }
+  });
+  // הפעלה
+  start();
+})();
+</script>
+
+<!-- ===== Modal להזמנת טיפול ותשלום ===== -->
+<div id="bookingModal" class="booking-modal hidden" aria-hidden="true">
+  <div class="booking-backdrop"></div>
+
+  <div class="booking-dialog" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <button type="button" class="booking-close" aria-label="סגירת חלון">×</button>
+
+    <h2 id="bookingTitle">הזמנת טיפול ותשלום</h2>
+
+    <p class="booking-treatment">
+      טיפול נבחר: <span id="bookingTreatmentName"></span><br>
+      מחיר בסיס: <span id="bookingBasePrice"></span>₾
+      <span id="bookingAddonWrapper" style="display:none">
+        <br>תוספת (משך ארוך יותר): <span id="bookingAddonPrice"></span>₾
+      </span>
+    </p>
+
+    <form id="bookingForm">
+
+      <!-- 🟦 שם מלא -->
+      <div class="booking-row">
+        <label>שם מלא</label>
+        <input type="text" name="name" required placeholder="שם מלא">
+      </div>
+
+      <!-- 🟦 טלפון -->
+      <div class="booking-row">
+        <label>טלפון נייד</label>
+        <input type="tel" name="phone" required placeholder="מספר טלפון">
+      </div>
+
+      <!-- 🟦 תאריך + שעה -->
+      <div class="booking-row two-cols">
+        <div>
+          <label>תאריך טיפול</label>
+          <input type="date" name="date" required>
+        </div>
+        <div>
+          <label>שעת טיפול</label>
+          <input type="time" name="time" required>
+        </div>
+      </div>
+
+      <!-- 🟦 הערות -->
+      <div class="booking-row">
+        <label>הערות נוספות (אופציונלי)</label>
+        <textarea name="notes" rows="2" placeholder="העדפות, רגישויות, הערות"></textarea>
+      </div>
+
+      <!-- 🟦 משך הטיפול -->
+      <div class="booking-row">
+        <label>משך הטיפול</label>
+        <div class="duration-options">
+          <label>
+            <input type="radio" name="durationOption" value="base" checked>
+            בסיסי
+          </label>
+          <label id="addonOptionRow" style="display:none">
+            <input type="radio" name="durationOption" value="addon">
+            מורחב
+          </label>
+        </div>
+      </div>
+
+      <!-- 🟦 תשלום אונליין בלבד -->
+      <input type="hidden" name="payMethod" value="online">
+
+      <!-- 🟦 כפתור שליחה -->
+      <button type="submit" class="button booking-submit">
+        אישור ותשלום באשראי
+      </button>
+
+    </form>
+  </div>
+</div>
+
+<!-- Treatment Selector Modal -->
+<div id="treatmentSelectorModal" class="modal" style="
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,.55);
+  z-index:9998; padding:20px; overflow:auto;
+">
+  <div class="modal-content" style="
+    background:white; max-width:480px; margin:60px auto;
+    border-radius:var(--radius); padding:24px; box-shadow:var(--shadow);
+  ">
+
+    <h3 style="margin-bottom:16px;">בחר/י טיפול</h3>
+
+    <select id="treatmentSelect" style="
+      width:100%;
+      padding:12px;
+      border-radius:var(--radius);
+      border:1px solid #ccc;
+      font-size:1rem;
+    ">
+
+      <option value="" disabled selected>בחרו טיפול מהרשימה…</option>
+
+      <!-- ===== כותרת: עיסוי ספא ראש יפני מסורתי ===== -->
+      <option style="
+        background:#ffe7ce;
+        color:#000000;
+        font-size:1rem;
+        font-weight:700;
+        border-bottom:3px solid #000;
+        padding:12px 0 6px;
+        letter-spacing:0.5px;
+        text-shadow:0 0 3px rgba(0,0,0,0.25);
+        pointer-events:none;
+      ">עיסוי ספא ראש יפני מסורתי</option>
+
+      <!-- Japanese Head Spa -->
+      <option>ספא ראש יפני – 60 דק' – 200₾ | 90 דק' – 250₾</option>
+
+      <!-- ===== כותרת: עיסויי פנים ===== -->
+      <option style="
+        background:#ffe7ce;
+        color:#000000;
+        font-size:1rem;
+        font-weight:700;
+        border-bottom:3px solid #000;
+        padding:12px 0 6px;
+        letter-spacing:0.5px;
+        text-shadow:0 0 3px rgba(0,0,0,0.25);
+        pointer-events:none;
+      ">עיסויי פנים</option>
+
+      <!-- Face Massages -->
+      <option>עיסוי פנים בקומפרסים תאילנדיים – 60 דק' – 150₾</option>
+      <option>עיסוי פנים באבנים חמות – 60 דק' – 160₾</option>
+      <option>עיסוי פנים תאילנדי מסורתי – 30 דק' – 90₾ | 60 דק' – 150₾</option>
+      <option>עיסוי פנים ארומתרפי – 30 דק' – 80₾ | 60 דק' – 140₾</option>
+
+      <!-- ===== כותרת: עיסוי גב-כתפיים-פנים ===== -->
+      <option style="
+        background:#ffe7ce;
+        color:#000000;
+        font-size:1rem;
+        font-weight:700;
+        border-bottom:3px solid #000;
+        padding:12px 0 6px;
+        letter-spacing:0.5px;
+        text-shadow:0 0 3px rgba(0,0,0,0.25);
+        pointer-events:none;
+      ">עיסוי גב-כתפיים-פנים</option>
+
+      <!-- Back / Neck / Shoulders -->
+      <option>עיסוי גב–כתפיים–צוואר – 60 דק' – 150₾</option>
+      <option>עיסוי גב–כתפיים–צוואר עם אבנים חמות – 60 דק' – 180₾</option>
+
+      <!-- ===== כותרת: עיסוי גוף מלא ===== -->
+      <option style="
+        background:#ffe7ce;
+        color:#000000;
+        font-size:1rem;
+        font-weight:700;
+        border-bottom:3px solid #000;
+        padding:12px 0 6px;
+        letter-spacing:0.5px;
+        text-shadow:0 0 3px rgba(0,0,0,0.25);
+        pointer-events:none;
+      ">עיסוי גוף מלא</option>
+
+      <!-- Full Body Massages -->
+      <!-- שים לב: "עיסוי גוף מלא" עצמו בלי מחיר כי אין מחיר ספציפי בטקסט -->
+      <option>עיסוי גוף מלא</option>
+      <option>עיסוי תאילנדי מסורתי – 60 דק' – 170₾ | 90 דק' – 220₾</option>
+      <option>עיסוי שמן תאילנדי – 60 דק' – 180₾ | 90 דק' – 230₾</option>
+      <option>עיסוי ארומתרפי – 60 דק' – 190₾</option>
+      <option>עיסוי תאילנדי רפואי – 60 דק' – 230₾ | 90 דק' – 280₾</option>
+      <option>עיסוי באבנים חמות – 60 דק' – 210₾</option>
+      <option>עיסוי קומפרסים תאילנדי חמים בצמחי מרפא – 60 דק' – 220₾ | 90 דק' – 260₾</option>
+      <option>עיסוי שיאצו – 60 דק' – 180₾ | 90 דק' – 230₾</option>
+
+      <!-- ===== כותרת: עיסוי כפות רגליים ===== -->
+      <option style="
+        background:#ffe7ce;
+        color:#000000;
+        font-size:1rem;
+        font-weight:700;
+        border-bottom:3px solid #000;
+        padding:12px 0 6px;
+        letter-spacing:0.5px;
+        text-shadow:0 0 3px rgba(0,0,0,0.25);
+        pointer-events:none;
+      ">עיסוי כפות רגליים</option>
+
+      <option>פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי – 30 דק' – 80₾ | 60 דק' – 120₾</option>
+
+    </select>
+
+    <!-- === כפתורי המשך וביטול === -->
+    <div style="text-align:right; margin-top:24px;">
+      <button id="confirmTreatment" style="
+        background: var(--brand);
+        padding: 12px 20px;
+        border-radius: var(--radius);
+        color:#fff;
+        border:0;
+        font-size:1rem;
+        cursor:pointer;
+      ">המשך</button>
+
+      <button id="closeSelector" style="
+        background:#aaa; margin-left:8px;
+        padding: 12px 20px; border-radius: var(--radius);
+        color:white; border:0; cursor:pointer;
+      ">בטל</button>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- טעינה חיצונית - פעם אחת בלבד -->
+<script src="script.js"></script>
+</body>
+</html>
