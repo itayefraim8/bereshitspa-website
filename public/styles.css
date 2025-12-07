@@ -313,19 +313,12 @@ footer a:hover{ text-decoration:underline }
   line-height: 1.65;
 }
 
-/* רשימות */
-.contact-list, .hours-list {
+/* רשימות – השארנו כאן רק את hours-list, כדי לא להתנגש עם הבלוק המעודכן של contact-list למטה */
+.hours-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-.contact-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(0,0,0,.06);
-}
-.contact-list li:last-child { border-bottom: 0; }
-.contact-list .ico { margin-left: 8px; }
 
 .hours-list li {
   display: flex;
@@ -465,7 +458,7 @@ footer a:hover{ text-decoration:underline }
   opacity: 1;
 }
 
-/* יישור אייקון + טקסט בשורה אחת */
+/* יישור אייקון + טקסט בשורה אחת – זה הבלוק העדכני היחיד של contact-list */
 .contact-list{
   list-style:none;
   margin:0; padding:0;
