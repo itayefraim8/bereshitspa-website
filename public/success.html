@@ -1,271 +1,318 @@
-<!doctype html>
-<html lang="he" dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title data-i18n="success.title">התשלום הצליח</title>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body{font-family:Heebo,system-ui;max-width:780px;margin:40px auto;padding:0 16px}
-    a{color:#2e7d32;font-weight:700;text-decoration:none}
-    .lang-switch{display:flex;gap:8px;align-items:center;margin-bottom:16px}
-    .visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;border:0;padding:0;clip:rect(0 0 0 0);overflow:hidden}
+// server/server.js
+import 'dotenv/config';
+import express from 'express';
+import Stripe from 'stripe';
+import cors from 'cors';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
 
-    /* ✅ תוספת: עיצוב קופסת פרטי עסקה */
-    .payment-box{
-      margin-top:24px;
-      padding:16px 18px;
-      border-radius:12px;
-      background:#f9fafb;
-      border:1px solid #e5e7eb;
-    }
-    .payment-box h2{
-      margin:0 0 8px;
-      font-size:1.1rem;
-    }
-    .payment-list{
-      margin:0;
-      padding:0;
-    }
-    .payment-list div{
-      display:flex;
-      gap:8px;
-      margin:4px 0;
-    }
-    .payment-list dt{
-      margin:0;
-      min-width:120px;
-      font-weight:600;
-    }
-    .payment-list dd{
-      margin:0;
-      flex:1;
-    }
-  </style>
-</head>
-<body>
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-  <!-- מתג שפה -->
-  <div class="lang-switch" aria-label="Language">
-    <label for="langSel" class="visually-hidden">Language</label>
-    <select id="langSel">
-      <option value="he">HE</option>
-      <option value="en">EN</option>
-      <option value="ru">RU</option>
-      <option value="ka">KA</option>
-    </select>
-  </div>
+const app = express();
 
-  <!-- תוכן הדף -->
-  <h1 data-i18n="success.heading">✅ התשלום הצליח!</h1>
-  <p data-i18n="success.desc">תודה על ההזמנה שלך — הקבלה נשלחה אליך במייל.</p>
-  <p><a href="/" data-i18n="success.back_home">חזרה לעמוד הראשי</a></p>
+// ===== Middleware =====
+app.use(cors());
+app.use(express.json());
 
-  <!-- ✅ תוספת: קופסה להצגת פרטי עסקה -->
-  <section id="paymentInfo" class="payment-box" style="display:none">
-    <h2 id="paymentInfoTitle">פרטי עסקה</h2>
-    <div id="paymentInfoBody">
-      <!-- ימולא דינמית מהשרת לפי session_id -->
-    </div>
-  </section>
+// ✅ חשוב לפרוקסי/Load Balancer (כדי ש-req.protocol ו-X-Forwarded-* יעבדו נכון)
+app.set('trust proxy', 1);
 
-  <!-- סנכרון שפה/כיווניות + תרגום -->
-  <script>
-    (function syncLangDir(){
-      const lang=(localStorage.getItem('site_lang')||(navigator.language||'he')).slice(0,2);
-      document.documentElement.lang=lang;
-      document.documentElement.dir=(lang==='he'||lang==='ar')?'rtl':'ltr';
-      const sel=document.getElementById('langSel');
-      if(sel){
-        sel.value=lang;
-        sel.addEventListener('change',e=>{
-          localStorage.setItem('site_lang',e.target.value);
-          location.reload();
-        });
-      }
-    })();
+// סטטיק: אם יש 'public' בתוך server נגיש משם; אחרת ../public
+const staticDir = fs.existsSync(path.join(__dirname, 'public'))
+  ? path.join(__dirname, 'public')
+  : path.join(__dirname, '..', 'public');
 
-    (function i18nPage(){
-      const map={
-        'success.title'    :{ he:'התשלום הצליח', en:'Payment Successful', ru:'Платёж выполнен', ka:'გადახდა წარმატებულია' },
-        'success.heading'  :{ he:'✅ התשלום הצליח!', en:'✅ Payment Successful!', ru:'✅ Платёж выполнен!', ka:'✅ გადახდა წარმატებულია!' },
-        'success.desc'     :{ he:'תודה על ההזמנה שלך — הקבלה נשלחה אליך במייל.', en:'Thank you for your order — a receipt has been sent to your email.', ru:'Спасибо за заказ — квитанция отправлена на вашу почту.', ka:'გმადლობთ შეკვეთისთვის — ქვითარი ელფოსტაზე გამოგიგზავნეთ.' },
-        'success.back_home':{ he:'חזרה לעמוד הראשי', en:'Back to Home', ru:'На главную', ka:'მთავარ გვერდზე დაბრუნება' }
-      };
-      const lang=(localStorage.getItem('site_lang')||'he').slice(0,2);
-      document.title = map['success.title'][lang] || map['success.title'].he;
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const k=el.getAttribute('data-i18n');
-        const v=(map[k]&&(map[k][lang]||map[k].he));
-        if(v) el.textContent=v;
+app.use(express.static(staticDir));
+
+// ===== Stripe Setup =====
+const STRIPE_KEY = process.env.STRIPE_SECRET_KEY;
+const stripe = STRIPE_KEY ? new Stripe(STRIPE_KEY) : null;
+
+// דומיין בסיסי ברירת מחדל. יוחלף דינמית אם לא מוגדר .env (ראה getDomain)
+const DOMAIN = process.env.PUBLIC_DOMAIN || 'http://localhost:4242';
+const CURRENCY = (process.env.CURRENCY || 'ils').toLowerCase();
+
+if (!stripe) {
+  console.warn('[WARN] STRIPE_SECRET_KEY לא הוגדר. השרת יעבוד במצב דמו (ללא סליקה).');
+} else {
+  const isTest = STRIPE_KEY.startsWith('sk_test_');
+  console.log(`[Stripe] מצב ${isTest ? 'TEST' : 'LIVE'} • מטבע: ${CURRENCY}`);
+}
+
+// ✅ חישוב דינמי של הדומיין אם אין PUBLIC_DOMAIN (עוזר בפרודקשן מאחורי פרוקסי)
+function getDomain(req) {
+  // עדיפות ל-PUBLIC_DOMAIN אם הוגדר
+  if (process.env.PUBLIC_DOMAIN) return process.env.PUBLIC_DOMAIN;
+
+  // אם יש Origin (קריאה מהדפדפן)
+  const origin = req.headers.origin;
+  if (origin && /^https?:\/\//i.test(origin)) return origin.replace(/\/+$/, '');
+
+  // חישוב ידני מ-proto/host
+  const proto = (req.headers['x-forwarded-proto'] || req.protocol || 'http').toString();
+  const host = (req.headers['x-forwarded-host'] || req.headers.host || 'localhost:4242').toString();
+  return `${proto}://${host}`;
+}
+
+// ===== מוצרים לדוגמה (עדכן לשמות/מחירים שלך) =====
+// amount באגורות (ש"ח * 100) / לַרי * 100 – תלוי במטבע ב־CURRENCY
+const PRODUCTS = [
+  { id:'PROD-1',  name:'סרום חומצה היאלורונית 30ml', amount:11900 },
+  { id:'PROD-2',  name:'קרם לילה רטינול 50ml',       amount:16900 },
+  { id:'PROD-3',  name:'שמן ורדים 15ml',             amount: 8900 },
+  { id:'PROD-4',  name:'מסכת חימר ירוק 75ml',        amount: 9900 },
+  { id:'PROD-5',  name:'קרם עיניים 15ml',            amount:13900 },
+  { id:'PROD-6',  name:'סרום ויטמין C 30ml',         amount:15900 },
+  { id:'PROD-7',  name:'קרם לחות היאלורוני 50ml',    amount:14900 },
+  { id:'PROD-8',  name:'גליל ג׳ייד לעיסוי פנים',     amount: 7900 },
+  { id:'PROD-9',  name:'מסכת לחות היידרה 75ml',      amount:10900 },
+  { id:'PROD-10', name:'טונר מרענן 200ml',            amount: 6900 },
+  { id:'PROD-11', name:'מגן שמש SPF50 50ml',          amount:12900 },
+  { id:'PROD-12', name:'פילינג עדין אנזימטי 75ml',   amount:11900 },
+  { id:'PROD-13', name:'קיט טיפוח בסיסי (3 פריטים)', amount:24900 },
+  { id:'PROD-14', name:'סרום ניאצינמיד 30ml',        amount:12900 },
+  { id:'PROD-15', name:'גואשה מאבן ורודה',           amount: 6900 }
+];
+
+function mapCartToLineItems(cart) {
+  if (!Array.isArray(cart) || cart.length === 0) {
+    throw new Error('Cart is empty or invalid');
+  }
+  return cart.map(row => {
+    const p = PRODUCTS.find(x => x.id === row.id);
+    if (!p) throw new Error(`Unknown product id: ${row.id}`);
+    const qty = Math.max(1, Number(row.qty || 1));
+    return {
+      price_data: {
+        currency: CURRENCY,
+        unit_amount: p.amount,
+        product_data: { name: p.name }
+      },
+      quantity: qty
+    };
+  });
+}
+
+// ===== Routes =====
+
+// יצירת Session לתשלום (Stripe Checkout) או הפניה דמו אם אין מפתח
+app.post('/create-checkout-session', async (req, res) => {
+  try {
+    const { cart = [], customerInfo = {} } = req.body || {};
+
+    // אם אין מפתח Stripe — מצב דמו: מחזירים קישור הצלחה ישיר
+    if (!stripe) {
+      const demoDomain = getDomain(req) || DOMAIN;
+      return res.json({
+        id: 'demo_session',
+        url: `${demoDomain}/success.html?session_id=demo`
       });
-    })();
+    }
 
-    /* ✅ תוספת: שליפת פרטי Session מהשרת והצגה ללקוח
-       מצפה לנתיב backend: GET /checkout-session/:id
-       שמחזיר את ה-Session (או JSON עם אותם שדות).
-    */
-    (function fillPaymentDetails(){
-      const params = new URLSearchParams(location.search);
-      const sessionId = params.get('session_id');
-      const box   = document.getElementById('paymentInfo');
-      const body  = document.getElementById('paymentInfoBody');
-      const title = document.getElementById('paymentInfoTitle');
+    const line_items = mapCartToLineItems(cart);
 
-      if (!sessionId || !box || !body) return;
+    // ✅ דומיין דינמי לפי הבקשה (או מה-ENV אם הוגדר)
+    const domain = getDomain(req) || DOMAIN;
 
-      // קופסה נראית
-      box.style.display = 'block';
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      payment_method_types: ['card'],
+      billing_address_collection: 'required',
 
-      const lang=(localStorage.getItem('site_lang')||'he').slice(0,2);
-      const dict = {
-        he:{
-          title:'פרטי עסקה',
-          loading:'טוען פרטי תשלום…',
-          error:'לא הצלחנו לטעון את פרטי התשלום. במידת הצורך אנא פנה אלינו עם מועד העסקה.',
-          kindBooking:'הזמנת עיסוי בספא',
-          kindCart:'הזמנה מהחנות',
-          treatment:'טיפול',
-          customer:'שם לקוח',
-          phone:'טלפון',
-          date:'תאריך',
-          time:'שעה',
-          amount:'סכום',
-          currency:'מטבע',
-          notes:'הערות',
-          paymentId:'מספר אישור תשלום',
-          email:'דוא״ל'
+      // מדינות מותרות לכתובת משלוח
+      shipping_address_collection: { allowed_countries: ['IL', 'GE'] },
+
+      // אפשרויות משלוח
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            display_name: 'איסוף עצמי',
+            type: 'fixed_amount',
+            fixed_amount: { amount: 0, currency: CURRENCY },
+            delivery_estimate: {
+              minimum: { unit: 'business_day', value: 1 },
+              maximum: { unit: 'business_day', value: 3 }
+            }
+          }
         },
-        en:{
-          title:'Payment Details',
-          loading:'Loading payment details…',
-          error:'We could not load your payment details. Please contact us with the payment time if needed.',
-          kindBooking:'Spa Treatment Booking',
-          kindCart:'Shop Order',
-          treatment:'Treatment',
-          customer:'Customer',
-          phone:'Phone',
-          date:'Date',
-          time:'Time',
-          amount:'Amount',
-          currency:'Currency',
-          notes:'Notes',
-          paymentId:'Payment ID',
-          email:'Email'
-        },
-        ru:{
-          title:'Данные платежа',
-          loading:'Загружаем данные платежа…',
-          error:'Не удалось загрузить данные платежа. При необходимости свяжитесь с нами, указав время оплаты.',
-          kindBooking:'Бронирование спа-процедуры',
-          kindCart:'Заказ из магазина',
-          treatment:'Процедура',
-          customer:'Клиент',
-          phone:'Телефон',
-          date:'Дата',
-          time:'Время',
-          amount:'Сумма',
-          currency:'Валюта',
-          notes:'Примечание',
-          paymentId:'ID платежа',
-          email:'Email'
-        },
-        ka:{
-          title:'გადახდის დეტალები',
-          loading:'გადახდის დეტალების ჩატვირთვა…',
-          error:'ვერ მოხერხდა გადახდის დეტალების ჩატვირთვა. საჭიროების შემთხვევაში დაგვიკავშირდით.',
-          kindBooking:'სპა პროცედურის დაჯავშნა',
-          kindCart:'მაღაზიის შეკვეთა',
-          treatment:'პროცედურა',
-          customer:'კლიენტი',
-          phone:'ტელეფონი',
-          date:'თარიღი',
-          time:'დრო',
-          amount:'თანხა',
-          currency:'ვალუტა',
-          notes:'შენიშვნები',
-          paymentId:'გადახდის ID',
-          email:'ელ.ფოსტა'
+        {
+          shipping_rate_data: {
+            display_name: 'שליח עד הבית',
+            type: 'fixed_amount',
+            fixed_amount: { amount: 2500, currency: CURRENCY }, // 25.00 ₾
+            delivery_estimate: {
+              minimum: { unit: 'business_day', value: 2 },
+              maximum: { unit: 'business_day', value: 7 }
+            }
+          }
         }
-      };
-      const L = dict[lang] || dict.he;
+      ],
 
-      if (title) title.textContent = L.title;
-      body.textContent = L.loading;
+      line_items,
 
-      // ✅ שימוש בנתיב שהגדרנו בשרת: /checkout-session/:id
-      fetch('/checkout-session/' + encodeURIComponent(sessionId))
-        .then(res => {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          return res.json();
-        })
-        .then(data => {
-          const s = data.session || data;
-          if (!s) throw new Error('Missing session');
+      // מידע עזר
+      metadata: {
+        customer_name: customerInfo.name || '',
+        customer_phone: customerInfo.phone || '',
+        pickup_notes: customerInfo.pickupNotes || ''
+      },
 
-          const meta   = s.metadata || {};
-          const isBooking = meta.type === 'treatment_booking';
+      success_url: `${domain}/success.html?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${domain}/cancel.html`
+    });
 
-          const amountTotal = typeof s.amount_total === 'number'
-            ? (s.amount_total / 100)
-            : (meta.finalPrice ? Number(meta.finalPrice) : null);
+    res.json({ id: session.id, url: session.url });
+  } catch (err) {
+    console.error('[create-checkout-session] Error:', err);
+    res.status(400).json({ error: { message: err.message } });
+  }
+});
 
-          const currency = (s.currency || 'gel').toUpperCase();
+/* ===== ✅ נתיב חדש: יצירת Session לעיסויי ספא (booking) ===== */
+app.post('/create-booking-session', async (req, res) => {
+  try {
+    const {
+      treatment,
+      finalPrice,
+      name,
+      phone,
+      date,
+      time,
+      notes,
+      duration,
+      basePrice,
+      addonPrice
+    } = req.body || {};
 
-          const treatment =
-            meta.treatment ||
-            (s.line_items && s.line_items[0] && s.line_items[0].description) ||
-            '';
+    // אם אין Stripe – מצב דמו
+    if (!stripe) {
+      const demoDomain = getDomain(req) || DOMAIN;
+      return res.json({
+        id: 'demo_booking_session',
+        url: `${demoDomain}/success.html?session_id=demo_booking`
+      });
+    }
 
-          const name  = meta.name || (s.customer_details && s.customer_details.name) || '';
-          const phone = meta.phone || (s.customer_details && s.customer_details.phone) || '';
-          const email = (s.customer_details && s.customer_details.email) || '';
-          const date  = meta.date || '';
-          const time  = meta.time || '';
-          const notes = meta.notes || '';
-          const paymentId = typeof s.payment_intent === 'string'
-            ? s.payment_intent
-            : (s.payment_intent && s.payment_intent.id) || '';
+    const amountNumber = Number(finalPrice || 0);
+    if (!treatment || !amountNumber || amountNumber <= 0) {
+      return res.status(400).json({ error: { message: 'Missing treatment or finalPrice' } });
+    }
 
-          body.innerHTML = '';
-          const kindP = document.createElement('p');
-          kindP.textContent = isBooking ? L.kindBooking : L.kindCart;
-          body.appendChild(kindP);
+    const domain = getDomain(req) || DOMAIN;
 
-          const list = document.createElement('dl');
-          list.className = 'payment-list';
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price_data: {
+            currency: CURRENCY,
+            unit_amount: Math.round(amountNumber * 100),
+            product_data: {
+              name: treatment,
+              description: `Client: ${name || ''}, Phone: ${phone || ''}, Date: ${date || ''} ${time || ''}`
+            }
+          },
+          quantity: 1
+        }
+      ],
+      success_url: `${domain}/success.html?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${domain}/cancel.html`,
+      metadata: {
+        type: 'treatment_booking',
+        treatment: treatment || '',
+        duration: duration || '',
+        basePrice: String(basePrice ?? ''),
+        addonPrice: String(addonPrice ?? ''),
+        finalPrice: String(amountNumber),
+        name: name || '',
+        phone: phone || '',
+        date: date || '',
+        time: time || '',
+        notes: notes || ''
+      }
+    });
 
-          function addRow(label, value){
-            if (!value) return;
-            const row = document.createElement('div');
-            const dt  = document.createElement('dt');
-            const dd  = document.createElement('dd');
-            dt.textContent = label + ':';
-            dd.textContent = value;
-            row.appendChild(dt);
-            row.appendChild(dd);
-            list.appendChild(row);
-          }
+    res.json({ id: session.id, url: session.url });
+  } catch (err) {
+    console.error('[create-booking-session] Error:', err);
+    res.status(400).json({ error: { message: err.message } });
+  }
+});
 
-          addRow(L.treatment, treatment);
-          addRow(L.customer, name);
-          addRow(L.phone, phone);
-          addRow(L.email, email);
-          addRow(L.date, date);
-          addRow(L.time, time);
-          if (amountTotal != null && !Number.isNaN(amountTotal)) {
-            addRow(L.amount, amountTotal.toFixed(2) + ' ' + currency);
-          }
-          addRow(L.notes, notes);
-          addRow(L.paymentId, paymentId);
+/* ===== ✅ נתיב: שליפת פרטי Session לפי query (?session_id=) ===== */
+app.get('/session', async (req, res) => {
+  try {
+    const { session_id } = req.query;
 
-          body.appendChild(list);
-        })
-        .catch(err => {
-          console.error('load session details error:', err);
-          body.textContent = (dict[lang] || dict.he).error;
-        });
-    })();
-  </script>
-</body>
-</html>
+    if (!session_id) {
+      return res.status(400).json({ error: { message: 'Missing session_id' } });
+    }
+
+    // מצב דמו – אין Stripe
+    if (!stripe) {
+      return res.json({
+        session: {
+          id: session_id,
+          currency: CURRENCY,
+          amount_total: null,
+          metadata: {}
+        }
+      });
+    }
+
+    const session = await stripe.checkout.sessions.retrieve(session_id.toString(), {
+      expand: ['payment_intent']
+    });
+
+    res.json({ session });
+  } catch (err) {
+    console.error('[GET /session] Error:', err);
+    res.status(400).json({ error: { message: err.message } });
+  }
+});
+
+/* ===== ✅ נתיב חדש: שליפת Session לפי /checkout-session/:id  ===== */
+/* זה מה ש-success.html שלך קורא אליו: fetch('/checkout-session/' + sessionId) */
+app.get('/checkout-session/:id', async (req, res) => {
+  try {
+    const session_id = req.params.id;
+
+    if (!session_id) {
+      return res.status(400).json({ error: { message: 'Missing session_id' } });
+    }
+
+    // מצב דמו – אין Stripe
+    if (!stripe) {
+      return res.json({
+        session: {
+          id: session_id,
+          currency: CURRENCY,
+          amount_total: null,
+          metadata: {}
+        }
+      });
+    }
+
+    const session = await stripe.checkout.sessions.retrieve(session_id.toString(), {
+      expand: ['payment_intent']
+    });
+
+    res.json({ session });
+  } catch (err) {
+    console.error('[GET /checkout-session/:id] Error:', err);
+    res.status(400).json({ error: { message: err.message } });
+  }
+});
+
+// בדיקת חיים
+app.get('/health', (_, res) => res.json({ ok: true }));
+
+// ===== Start Server =====
+const PORT = Number(process.env.PORT || 4242);
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}. Serving static from: ${staticDir}`);
+  console.log(`Base DOMAIN (env or default): ${DOMAIN}`);
+});

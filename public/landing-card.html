@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bereshit Spa – כרטיסיית טיפולים</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="landing.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+</head>
+<body class="landing-page">
+
+  <main class="container" style="max-width:860px;margin:24px auto 40px;padding:0 12px;">
+    <section class="hero" style="margin-bottom:32px;text-align:center;">
+      <img src="images/logo.png" alt="BERESHIT SPA" style="max-width:240px;width:100%;margin:0 auto 16px;display:block;" />
+
+      <p class="promo-eyebrow" data-i18n="card.hero.eyebrow">
+        Special Offer · Limited Slots
+      </p>
+      <h1 class="promo-title xl" data-i18n="card.hero.title">
+        כרטיסייה של 7 טיפולים מפנקים
+      </h1>
+      <p class="promo-text lg" data-i18n="card.hero.subtitle">
+        משלמים פעם אחת, נהנים מ-7 ביקורים ב-Bereshit Spa. אפשר לשלב טיפולים שונים ולהעביר לחברים/משפחה.
+      </p>
+
+      <button class="button"
+              data-card-book-btn
+              data-card-key="card7"
+              style="margin-top:18px;"
+              data-i18n="card.hero.cta">
+        לרכישת כרטיסייה עכשיו
+      </button>
+    </section>
+
+    <section style="background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:20px 18px;">
+      <h2 data-i18n="card.details.title">מה כולל הכרטיסייה?</h2>
+      <ul style="margin-top:8px;line-height:1.8;">
+        <li data-i18n="card.details.li1">7 טיפולים לבחירה מתוך תפריט הטיפולים המלא.</li>
+        <li data-i18n="card.details.li2">אפשר לפצל בין בני משפחה / זוג / חברים.</li>
+        <li data-i18n="card.details.li3">תוקף הכרטיסייה – 6 חודשים מיום הרכישה.</li>
+        <li data-i18n="card.details.li4">תיאום תור מראש בווטסאפ או טלפון.</li>
+      </ul>
+
+      <p class="price" id="cardPriceText" style="font-size:1.2rem;margin-top:12px;font-weight:700;">
+        <!-- ימולא ב-JS לפי CARD_OFFERS -->
+      </p>
+
+      <p class="muted" style="margin-top:4px;" data-i18n="card.details.note">
+        לאחר התשלום תקבלו אישור רכישה למייל/ווטסאפ, והכרטיסייה תירשם על שמכם במערכת שלנו.
+      </p>
+    </section>
+  </main>
+
+  <!-- כפתור וואטסאפ צף -->
+  <a href="https://wa.me/972502686862"
+     class="wa-float"
+     target="_blank"
+     rel="noopener"
+     aria-label="WhatsApp">
+    <img src="assets/icons/whatsapp.svg" alt="WhatsApp" />
+  </a>
+
+  <!-- משתמשים באותו מודאל הזמנה, רק ללא בחירת משך -->
+  <div class="booking-modal hidden" id="cardBookingModal" aria-hidden="true">
+    <div class="booking-backdrop" data-card-booking-close></div>
+    <section class="booking-dialog" aria-modal="true" role="dialog" aria-labelledby="cardBookingTitle">
+      <button class="booking-close" type="button" data-card-booking-close>&times;</button>
+
+      <h2 id="cardBookingTitle" data-i18n="card.form.title">רכישת כרטיסייה</h2>
+      <p class="booking-treatment" id="cardBookingSummary">
+        נא למלא פרטי קשר, תאריך התחלה מועדף ואנחנו נשריין עבורך את הכרטיסייה.
+      </p>
+
+      <form id="cardBookingForm">
+        <div class="booking-row">
+          <label for="cardName" data-i18n="card.form.name">שם מלא</label>
+          <input id="cardName" name="name" type="text" required />
+        </div>
+        <div class="booking-row">
+          <label for="cardPhone" data-i18n="card.form.phone">טלפון / WhatsApp</label>
+          <input id="cardPhone" name="phone" type="tel" required />
+        </div>
+        <div class="booking-row">
+          <label for="cardStart" data-i18n="card.form.startDate">תאריך התחלה מועדף (אופציונלי)</label>
+          <input id="cardStart" name="date" type="date" />
+        </div>
+        <div class="booking-row">
+          <label for="cardNotes" data-i18n="card.form.notes">הערות / שמות נוספים בכרטיסייה</label>
+          <textarea id="cardNotes" name="notes" rows="3"></textarea>
+        </div>
+        <p class="booking-note" data-i18n="card.form.note">
+          התשלום מתבצע בכרטיס אשראי מאובטח דרך Stripe.
+        </p>
+        <button type="submit" class="booking-submit" data-i18n="card.form.payCta">
+          מעבר לתשלום מאובטח
+        </button>
+      </form>
+    </section>
+  </div>
+
+  <script src="landing-landing.js" type="module"></script>
+</body>
+</html>

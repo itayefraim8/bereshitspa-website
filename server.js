@@ -121,10 +121,10 @@ app.post('/create-checkout-session', async (req, res) => {
       payment_method_types: ['card'],
       billing_address_collection: 'required',
 
-      // מדינות מותרות לכתובת משלוח (אפשר להרחיב/לצמצם ב-ENV אם תרצה בעתיד)
+      // מדינות מותרות לכתובת משלוח
       shipping_address_collection: { allowed_countries: ['IL', 'GE'] },
 
-      // אפשרויות משלוח (איסוף/שליח) — תוקן: minimum.value >= 1
+      // אפשרויות משלוח
       shipping_options: [
         {
           shipping_rate_data: {
@@ -152,14 +152,13 @@ app.post('/create-checkout-session', async (req, res) => {
 
       line_items,
 
-      // מידע עזר (יגיע אליך ב־Dashboard/Webhook)
+      // מידע עזר
       metadata: {
         customer_name: customerInfo.name || '',
         customer_phone: customerInfo.phone || '',
         pickup_notes: customerInfo.pickupNotes || ''
       },
 
-      // ✅ שימוש בדומיין שחושב מהבקשה — מתאים ל-HTTPS/פרוקסי/סאבדומיין
       success_url: `${domain}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${domain}/cancel.html`
     });
@@ -187,7 +186,7 @@ app.post('/create-booking-session', async (req, res) => {
       addonPrice
     } = req.body || {};
 
-    // אם אין Stripe – מצב דמו: מחזירים קישור הצלחה בלבד
+    // אם אין Stripe – מצב דמו
     if (!stripe) {
       const demoDomain = getDomain(req) || DOMAIN;
       return res.json({
@@ -210,7 +209,7 @@ app.post('/create-booking-session', async (req, res) => {
         {
           price_data: {
             currency: CURRENCY,
-            unit_amount: Math.round(amountNumber * 100), // לפי אותו מטבע כמו החנות
+            unit_amount: Math.round(amountNumber * 100),
             product_data: {
               name: treatment,
               description: `Client: ${name || ''}, Phone: ${phone || ''}, Date: ${date || ''} ${time || ''}`
@@ -243,10 +242,7 @@ app.post('/create-booking-session', async (req, res) => {
   }
 });
 
-/* ===== ✅ נתיב חדש: שליפת פרטי Session עבור success.html ===== */
-/* נקרא מהדפדפן:
-   GET /session?session_id=cs_test_123...
-*/
+/* ===== ✅ נתיב: שליפת פרטי Session לפי query (?session_id=) ===== */
 app.get('/session', async (req, res) => {
   try {
     const { session_id } = req.query;
@@ -255,7 +251,7 @@ app.get('/session', async (req, res) => {
       return res.status(400).json({ error: { message: 'Missing session_id' } });
     }
 
-    // מצב דמו – אין Stripe, מחזירים אובייקט ריק/בסיסי כדי שהעמוד לא יקרוס
+    // מצב דמו – אין Stripe
     if (!stripe) {
       return res.json({
         session: {
@@ -268,12 +264,45 @@ app.get('/session', async (req, res) => {
     }
 
     const session = await stripe.checkout.sessions.retrieve(session_id.toString(), {
-      expand: ['payment_intent'] // כדי שנוכל לגשת ל־payment_intent.id
+      expand: ['payment_intent']
     });
 
     res.json({ session });
   } catch (err) {
     console.error('[GET /session] Error:', err);
+    res.status(400).json({ error: { message: err.message } });
+  }
+});
+
+/* ===== ✅ נתיב חדש: שליפת Session לפי /checkout-session/:id  ===== */
+/* זה מה ש-success.html שלך קורא אליו: fetch('/checkout-session/' + sessionId) */
+app.get('/checkout-session/:id', async (req, res) => {
+  try {
+    const session_id = req.params.id;
+
+    if (!session_id) {
+      return res.status(400).json({ error: { message: 'Missing session_id' } });
+    }
+
+    // מצב דמו – אין Stripe
+    if (!stripe) {
+      return res.json({
+        session: {
+          id: session_id,
+          currency: CURRENCY,
+          amount_total: null,
+          metadata: {}
+        }
+      });
+    }
+
+    const session = await stripe.checkout.sessions.retrieve(session_id.toString(), {
+      expand: ['payment_intent']
+    });
+
+    res.json({ session });
+  } catch (err) {
+    console.error('[GET /checkout-session/:id] Error:', err);
     res.status(400).json({ error: { message: err.message } });
   }
 });

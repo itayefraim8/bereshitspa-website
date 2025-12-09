@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bereshit Spa – דף נחיתה טיפולים</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- פונט -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS ייעודי לדפי הנחיתה -->
+  <link rel="stylesheet" href="landing.css" />
+
+  <!-- אייקון לשונית (אם תרצה להחליף לקובץ אחר) -->
+  <link rel="icon" type="image/png" href="images/logo.png" />
+</head>
+<body class="landing-page">
+
+  <!-- Hero -->
+  <main class="container" style="max-width:960px;margin:24px auto 40px;padding:0 12px;">
+    <section class="hero" id="top" style="margin-bottom:32px;">
+      <img src="images/logo.png" alt="BERESHIT SPA" style="max-width:260px;width:100%;margin:0 auto 16px;display:block;" />
+
+      <p class="promo-eyebrow" data-i18n="landing.hero.eyebrow">
+        Japanese Head Spa &amp; Thai Massage – Batumi
+      </p>
+      <h1 class="promo-title xl" data-i18n="landing.hero.title">
+        ספא ראש יפני ועיסויי גוף תאילנדיים ברמת בוטיק
+      </h1>
+      <p class="promo-text lg" data-i18n="landing.hero.subtitle">
+        בחר/י טיפול, קבע/י שעה נוחה ושלים/י תשלום מאובטח בכרטיס אשראי – הכול בדף אחד.
+      </p>
+
+      <!-- כפתור גלילה לטיפולים -->
+      <div style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button class="button" onclick="document.getElementById('treatments').scrollIntoView({behavior:'smooth'})"
+                data-i18n="landing.hero.cta">
+          לבחור טיפול ולהזמין עכשיו
+        </button>
+      </div>
+
+      <!-- מתגי שפה -->
+      <div style="margin-top:20px;display:flex;justify-content:center;">
+        <div class="lang-switch">
+          <button class="lang-btn" type="button" data-lang="he"><img src="assets/icons/flag-il.svg" alt="HE" /></button>
+          <button class="lang-btn" type="button" data-lang="en"><img src="assets/icons/flag-uk.svg" alt="EN" /></button>
+          <button class="lang-btn" type="button" data-lang="ru"><img src="assets/icons/flag-ru.svg" alt="RU" /></button>
+          <button class="lang-btn" type="button" data-lang="ka"><img src="assets/icons/flag-ge.svg" alt="KA" /></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- רשימת טיפולים -->
+    <section id="treatments">
+      <h2 style="text-align:center;margin-bottom:18px;" data-i18n="landing.treatments.title">
+        בחר/י טיפול מפנק
+      </h2>
+      <p class="muted" style="text-align:center;margin-bottom:24px;" data-i18n="landing.treatments.subtitle">
+        כל הטיפולים מתבצעים על-ידי צוות תאילנדי מקצועי, באווירה שקטה ומוסיקה מרגיעה.
+      </p>
+
+      <div class="home-grid">
+        <!-- 👑 ספא ראש יפני -->
+        <article class="product-card">
+          <div class="tag">👑 Japanese Head Spa</div>
+          <h3 class="product-title">טיפול הדגל – ספא ראש יפני</h3>
+          <p>
+            טיפול יפני מסורתי המשלב ניקוי, עיסוי קרקפת, מסכות ופינוקי מים חמימים.
+            כולל שטיפה, מגבת חמה, סרום לקרקפת וייבוש שיער מלא.
+          </p>
+          <p class="price">
+            60 דק' – 200₾ · 90 דק' – 250₾
+          </p>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="dur-head" value="60" checked />
+              <span>60 דק'</span>
+            </label>
+            <label>
+              <input type="radio" name="dur-head" value="90" />
+              <span>90 דק'</span>
+            </label>
+          </div>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="head-spa"
+                  data-radio-group="dur-head">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🌼 עיסוי פנים בקומפרסים תאילנדים -->
+        <article class="product-card">
+          <div class="tag">🌼 Thai Herbal Compress Facial</div>
+          <h3 class="product-title">עיסוי פנים בקומפרסים תאילנדים</h3>
+          <p>
+            קומפרסים תאילנדים חמים מרפים את שרירי הפנים ומשפרים את זרימת הדם.
+            כולל עיסוי פנים מעמיק, קרקפת ופלג גוף עליון.
+          </p>
+          <p class="price">60 דק' – 150₾</p>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="facial-thai-compress">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🔥 עיסוי פנים באבנים חמות -->
+        <article class="product-card">
+          <div class="tag">🔥 Hot Stone Facial</div>
+          <h3 class="product-title">עיסוי פנים באבנים חמות</h3>
+          <p>
+            אבני בזלת חמות נעות בעדינות על הפנים והצוואר ומשחררות מתחים.
+            כולל עיסוי פנים, קרקפת וצוואר.
+          </p>
+          <p class="price">60 דק' – 160₾</p>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="facial-hot-stone">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🌺 עיסוי פנים תאילנדי מסורתי -->
+        <article class="product-card">
+          <div class="tag">🌺 Traditional Thai Face Massage</div>
+          <h3 class="product-title">עיסוי פנים תאילנדי מסורתי</h3>
+          <p>
+            עיסוי עדין עם לחיצות אנרגטיות, משחרר מתח מהפנים, הלסת והצוואר.
+          </p>
+          <p class="price">30 דק' – 90₾ · 60 דק' – 150₾</p>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="dur-face-thai" value="30" checked />
+              <span>30 דק'</span>
+            </label>
+            <label>
+              <input type="radio" name="dur-face-thai" value="60" />
+              <span>60 דק'</span>
+            </label>
+          </div>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="facial-thai"
+                  data-radio-group="dur-face-thai">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🌿 עיסוי פנים ארומתרפי -->
+        <article class="product-card">
+          <div class="tag">🌿 Aromatherapy Facial</div>
+          <h3 class="product-title">עיסוי פנים ארומתרפי</h3>
+          <p>
+            טיפול עדין עם שמנים אתריים טהורים, מרגיע את מערכת העצבים ומעניק זוהר לעור.
+          </p>
+          <p class="price">30 דק' – 80₾ · 60 דק' – 140₾</p>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="dur-face-aroma" value="30" checked />
+              <span>30 דק'</span>
+            </label>
+            <label>
+              <input type="radio" name="dur-face-aroma" value="60" />
+              <span>60 דק'</span>
+            </label>
+          </div>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="facial-aroma"
+                  data-radio-group="dur-face-aroma">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 💆‍♂️ גב–כתפיים–צוואר -->
+        <article class="product-card">
+          <div class="tag">💆‍♂️ Back–Neck–Shoulders</div>
+          <h3 class="product-title">עיסוי גב–כתפיים–צוואר</h3>
+          <p>
+            עיסוי ממוקד לשחרור מתחים באזורי העומס המרכזיים – מתאים לישיבה ממושכת.
+          </p>
+          <p class="price">60 דק' – 150₾</p>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="back-basic">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🔥 גב–כתפיים–צוואר עם אבנים חמות -->
+        <article class="product-card">
+          <div class="tag">🔥 Hot Stone Back Massage</div>
+          <h3 class="product-title">עיסוי גב–כתפיים–צוואר עם אבנים חמות</h3>
+          <p>
+            אבני בזלת חמות חודרות לשרירים וממיסות מתחים עמוקים, בשילוב עיסוי ידני עמוק.
+          </p>
+          <p class="price">60 דק' – 180₾</p>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="back-hot-stone">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🇹🇭 עיסוי תאילנדי מסורתי -->
+        <article class="product-card">
+          <div class="tag">🇹🇭 Traditional Thai Massage</div>
+          <h3 class="product-title">עיסוי תאילנדי מסורתי</h3>
+          <p>
+            טיפול עתיק ללא שמן המשלב לחיצות, מתיחות ועבודה על קווי האנרגיה.
+          </p>
+          <p class="price">60 דק' – 170₾ · 90 דק' – 220₾</p>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="dur-thai" value="60" checked />
+              <span>60 דק'</span>
+            </label>
+            <label>
+              <input type="radio" name="dur-thai" value="90" />
+              <span>90 דק'</span>
+            </label>
+          </div>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="body-thai"
+                  data-radio-group="dur-thai">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🇹🇭 Thai Oil Massage -->
+        <article class="product-card">
+          <div class="tag">🇹🇭 Thai Oil Massage</div>
+          <h3 class="product-title">עיסוי שמן תאילנדי</h3>
+          <p>
+            עיסוי גוף מלא בשמן חם בתנועות זורמות ועמוקות, לשחרור עומס שרירי.
+          </p>
+          <p class="price">60 דק' – 180₾ · 90 דק' – 230₾</p>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="dur-thai-oil" value="60" checked />
+              <span>60 דק'</span>
+            </label>
+            <label>
+              <input type="radio" name="dur-thai-oil" value="90" />
+              <span>90 דק'</span>
+            </label>
+          </div>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="body-thai-oil"
+                  data-radio-group="dur-thai-oil">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🌿 Aromatherapy Oil Massage -->
+        <article class="product-card">
+          <div class="tag">🌿 Aromatherapy Oil Massage</div>
+          <h3 class="product-title">עיסוי ארומתרפי בשמן</h3>
+          <p>
+            שמנים אתריים טהורים בשילוב עיסוי גוף מרגיע ומלטף.
+          </p>
+          <p class="price">60 דק' – 190₾</p>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="body-aroma">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🇹🇭 Thai Therapeutic Massage -->
+        <article class="product-card">
+          <div class="tag">🇹🇭 Thai Therapeutic Massage</div>
+          <h3 class="product-title">עיסוי תאילנדי רפואי</h3>
+          <p>
+            עיסוי טיפולי עמוק עם לחיצות ממוקדות ומתיחות מדויקות – מתאים לכאבי גב וצוואר.
+          </p>
+          <p class="price">60 דק' – 230₾ · 90 דק' – 280₾</p>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="dur-thai-ther" value="60" checked />
+              <span>60 דק'</span>
+            </label>
+            <label>
+              <input type="radio" name="dur-thai-ther" value="90" />
+              <span>90 דק'</span>
+            </label>
+          </div>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="body-thai-ther"
+                  data-radio-group="dur-thai-ther">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🔥 Hot Stone Massage -->
+        <article class="product-card">
+          <div class="tag">🔥 Hot Stone Massage</div>
+          <h3 class="product-title">עיסוי באבנים חמות – גוף מלא</h3>
+          <p>
+            אבני בזלת חמות מחליקות על הגוף וממיסות מתחים עמוקים – רוגע עמוק וזרימת דם טובה.
+          </p>
+          <p class="price">60 דק' – 210₾</p>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="body-hot-stone">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🌼 Thai Herbal Compress Massage – גוף -->
+        <article class="product-card">
+          <div class="tag">🌼 Thai Herbal Compress Massage</div>
+          <h3 class="product-title">עיסוי גוף בקומפרסים תאילנדים</h3>
+          <p>
+            שקיות צמחים תאילנדים חמות מעניקות ריפוי טבעי, ניקוז עומק והקלה על כאבים.
+          </p>
+          <p class="price">60 דק' – 220₾ · 90 דק' – 260₾</p>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="dur-thai-comp-body" value="60" checked />
+              <span>60 דק'</span>
+            </label>
+            <label>
+              <input type="radio" name="dur-thai-comp-body" value="90" />
+              <span>90 דק'</span>
+            </label>
+          </div>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="body-thai-comp"
+                  data-radio-group="dur-thai-comp-body">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🇯🇵 Shiatsu -->
+        <article class="product-card">
+          <div class="tag">🇯🇵 Shiatsu Massage</div>
+          <h3 class="product-title">עיסוי שיאצו יפני</h3>
+          <p>
+            עיסוי ללא שמן בלחיצות לאורך מרידיאנים – מאזן אנרגיה פנימית ומרגיע עומס נפשי.
+          </p>
+          <p class="price">60 דק' – 180₾ · 90 דק' – 230₾</p>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="dur-shiatsu" value="60" checked />
+              <span>60 דק'</span>
+            </label>
+            <label>
+              <input type="radio" name="dur-shiatsu" value="90" />
+              <span>90 דק'</span>
+            </label>
+          </div>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="body-shiatsu"
+                  data-radio-group="dur-shiatsu">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🦶 פוט מסאז' -->
+        <article class="product-card">
+          <div class="tag">🦶 Thai Foot Massage</div>
+          <h3 class="product-title">פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי</h3>
+          <p>
+            עיסוי עמוק ועדין לכפות הרגליים עם לחיצות רפלקסולוגיות, מאזן מערכות גוף שונות.
+          </p>
+          <p class="price">30 דק' – 80₾ · 60 דק' – 120₾</p>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="dur-foot" value="30" checked />
+              <span>30 דק'</span>
+            </label>
+            <label>
+              <input type="radio" name="dur-foot" value="60" />
+              <span>60 דק'</span>
+            </label>
+          </div>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="foot-massage"
+                  data-radio-group="dur-foot">
+            להזמנת הטיפול
+          </button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- כפתור וואטסאפ צף -->
+  <a href="https://wa.me/972502686862"
+     class="wa-float"
+     target="_blank"
+     rel="noopener"
+     aria-label="WhatsApp">
+    <img src="assets/icons/whatsapp.svg" alt="WhatsApp" />
+  </a>
+
+  <!-- מודאל הזמנה (Booking Modal) -->
+  <div class="booking-modal hidden" id="bookingModal" aria-hidden="true">
+    <div class="booking-backdrop" data-booking-close></div>
+
+    <section class="booking-dialog" aria-modal="true" role="dialog" aria-labelledby="bookingTitle">
+      <button class="booking-close" type="button" data-booking-close>&times;</button>
+
+      <h2 id="bookingTitle">הזמנת טיפול</h2>
+      <p class="booking-treatment" id="bookingSummary">
+        נא לבחור טיפול מהדף, ואז למלא פרטי קשר ותאריך.
+      </p>
+
+      <form id="bookingForm">
+        <div class="booking-row">
+          <label for="fullName" data-i18n="landing.booking.name">שם מלא</label>
+          <input id="fullName" name="name" type="text" required />
+        </div>
+
+        <div class="booking-row">
+          <label for="phone" data-i18n="landing.booking.phone">טלפון ליצירת קשר (WhatsApp)</label>
+          <input id="phone" name="phone" type="tel" required />
+        </div>
+
+        <div class="booking-row two-cols">
+          <div>
+            <label for="date" data-i18n="landing.booking.date">תאריך טיפול</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+          <div>
+            <label for="time" data-i18n="landing.booking.time">שעת טיפול</label>
+            <select id="time" name="time" required>
+              <option value="">בחר/י שעה</option>
+              <option>10:00</option>
+              <option>12:00</option>
+              <option>14:00</option>
+              <option>16:00</option>
+              <option>18:00</option>
+              <option>20:00</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- כאן JST ימלא את אפשרויות המשך והמחיר -->
+        <div class="booking-row">
+          <label data-i18n="landing.booking.duration">משך הטיפול</label>
+          <div class="duration-options" id="bookingDurations"></div>
+        </div>
+
+        <div class="booking-row">
+          <label for="notes" data-i18n="landing.booking.notes">העדפות / הערות (אופציונלי)</label>
+          <textarea id="notes" name="notes" rows="3"></textarea>
+        </div>
+
+        <p class="booking-note" data-i18n="landing.booking.note">
+          התשלום מתבצע בכרטיס אשראי מאובטח דרך Stripe. אישור הזמנה יישלח אליך אוטומטית.
+        </p>
+
+        <button type="submit" class="booking-submit" data-i18n="landing.booking.payCta">
+          מעבר לתשלום מאובטח
+        </button>
+      </form>
+    </section>
+  </div>
+
+  <script src="landing-landing.js" type="module"></script>
+</body>
+</html>
