@@ -293,3 +293,22 @@ body.landing-page {
     box-shadow: none;
   }
 }
+/* יישור תיבות משך הטיפול (30/60/90 דק') כך שיישבו מעל הכפתור */
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* בלוק משך הטיפול */
+.product-card .duration-options {
+  margin-top: auto;        /* דוחף את הבלוק למטה */
+  margin-bottom: 14px;     /* רווח אחיד מעל הכפתור */
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+/* הכפתור – נשאר בתחתית */
+.product-card .button {
+  margin-top: 0;
+}
