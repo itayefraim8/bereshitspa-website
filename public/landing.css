@@ -324,3 +324,12 @@ body.landing-page {
 .product-card .button {
   margin-top: 0;
 }
+.landing-logo {
+  max-width: 360px;
+}
+
+@media (max-width: 600px) {
+  .landing-logo {
+    max-width: 240px;
+  }
+}
