@@ -324,12 +324,17 @@ body.landing-page {
 .product-card .button {
   margin-top: 0;
 }
+/* גודל לוגו בדסקטופ */
 .landing-logo {
-  max-width: 360px;
+  max-width: 360px;   /* מגדיל במחשב */
+  width: 100%;
+  display: block;
+  margin: 0 auto 16px;
 }
 
+/* גודל לוגו במובייל */
 @media (max-width: 600px) {
   .landing-logo {
-    max-width: 240px;
+    max-width: 220px; /* נשאר קטן בטלפון */
   }
 }
