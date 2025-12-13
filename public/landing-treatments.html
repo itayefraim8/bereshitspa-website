@@ -43,74 +43,13 @@
       <!-- מתגי שפה (דגלים) -->
       <div style="margin-top:20px;display:flex;justify-content:center;">
         <div class="lang-switch">
-          <button class="lang-btn" type="button" data-lang="he" aria-label="Hebrew"><img src="assets/icons/flag-il.svg" alt="HE" /></button>
-          <button class="lang-btn" type="button" data-lang="en" aria-label="English"><img src="assets/icons/flag-uk.svg" alt="EN" /></button>
-          <button class="lang-btn" type="button" data-lang="ru" aria-label="Russian"><img src="assets/icons/flag-ru.svg" alt="RU" /></button>
-          <button class="lang-btn" type="button" data-lang="ka" aria-label="Georgian"><img src="assets/icons/flag-ge.svg" alt="KA" /></button>
+          <button class="lang-btn" type="button" data-lang="he"><img src="assets/icons/flag-il.svg" alt="HE" /></button>
+          <button class="lang-btn" type="button" data-lang="en"><img src="assets/icons/flag-uk.svg" alt="EN" /></button>
+          <button class="lang-btn" type="button" data-lang="ru"><img src="assets/icons/flag-ru.svg" alt="RU" /></button>
+          <button class="lang-btn" type="button" data-lang="ka"><img src="assets/icons/flag-ge.svg" alt="KA" /></button>
         </div>
       </div>
     </section>
-
-  <!-- סליידר ענק ברוחב מלא: 3 וידאוים -->
-
-  <section id="heroSlider" class="promo-slider promo-full js-slider" data-autoplay="4500" aria-label="סליידר ראשי רחב">
-    <div class="slides">
-      <article class="promo-slide is-video" data-video="Videos/spa.mp4">
-        <div class="promo-overlay center">
-          <div class="promo-eyebrow" data-i18n="hero.headspa.eyebrow">בראשית • ספא ראש יפני</div>
-          <h2 class="promo-title xl" data-i18n="hero.headspa.title">ספא ראש – רוגע עמוק ובריאות לשיער</h2>
-          <p class="promo-text lg" data-i18n="hero.headspa.text">טיפול ייחודי לקרקפת, צוואר ושיער – חוויה של רגיעה מלאה</p>
-          <div class="promo-cta">
-            <button class="button" onclick="openTab(event,'services-head-spa')" data-i18n="hero.headspa.read">לקרוא על הטיפול</button>
-            <button class="btn-outline" onclick="openTab(event,'contact')" data-i18n="hero.headspa.book">לקביעת תור</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- massage -->
-      <article class="promo-slide is-video" data-video="Videos/massage.mp4">
-        <div class="promo-overlay center">
-          <div class="promo-eyebrow" data-i18n="hero.massage.eyebrow">בראשית • הדגמה</div>
-          <h2 class="promo-title xl" data-i18n="hero.massage.title">מיצוק וזוהר – תראו את זה קורה</h2>
-          <p class="promo-text lg" data-i18n="hero.massage.text">המקום שבו העור נרגע — ואת זוהרת</p>
-          <div class="promo-cta">
-            <button class="button" onclick="openTab(event,'pro-rf')" data-i18n="hero.massage.read">לקרוא על הטיפול</button>
-            <button class="btn-outline" onclick="openTab(event,'contact')" data-i18n="hero.massage.book">לקביעת תור</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- stone -->
-      <article class="promo-slide is-video" data-video="Videos/stone.mp4">
-        <div class="promo-overlay center">
-          <div class="promo-eyebrow" data-i18n="hero.stone.eyebrow">בראשית • טיפול באבנים חמות</div>
-          <h2 class="promo-title xl" data-i18n="hero.stone.title">חום עדין, זרימה, זוהר</h2>
-          <p class="promo-text lg" data-i18n="hero.stone.text">עיסוי באבני בזלת מחוממות להרפיה עמוקה ושיפור המראה.</p>
-          <div class="promo-cta">
-            <button class="button" onclick="openTab(event,'services-hot-stones')" data-i18n="hero.stone.more">לפרטי הטיפול</button>
-            <button class="btn-outline" onclick="openTab(event,'contact')" data-i18n="hero.stone.book">קביעת תור</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- steamer -->
-      <article class="promo-slide is-video" data-video="Videos/steamer.mp4">
-        <div class="promo-overlay center">
-          <div class="promo-eyebrow" data-i18n="hero.steamer.eyebrow">בראשית • הכנה מושלמת</div>
-          <h2 class="promo-title xl" data-i18n="hero.steamer.title">אדי לחות לפתיחת נקבוביות</h2>
-          <p class="promo-text lg" data-i18n="hero.steamer.text">ריכוך וניקוי עדין — הכנה אופטימלית לחומרים פעילים.</p>
-          <div class="promo-cta">
-            <button class="button" onclick="openTab(event,'services')" data-i18n="hero.steamer.all">לכל הטיפולים</button>
-            <button class="btn-outline" onclick="openTab(event,'shop')" data-i18n="hero.steamer.shop">למוצרי תמיכה</button>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <button class="slider-btn prev" aria-label="הקודם" data-i18n-attr="aria-label:ui.prev">‹</button>
-    <button class="slider-btn next" aria-label="הבא" data-i18n-attr="aria-label:ui.next">›</button>
-    <div class="dots" role="tablist" aria-label="ניווט שקופיות" data-i18n-attr="aria-label:ui.slidenav"></div>
-  </section>
 
     <!-- רשימת טיפולים -->
     <section id="treatments">
@@ -121,17 +60,16 @@
         כל הטיפולים מתבצעים על-ידי צוות תאילנדי מקצועי, באווירה שקטה ומוסיקה מרגיעה.
       </p>
 
-
       <div class="home-grid">
         <!-- 👑 ספא ראש יפני -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.headspa">👑 Japanese Head Spa</div>
-          <h3 class="product-title" data-i18n="landing.title.headspa">טיפול הדגל – ספא ראש יפני</h3>
-          <p data-i18n="landing.desc.headspa">
+          <div class="tag" data-i18n="landing.treat.head.tag">👑 Japanese Head Spa</div>
+          <h3 class="product-title" data-i18n="landing.treat.head.title">טיפול הדגל – ספא ראש יפני</h3>
+          <p data-i18n="landing.treat.head.desc">
             טיפול יפני מסורתי המשלב ניקוי, עיסוי קרקפת, מסכות ופינוקי מים חמימים.
             כולל שטיפה, מגבת חמה, סרום לקרקפת וייבוש שיער מלא.
           </p>
-          <p class="price" data-i18n="landing.price.headspa">
+          <p class="price" data-i18n="landing.treat.head.price">
             60 דק' – 200₾ · 90 דק' – 250₾
           </p>
           <div class="duration-options">
@@ -152,20 +90,16 @@
             להזמנת הטיפול
           </button>
         </article>
-      </div>
 
-
-
-      <div class="home-grid">
         <!-- 🌼 עיסוי פנים בקומפרסים תאילנדים -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.facial.thaiCompress">🌼 Thai Herbal Compress Facial</div>
-          <h3 class="product-title" data-i18n="landing.title.facial.thaiCompress">עיסוי פנים בקומפרסים תאילנדים</h3>
-          <p data-i18n="landing.desc.facial.thaiCompress">
+          <div class="tag" data-i18n="landing.treat.facialThaiCompress.tag">🌼 Thai Herbal Compress Facial</div>
+          <h3 class="product-title" data-i18n="landing.treat.facialThaiCompress.title">עיסוי פנים בקומפרסים תאילנדים</h3>
+          <p data-i18n="landing.treat.facialThaiCompress.desc">
             קומפרסים תאילנדים חמים מרפים את שרירי הפנים ומשפרים את זרימת הדם.
             כולל עיסוי פנים מעמיק, קרקפת ופלג גוף עליון.
           </p>
-          <p class="price" data-i18n="landing.price.facial.thaiCompress">60 דק' – 150₾</p>
+          <p class="price" data-i18n="landing.treat.facialThaiCompress.price">60 דק' – 150₾</p>
           <button class="button"
                   data-book-btn
                   data-treatment-key="facial-thai-compress"
@@ -176,13 +110,13 @@
 
         <!-- 🔥 עיסוי פנים באבנים חמות -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.facial.hotStone">🔥 Hot Stone Facial</div>
-          <h3 class="product-title" data-i18n="landing.title.facial.hotStone">עיסוי פנים באבנים חמות</h3>
-          <p data-i18n="landing.desc.facial.hotStone">
+          <div class="tag" data-i18n="landing.treat.facialHotStone.tag">🔥 Hot Stone Facial</div>
+          <h3 class="product-title" data-i18n="landing.treat.facialHotStone.title">עיסוי פנים באבנים חמות</h3>
+          <p data-i18n="landing.treat.facialHotStone.desc">
             אבני בזלת חמות נעות בעדינות על הפנים והצוואר ומשחררות מתחים.
             כולל עיסוי פנים, קרקפת וצוואר.
           </p>
-          <p class="price" data-i18n="landing.price.facial.hotStone">60 דק' – 160₾</p>
+          <p class="price" data-i18n="landing.treat.facialHotStone.price">60 דק' – 160₾</p>
           <button class="button"
                   data-book-btn
                   data-treatment-key="facial-hot-stone"
@@ -193,12 +127,12 @@
 
         <!-- 🌺 עיסוי פנים תאילנדי מסורתי -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.facial.thaiTraditional">🌺 Traditional Thai Face Massage</div>
-          <h3 class="product-title" data-i18n="landing.title.facial.thaiTraditional">עיסוי פנים תאילנדי מסורתי</h3>
-          <p data-i18n="landing.desc.facial.thaiTraditional">
+          <div class="tag" data-i18n="landing.treat.facialThai.tag">🌺 Traditional Thai Face Massage</div>
+          <h3 class="product-title" data-i18n="landing.treat.facialThai.title">עיסוי פנים תאילנדי מסורתי</h3>
+          <p data-i18n="landing.treat.facialThai.desc">
             עיסוי עדין עם לחיצות אנרגטיות, משחרר מתח מהפנים, הלסת והצוואר.
           </p>
-          <p class="price" data-i18n="landing.price.facial.thaiTraditional">30 דק' – 90₾ · 60 דק' – 150₾</p>
+          <p class="price" data-i18n="landing.treat.facialThai.price">30 דק' – 90₾ · 60 דק' – 150₾</p>
           <div class="duration-options">
             <label>
               <input type="radio" name="dur-face-thai" value="30" checked />
@@ -220,12 +154,12 @@
 
         <!-- 🌿 עיסוי פנים ארומתרפי -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.facial.aroma">🌿 Aromatherapy Facial</div>
-          <h3 class="product-title" data-i18n="landing.title.facial.aroma">עיסוי פנים ארומתרפי</h3>
-          <p data-i18n="landing.desc.facial.aroma">
+          <div class="tag" data-i18n="landing.treat.facialAroma.tag">🌿 Aromatherapy Facial</div>
+          <h3 class="product-title" data-i18n="landing.treat.facialAroma.title">עיסוי פנים ארומתרפי</h3>
+          <p data-i18n="landing.treat.facialAroma.desc">
             טיפול עדין עם שמנים אתריים טהורים, מרגיע את מערכת העצבים ומעניק זוהר לעור.
           </p>
-          <p class="price" data-i18n="landing.price.facial.aroma">30 דק' – 80₾ · 60 דק' – 140₾</p>
+          <p class="price" data-i18n="landing.treat.facialAroma.price">30 דק' – 80₾ · 60 דק' – 140₾</p>
           <div class="duration-options">
             <label>
               <input type="radio" name="dur-face-aroma" value="30" checked />
@@ -244,19 +178,15 @@
             להזמנת הטיפול
           </button>
         </article>
-      </div>
 
-
-
-      <div class="home-grid">
         <!-- 💆‍♂️ גב–כתפיים–צוואר -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.partial.backNeckShoulders">💆‍♂️ Back–Neck–Shoulders</div>
-          <h3 class="product-title" data-i18n="landing.title.partial.backNeckShoulders">עיסוי גב–כתפיים–צוואר</h3>
-          <p data-i18n="landing.desc.partial.backNeckShoulders">
+          <div class="tag" data-i18n="landing.treat.backBasic.tag">💆‍♂️ Back–Neck–Shoulders</div>
+          <h3 class="product-title" data-i18n="landing.treat.backBasic.title">עיסוי גב–כתפיים–צוואר</h3>
+          <p data-i18n="landing.treat.backBasic.desc">
             עיסוי ממוקד לשחרור מתחים באזורי העומס המרכזיים – מתאים לישיבה ממושכת.
           </p>
-          <p class="price" data-i18n="landing.price.partial.backNeckShoulders">60 דק' – 150₾</p>
+          <p class="price" data-i18n="landing.treat.backBasic.price">60 דק' – 150₾</p>
           <button class="button"
                   data-book-btn
                   data-treatment-key="back-basic"
@@ -267,12 +197,12 @@
 
         <!-- 🔥 גב–כתפיים–צוואר עם אבנים חמות -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.partial.backHotStone">🔥 Hot Stone Back Massage</div>
-          <h3 class="product-title" data-i18n="landing.title.partial.backHotStone">עיסוי גב–כתפיים–צוואר עם אבנים חמות</h3>
-          <p data-i18n="landing.desc.partial.backHotStone">
+          <div class="tag" data-i18n="landing.treat.backHotStone.tag">🔥 Hot Stone Back Massage</div>
+          <h3 class="product-title" data-i18n="landing.treat.backHotStone.title">עיסוי גב–כתפיים–צוואר עם אבנים חמות</h3>
+          <p data-i18n="landing.treat.backHotStone.desc">
             אבני בזלת חמות חודרות לשרירים וממיסות מתחים עמוקים, בשילוב עיסוי ידני עמוק.
           </p>
-          <p class="price" data-i18n="landing.price.partial.backHotStone">60 דק' – 180₾</p>
+          <p class="price" data-i18n="landing.treat.backHotStone.price">60 דק' – 180₾</p>
           <button class="button"
                   data-book-btn
                   data-treatment-key="back-hot-stone"
@@ -281,47 +211,14 @@
           </button>
         </article>
 
-        <!-- 🦶 פוט מסאז' -->
+        <!-- 🇹🇭 עיסוי תאילנדי מסורתי -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.partial.foot">🦶 Thai Foot Massage</div>
-          <h3 class="product-title" data-i18n="landing.title.partial.foot">פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי</h3>
-          <p data-i18n="landing.desc.partial.foot">
-            עיסוי עמוק ועדין לכפות הרגליים עם לחיצות רפלקסולוגיות, מאזן מערכות גוף שונות.
+          <div class="tag" data-i18n="landing.treat.bodyThai.tag">🇹🇭 Traditional Thai Massage</div>
+          <h3 class="product-title" data-i18n="landing.treat.bodyThai.title">עיסוי תאילנדי מסורתי</h3>
+          <p data-i18n="landing.treat.bodyThai.desc">
+            טיפול עתיק ללא שמן המשלב לחיצות, מתיחות ועבודה על קווי האנרגיה.
           </p>
-          <p class="price" data-i18n="landing.price.partial.foot">30 דק' – 80₾ · 60 דק' – 120₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-foot" value="30" checked />
-              <span data-i18n="landing.duration.30">30 דק'</span>
-            </label>
-            <label>
-              <input type="radio" name="dur-foot" value="60" />
-              <span data-i18n="landing.duration.60">60 דק'</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="foot-massage"
-                  data-radio-group="dur-foot"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-      </div>
-
-
-
-      <div class="home-grid">
-        <!-- 🇹🇭 עיסוי תאילנדי מסורתי – גוף מלא -->
-        <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.full.thai">🇹🇭 Traditional Thai Massage</div>
-          <h3 class="product-title" data-i18n="landing.title.full.thai">עיסוי תאילנדי מסורתי</h3>
-          <p data-i18n="landing.desc.body-thai">
-            עיסוי גוף מלא – מכפות הרגליים ועד הכתפיים, צוואר ראש ופנים.
-            עיסוי גוף מלא ללא שמן המשלב לחיצות, מתיחות ועבודה על קווי האנרגיה לאורך כל הגוף.
-            הטיפול כולל עבודה על גב, כתפיים, ידיים, רגליים וכפות רגליים, ומותאם לעצימות הנוחה לך כדי לשחרר עומסים ולשפר חיוניות כללית.
-          </p>
-          <p class="price" data-i18n="landing.price.full.thai">60 דק' – 170₾ · 90 דק' – 220₾</p>
+          <p class="price" data-i18n="landing.treat.bodyThai.price">60 דק' – 170₾ · 90 דק' – 220₾</p>
           <div class="duration-options">
             <label>
               <input type="radio" name="dur-thai" value="60" checked />
@@ -341,16 +238,14 @@
           </button>
         </article>
 
-        <!-- 🇹🇭 Thai Oil Massage – גוף מלא -->
+        <!-- 🇹🇭 Thai Oil Massage -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.full.thaiOil">🇹🇭 Thai Oil Massage</div>
-          <h3 class="product-title" data-i18n="landing.title.full.thaiOil">עיסוי שמן תאילנדי</h3>
-          <p data-i18n="landing.desc.body-thai-oil">
-            עיסוי גוף מלא – מכפות הרגליים ועד הכתפיים, צוואר ראש ופנים.
-            עיסוי גוף מלא בשמן חם בתנועות זורמות ועמוקות, משחרר עומס שרירים בכל חלקי הגוף.
-            הטיפול כולל עבודה מקיפה על גב, כתפיים, זרועות, רגליים וכפות רגליים, ומעניק תחושת קלילות והרפיה עמוקה מכף רגל ועד ראש.
+          <div class="tag" data-i18n="landing.treat.bodyThaiOil.tag">🇹🇭 Thai Oil Massage</div>
+          <h3 class="product-title" data-i18n="landing.treat.bodyThaiOil.title">עיסוי שמן תאילנדי</h3>
+          <p data-i18n="landing.treat.bodyThaiOil.desc">
+            עיסוי גוף מלא בשמן חם בתנועות זורמות ועמוקות, לשחרור עומס שרירי.
           </p>
-          <p class="price" data-i18n="landing.price.full.thaiOil">60 דק' – 180₾ · 90 דק' – 230₾</p>
+          <p class="price" data-i18n="landing.treat.bodyThaiOil.price">60 דק' – 180₾ · 90 דק' – 230₾</p>
           <div class="duration-options">
             <label>
               <input type="radio" name="dur-thai-oil" value="60" checked />
@@ -370,16 +265,14 @@
           </button>
         </article>
 
-        <!-- 🌿 Aromatherapy Oil Massage – גוף מלא -->
+        <!-- 🌿 Aromatherapy Oil Massage -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.full.aroma">🌿 Aromatherapy Oil Massage</div>
-          <h3 class="product-title" data-i18n="landing.title.full.aroma">עיסוי ארומתרפי בשמן</h3>
-          <p data-i18n="landing.desc.body-aroma">
-            עיסוי גוף מלא – מכפות הרגליים ועד הכתפיים, צוואר ראש ופנים.
-            עיסוי גוף מלא עם שמנים אתריים טהורים המותאמים אישית לצורך שלך – הרגעה, שחרור מתחים או איזון אנרגטי.
-            הטיפול מכסה את כל הגוף מתחתית הרגליים ועד העורף, ומשלב מגע עדין וזורם שמרגיע את מערכת העצבים ומעניק תחושת רוגע עמוק.
+          <div class="tag" data-i18n="landing.treat.bodyAroma.tag">🌿 Aromatherapy Oil Massage</div>
+          <h3 class="product-title" data-i18n="landing.treat.bodyAroma.title">עיסוי ארומתרפי בשמן</h3>
+          <p data-i18n="landing.treat.bodyAroma.desc">
+            שמנים אתריים טהורים בשילוב עיסוי גוף מרגיע ומלטף.
           </p>
-          <p class="price" data-i18n="landing.price.full.aroma">60 דק' – 190₾</p>
+          <p class="price" data-i18n="landing.treat.bodyAroma.price">60 דק' – 190₾</p>
           <button class="button"
                   data-book-btn
                   data-treatment-key="body-aroma"
@@ -388,16 +281,14 @@
           </button>
         </article>
 
-        <!-- 🇹🇭 Thai Therapeutic Massage – גוף מלא טיפולי -->
+        <!-- 🇹🇭 Thai Therapeutic Massage -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.full.thaiTher">🇹🇭 Thai Therapeutic Massage</div>
-          <h3 class="product-title" data-i18n="landing.title.full.thaiTher">עיסוי תאילנדי רפואי</h3>
-          <p data-i18n="landing.desc.body-thai-ther">
-            עיסוי גוף מלא – מכפות הרגליים ועד הכתפיים, צוואר ראש ופנים.
-            עיסוי גוף מלא טיפולי ועמוק עם לחיצות ממוקדות ומתיחות מדויקות לאורך הגב, הכתפיים, הרגליים והצוואר.
-            מתאים במיוחד לכאבי גב וצוואר, נוקשות כרונית ועומס שרירים, ומטרתו לשפר תנועתיות ולהחזיר לגוף תחושת קלילות.
+          <div class="tag" data-i18n="landing.treat.bodyThaiTher.tag">🇹🇭 Thai Therapeutic Massage</div>
+          <h3 class="product-title" data-i18n="landing.treat.bodyThaiTher.title">עיסוי תאילנדי רפואי</h3>
+          <p data-i18n="landing.treat.bodyThaiTher.desc">
+            עיסוי טיפולי עמוק עם לחיצות ממוקדות ומתיחות מדויקות – מתאים לכאבי גב וצוואר.
           </p>
-          <p class="price" data-i18n="landing.price.full.thaiTher">60 דק' – 230₾ · 90 דק' – 280₾</p>
+          <p class="price" data-i18n="landing.treat.bodyThaiTher.price">60 דק' – 230₾ · 90 דק' – 280₾</p>
           <div class="duration-options">
             <label>
               <input type="radio" name="dur-thai-ther" value="60" checked />
@@ -417,16 +308,14 @@
           </button>
         </article>
 
-        <!-- 🔥 Hot Stone Massage – גוף מלא -->
+        <!-- 🔥 Hot Stone Massage -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.full.hotStone">🔥 Hot Stone Massage</div>
-          <h3 class="product-title" data-i18n="landing.title.full.hotStone">עיסוי באבנים חמות – גוף מלא</h3>
-          <p data-i18n="landing.desc.body-hot-stone">
-            עיסוי גוף מלא – מכפות הרגליים ועד הכתפיים, צוואר ראש ופנים.
-            עיסוי גוף מלא באבני בזלת חמות המחליקות על הגב, הכתפיים, הידיים והרגליים וממיסות מתחים עמוקים בשרירים.
-            החום חודר לשכבות הפנימיות, מעודד זרימת דם טובה ומעניק תחושת רוגע עמוק וחימום נעים בכל הגוף.
+          <div class="tag" data-i18n="landing.treat.bodyHotStone.tag">🔥 Hot Stone Massage</div>
+          <h3 class="product-title" data-i18n="landing.treat.bodyHotStone.title">עיסוי באבנים חמות – גוף מלא</h3>
+          <p data-i18n="landing.treat.bodyHotStone.desc">
+            אבני בזלת חמות מחליקות על הגוף וממיסות מתחים עמוקים – רוגע עמוק וזרימת דם טובה.
           </p>
-          <p class="price" data-i18n="landing.price.full.hotStone">60 דק' – 210₾</p>
+          <p class="price" data-i18n="landing.treat.bodyHotStone.price">60 דק' – 210₾</p>
           <button class="button"
                   data-book-btn
                   data-treatment-key="body-hot-stone"
@@ -435,16 +324,14 @@
           </button>
         </article>
 
-        <!-- 🌼 Thai Herbal Compress Massage – גוף מלא -->
+        <!-- 🌼 Thai Herbal Compress Massage – גוף -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.full.thaiCompress">🌼 Thai Herbal Compress Massage</div>
-          <h3 class="product-title" data-i18n="landing.title.full.thaiCompress">עיסוי גוף בקומפרסים תאילנדים</h3>
-          <p data-i18n="landing.desc.body-thai-comp">
-            עיסוי גוף מלא – מכפות הרגליים ועד הכתפיים, צוואר ראש ופנים.
-            עיסוי גוף מלא עם שקיות צמחים תאילנדים חמות, המונחות ונעות לאורך הגב, הכתפיים, הידיים והרגליים.
-            הצמחים והחום פועלים יחד לניקוז עומק, שחרור כאבים והקלה על נוקשות שרירים, ומתאימים במיוחד למי שמחפש חוויית ריפוי טבעית לכל הגוף.
+          <div class="tag" data-i18n="landing.treat.bodyThaiComp.tag">🌼 Thai Herbal Compress Massage</div>
+          <h3 class="product-title" data-i18n="landing.treat.bodyThaiComp.title">עיסוי גוף בקומפרסים תאילנדים</h3>
+          <p data-i18n="landing.treat.bodyThaiComp.desc">
+            שקיות צמחים תאילנדים חמות מעניקות ריפוי טבעי, ניקוז עומק והקלה על כאבים.
           </p>
-          <p class="price" data-i18n="landing.price.full.thaiCompress">60 דק' – 220₾ · 90 דק' – 260₾</p>
+          <p class="price" data-i18n="landing.treat.bodyThaiComp.price">60 דק' – 220₾ · 90 דק' – 260₾</p>
           <div class="duration-options">
             <label>
               <input type="radio" name="dur-thai-comp-body" value="60" checked />
@@ -464,16 +351,14 @@
           </button>
         </article>
 
-        <!-- 🇯🇵 Shiatsu – גוף מלא -->
+        <!-- 🇯🇵 Shiatsu -->
         <article class="product-card">
-          <div class="tag" data-i18n="landing.tag.full.shiatsu">🇯🇵 Shiatsu Massage</div>
-          <h3 class="product-title" data-i18n="landing.title.full.shiatsu">עיסוי שיאצו יפני</h3>
-          <p data-i18n="landing.desc.body-shiatsu">
-            עיסוי גוף מלא – מכפות הרגליים ועד הכתפיים, צוואר ראש ופנים.
-            עיסוי גוף מלא ללא שמן בלחיצות לאורך מרידיאנים (קווי אנרגיה) בכל חלקי הגוף – גב, צוואר, גפיים וכפות רגליים.
-            הטיפול מאזן אנרגיה פנימית, מסייע בהורדת מתחים נפשיים ופיזיים ומתאים למי שמעדיף מגע טיפולי ללא שמן.
+          <div class="tag" data-i18n="landing.treat.bodyShiatsu.tag">🇯🇵 Shiatsu Massage</div>
+          <h3 class="product-title" data-i18n="landing.treat.bodyShiatsu.title">עיסוי שיאצו יפני</h3>
+          <p data-i18n="landing.treat.bodyShiatsu.desc">
+            עיסוי ללא שמן בלחיצות לאורך מרידיאנים – מאזן אנרגיה פנימית ומרגיע עומס נפשי.
           </p>
-          <p class="price" data-i18n="landing.price.full.shiatsu">60 דק' – 180₾ · 90 דק' – 230₾</p>
+          <p class="price" data-i18n="landing.treat.bodyShiatsu.price">60 דק' – 180₾ · 90 דק' – 230₾</p>
           <div class="duration-options">
             <label>
               <input type="radio" name="dur-shiatsu" value="60" checked />
@@ -488,6 +373,33 @@
                   data-book-btn
                   data-treatment-key="body-shiatsu"
                   data-radio-group="dur-shiatsu"
+                  data-i18n="landing.treatment.book">
+            להזמנת הטיפול
+          </button>
+        </article>
+
+        <!-- 🦶 פוט מסאז' -->
+        <article class="product-card">
+          <div class="tag" data-i18n="landing.treat.foot.tag">🦶 Thai Foot Massage</div>
+          <h3 class="product-title" data-i18n="landing.treat.foot.title">פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי</h3>
+          <p data-i18n="landing.treat.foot.desc">
+            עיסוי עמוק ועדין לכפות הרגליים עם לחיצות רפלקסולוגיות, מאזן מערכות גוף שונות.
+          </p>
+          <p class="price" data-i18n="landing.treat.foot.price">30 דק' – 80₾ · 60 דק' – 120₾</p>
+          <div class="duration-options">
+            <label>
+              <input type="radio" name="dur-foot" value="30" checked />
+              <span data-i18n="landing.duration.30">30 דק'</span>
+            </label>
+            <label>
+              <input type="radio" name="dur-foot" value="60" />
+              <span data-i18n="landing.duration.60">60 דק'</span>
+            </label>
+          </div>
+          <button class="button"
+                  data-book-btn
+                  data-treatment-key="foot-massage"
+                  data-radio-group="dur-foot"
                   data-i18n="landing.treatment.book">
             להזמנת הטיפול
           </button>
@@ -510,7 +422,7 @@
     <div class="booking-backdrop" data-booking-close></div>
 
     <section class="booking-dialog" aria-modal="true" role="dialog" aria-labelledby="bookingTitle">
-      <button class="booking-close" type="button" data-booking-close aria-label="Close">&times;</button>
+      <button class="booking-close" type="button" data-booking-close>&times;</button>
 
       <h2 id="bookingTitle" data-i18n="landing.booking.title">הזמנת טיפול</h2>
       <p class="booking-treatment" id="bookingSummary" data-i18n="landing.booking.summary">
@@ -535,14 +447,14 @@
           </div>
           <div>
             <label for="time" data-i18n="landing.booking.time">שעת טיפול</label>
-            <select id="time" name="time" required aria-label="Time">
+            <select id="time" name="time" required>
               <option value="" data-i18n="landing.booking.chooseTime">בחר/י שעה</option>
-              <option value="10:00" data-i18n="landing.time.10">10:00</option>
-              <option value="12:00" data-i18n="landing.time.12">12:00</option>
-              <option value="14:00" data-i18n="landing.time.14">14:00</option>
-              <option value="16:00" data-i18n="landing.time.16">16:00</option>
-              <option value="18:00" data-i18n="landing.time.18">18:00</option>
-              <option value="20:00" data-i18n="landing.time.20">20:00</option>
+              <option>10:00</option>
+              <option>12:00</option>
+              <option>14:00</option>
+              <option>16:00</option>
+              <option>18:00</option>
+              <option>20:00</option>
             </select>
           </div>
         </div>
