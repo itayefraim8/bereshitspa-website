@@ -5,7 +5,7 @@ body.landing-page {
   margin: 0;
   padding: 0;
   font-family: "Heebo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f5f7;        /* רקע אפור בהיר */
+  background: #f5f5f7;        /* רקע אפור בהיר, לא שחור */
   color: #111827;
 }
 
@@ -101,63 +101,41 @@ body.landing-page {
   gap: 18px;
 }
 
-/* ✅ רקע זהב לכל הכרטיסים */
 .product-card {
-  background: #f3d28b; /* זהב */
+  background: #f9fafb;
   border-radius: 16px;
   padding: 16px 14px 18px;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
   display: flex;
   flex-direction: column;
   gap: 8px;
-  height: 100%;
 }
 
-/* =========================================================
-   ✅ יישור מושלם של הכותרות:
-   מגדירים גובה קבוע ל״אזור העליון״ = תג + כותרת
-   כך שהכותרת תמיד מתחילה באותו גובה בדיוק בכל כרטיס.
-   ========================================================= */
-
-/* ✅ תג – גדול יותר + גובה קבוע */
 .product-card .tag {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 6px 14px;
-  font-size: 1.05rem;    /* גדול יותר */
-  font-weight: 700;
+  padding: 3px 10px;
+  font-size: 0.8rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.55);
-  color: #111827;
-  min-height: 40px;      /* גובה קבוע לתג */
-  line-height: 1;
-  align-self: flex-start;
-  white-space: nowrap;
+  background: #e5e7eb;
+  color: #374151;
 }
 
-/* ✅ כותרת – גובה קבוע, תמיד מתחילה באותו מקום */
 .product-title {
-  margin: 0;                /* חשוב: לא לתת מרווחים משתנים */
-  padding-top: 8px;         /* מרווח קבוע בין תג לכותרת */
-  font-size: 1.12rem;
-  font-weight: 800;
-  line-height: 1.25;
-  min-height: 3.1em;        /* שומר מקום זהה גם כשכותרת נשברת */
-  color: #111827;
+  margin: 4px 0 4px;
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
-/* טקסטים בכרטיס */
 .product-card p {
   margin: 0;
   font-size: 0.95rem;
-  color: #1f2937;
+  color: #4b5563;
 }
 
-/* מחיר */
 .price {
   margin-top: 6px;
-  font-weight: 800;
+  font-weight: 600;
   color: #111827;
 }
 
@@ -172,13 +150,13 @@ body.landing-page {
 .duration-options label {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 4px;
+  padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(17, 24, 39, 0.25);
-  font-size: 0.95rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.65);
+  background: #ffffff;
 }
 
 .duration-options input[type="radio"] {
@@ -315,10 +293,23 @@ body.landing-page {
     box-shadow: none;
   }
 }
-
-/* ===== יישור פנימי בכרטיסים ===== */
+/* כל כרטיס – גובה אחיד ויישור למטה */
 .product-card {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  height: 100%;
+}
+
+/* מוודא שטקסט התיאור לא דוחף הכל */
+.product-card p {
+  flex-grow: 0;
+}
+
+/* קופסת המחיר */
+.product-card .price {
+  margin-top: 8px;
+  font-weight: 700;
 }
 
 /* משך הטיפול – תמיד מעל הכפתור */
