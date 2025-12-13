@@ -111,20 +111,28 @@ body.landing-page {
   gap: 8px;
 }
 
+/* ✅ יישור תגיות כדי שהכותרות יתחילו באותו גובה */
 .product-card .tag {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: 3px 10px;
   font-size: 0.8rem;
   border-radius: 999px;
   background: #e5e7eb;
   color: #374151;
+  min-height: 28px; /* חשוב ליישור */
+  align-self: flex-start;
+  white-space: nowrap;
 }
 
+/* ✅ יישור כותרות - גובה אחיד */
 .product-title {
   margin: 4px 0 4px;
   font-size: 1.05rem;
   font-weight: 600;
+  line-height: 1.25;
+  min-height: 2.5em; /* שומר שכל הכותרות יישבו באותה שורה/גובה */
 }
 
 .product-card p {
@@ -293,6 +301,7 @@ body.landing-page {
     box-shadow: none;
   }
 }
+
 /* כל כרטיס – גובה אחיד ויישור למטה */
 .product-card {
   display: flex;
