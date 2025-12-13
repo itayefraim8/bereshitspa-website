@@ -51,67 +51,66 @@
       </div>
     </section>
 
-    <!-- 🎥 Video Slider (תשתית מוכנה ל-5 וידאו) -->
-    <section id="videos" style="margin:6px 0 26px;">
-      <h2 style="text-align:center;margin-bottom:14px;" data-i18n="landing.videos.title">הצצה קצרה לספא</h2>
-      <p class="muted" style="text-align:center;margin-bottom:14px;" data-i18n="landing.videos.subtitle">
-        החלק/י בין הסרטונים — אתה רק צריך להניח את קבצי הווידאו בתיקייה.
-      </p>
+  <!-- סליידר ענק ברוחב מלא: 3 וידאוים -->
 
-      <!--
-        ✅ תשים כאן 5 קבצים בתיקייה:
-        assets/videos/01.mp4
-        assets/videos/02.mp4
-        assets/videos/03.mp4
-        assets/videos/04.mp4
-        assets/videos/05.mp4
-      -->
+  <section id="heroSlider" class="promo-slider promo-full js-slider" data-autoplay="4500" aria-label="סליידר ראשי רחב">
+    <div class="slides">
+      <article class="promo-slide is-video" data-video="Videos/spa.mp4">
+        <div class="promo-overlay center">
+          <div class="promo-eyebrow" data-i18n="hero.headspa.eyebrow">בראשית • ספא ראש יפני</div>
+          <h2 class="promo-title xl" data-i18n="hero.headspa.title">ספא ראש – רוגע עמוק ובריאות לשיער</h2>
+          <p class="promo-text lg" data-i18n="hero.headspa.text">טיפול ייחודי לקרקפת, צוואר ושיער – חוויה של רגיעה מלאה</p>
+          <div class="promo-cta">
+            <button class="button" onclick="openTab(event,'services-head-spa')" data-i18n="hero.headspa.read">לקרוא על הטיפול</button>
+            <button class="btn-outline" onclick="openTab(event,'contact')" data-i18n="hero.headspa.book">לקביעת תור</button>
+          </div>
+        </div>
+      </article>
 
-      <div class="video-slider" data-video-slider style="display:flex;gap:12px;overflow:auto;scroll-snap-type:x mandatory;padding:8px 4px;">
-        <figure class="video-slide" style="min-width:78%;scroll-snap-align:center;margin:0;">
-          <video class="video" controls preload="metadata" playsinline style="width:100%;border-radius:14px;">
-            <source src="assets/videos/01.mp4" type="video/mp4" />
-          </video>
-          <figcaption class="muted" style="text-align:center;margin-top:8px;" data-i18n="landing.videos.cap1">ספא ראש יפני</figcaption>
-        </figure>
+      <!-- massage -->
+      <article class="promo-slide is-video" data-video="Videos/massage.mp4">
+        <div class="promo-overlay center">
+          <div class="promo-eyebrow" data-i18n="hero.massage.eyebrow">בראשית • הדגמה</div>
+          <h2 class="promo-title xl" data-i18n="hero.massage.title">מיצוק וזוהר – תראו את זה קורה</h2>
+          <p class="promo-text lg" data-i18n="hero.massage.text">המקום שבו העור נרגע — ואת זוהרת</p>
+          <div class="promo-cta">
+            <button class="button" onclick="openTab(event,'pro-rf')" data-i18n="hero.massage.read">לקרוא על הטיפול</button>
+            <button class="btn-outline" onclick="openTab(event,'contact')" data-i18n="hero.massage.book">לקביעת תור</button>
+          </div>
+        </div>
+      </article>
 
-        <figure class="video-slide" style="min-width:78%;scroll-snap-align:center;margin:0;">
-          <video class="video" controls preload="metadata" playsinline style="width:100%;border-radius:14px;">
-            <source src="assets/videos/02.mp4" type="video/mp4" />
-          </video>
-          <figcaption class="muted" style="text-align:center;margin-top:8px;" data-i18n="landing.videos.cap2">עיסוי תאילנדי</figcaption>
-        </figure>
+      <!-- stone -->
+      <article class="promo-slide is-video" data-video="Videos/stone.mp4">
+        <div class="promo-overlay center">
+          <div class="promo-eyebrow" data-i18n="hero.stone.eyebrow">בראשית • טיפול באבנים חמות</div>
+          <h2 class="promo-title xl" data-i18n="hero.stone.title">חום עדין, זרימה, זוהר</h2>
+          <p class="promo-text lg" data-i18n="hero.stone.text">עיסוי באבני בזלת מחוממות להרפיה עמוקה ושיפור המראה.</p>
+          <div class="promo-cta">
+            <button class="button" onclick="openTab(event,'services-hot-stones')" data-i18n="hero.stone.more">לפרטי הטיפול</button>
+            <button class="btn-outline" onclick="openTab(event,'contact')" data-i18n="hero.stone.book">קביעת תור</button>
+          </div>
+        </div>
+      </article>
 
-        <figure class="video-slide" style="min-width:78%;scroll-snap-align:center;margin:0;">
-          <video class="video" controls preload="metadata" playsinline style="width:100%;border-radius:14px;">
-            <source src="assets/videos/03.mp4" type="video/mp4" />
-          </video>
-          <figcaption class="muted" style="text-align:center;margin-top:8px;" data-i18n="landing.videos.cap3">עיסוי בשמן</figcaption>
-        </figure>
+      <!-- steamer -->
+      <article class="promo-slide is-video" data-video="Videos/steamer.mp4">
+        <div class="promo-overlay center">
+          <div class="promo-eyebrow" data-i18n="hero.steamer.eyebrow">בראשית • הכנה מושלמת</div>
+          <h2 class="promo-title xl" data-i18n="hero.steamer.title">אדי לחות לפתיחת נקבוביות</h2>
+          <p class="promo-text lg" data-i18n="hero.steamer.text">ריכוך וניקוי עדין — הכנה אופטימלית לחומרים פעילים.</p>
+          <div class="promo-cta">
+            <button class="button" onclick="openTab(event,'services')" data-i18n="hero.steamer.all">לכל הטיפולים</button>
+            <button class="btn-outline" onclick="openTab(event,'shop')" data-i18n="hero.steamer.shop">למוצרי תמיכה</button>
+          </div>
+        </div>
+      </article>
+    </div>
 
-        <figure class="video-slide" style="min-width:78%;scroll-snap-align:center;margin:0;">
-          <video class="video" controls preload="metadata" playsinline style="width:100%;border-radius:14px;">
-            <source src="assets/videos/04.mp4" type="video/mp4" />
-          </video>
-          <figcaption class="muted" style="text-align:center;margin-top:8px;" data-i18n="landing.videos.cap4">קומפרסים תאילנדיים</figcaption>
-        </figure>
-
-        <figure class="video-slide" style="min-width:78%;scroll-snap-align:center;margin:0;">
-          <video class="video" controls preload="metadata" playsinline style="width:100%;border-radius:14px;">
-            <source src="assets/videos/05.mp4" type="video/mp4" />
-          </video>
-          <figcaption class="muted" style="text-align:center;margin-top:8px;" data-i18n="landing.videos.cap5">האווירה במקום</figcaption>
-        </figure>
-      </div>
-
-      <div style="display:flex;gap:10px;justify-content:center;margin-top:10px;flex-wrap:wrap;">
-        <button class="button" type="button"
-                onclick="document.getElementById('treatments').scrollIntoView({behavior:'smooth'})"
-                data-i18n="landing.videos.cta">
-          לצפייה בטיפולים והזמנה
-        </button>
-      </div>
-    </section>
+    <button class="slider-btn prev" aria-label="הקודם" data-i18n-attr="aria-label:ui.prev">‹</button>
+    <button class="slider-btn next" aria-label="הבא" data-i18n-attr="aria-label:ui.next">›</button>
+    <div class="dots" role="tablist" aria-label="ניווט שקופיות" data-i18n-attr="aria-label:ui.slidenav"></div>
+  </section>
 
     <!-- רשימת טיפולים -->
     <section id="treatments">
@@ -122,12 +121,6 @@
         כל הטיפולים מתבצעים על-ידי צוות תאילנדי מקצועי, באווירה שקטה ומוסיקה מרגיעה.
       </p>
 
-      <!-- ===================== -->
-      <!-- כותרת ראשית: ספא ראש -->
-      <!-- ===================== -->
-      <h2 class="section-title" style="margin:26px 0 14px;text-align:center;" data-i18n="landing.section.headspa">
-        ספא ראש
-      </h2>
 
       <div class="home-grid">
         <!-- 👑 ספא ראש יפני -->
@@ -161,12 +154,7 @@
         </article>
       </div>
 
-      <!-- ====================== -->
-      <!-- כותרת ראשית: עיסויי פנים -->
-      <!-- ====================== -->
-      <h2 class="section-title" style="margin:28px 0 14px;text-align:center;" data-i18n="landing.section.facial">
-        עיסויי פנים
-      </h2>
+
 
       <div class="home-grid">
         <!-- 🌼 עיסוי פנים בקומפרסים תאילנדים -->
@@ -258,12 +246,7 @@
         </article>
       </div>
 
-      <!-- =========================== -->
-      <!-- כותרת ראשית: עיסוי גוף חלקי -->
-      <!-- =========================== -->
-      <h2 class="section-title" style="margin:28px 0 14px;text-align:center;" data-i18n="landing.section.partialBody">
-        עיסוי גוף חלקי
-      </h2>
+
 
       <div class="home-grid">
         <!-- 💆‍♂️ גב–כתפיים–צוואר -->
@@ -326,12 +309,7 @@
         </article>
       </div>
 
-      <!-- ========================= -->
-      <!-- כותרת ראשית: עיסוי גוף מלא -->
-      <!-- ========================= -->
-      <h2 class="section-title" style="margin:28px 0 14px;text-align:center;" data-i18n="landing.section.fullBody">
-        עיסוי גוף מלא
-      </h2>
+
 
       <div class="home-grid">
         <!-- 🇹🇭 עיסוי תאילנדי מסורתי – גוף מלא -->
