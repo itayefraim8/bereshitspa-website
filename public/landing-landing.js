@@ -1,4 +1,4 @@
-// landing-landing.js — i18n + כפתורי טיפול לווטסאפ + כרטיסייה לווטסאפ
+// landing-landing.js — i18n + כפתורי טיפול לווטסאפ + כרטיסייה לווטסאפ + (וידיאו) סליידר אוטו-גלילה
 
 const WHATSAPP_NUMBER = '972502686862';
 const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -18,20 +18,18 @@ function setLang(lang) {
 
 function applyLang(lang) {
   document.documentElement.lang = lang;
-  document.documentElement.dir =
-    lang === 'he' || lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.dir = lang === 'he' || lang === 'ar' ? 'rtl' : 'ltr';
+
   applyTranslations(lang);
-  applyTreatmentTexts(lang); // ✅ נוספה: תרגום כרטיסי טיפולים
+  applyTreatmentTexts(lang); // תרגום כרטיסי טיפולים + תגיות + משכי זמן
 }
 
-// ===== מילון טקסטים (רק הכתוביות והכפתורים) =====
+// ===== מילון טקסטים (כותרות/כפתורים/טקסטים עם data-i18n) =====
 const LOCAL_STRINGS = {
   he: {
     // hero
-    'landing.hero.eyebrow':
-      'Japanese Head Spa & Thai Massage – Batumi',
-    'landing.hero.title':
-      'ספא ראש יפני ועיסויי גוף תאילנדיים ברמת בוטיק',
+    'landing.hero.eyebrow': 'Japanese Head Spa & Thai Massage – Batumi',
+    'landing.hero.title': 'ספא ראש יפני ועיסויי גוף תאילנדיים ברמת בוטיק',
     'landing.hero.subtitle':
       'בחר/י טיפול, קבע/י שעה נוחה ושלים/י תשלום מאובטח בכרטיס אשראי – הכול בדף אחד.',
     'landing.hero.cta': 'לבחור טיפול ולהזמין עכשיו',
@@ -42,10 +40,20 @@ const LOCAL_STRINGS = {
       'כל הטיפולים מתבצעים על-ידי צוות תאילנדי מקצועי, באווירה שקטה ומוסיקה מרגיעה.',
     'landing.treatment.book': 'להזמנת הטיפול',
 
+    // headings (לכותרות ראשיות שתוסיף ב-HTML עם data-i18n)
+    'landing.section.head': 'ספא ראש',
+    'landing.section.facial': 'עיסויי פנים',
+    'landing.section.partial': 'עיסוי גוף חלקי',
+    'landing.section.full': 'עיסוי גוף מלא',
+    'landing.section.foot': 'כפות רגליים',
+
+    // video slider (אם תוסיף ב-HTML עם data-i18n)
+    'landing.video.title': 'הצצה לחוויה',
+    'landing.video.subtitle': 'גללו או תנו לזה לרוץ לבד 🙂',
+
     // booking modal
     'landing.booking.title': 'הזמנת טיפול',
-    'landing.booking.summary':
-      'נא לבחור טיפול מהדף, ואז למלא פרטי קשר ותאריך.',
+    'landing.booking.summary': 'נא לבחור טיפול מהדף, ואז למלא פרטי קשר ותאריך.',
     'landing.booking.name': 'שם מלא',
     'landing.booking.phone': 'טלפון ליצירת קשר (WhatsApp)',
     'landing.booking.date': 'תאריך טיפול',
@@ -65,10 +73,8 @@ const LOCAL_STRINGS = {
     'card.hero.cta': 'לרכישת כרטיסייה עכשיו',
 
     'card.details.title': 'מה כולל הכרטיסייה?',
-    'card.details.li1':
-      '7 טיפולים לבחירה מתוך תפריט הטיפולים המלא.',
-    'card.details.li2':
-      'אפשר לפצל בין בני משפחה / זוג / חברים.',
+    'card.details.li1': '7 טיפולים לבחירה מתוך תפריט הטיפולים המלא.',
+    'card.details.li2': 'אפשר לפצל בין בני משפחה / זוג / חברים.',
     'card.details.li3': 'תוקף הכרטיסייה – 6 חודשים מיום הרכישה.',
     'card.details.li4': 'תיאום תור מראש בווטסאפ או טלפון.',
     'card.details.note':
@@ -79,16 +85,13 @@ const LOCAL_STRINGS = {
     'card.form.phone': 'טלפון / WhatsApp',
     'card.form.startDate': 'תאריך התחלה מועדף (אופציונלי)',
     'card.form.notes': 'הערות / שמות נוספים בכרטיסייה',
-    'card.form.note':
-      'התשלום מתבצע בכרטיס אשראי מאובטח דרך Stripe.',
+    'card.form.note': 'התשלום מתבצע בכרטיס אשראי מאובטח דרך Stripe.',
     'card.form.payCta': 'מעבר לתשלום מאובטח'
   },
 
   en: {
-    'landing.hero.eyebrow':
-      'Japanese Head Spa & Thai Massage – Batumi',
-    'landing.hero.title':
-      'Japanese Head Spa & Thai Body Massages – Boutique Level',
+    'landing.hero.eyebrow': 'Japanese Head Spa & Thai Massage – Batumi',
+    'landing.hero.title': 'Japanese Head Spa & Thai Body Massages – Boutique Level',
     'landing.hero.subtitle':
       'Choose your treatment, pick a time and complete secure card payment – all in one page.',
     'landing.hero.cta': 'Choose treatment & book now',
@@ -97,6 +100,15 @@ const LOCAL_STRINGS = {
     'landing.treatments.subtitle':
       'All treatments are done by professional Thai therapists, in a quiet atmosphere with relaxing music.',
     'landing.treatment.book': 'Book this treatment',
+
+    'landing.section.head': 'Head Spa',
+    'landing.section.facial': 'Facial Massages',
+    'landing.section.partial': 'Partial Body Massage',
+    'landing.section.full': 'Full Body Massage',
+    'landing.section.foot': 'Foot Massage',
+
+    'landing.video.title': 'A peek into the experience',
+    'landing.video.subtitle': 'Swipe or let it play automatically 🙂',
 
     'landing.booking.title': 'Treatment booking',
     'landing.booking.summary':
@@ -119,14 +131,10 @@ const LOCAL_STRINGS = {
     'card.hero.cta': 'Buy the punch card now',
 
     'card.details.title': 'What does the card include?',
-    'card.details.li1':
-      '7 treatments to choose from our full treatment menu.',
-    'card.details.li2':
-      'You can share between family members / couples / friends.',
-    'card.details.li3':
-      'Card validity – 6 months from purchase date.',
-    'card.details.li4':
-      'Appointments are scheduled in advance via WhatsApp or phone.',
+    'card.details.li1': '7 treatments to choose from our full treatment menu.',
+    'card.details.li2': 'You can share between family members / couples / friends.',
+    'card.details.li3': 'Card validity – 6 months from purchase date.',
+    'card.details.li4': 'Appointments are scheduled in advance via WhatsApp or phone.',
     'card.details.note':
       'After payment you will receive a confirmation by email/WhatsApp and the card will be registered in your name.',
 
@@ -134,18 +142,14 @@ const LOCAL_STRINGS = {
     'card.form.name': 'Full name',
     'card.form.phone': 'Phone / WhatsApp',
     'card.form.startDate': 'Preferred start date (optional)',
-    'card.form.notes':
-      'Notes / additional names on the card',
-    'card.form.note':
-      'Payment is processed via secure Stripe credit card.',
+    'card.form.notes': 'Notes / additional names on the card',
+    'card.form.note': 'Payment is processed via secure Stripe credit card.',
     'card.form.payCta': 'Proceed to secure payment'
   },
 
   ru: {
-    'landing.hero.eyebrow':
-      'Japanese Head Spa & Thai Massage – Батуми',
-    'landing.hero.title':
-      'Японский Head Spa и тайский массаж тела в формате бутика',
+    'landing.hero.eyebrow': 'Japanese Head Spa & Thai Massage – Батуми',
+    'landing.hero.title': 'Японский Head Spa и тайский массаж тела в формате бутика',
     'landing.hero.subtitle':
       'Выберите процедуру, удобное время и оплатите банковской картой на одной странице.',
     'landing.hero.cta': 'Выбрать процедуру и записаться',
@@ -154,6 +158,15 @@ const LOCAL_STRINGS = {
     'landing.treatments.subtitle':
       'Все процедуры выполняют профессиональные мастера из Таиланда, в тихой атмосфере и под расслабляющую музыку.',
     'landing.treatment.book': 'Записаться на процедуру',
+
+    'landing.section.head': 'Head Spa',
+    'landing.section.facial': 'Массаж лица',
+    'landing.section.partial': 'Частичный массаж тела',
+    'landing.section.full': 'Массаж всего тела',
+    'landing.section.foot': 'Массаж стоп',
+
+    'landing.video.title': 'Немного о процессе',
+    'landing.video.subtitle': 'Листайте или включите автопрокрутку 🙂',
 
     'landing.booking.title': 'Бронирование процедуры',
     'landing.booking.summary':
@@ -169,22 +182,17 @@ const LOCAL_STRINGS = {
       'Оплата проводится банковской картой через защищённый сервис Stripe. Подтверждение придёт автоматически.',
     'landing.booking.payCta': 'Перейти к безопасной оплате',
 
-    'card.hero.eyebrow':
-      'Специальное предложение · ограниченное число мест',
+    'card.hero.eyebrow': 'Специальное предложение · ограниченное число мест',
     'card.hero.title': 'Абонемент на 7 процедур',
     'card.hero.subtitle':
       'Оплачиваете один раз – получаете 7 визитов в Bereshit Spa. Можно комбинировать процедуры и делиться с близкими.',
     'card.hero.cta': 'Купить абонемент',
 
     'card.details.title': 'Что входит в абонемент?',
-    'card.details.li1':
-      '7 процедур на выбор из полного меню.',
-    'card.details.li2':
-      'Можно делить между семьёй, парой или друзьями.',
-    'card.details.li3':
-      'Срок действия – 6 месяцев с даты покупки.',
-    'card.details.li4':
-      'Предварительная запись по WhatsApp или телефону.',
+    'card.details.li1': '7 процедур на выбор из полного меню.',
+    'card.details.li2': 'Можно делить между семьёй, парой или друзьями.',
+    'card.details.li3': 'Срок действия – 6 месяцев с даты покупки.',
+    'card.details.li4': 'Предварительная запись по WhatsApp или телефону.',
     'card.details.note':
       'После оплаты вы получите подтверждение по email/WhatsApp, а абонемент будет зарегистрирован на ваше имя.',
 
@@ -192,18 +200,14 @@ const LOCAL_STRINGS = {
     'card.form.name': 'Полное имя',
     'card.form.phone': 'Телефон / WhatsApp',
     'card.form.startDate': 'Предпочитаемая дата начала (необязательно)',
-    'card.form.notes':
-      'Примечания / дополнительные имена в абонементе',
-    'card.form.note':
-      'Оплата проводится банковской картой через защищённый Stripe.',
+    'card.form.notes': 'Примечания / дополнительные имена в абонементе',
+    'card.form.note': 'Оплата проводится банковской картой через защищённый Stripe.',
     'card.form.payCta': 'Перейти к безопасной оплате'
   },
 
   ka: {
-    'landing.hero.eyebrow':
-      'Japanese Head Spa & Thai Massage – ბათუმი',
-    'landing.hero.title':
-      'იაპონური Head Spa და ტაილანდური მასაჟი ბუტიკურ გარემოში',
+    'landing.hero.eyebrow': 'Japanese Head Spa & Thai Massage – ბათუმი',
+    'landing.hero.title': 'იაპონური Head Spa და ტაილანდური მასაჟი ბუტიკურ გარემოში',
     'landing.hero.subtitle':
       'აირჩიეთ პროცედურა, დაგეგმეთ დრო და განახორციელეთ უსაფრთხო ბარათით გადახდა — ერთ გვერდზე.',
     'landing.hero.cta': 'აირჩიეთ პროცედურა და დაჯავშნეთ',
@@ -212,6 +216,15 @@ const LOCAL_STRINGS = {
     'landing.treatments.subtitle':
       'ყველა პროცედურას ასრულებენ პროფესიონალი თაილანდელი თერაპევტები, მშვიდ გარემოში და დამამშვიდებელი მუსიკით.',
     'landing.treatment.book': 'დაჯავშნა',
+
+    'landing.section.head': 'Head Spa',
+    'landing.section.facial': 'სახის მასაჟები',
+    'landing.section.partial': 'ნაწილობრივი სხეულის მასაჟი',
+    'landing.section.full': 'მთლიანი სხეულის მასაჟი',
+    'landing.section.foot': 'ფეხის მასაჟი',
+
+    'landing.video.title': 'მცირე შთაბეჭდილება',
+    'landing.video.subtitle': 'გადაასრიალეთ ან ჩართეთ ავტოგადახვევა 🙂',
 
     'landing.booking.title': 'პროცედურის დაჯავშნა',
     'landing.booking.summary':
@@ -222,8 +235,7 @@ const LOCAL_STRINGS = {
     'landing.booking.time': 'პროცედურის დრო',
     'landing.booking.chooseTime': 'აირჩიეთ დრო',
     'landing.booking.duration': 'პროცედურის ხანგრძლივობა',
-    'landing.booking.notes':
-      'სურვილები / შენიშვნები (არასავალდებულო)',
+    'landing.booking.notes': 'სურვილები / შენიშვნები (არასავალდებულო)',
     'landing.booking.note':
       'გადახდა ხორციელდება უსაფრთხოდ, Stripe-ის ბარათის გადახდის სისტემით. დადასტურება ავტომატურად გამოგეგზავნებათ.',
     'landing.booking.payCta': 'გადასვლა უსაფრთხო გადახდაზე',
@@ -235,14 +247,10 @@ const LOCAL_STRINGS = {
     'card.hero.cta': 'აბონემენტის ყიდვა',
 
     'card.details.title': 'რა შედის აბონემენტში?',
-    'card.details.li1':
-      '7 პროცედურა ჩვენი სრული მენის არჩევანიდან.',
-    'card.details.li2':
-      'შესაძლებელია ოჯახის, წყვილის ან მეგობრების შორის განაწილება.',
-    'card.details.li3':
-      'ვადა – 6 თვე შეძენის დღიდან.',
-    'card.details.li4':
-      'წინასწარი ჩაწერა WhatsApp-ით ან ტელეფონით.',
+    'card.details.li1': '7 პროცედურა ჩვენი სრული მენის არჩევანიდან.',
+    'card.details.li2': 'შესაძლებელია ოჯახის, წყვილის ან მეგობრების შორის განაწილება.',
+    'card.details.li3': 'ვადა – 6 თვე შეძენის დღიდან.',
+    'card.details.li4': 'წინასწარი ჩაწერა WhatsApp-ით ან ტელეფონით.',
     'card.details.note':
       'გადახდის შემდეგ მიიღებთ დადასტურებას Email-ით/WhatsApp-ით და აბონემენტი დარეგისტრირდება თქვენს სახელზე.',
 
@@ -250,10 +258,8 @@ const LOCAL_STRINGS = {
     'card.form.name': 'სრული სახელი',
     'card.form.phone': 'ტელეფონი / WhatsApp',
     'card.form.startDate': 'სასურველი დაწყების თარიღი (არასავალდებულო)',
-    'card.form.notes':
-      'შენიშვნები / დამატებითი სახელები აბონემენტზე',
-    'card.form.note':
-      'გადახდა ხდება უსაფრთხოდ Stripe-ის ბარათის სისტემით.',
+    'card.form.notes': 'შენიშვნები / დამატებითი სახელები აბონემენტზე',
+    'card.form.note': 'გადახდა ხდება უსაფრთხოდ Stripe-ის ბარათის სისტემით.',
     'card.form.payCta': 'გადასვლა უსაფრთხო გადახდაზე'
   }
 };
@@ -273,33 +279,326 @@ function applyTranslations(lang) {
 
 // ===== ווטסאפ – טקסטים להודעה =====
 const WA_TEMPLATES_TREATMENT = {
-  he: 'שלום, אני מעוניין לקבוע טיפול ב-Bereshit Spa:\nטיפול: {TREATMENT}\nמשך: {DURATION}\n\nאשמח שתיצרו איתי קשר לתיאום תאריך ושעה.',
-  en: 'Hello, I would like to book a treatment at Bereshit Spa:\nTreatment: {TREATMENT}\nDuration: {DURATION}\n\nPlease contact me to coordinate date and time.',
-  ru: 'Здравствуйте! Я хочу записаться на процедуру в Bereshit Spa:\nПроцедура: {TREATMENT}\nДлительность: {DURATION}\n\nПожалуйста, свяжитесь со мной для согласования даты и времени.',
-  ka: 'გამარჯობა, მსურს პროცედურის დაჯავშნა Bereshit Spa-ში:\nპროცედურა: {TREATMENT}\nხანგრძლივობა: {DURATION}\n\nგთხოვთ, დამიკავშირდეთ თარიღისა და დროის დასაზუსტებლად.'
+  he:
+    'שלום, אני מעוניין לקבוע טיפול ב-Bereshit Spa:\nטיפול: {TREATMENT}\nמשך: {DURATION}\n\nאשמח שתיצרו איתי קשר לתיאום תאריך ושעה.',
+  en:
+    'Hello, I would like to book a treatment at Bereshit Spa:\nTreatment: {TREATMENT}\nDuration: {DURATION}\n\nPlease contact me to coordinate date and time.',
+  ru:
+    'Здравствуйте! Я хочу записаться на процедуру в Bereshit Spa:\nПроцедура: {TREATMENT}\nДлительность: {DURATION}\n\nПожалуйста, свяжитесь со мной для согласования даты и времени.',
+  ka:
+    'გამარჯობა, მსურს პროცედურის დაჯავშნა Bereshit Spa-ში:\nპროცედურა: {TREATMENT}\nხანგრძლივობა: {DURATION}\n\nგთხოვთ, დამიკავშირდეთ თარიღისა და დროის დასაზუსტებლად.'
 };
 
 const WA_TEMPLATES_CARD = {
-  he: 'שלום, אני מעוניין לרכוש כרטיסייה של 7 טיפולים ב-Bereshit Spa.\nפרטים: {CARD}\nמחיר: {PRICE}\n\nאשמח שתיצרו איתי קשר להמשך.',
-  en: 'Hello, I would like to purchase a 7-treatment card at Bereshit Spa.\nDetails: {CARD}\nPrice: {PRICE}\n\nPlease contact me to complete the purchase.',
-  ru: 'Здравствуйте! Я хочу приобрести абонемент на 7 процедур в Bereshit Spa.\nДетали: {CARD}\nЦена: {PRICE}\n\nПожалуйста, свяжитесь со мной для оформления.',
-  ka: 'გამარჯობა, მსურს 7 პროცედურის აბონემენტის შეძენა Bereshit Spa-ში.\nდეტალები: {CARD}\nფასი: {PRICE}\n\nგთხოვთ, დამიკავშირდეთ შესაძენად.'
+  he:
+    'שלום, אני מעוניין לרכוש כרטיסייה של 7 טיפולים ב-Bereshit Spa.\nפרטים: {CARD}\nמחיר: {PRICE}\n\nאשמח שתיצרו איתי קשר להמשך.',
+  en:
+    'Hello, I would like to purchase a 7-treatment card at Bereshit Spa.\nDetails: {CARD}\nPrice: {PRICE}\n\nPlease contact me to complete the purchase.',
+  ru:
+    'Здравствуйте! Я хочу приобрести абонемент на 7 процедур в Bereshit Spa.\nДетали: {CARD}\nЦена: {PRICE}\n\nПожалуйста, свяжитесь со мной для оформления.',
+  ka:
+    'გამარჯობა, მსურს 7 პროცედურის აბონემენტის შეძენა Bereshit Spa-ში.\nდეტალები: {CARD}\nფასი: {PRICE}\n\nგთხოვთ, დამიკავშირდეთ შესაძენად.'
 };
 
-// רק שמות + תיאורים + מחיר לשם התרגום על הדף
+// ===== טקסט חובה ל"עיסוי גוף מלא" בכל תיאורי הגוף המלא =====
+const FULL_BODY_PHRASE = {
+  he: 'עיסוי גוף מלא – מכפות הרגליים ועד הכתפיים, צוואר ראש ופנים',
+  en: 'Full body massage – from feet up to shoulders, neck, head and face.',
+  ru: 'Массаж всего тела — от стоп до плеч, включая шею, голову и лицо.',
+  ka: 'მთლიანი სხეულის მასაჟი — ტერფებიდან მხრებამდე, კისრის, თავის და სახის ჩათვლით.'
+};
+
+function ensureFullBodyPhrase(text, lang) {
+  const phrase = FULL_BODY_PHRASE[lang] || FULL_BODY_PHRASE.he;
+  const cleaned = String(text || '').trim();
+
+  if (!cleaned) return phrase;
+  if (cleaned.includes(phrase)) return cleaned;
+
+  // מוסיפים נקודה לפני המשפט אם צריך
+  const needsPunct = !/[.!?…:]$/.test(cleaned);
+  return `${cleaned}${needsPunct ? '.' : ''} ${phrase}`;
+}
+
+// ===== תרגום משכי זמן בכפתורי radio =====
+function translateDurationLabel(raw, lang) {
+  const s = String(raw || '').trim();
+
+  // Patterns we expect: "60 דק'" / "30 דק'"
+  const m = s.match(/^(\d+)\s*דק'?$/);
+  if (!m) return s;
+
+  const n = m[1];
+
+  if (lang === 'he') return `${n} דק'`;
+  if (lang === 'ru') return `${n} мин`;
+  if (lang === 'ka') return `${n} წთ`;
+  return `${n} min`; // en/default
+}
+
+// ===== תרגום כרטיסי הטיפולים על הדף =====
+// כולל: שם, תיאור, מחיר, תגית עליונה (.tag), משכי זמן (radio span)
+function applyTreatmentTexts(lang) {
+  document.querySelectorAll('.product-card').forEach((card) => {
+    const btn = card.querySelector('[data-treatment-key]');
+    if (!btn) return;
+
+    const key = btn.getAttribute('data-treatment-key');
+    const meta = TREATMENTS_META[key];
+    if (!meta) return;
+
+    const nameMap = meta.name || {};
+    const descMap = meta.desc || {};
+    const priceMap = meta.price || {};
+    const tagMap = meta.tag || {};
+
+    // title
+    const titleEl = card.querySelector('.product-title');
+    if (titleEl && nameMap) {
+      titleEl.textContent = nameMap[lang] || nameMap.he || titleEl.textContent;
+    }
+
+    // desc
+    const descEl = card.querySelector('p:not(.price)');
+    if (descEl && descMap) {
+      let descText = descMap[lang] || descMap.he || descEl.textContent;
+
+      // כל מה שמתחיל ב-body- = גוף מלא → מוסיפים משפט חובה
+      if (key && key.startsWith('body-')) {
+        descText = ensureFullBodyPhrase(descText, lang);
+      }
+
+      descEl.textContent = descText;
+    }
+
+    // price
+    const priceEl = card.querySelector('.price');
+    if (priceEl && priceMap) {
+      priceEl.textContent = priceMap[lang] || priceMap.he || priceEl.textContent;
+    }
+
+    // tag
+    const tagEl = card.querySelector('.tag');
+    if (tagEl && tagMap) {
+      tagEl.textContent = tagMap[lang] || tagMap.he || tagEl.textContent;
+    }
+
+    // duration labels
+    card.querySelectorAll('.duration-options label span').forEach((span) => {
+      span.textContent = translateDurationLabel(span.textContent, lang);
+    });
+  });
+}
+
+// ===== חיבור כפתורי שפה (דגלים) =====
+function setupLangButtons() {
+  document.querySelectorAll('.lang-btn[data-lang]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      setLang(lang);
+    });
+  });
+}
+
+// ===== כפתורי טיפולים → ווטסאפ =====
+function setupTreatmentButtons() {
+  const buttons = document.querySelectorAll('[data-book-btn]');
+  if (!buttons.length) return;
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = getLang();
+      const key = btn.getAttribute('data-treatment-key');
+      const group = btn.getAttribute('data-radio-group');
+
+      const meta = TREATMENTS_META[key] || {};
+      const nameMap = meta.name || {};
+      const treatmentName =
+        nameMap[lang] ||
+        nameMap.he ||
+        (btn.closest('.product-card')?.querySelector('.product-title')?.textContent.trim() ??
+          'Treatment');
+
+      let duration = '';
+      if (group) {
+        const span = document.querySelector(`input[name="${group}"]:checked + span`) || null;
+        if (span) duration = span.textContent.trim();
+      }
+
+      const template = WA_TEMPLATES_TREATMENT[lang] || WA_TEMPLATES_TREATMENT.he;
+      const text = template.replace('{TREATMENT}', treatmentName).replace('{DURATION}', duration || '');
+
+      const url = `${WHATSAPP_BASE}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    });
+  });
+}
+
+// ===== כפתור הכרטיסייה → ווטסאפ =====
+function setupCardButtons() {
+  const btn = document.querySelector('[data-card-book-btn]');
+  if (!btn) return;
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const lang = getLang();
+    const key = btn.getAttribute('data-card-key') || 'card7';
+
+    const meta = CARD_META[key] || {};
+    const nameMap = meta.name || {};
+    const priceMap = meta.price || {};
+
+    const cardName = nameMap[lang] || nameMap.he || '7-Treatment Card';
+    const price = priceMap[lang] || priceMap.he || '';
+
+    const template = WA_TEMPLATES_CARD[lang] || WA_TEMPLATES_CARD.he;
+    const text = template.replace('{CARD}', cardName).replace('{PRICE}', price);
+
+    const url = `${WHATSAPP_BASE}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  });
+}
+
+// ===== סליידר וידיאו: אוטו-גלילה =====
+// תומך בשתי תצורות ב-HTML:
+// 1) <div class="video-slider" data-video-slider> ... </div>
+// 2) <div data-video-slider class="..."> ... </div>
+//
+// בתוך הסליידר צריך שיהיה scrollable container (האלמנט עצמו) עם ילדים (slide items)
+// והוא צריך להיות עם CSS כמו: display:flex; overflow:auto; scroll-snap-type:x mandatory;
+// ולכל slide: scroll-snap-align:start; min-width:...
+function setupVideoSliderAutoScroll() {
+  const sliders = document.querySelectorAll('[data-video-slider], .video-slider');
+  if (!sliders.length) return;
+
+  sliders.forEach((slider) => {
+    // הגדרות (אפשר לשנות דרך data-*)
+    const intervalMs = Number(slider.getAttribute('data-auto-ms') || 3500);
+    const pauseOnHover = (slider.getAttribute('data-pause-hover') || 'true') !== 'false';
+    const smooth = (slider.getAttribute('data-smooth') || 'true') !== 'false';
+
+    const getSlides = () =>
+      Array.from(slider.querySelectorAll('[data-video-slide], .video-slide, .slide, > *')).filter(
+        (el) => el && el.nodeType === 1
+      );
+
+    let timer = null;
+    let idx = 0;
+
+    function scrollToIndex(i) {
+      const slides = getSlides();
+      if (!slides.length) return;
+
+      idx = ((i % slides.length) + slides.length) % slides.length;
+      const target = slides[idx];
+
+      // scroll into view horizontally
+      const left = target.offsetLeft;
+      slider.scrollTo({
+        left,
+        behavior: smooth ? 'smooth' : 'auto'
+      });
+    }
+
+    function findClosestIndex() {
+      const slides = getSlides();
+      if (!slides.length) return 0;
+
+      const x = slider.scrollLeft;
+      let best = 0;
+      let bestDist = Infinity;
+
+      slides.forEach((s, i) => {
+        const dist = Math.abs(s.offsetLeft - x);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      });
+
+      return best;
+    }
+
+    function start() {
+      stop();
+      timer = window.setInterval(() => {
+        idx = findClosestIndex();
+        scrollToIndex(idx + 1);
+      }, intervalMs);
+    }
+
+    function stop() {
+      if (timer) window.clearInterval(timer);
+      timer = null;
+    }
+
+    // Pause on hover (desktop)
+    if (pauseOnHover) {
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+    }
+
+    // Pause while user drags/touches, resume after
+    let userInteracting = false;
+    const interactionStart = () => {
+      userInteracting = true;
+      stop();
+    };
+    const interactionEnd = () => {
+      userInteracting = false;
+      start();
+    };
+
+    slider.addEventListener('pointerdown', interactionStart, { passive: true });
+    slider.addEventListener('pointerup', interactionEnd, { passive: true });
+    slider.addEventListener('touchstart', interactionStart, { passive: true });
+    slider.addEventListener('touchend', interactionEnd, { passive: true });
+
+    // Keep idx synced on manual scroll (debounced)
+    let scrollT = null;
+    slider.addEventListener(
+      'scroll',
+      () => {
+        if (userInteracting) return;
+        if (scrollT) window.clearTimeout(scrollT);
+        scrollT = window.setTimeout(() => {
+          idx = findClosestIndex();
+        }, 120);
+      },
+      { passive: true }
+    );
+
+    // Start autoplay only if there are at least 2 slides
+    const slides = getSlides();
+    if (slides.length >= 2) start();
+  });
+}
+
+// ===== נתוני הטיפולים לתרגום (שם + תיאור + מחיר + תגית) =====
 const TREATMENTS_META = {
   'head-spa': {
+    tag: {
+      he: '👑 Japanese Head Spa',
+      en: '👑 Japanese Head Spa',
+      ru: '👑 Japanese Head Spa',
+      ka: '👑 Japanese Head Spa'
+    },
     name: {
       he: 'טיפול הדגל – ספא ראש יפני',
       en: 'Signature Japanese Head Spa',
-      ru: 'Фирменный Japanese Head Spa',
-      ka: 'სიგნატურული იაპონური Head Spa'
+      ru: 'Signature Japanese Head Spa',
+      ka: 'Signature Japanese Head Spa'
     },
     desc: {
-      he: 'טיפול יפני מסורתי המשלב ניקוי, עיסוי קרקפת, מסכות ופינוקי מים חמימים. כולל שטיפה, מגבת חמה, סרום לקרקפת וייבוש שיער מלא.',
-      en: 'Traditional Japanese ritual combining cleansing, scalp massage, masks and warm water pampering. Includes hair wash, hot towel, scalp serum and full blow-dry.',
-      ru: 'Традиционный японский ритуал: очищение, массаж кожи головы, маски и тёплое водное расслабление. Включает мытьё головы, горячее полотенце, сыворотку для кожи головы и полную сушку.',
-      ka: 'ტრადიციული იაპონური რიტუალი, რომელიც აერთიანებს წმენდას, თავის კანის მასაჟს, ნიღბებს და თბილ წყლის პამფერს. შეიცავს თმის დაბანას, ცხელ პირსახოცს, თავის კანის სერუმს და სრულ გამშრობას.'
+      he:
+        'טיפול יפני מסורתי המשלב ניקוי, עיסוי קרקפת, מסכות ופינוקי מים חמימים. כולל שטיפה, מגבת חמה, סרום לקרקפת וייבוש שיער מלא.',
+      en:
+        'Traditional Japanese ritual combining cleansing, scalp massage, masks and warm water pampering. Includes hair wash, hot towel, scalp serum and full blow-dry.',
+      ru:
+        'Традиционный японский ритуал: очищение, массаж кожи головы, маски и тёплое водное расслабление. Включает мытьё головы, горячее полотенце, сыворотку для кожи головы и полную сушку.',
+      ka:
+        'ტრადიციული იაპონური რიტუალი, რომელიც აერთიანებს წმენდას, თავის კანის მასაჟს, ნიღბებს და თბილ წყლის პამფერს. შეიცავს თმის დაბანას, ცხელ პირსახოცს, თავის კანის სერუმს და სრულ გამშრობას.'
     },
     price: {
       he: "60 דק' – 200₾ · 90 דק' – 250₾",
@@ -308,7 +607,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 200₾ · 90 წთ – 250₾'
     }
   },
+
   'facial-thai-compress': {
+    tag: {
+      he: '🌼 Thai Herbal Compress Facial',
+      en: '🌼 Thai Herbal Compress Facial',
+      ru: '🌼 Thai Herbal Compress Facial',
+      ka: '🌼 Thai Herbal Compress Facial'
+    },
     name: {
       he: 'עיסוי פנים בקומפרסים תאילנדים',
       en: 'Thai Herbal Compress Facial',
@@ -316,10 +622,14 @@ const TREATMENTS_META = {
       ka: 'სახის მასაჟი თაილანდური მცენარეულის კომპრესებით'
     },
     desc: {
-      he: 'קומפרסים תאילנדים חמים מרפים את שרירי הפנים ומשפרים את זרימת הדם. כולל עיסוי פנים מעמיק, קרקפת ופלג גוף עליון.',
-      en: 'Warm Thai herbal compresses relax facial muscles and improve circulation. Includes deep face massage, scalp and upper body work.',
-      ru: 'Тёплые тайские травяные компрессы расслабляют мышцы лица и улучшают кровообращение. Включает глубокий массаж лица, головы и верхней части спины.',
-      ka: 'თბილი თაილანდური მცენარეული კომპრესები ამშვიდებს სახის კუნთებს და აუმჯობესებს სისხლის მიმოქცევას. შეიცავს ღრმა სახის მასაჟს, თავსა და ზედა ზურგს.'
+      he:
+        'קומפרסים תאילנדים חמים מרפים את שרירי הפנים ומשפרים את זרימת הדם. כולל עיסוי פנים מעמיק, קרקפת ופלג גוף עליון.',
+      en:
+        'Warm Thai herbal compresses relax facial muscles and improve circulation. Includes deep face massage, scalp and upper body work.',
+      ru:
+        'Тёплые тайские травяные компрессы расслабляют мышцы лица и улучшают кровообращение. Включает глубокий массаж лица, головы и верхней части спины.',
+      ka:
+        'თბილი თაილანდური მცენარეული კომპრესები ამშვიდებს სახის კუნთებს და აუმჯობესებს სისხლის მიმოქცევას. შეიცავს ღრმა სახის მასაჟს, თავსა და ზედა ზურგს.'
     },
     price: {
       he: "60 דק' – 150₾",
@@ -328,7 +638,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 150₾'
     }
   },
+
   'facial-hot-stone': {
+    tag: {
+      he: '🔥 Hot Stone Facial',
+      en: '🔥 Hot Stone Facial',
+      ru: '🔥 Hot Stone Facial',
+      ka: '🔥 Hot Stone Facial'
+    },
     name: {
       he: 'עיסוי פנים באבנים חמות',
       en: 'Hot Stone Facial',
@@ -336,10 +653,14 @@ const TREATMENTS_META = {
       ka: 'სახის მასაჟი ცხელ ქვებთან'
     },
     desc: {
-      he: 'אבני בזלת חמות נעות בעדינות על הפנים והצוואר ומשחררות מתחים. כולל עיסוי פנים, קרקפת וצוואר.',
-      en: 'Warm basalt stones glide softly over the face and neck to melt tension. Includes face, scalp and neck massage.',
-      ru: 'Тёплые базальтовые камни мягко скользят по лицу и шее, снимая напряжение. Включает массаж лица, кожи головы и шеи.',
-      ka: 'თბილი ბაზალტის ქვები ნაზად სრიალებენ სახესა და კისერზე, ხსნიან დაძაბულობას. შეიცავს სახის, თავის კანის და კისრის მასაჟს.'
+      he:
+        'אבני בזלת חמות נעות בעדינות על הפנים והצוואר ומשחררות מתחים. כולל עיסוי פנים, קרקפת וצוואר.',
+      en:
+        'Warm basalt stones glide softly over the face and neck to melt tension. Includes face, scalp and neck massage.',
+      ru:
+        'Тёплые базальтовые камни мягко скользят по лицу и шее, снимая напряжение. Включает массаж лица, кожи головы и шеи.',
+      ka:
+        'თბილი ბაზალტის ქვები ნაზად სრიალებენ სახესა და კისერზე, ხსნიან დაძაბულობას. შეიცავს სახის, თავის კანის და კისრის მასაჟს.'
     },
     price: {
       he: "60 דק' – 160₾",
@@ -348,7 +669,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 160₾'
     }
   },
+
   'facial-thai': {
+    tag: {
+      he: '🌺 Traditional Thai Face Massage',
+      en: '🌺 Traditional Thai Face Massage',
+      ru: '🌺 Traditional Thai Face Massage',
+      ka: '🌺 Traditional Thai Face Massage'
+    },
     name: {
       he: 'עיסוי פנים תאילנדי מסורתי',
       en: 'Traditional Thai Face Massage',
@@ -359,7 +687,7 @@ const TREATMENTS_META = {
       he: 'עיסוי עדין עם לחיצות אנרגטיות, משחרר מתח מהפנים, הלסת והצוואר.',
       en: 'Gentle massage with energizing acupressure, releasing tension from face, jaw and neck.',
       ru: 'Мягкий массаж с энергичной акупрессурой, снимающей напряжение с лица, челюсти и шеи.',
-      ka: 'მარწყვოვანი, ნაზი მასაჟი წერტილოვანი დაწოლებით – ხსნის დაძაბულობას სახიდან, ყბიდან და კისრიდან.'
+      ka: 'ნაზი მასაჟი წერტილოვანი დაწოლებით – ხსნის დაძაბულობას სახიდან, ყბიდან და კისრიდან.'
     },
     price: {
       he: "30 דק' – 90₾ · 60 דק' – 150₾",
@@ -368,7 +696,14 @@ const TREATMENTS_META = {
       ka: '30 წთ – 90₾ · 60 წთ – 150₾'
     }
   },
+
   'facial-aroma': {
+    tag: {
+      he: '🌿 Aromatherapy Facial',
+      en: '🌿 Aromatherapy Facial',
+      ru: '🌿 Aromatherapy Facial',
+      ka: '🌿 Aromatherapy Facial'
+    },
     name: {
       he: 'עיסוי פנים ארומתרפי',
       en: 'Aromatherapy Facial',
@@ -388,7 +723,14 @@ const TREATMENTS_META = {
       ka: '30 წთ – 80₾ · 60 წთ – 140₾'
     }
   },
+
   'back-basic': {
+    tag: {
+      he: '💆‍♂️ Back–Neck–Shoulders',
+      en: '💆‍♂️ Back–Neck–Shoulders',
+      ru: '💆‍♂️ Back–Neck–Shoulders',
+      ka: '💆‍♂️ Back–Neck–Shoulders'
+    },
     name: {
       he: 'עיסוי גב–כתפיים–צוואר',
       en: 'Back–Neck–Shoulders Massage',
@@ -408,7 +750,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 150₾'
     }
   },
+
   'back-hot-stone': {
+    tag: {
+      he: '🔥 Hot Stone Back Massage',
+      en: '🔥 Hot Stone Back Massage',
+      ru: '🔥 Hot Stone Back Massage',
+      ka: '🔥 Hot Stone Back Massage'
+    },
     name: {
       he: 'עיסוי גב–כתפיים–צוואר עם אבנים חמות',
       en: 'Hot Stone Back–Neck–Shoulders Massage',
@@ -428,7 +777,15 @@ const TREATMENTS_META = {
       ka: '60 წთ – 180₾'
     }
   },
+
+  // ===== גוף מלא (body-*) — כאן יתווסף אוטומטית המשפט: "עיסוי גוף מלא – ..." =====
   'body-thai': {
+    tag: {
+      he: '🇹🇭 Traditional Thai Massage',
+      en: '🇹🇭 Traditional Thai Massage',
+      ru: '🇹🇭 Traditional Thai Massage',
+      ka: '🇹🇭 Traditional Thai Massage'
+    },
     name: {
       he: 'עיסוי תאילנדי מסורתי',
       en: 'Traditional Thai Massage',
@@ -436,10 +793,10 @@ const TREATMENTS_META = {
       ka: 'ტრადიციული ტაილანდური მასაჟი'
     },
     desc: {
-      he: 'טיפול עתיק ללא שמן המשלב לחיצות, מתיחות ועבודה על קווי האנרגיה.',
-      en: 'Ancient oil-free treatment with pressure, stretches and work on energy lines.',
-      ru: 'Древняя процедура без масла с надавливаниями, растяжками и работой по энергетическим линиям.',
-      ka: 'უძველესი პროცედურა ზეთის გარეშე – წერტილოვანი დაწოლა, გაჭიმვები და ენერგეტიკულ ხაზებზე მუშაობა.'
+      he: 'טיפול עתיק ללא שמן המשלב לחיצות, מתיחות ועבודה על קווי האנרגיה לאורך כל הגוף.',
+      en: 'Ancient oil-free treatment with pressure, stretches and work on energy lines throughout the body.',
+      ru: 'Древняя процедура без масла с надавливаниями, растяжками и работой по энергетическим линиям по всему телу.',
+      ka: 'უძველესი პროცედურა ზეთის გარეშე – წერტილოვანი დაწოლა, გაჭიმვები და ენერგეტიკულ ხაზებზე მუშაობა მთელ სხეულზე.'
     },
     price: {
       he: "60 דק' – 170₾ · 90 דק' – 220₾",
@@ -448,7 +805,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 170₾ · 90 წთ – 220₾'
     }
   },
+
   'body-thai-oil': {
+    tag: {
+      he: '🇹🇭 Thai Oil Massage',
+      en: '🇹🇭 Thai Oil Massage',
+      ru: '🇹🇭 Thai Oil Massage',
+      ka: '🇹🇭 Thai Oil Massage'
+    },
     name: {
       he: 'עיסוי שמן תאילנדי',
       en: 'Thai Oil Massage',
@@ -456,10 +820,10 @@ const TREATMENTS_META = {
       ka: 'ტაილანდური ზეთოვანი მასაჟი'
     },
     desc: {
-      he: 'עיסוי גוף מלא בשמן חם בתנועות זורמות ועמוקות, לשחרור עומס שרירי.',
-      en: 'Full-body massage with warm oil, combining flowing and deeper strokes to release muscular tension.',
-      ru: 'Массаж всего тела тёплым маслом с плавными и глубокими приёмами для снятия мышечного напряжения.',
-      ka: 'მთლიანი სხეულის მასაჟი თბილი ზეთით – ნაზი და ღრმა მოძრაობების კომბინაცია კუნთოვანი დაძაბულობის მოსახსნელად.'
+      he: 'עיסוי בשמן חם בתנועות זורמות ועמוקות לשחרור עומס שרירי ולהרפיה עמוקה.',
+      en: 'Warm oil massage combining flowing and deeper strokes to release muscular tension and relax deeply.',
+      ru: 'Массаж тёплым маслом с плавными и глубокими приёмами для снятия мышечного напряжения и глубокого расслабления.',
+      ka: 'თბილი ზეთის მასაჟი – ნაზი და ღრმა მოძრაობების კომბინაცია კუნთოვანი დაძაბულობის მოსახსნელად და ღრმა რელაქსაციისთვის.'
     },
     price: {
       he: "60 דק' – 180₾ · 90 דק' – 230₾",
@@ -468,7 +832,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 180₾ · 90 წთ – 230₾'
     }
   },
+
   'body-aroma': {
+    tag: {
+      he: '🌿 Aromatherapy Oil Massage',
+      en: '🌿 Aromatherapy Oil Massage',
+      ru: '🌿 Aromatherapy Oil Massage',
+      ka: '🌿 Aromatherapy Oil Massage'
+    },
     name: {
       he: 'עיסוי ארומתרפי בשמן',
       en: 'Aromatherapy Oil Massage',
@@ -476,10 +847,10 @@ const TREATMENTS_META = {
       ka: 'არომატერაპიული ზეთოვანი მასაჟი'
     },
     desc: {
-      he: 'שמנים אתריים טהורים בשילוב עיסוי גוף מרגיע ומלטף.',
-      en: 'Pure essential oils combined with a soothing, flowing full-body massage.',
-      ru: 'Натуральные эфирные масла в сочетании с мягким расслабляющим массажем всего тела.',
-      ka: 'სუფთა ეთერზეთები და დამამშვიდებელი, მოლივლივე სხეულის მასაჟი.'
+      he: 'שמנים אתריים טהורים המותאמים אישית לצורך שלך – הרגעה, שחרור מתחים או איזון אנרגטי.',
+      en: 'Pure essential oils tailored to your needs — calming, stress relief or energy balance.',
+      ru: 'Натуральные эфирные масла, подобранные под ваши потребности — успокоение, снятие стресса или баланс энергии.',
+      ka: 'სუფთა ეთერზეთები, ინდივიდუალურად შერჩეული თქვენს საჭიროებაზე — დამშვიდება, სტრესის მოხსნა ან ენერგიის ბალანსი.'
     },
     price: {
       he: "60 דק' – 190₾",
@@ -488,7 +859,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 190₾'
     }
   },
+
   'body-thai-ther': {
+    tag: {
+      he: '🇹🇭 Thai Therapeutic Massage',
+      en: '🇹🇭 Thai Therapeutic Massage',
+      ru: '🇹🇭 Thai Therapeutic Massage',
+      ka: '🇹🇭 Thai Therapeutic Massage'
+    },
     name: {
       he: 'עיסוי תאילנדי רפואי',
       en: 'Thai Therapeutic Massage',
@@ -496,10 +874,10 @@ const TREATMENTS_META = {
       ka: 'ტაილანდური თერაპიული მასაჟი'
     },
     desc: {
-      he: 'עיסוי טיפולי עמוק עם לחיצות ממוקדות ומתיחות מדויקות – מתאים לכאבי גב וצוואר.',
-      en: 'Deep therapeutic massage with focused pressure and precise stretches – ideal for back and neck issues.',
-      ru: 'Глубокий лечебный массаж с прицельными надавливаниями и точными растяжками – подходит при болях в спине и шее.',
-      ka: 'ღრმა თერაპიული მასაჟი მიზანმიმართული წნევით და ზუსტი გაჭიმვებით – რეკომენდებულია ზურგისა და კისრის ტკივილებზე.'
+      he: 'עיסוי טיפולי עמוק עם לחיצות ממוקדות ומתיחות מדויקות – מתאים לכאבי גב וצוואר ונוקשות כרונית.',
+      en: 'Deep therapeutic massage with focused pressure and precise stretches — ideal for back/neck pain and chronic stiffness.',
+      ru: 'Глубокий лечебный массаж с прицельными надавливаниями и точными растяжками — подходит при болях в спине/шее и хронической скованности.',
+      ka: 'ღრმა თერაპიული მასაჟი მიზანმიმართული წნევით და ზუსტი გაჭიმვებით — რეკომენდებულია ზურგისა/კისრის ტკივილებსა და ქრონიკულ დაჭიმულობაზე.'
     },
     price: {
       he: "60 דק' – 230₾ · 90 דק' – 280₾",
@@ -508,7 +886,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 230₾ · 90 წთ – 280₾'
     }
   },
+
   'body-hot-stone': {
+    tag: {
+      he: '🔥 Hot Stone Massage',
+      en: '🔥 Hot Stone Massage',
+      ru: '🔥 Hot Stone Massage',
+      ka: '🔥 Hot Stone Massage'
+    },
     name: {
       he: 'עיסוי באבנים חמות – גוף מלא',
       en: 'Full Body Hot Stone Massage',
@@ -516,10 +901,10 @@ const TREATMENTS_META = {
       ka: 'მთლიანი სხეულის მასაჟი ცხელ ქვებთან'
     },
     desc: {
-      he: 'אבני בזלת חמות מחליקות על הגוף וממיסות מתחים עמוקים – רוגע עמוק וזרימת דם טובה.',
-      en: 'Warm basalt stones glide along the whole body, melting deep tension and improving circulation.',
-      ru: 'Тёплые базальтовые камни скользят по всему телу, снимая глубокие напряжения и улучшая кровообращение.',
-      ka: 'თბილი ბაზალტის ქვები სრიალებენ მთელ სხეულზე, ხსნიან ღრმა დაძაბულობას და აუმჯობესებენ სისხლის მიმოქცევას.'
+      he: 'אבני בזלת חמות מחליקות על הגוף וממיסות מתחים עמוקים – חימום נעים, רוגע עמוק וזרימת דם טובה.',
+      en: 'Warm basalt stones glide along the body to melt deep tension — cozy warmth, deep relaxation and improved circulation.',
+      ru: 'Тёплые базальтовые камни скользят по телу и снимают глубокие зажимы — приятное тепло, глубокое расслабление и улучшение кровообращения.',
+      ka: 'თბილი ბაზალტის ქვები სრიალებენ სხეულზე და ხსნიან ღრმა დაძაბულობას — სასიამოვნო სითბო, ღრმა რელაქსაცია და უკეთესი სისხლის მიმოქცევა.'
     },
     price: {
       he: "60 דק' – 210₾",
@@ -528,7 +913,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 210₾'
     }
   },
+
   'body-thai-comp': {
+    tag: {
+      he: '🌼 Thai Herbal Compress Massage',
+      en: '🌼 Thai Herbal Compress Massage',
+      ru: '🌼 Thai Herbal Compress Massage',
+      ka: '🌼 Thai Herbal Compress Massage'
+    },
     name: {
       he: 'עיסוי גוף בקומפרסים תאילנדים',
       en: 'Thai Herbal Compress Body Massage',
@@ -536,10 +928,10 @@ const TREATMENTS_META = {
       ka: 'ტანის მასაჟი თაილანდური მცენარეული კომპრესებით'
     },
     desc: {
-      he: 'שקיות צמחים תאילנדים חמות מעניקות ריפוי טבעי, ניקוז עומק והקלה על כאבים.',
-      en: 'Warm Thai herbal pouches provide natural healing, deep drainage and pain relief.',
-      ru: 'Тёплые тайские травяные мешочки обеспечивают естественное восстановление, дренаж и облегчение боли.',
-      ka: 'თბილი თაილანდური მცენარეული პაკეტები უზრუნველყოფენ ბუნებრივ განსაჯანსაღებლობას, ღრმა დრენაჟს და ტკივილის შემსუბუქებას.'
+      he: 'שקיות צמחים תאילנדים חמות מעניקות ריפוי טבעי, שחרור כאבים והקלה על נוקשות שרירים.',
+      en: 'Warm Thai herbal pouches provide natural relief, muscle release and deep relaxation.',
+      ru: 'Тёплые тайские травяные мешочки дают естественное облегчение, снимают напряжение мышц и расслабляют.',
+      ka: 'თბილი თაილანდური მცენარეული პაკეტები უზრუნველყოფენ ბუნებრივ შემსუბუქებას, კუნთების მოდუნებას და ღრმა რელაქსაციას.'
     },
     price: {
       he: "60 דק' – 220₾ · 90 דק' – 260₾",
@@ -548,7 +940,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 220₾ · 90 წთ – 260₾'
     }
   },
+
   'body-shiatsu': {
+    tag: {
+      he: '🇯🇵 Shiatsu Massage',
+      en: '🇯🇵 Shiatsu Massage',
+      ru: '🇯🇵 Shiatsu Massage',
+      ka: '🇯🇵 Shiatsu Massage'
+    },
     name: {
       he: 'עיסוי שיאצו יפני',
       en: 'Japanese Shiatsu Massage',
@@ -556,10 +955,10 @@ const TREATMENTS_META = {
       ka: 'იაპონური შიაცუ მასაჟი'
     },
     desc: {
-      he: 'עיסוי ללא שמן בלחיצות לאורך מרידיאנים – מאזן אנרגיה פנימית ומרגיע עומס נפשי.',
-      en: 'Oil-free pressure massage along meridians – balances inner energy and calms the mind.',
-      ru: 'Массаж без масла с нажатием по меридианам – уравновешивает внутреннюю энергию и успокаивает психику.',
-      ka: 'ზეთის გარეშე წერტილოვანი მასაჟი მერიდიანების გასწვრივ – აბალანსებს შიდა ენერგიას და ამშვიდებს გონებას.'
+      he: 'עיסוי ללא שמן בלחיצות לאורך מרידיאנים (קווי אנרגיה) – מאזן אנרגיה פנימית ומרגיע עומס נפשי ופיזי.',
+      en: 'Oil-free pressure massage along meridians (energy lines) — balances inner energy and calms body and mind.',
+      ru: 'Массаж без масла с нажатием по меридианам (энергетическим линиям) — балансирует энергию и успокаивает тело и разум.',
+      ka: 'ზეთის გარეშე წერტილოვანი მასაჟი მერიდიანების (ენერგიის ხაზების) გასწვრივ — აბალანსებს ენერგიას და ამშვიდებს სხეულსა და გონებას.'
     },
     price: {
       he: "60 דק' – 180₾ · 90 דק' – 230₾",
@@ -568,7 +967,14 @@ const TREATMENTS_META = {
       ka: '60 წთ – 180₾ · 90 წთ – 230₾'
     }
   },
+
   'foot-massage': {
+    tag: {
+      he: '🦶 Thai Foot Massage',
+      en: '🦶 Thai Foot Massage',
+      ru: '🦶 Thai Foot Massage',
+      ka: '🦶 Thai Foot Massage'
+    },
     name: {
       he: "פוט מסאז' – עיסוי כפות רגליים תאילנדי רפלקסולוגי",
       en: 'Thai Foot Reflexology Massage',
@@ -607,131 +1013,15 @@ const CARD_META = {
   }
 };
 
-// ===== תרגום כרטיסי הטיפולים על הדף =====
-function applyTreatmentTexts(lang) {
-  document.querySelectorAll('.product-card').forEach((card) => {
-    const btn = card.querySelector('[data-treatment-key]');
-    if (!btn) return;
-    const key = btn.getAttribute('data-treatment-key');
-    const meta = TREATMENTS_META[key];
-    if (!meta) return;
-
-    const nameMap = meta.name || {};
-    const descMap = meta.desc || {};
-    const priceMap = meta.price || {};
-
-    const titleEl = card.querySelector('.product-title');
-    if (titleEl && nameMap) {
-      titleEl.textContent =
-        nameMap[lang] || nameMap.he || titleEl.textContent;
-    }
-
-    const descEl = card.querySelector('p:not(.price)');
-    if (descEl && descMap) {
-      descEl.textContent =
-        descMap[lang] || descMap.he || descEl.textContent;
-    }
-
-    const priceEl = card.querySelector('.price');
-    if (priceEl && priceMap) {
-      priceEl.textContent =
-        priceMap[lang] || priceMap.he || priceEl.textContent;
-    }
-  });
-}
-
-// ===== חיבור כפתורי שפה (דגלים) =====
-function setupLangButtons() {
-  document.querySelectorAll('.lang-btn[data-lang]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const lang = btn.getAttribute('data-lang');
-      setLang(lang);
-    });
-  });
-}
-
-// ===== כפתורי טיפולים → ווטסאפ =====
-function setupTreatmentButtons() {
-  const buttons = document.querySelectorAll('[data-book-btn]');
-  if (!buttons.length) return;
-
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const lang = getLang();
-      const key = btn.getAttribute('data-treatment-key');
-      const group = btn.getAttribute('data-radio-group');
-
-      const meta = TREATMENTS_META[key] || {};
-      const nameMap = meta.name || {};
-      const treatmentName =
-        nameMap[lang] ||
-        nameMap.he ||
-        (btn.closest('.product-card')?.querySelector('.product-title')
-          ?.textContent.trim() ??
-          'Treatment');
-
-      let duration = '';
-      if (group) {
-        const span =
-          document.querySelector(
-            `input[name="${group}"]:checked + span`
-          ) || null;
-        if (span) duration = span.textContent.trim();
-      }
-
-      const template =
-        WA_TEMPLATES_TREATMENT[lang] ||
-        WA_TEMPLATES_TREATMENT.he;
-      const text = template
-        .replace('{TREATMENT}', treatmentName)
-        .replace('{DURATION}', duration || '');
-
-      const url = `${WHATSAPP_BASE}?text=${encodeURIComponent(
-        text
-      )}`;
-      window.open(url, '_blank');
-    });
-  });
-}
-
-// ===== כפתור הכרטיסייה → ווטסאפ =====
-function setupCardButtons() {
-  const btn = document.querySelector('[data-card-book-btn]');
-  if (!btn) return;
-
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const lang = getLang();
-    const key = btn.getAttribute('data-card-key') || 'card7';
-
-    const meta = CARD_META[key] || {};
-    const nameMap = meta.name || {};
-    const priceMap = meta.price || {};
-
-    const cardName =
-      nameMap[lang] || nameMap.he || '7-Treatment Card';
-    const price =
-      priceMap[lang] || priceMap.he || '';
-
-    const template =
-      WA_TEMPLATES_CARD[lang] || WA_TEMPLATES_CARD.he;
-    const text = template
-      .replace('{CARD}', cardName)
-      .replace('{PRICE}', price);
-
-    const url = `${WHATSAPP_BASE}?text=${encodeURIComponent(
-      text
-    )}`;
-    window.open(url, '_blank');
-  });
-}
-
 // ===== אתחול =====
 document.addEventListener('DOMContentLoaded', () => {
   const lang = getLang();
   applyLang(lang);
+
   setupLangButtons();
   setupTreatmentButtons();
   setupCardButtons();
+
+  // ✅ סליידר וידיאו: אוטו-גלילה (ברגע שתוסיף את ה-HTML/CSS המתאים)
+  setupVideoSliderAutoScroll();
 });

@@ -5,11 +5,11 @@ body.landing-page {
   margin: 0;
   padding: 0;
   font-family: "Heebo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f5f7;        /* רקע אפור בהיר, לא שחור */
+  background: #f5f5f7;
   color: #111827;
 }
 
-/* הקונטיינר העיקרי של דפי הנחיתה */
+/* הקונטיינר העיקרי */
 .container {
   max-width: 960px;
   margin: 24px auto 40px;
@@ -29,34 +29,113 @@ body.landing-page {
   margin: 0 auto 16px;
 }
 
-.promo-eyebrow {
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #6b7280;
-  margin: 4px 0 8px;
+/* ===== כותרות ראשיות לסוגי טיפולים ===== */
+.treatments-section {
+  margin-top: 36px;
 }
 
-.promo-title {
-  margin: 0 0 8px;
+.treatments-section h2 {
+  font-size: 1.45rem;
   font-weight: 700;
-  line-height: 1.2;
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #7a5c2e;
 }
 
-.promo-title.xl {
-  font-size: 1.9rem;
+/* תת־כותרת אופציונלית */
+.treatments-section .section-sub {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 18px;
 }
 
-.promo-text {
-  margin: 0;
-  color: #4b5563;
+/* ===== רשימת טיפולים ===== */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
 }
 
-.promo-text.lg {
+.product-card {
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 16px 14px 18px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* כותרת טיפול */
+.product-title {
+  margin: 6px 0 6px;
   font-size: 1.05rem;
+  font-weight: 600;
 }
 
-/* ===== כפתורים ===== */
+/* תיאור */
+.product-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.55;
+}
+
+/* ===== הדגשה ויזואלית – עיסוי גוף מלא ===== */
+.product-card.full-body {
+  background: linear-gradient(
+    180deg,
+    #fffaf1,
+    #f9fafb
+  );
+  border: 1px solid rgba(185, 139, 60, 0.25);
+}
+
+/* תג קטן */
+.product-card .tag {
+  align-self: flex-start;
+  margin-bottom: 6px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* מחיר */
+.price {
+  margin-top: 8px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ===== משך טיפול ===== */
+.duration-options {
+  margin-top: auto;
+  margin-bottom: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.duration-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.duration-options input[type="radio"] {
+  accent-color: #b98b3c;
+}
+
+/* ===== כפתור ===== */
 .button,
 .booking-submit {
   display: inline-flex;
@@ -79,91 +158,35 @@ body.landing-page {
 .booking-submit:hover {
   background: #c99a45;
   transform: translateY(-1px);
-  box-shadow: 0 14px 32px rgba(185, 139, 60, 0.45);
 }
 
-.button:active,
-.booking-submit:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 16px rgba(185, 139, 60, 0.35);
+/* ===== וידאו / סליידר וידאו (תשתית בלבד) ===== */
+.video-slider {
+  margin: 40px 0 20px;
 }
 
-/* ===== טקסטים משניים ===== */
-.muted {
-  font-size: 0.92rem;
-  color: #6b7280;
-}
-
-/* ===== רשימת טיפולים ===== */
-.home-grid {
+.video-track {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
+  gap: 16px;
 }
 
-.product-card {
-  background: #f9fafb;
-  border-radius: 16px;
-  padding: 16px 14px 18px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.video-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 10px 26px rgba(0,0,0,.18);
 }
 
-.product-card .tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px 10px;
-  font-size: 0.8rem;
-  border-radius: 999px;
-  background: #e5e7eb;
-  color: #374151;
+.video-item video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-.product-title {
-  margin: 4px 0 4px;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.product-card p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #4b5563;
-}
-
-.price {
-  margin-top: 6px;
-  font-weight: 600;
-  color: #111827;
-}
-
-/* רדיו של משך טיפול */
-.duration-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 8px 0 10px;
-}
-
-.duration-options label {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid #d1d5db;
-  font-size: 0.9rem;
-  cursor: pointer;
-  background: #ffffff;
-}
-
-.duration-options input[type="radio"] {
-  accent-color: #b98b3c;
-}
-
-/* ===== כפתור וואטסאפ צף ===== */
+/* ===== וואטסאפ צף ===== */
 .wa-float {
   position: fixed;
   right: 22px;
@@ -184,107 +207,6 @@ body.landing-page {
   height: 28px;
 }
 
-/* ===== סוויצ'ר שפות ===== */
-.lang-switch {
-  display: inline-flex;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: #f3f4f6;
-  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1);
-}
-
-.lang-btn {
-  border: none;
-  padding: 4px;
-  border-radius: 999px;
-  cursor: pointer;
-  background: transparent;
-}
-
-.lang-btn img {
-  width: 22px;
-  height: 22px;
-}
-
-/* ===== מודאל הזמנה ===== */
-.booking-modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 50;
-}
-
-.booking-modal.active {
-  display: flex;
-}
-
-.booking-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.booking-dialog {
-  position: relative;
-  max-width: 480px;
-  width: 92%;
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 20px 18px 22px;
-  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.4);
-  z-index: 51;
-}
-
-.booking-close {
-  position: absolute;
-  top: 10px;
-  inset-inline-end: 10px;
-  border: none;
-  background: transparent;
-  font-size: 1.6rem;
-  cursor: pointer;
-}
-
-.booking-row {
-  margin-bottom: 10px;
-}
-
-.booking-row label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 4px;
-}
-
-.booking-row input,
-.booking-row textarea,
-.booking-row select {
-  width: 100%;
-  padding: 7px 9px;
-  font-size: 0.95rem;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  box-sizing: border-box;
-}
-
-.booking-row.two-cols {
-  display: flex;
-  gap: 10px;
-}
-
-.booking-row.two-cols > div {
-  flex: 1;
-}
-
-.booking-note {
-  font-size: 0.85rem;
-  color: #6b7280;
-  margin-top: 6px;
-  margin-bottom: 10px;
-}
-
 /* ===== רספונסיב ===== */
 @media (max-width: 640px) {
   .container {
@@ -292,35 +214,8 @@ body.landing-page {
     border-radius: 0;
     box-shadow: none;
   }
-}
-/* כל כרטיס – גובה אחיד ויישור למטה */
-.product-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
 
-/* מוודא שטקסט התיאור לא דוחף הכל */
-.product-card p {
-  flex-grow: 0;
-}
-
-/* קופסת המחיר */
-.product-card .price {
-  margin-top: 8px;
-  font-weight: 700;
-}
-
-/* משך הטיפול – תמיד מעל הכפתור */
-.product-card .duration-options {
-  margin-top: auto;
-  margin-bottom: 14px;
-  display: flex;
-  gap: 12px;
-}
-
-/* הכפתור – צמוד לתחתית הכרטיס */
-.product-card .button {
-  margin-top: 0;
+  .treatments-section h2 {
+    font-size: 1.25rem;
+  }
 }
