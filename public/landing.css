@@ -9,6 +9,9 @@ body.landing-page {
   color: #111827;
 }
 
+/* ✅ עוזר כללי (יש אצלך class="hidden" במודאל) */
+.hidden { display: none !important; }
+
 /* הקונטיינר העיקרי של דפי הנחיתה */
 .container {
   max-width: 960px;
@@ -17,6 +20,17 @@ body.landing-page {
   background: #ffffff;
   border-radius: 18px;
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
+/* ✅ חשוב: בעמוד שלך יש inline style על main.container ששובר מרכוז/פדינג.
+   אנחנו לא מוחקים – רק עוקפים עם !important */
+main.container {
+  max-width: 960px !important;
+  margin: 24px auto 40px !important;
+  padding: 24px 18px 32px !important;
+  background: #ffffff !important;
+  border-radius: 18px !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12) !important;
 }
 
 /* ===== Hero ===== */
@@ -88,6 +102,34 @@ body.landing-page {
   box-shadow: 0 6px 16px rgba(185, 139, 60, 0.35);
 }
 
+/* כפתור Outline (קיים לך ב-HTML בסליידר) */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  font-size: 0.98rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.75);
+  transform: translateY(-1px);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
+}
+
 /* ===== טקסטים משניים ===== */
 .muted {
   font-size: 0.92rem;
@@ -99,6 +141,7 @@ body.landing-page {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 18px;
+  margin-bottom: 18px; /* ✅ ריווח בין קבוצות */
 }
 
 .product-card {
@@ -285,14 +328,185 @@ body.landing-page {
   margin-bottom: 10px;
 }
 
+/* ===== ✅ HERO VIDEO SLIDER (heroSlider) ===== */
+.promo-slider {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 18px 0 26px;
+  height: 520px;
+  background: #0b0f1a;
+}
+
+/* "רוחב מלא" בתוך קונטיינר מבלי להזיז את כל הדף */
+.promo-full {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-radius: 0;
+}
+
+.promo-slider .slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.promo-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.promo-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* שכבת כהות כדי שהטקסט יהיה קריא */
+.promo-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.25) 45%,
+    rgba(0,0,0,0.55)
+  );
+}
+
+.promo-slide video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.promo-overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 42px 18px;
+  color: #ffffff;
+}
+
+.promo-overlay.center {
+  align-items: center;
+  text-align: center;
+}
+
+.promo-overlay .promo-eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.promo-overlay .promo-text {
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 860px;
+}
+
+.promo-cta {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* כפתורי prev/next */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.45);
+  border-color: rgba(255,255,255,0.55);
+}
+
+.slider-btn.prev { left: 14px; }
+.slider-btn.next { right: 14px; }
+
+/* נקודות */
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.30);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(6px);
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.45);
+}
+
+.dot.is-active {
+  background: rgba(255,255,255,0.92);
+  transform: scale(1.05);
+}
+
 /* ===== רספונסיב ===== */
+@media (max-width: 860px) {
+  .promo-slider { height: 440px; }
+}
+
 @media (max-width: 640px) {
   .container {
     margin: 0;
     border-radius: 0;
     box-shadow: none;
   }
+
+  main.container {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .promo-slider { height: 360px; }
+
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
 }
+
 /* כל כרטיס – גובה אחיד ויישור למטה */
 .product-card {
   display: flex;
