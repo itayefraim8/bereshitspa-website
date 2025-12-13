@@ -101,72 +101,41 @@ body.landing-page {
   gap: 18px;
 }
 
-/* ✅ כרטיסים – רקע זהב + גובה אחיד */
 .product-card {
-  background: #f3d28b; /* זהב */
+  background: #f9fafb;
   border-radius: 16px;
   padding: 16px 14px 18px;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  height: 100%;
-  justify-content: space-between;
+  gap: 8px;
 }
 
-/* =========================================================
-   ✅ יישור מושלם של הכותרות:
-   מייצרים "אזור עליון" עם גובה קבוע = תג + כותרת
-   כך שהכותרת תמיד מתחילה בדיוק באותו גובה.
-   ========================================================= */
-
-/* ✅ התג – גדול יותר + גובה קבוע + לא נשבר */
 .product-card .tag {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 6px 14px;
-  font-size: 1.05rem;  /* גדול יותר */
-  font-weight: 700;
+  padding: 3px 10px;
+  font-size: 0.9rem;
   border-radius: 999px;
-  background: rgba(255,255,255,0.55);
-  color: #111827;
-
-  min-height: 40px;   /* גובה קבוע לתג */
-  line-height: 1;
-  align-self: flex-start;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+  background: #e5e7eb;
+  color: #374151;
 }
 
-/* ✅ כותרת – מתחילה תמיד באותו גובה + גובה קבוע */
 .product-title {
-  margin: 0;                 /* חשוב */
-  padding-top: 8px;          /* מרווח קבוע אחרי התג */
-  font-size: 1.08rem;
-  font-weight: 800;
-  line-height: 1.25;
-
-  min-height: 3.2em;         /* מייצר מקום זהה לכותרות ארוכות */
-  display: block;
-  color: #111827;
+  margin: 4px 0 4px;
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
-/* טקסט תיאור */
 .product-card p {
   margin: 0;
   font-size: 0.95rem;
-  color: #1f2937;
-  flex-grow: 0; /* מוודא שטקסט התיאור לא דוחף הכל */
+  color: #4b5563;
 }
 
-/* קופסת המחיר */
 .price {
-  margin-top: 8px;
-  font-weight: 800;
+  margin-top: 6px;
+  font-weight: 600;
   color: #111827;
 }
 
@@ -181,30 +150,17 @@ body.landing-page {
 .duration-options label {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 4px;
+  padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(17, 24, 39, 0.25);
-  font-size: 0.95rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9 rem;
   cursor: pointer;
-  background: rgba(255,255,255,0.65);
+  background: #ffffff;
 }
 
 .duration-options input[type="radio"] {
   accent-color: #b98b3c;
-}
-
-/* משך הטיפול – תמיד מעל הכפתור */
-.product-card .duration-options {
-  margin-top: auto;
-  margin-bottom: 14px;
-  display: flex;
-  gap: 12px;
-}
-
-/* הכפתור – צמוד לתחתית הכרטיס */
-.product-card .button {
-  margin-top: 0;
 }
 
 /* ===== כפתור וואטסאפ צף ===== */
@@ -336,4 +292,35 @@ body.landing-page {
     border-radius: 0;
     box-shadow: none;
   }
+}
+/* כל כרטיס – גובה אחיד ויישור למטה */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* מוודא שטקסט התיאור לא דוחף הכל */
+.product-card p {
+  flex-grow: 0;
+}
+
+/* קופסת המחיר */
+.product-card .price {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* משך הטיפול – תמיד מעל הכפתור */
+.product-card .duration-options {
+  margin-top: auto;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 12px;
+}
+
+/* הכפתור – צמוד לתחתית הכרטיס */
+.product-card .button {
+  margin-top: 0;
 }
