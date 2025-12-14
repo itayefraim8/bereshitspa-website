@@ -624,7 +624,7 @@ function setupVideoSlider() {
 
   function startAuto() {
     stopAuto();
-    timer = setInterval(next, 5000); // כל 5 שניות
+    timer = setInterval(next, 15000); // כל 15 שניות
   }
 
   function stopAuto() {
