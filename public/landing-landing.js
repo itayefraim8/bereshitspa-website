@@ -574,6 +574,90 @@ function setupCardButtons() {
     window.open(url, '_blank');
   });
 }
+// ===== Video Slider (5 videos, autoplay) =====
+function setupVideoSlider() {
+  const viewport = document.getElementById('videoSlider');
+  if (!viewport) return;
+
+  const track = viewport.querySelector('.video-slider__track');
+  const slides = Array.from(viewport.querySelectorAll('.video-slide'));
+  const videos = slides.map(s => s.querySelector('video')).filter(Boolean);
+
+  const prevBtn = viewport.querySelector('.video-slider__nav--prev');
+  const nextBtn = viewport.querySelector('.video-slider__nav--next');
+  const dots = Array.from(viewport.querySelectorAll('.video-slider__dot'));
+
+  let index = 0;
+  let timer = null;
+
+  const isRTL = () => document.documentElement.dir === 'rtl';
+
+  function setActive(i) {
+    index = (i + slides.length) % slides.length;
+
+    // RTL: כיוון ההזזה הפוך
+    const offset = index * 100;
+    track.style.transform = isRTL()
+      ? `translateX(${offset}%)`
+      : `translateX(-${offset}%)`;
+
+    slides.forEach((s, k) => s.classList.toggle('is-active', k === index));
+    dots.forEach((d, k) => d.classList.toggle('is-active', k === index));
+
+    // וידאו: נגן רק את הנוכחי
+    videos.forEach((v, k) => {
+      try {
+        v.pause();
+        v.currentTime = 0;
+      } catch (_) {}
+      if (k === index) {
+        // autoplay בלי קול (מותר בדפדפנים)
+        v.muted = true;
+        const p = v.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      }
+    });
+  }
+
+  function next() { setActive(index + 1); }
+  function prev() { setActive(index - 1); }
+
+  function startAuto() {
+    stopAuto();
+    timer = setInterval(next, 5000); // כל 5 שניות
+  }
+
+  function stopAuto() {
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  // Events
+  if (nextBtn) nextBtn.addEventListener('click', () => { next(); startAuto(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { prev(); startAuto(); });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      setActive(i);
+      startAuto();
+    });
+  });
+
+  // pause on hover/touch
+  viewport.addEventListener('mouseenter', stopAuto);
+  viewport.addEventListener('mouseleave', startAuto);
+  viewport.addEventListener('touchstart', stopAuto, { passive: true });
+  viewport.addEventListener('touchend', startAuto, { passive: true });
+
+  // init
+  setActive(0);
+  startAuto();
+
+  // אם השפה משתנה (RTL/LTR) – תעדכן position
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'site_lang') setActive(index);
+  });
+}
 
 // ===== אתחול =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -582,4 +666,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupLangButtons();
   setupTreatmentButtons();
   setupCardButtons(); // ✅ נוסף בלי למחוק כלום
+  setupVideoSlider();
+
 });
