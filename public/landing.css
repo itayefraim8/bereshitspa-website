@@ -324,6 +324,7 @@ body.landing-page {
 .product-card .button {
   margin-top: 0;
 }
+
 /* ===== Video Slider ===== */
 .video-slider {
   margin: 18px 0 6px;
@@ -336,6 +337,9 @@ body.landing-page {
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
   background: #0b0f1a;
+
+  /* ✅ חדש: גובה קטן יותר (במקום שהגובה ינבע מ-aspect-ratio) */
+  height: 320px; /* אפשר להוריד ל-260px/280px אם תרצה */
 }
 
 .video-slider__track {
@@ -346,7 +350,8 @@ body.landing-page {
 
 .video-slide {
   flex: 0 0 100%;
-  aspect-ratio: 16 / 9;
+  /* ✅ חדש: כדי שלא יכפה 16:9 ויגדיל גובה */
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -421,5 +426,10 @@ body.landing-page {
   .video-slider__nav {
     width: 40px;
     height: 40px;
+  }
+
+  /* ✅ חדש: גובה קטן יותר למובייל */
+  .video-slider__viewport {
+    height: 220px;
   }
 }
