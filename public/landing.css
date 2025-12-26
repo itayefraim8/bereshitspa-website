@@ -103,6 +103,13 @@ body.landing-page {
   margin: 4px 0 4px;
   font-size: 1.05rem;
   font-weight: 600;
+
+  /* ✅ FIX: תמיד באותה שורה (לא יורד שורה בין EN/HE) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+  unicode-bidi: plaintext;
 }
 
 .product-card p {
