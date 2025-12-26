@@ -380,3 +380,68 @@ body.landing-page {
     height: 40px;
   }
 }
+/* ===== FIX: Video Slider height + alignment (put at END of file) ===== */
+
+/* שמירה על יחס 16:9 בצורה יציבה בכל דפדפן */
+.video-slider__viewport {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0b0f1a;
+}
+
+/* Fallback ל-aspect-ratio (וגם מייצב גובה) */
+.video-slider__viewport::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 */
+}
+
+/* כל מה שבתוך ה-viewport יושב “מוחלט” על ה-16:9 */
+.video-slider__track,
+.video-slide,
+.video-slide__video {
+  position: absolute;
+  inset: 0;
+}
+
+/* ה-track נשאר flex אבל לא משפיע על גובה */
+.video-slider__track {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 420ms ease;
+  will-change: transform;
+}
+
+/* כל שקף תופס 100% רוחב/גובה של ה-viewport */
+.video-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0f1a;
+}
+
+/* הווידאו ממלא יפה בלי לשבור גובה */
+.video-slide__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* כפתורי ניווט ודוטים נשארים מעל */
+.video-slider__nav,
+.video-slider__dots {
+  z-index: 3;
+}
+
+/* מובייל: קצת פחות רדיוס אם בא לך */
+@media (max-width: 640px) {
+  .video-slider__viewport {
+    border-radius: 14px;
+  }
+}
