@@ -104,7 +104,7 @@ body.landing-page {
   font-size: 1.05rem;
   font-weight: 600;
 
-  /* ✅ FIX: תמיד באותה שורה (לא יורד שורה בין EN/HE) */
+  /* ✅ תמיד באותה שורה (לא יורד שורה בין EN/HE) */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -135,23 +135,34 @@ body.landing-page {
 .duration-options label {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid #d1d5db;
-  font-size: 0.9rem; /* ✅ תיקון: בלי רווח */
+  font-size: 0.9rem;
   cursor: pointer;
   background: #ffffff;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
 }
 
 .duration-options input[type="radio"] {
   accent-color: #b98b3c;
 }
 
+/* ✅ מצב נבחר (תואם JS שמעדכן את ה-span עם "30/60/90") */
+.duration-options input[type="radio"]:checked + span {
+  font-weight: 700;
+}
+
+.duration-options label:has(input[type="radio"]:checked) {
+  border-color: rgba(185, 139, 60, 0.7);
+  box-shadow: 0 8px 18px rgba(185, 139, 60, 0.15);
+}
+
 /* ===== כפתור וואטסאפ צף ===== */
 .wa-float {
   position: fixed;
-  right: 22px;
+  inset-inline-end: 22px; /* ✅ תומך RTL/LTR */
   bottom: 22px;
   width: 52px;
   height: 52px;
@@ -186,6 +197,11 @@ body.landing-page {
 
 .lang-btn img { width: 22px; height: 22px; }
 
+/* אופציונלי: מצב פעיל (אם תוסיף aria-current="true" בכפתור של השפה הנוכחית) */
+.lang-btn[aria-current="true"] {
+  background: rgba(17, 24, 39, 0.08);
+}
+
 /* ===== מודאל הזמנה ===== */
 .booking-modal {
   position: fixed;
@@ -218,7 +234,7 @@ body.landing-page {
 .booking-close {
   position: absolute;
   top: 10px;
-  inset-inline-end: 10px;
+  inset-inline-end: 10px; /* ✅ כבר לוגי */
   border: none;
   background: transparent;
   font-size: 1.6rem;
@@ -344,8 +360,9 @@ body.landing-page {
 
 .video-slider__nav:hover { background: rgba(255, 255, 255, 0.92); }
 
-.video-slider__nav--prev { left: 12px; }
-.video-slider__nav--next { right: 12px; }
+/* ✅ לוגי ל-RTL/LTR */
+.video-slider__nav--prev { inset-inline-start: 12px; }
+.video-slider__nav--next { inset-inline-end: 12px; }
 
 /* Dots */
 .video-slider__dots {
