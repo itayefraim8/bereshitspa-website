@@ -89,7 +89,6 @@ body.landing-page {
   gap: 8px;
 }
 
-/* ✅ תג שלא ייחתך / לא יופיע עם ... */
 .product-card .tag {
   display: inline-flex;
   align-items: center;
@@ -98,35 +97,19 @@ body.landing-page {
   border-radius: 999px;
   background: #e5e7eb;
   color: #374151;
-
-  /* FIX */
-  white-space: normal;
-  overflow: visible;
-  text-overflow: clip;
 }
 
-/* ✅ FIX מרכזי: כותרת לא תיחתך עם ... ותוצג עד 2 שורות בצורה מקצועית */
 .product-title {
   margin: 4px 0 4px;
   font-size: 1.05rem;
   font-weight: 600;
+
+  /* ✅ FIX: תמיד באותה שורה (לא יורד שורה בין EN/HE) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   line-height: 1.25;
   unicode-bidi: plaintext;
-
-  /* במקום nowrap + ellipsis */
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: clip;
-
-  /* 2 שורות ללא "..." (נראה בוטיקי) */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-/* במובייל: תן עוד שורה כדי שלא ייחתך כמעט כלום */
-@media (max-width: 640px) {
-  .product-title { -webkit-line-clamp: 3; }
 }
 
 .product-card p {
@@ -156,7 +139,7 @@ body.landing-page {
   padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid #d1d5db;
-  font-size: 0.9rem;
+  font-size: 0.9rem; /* ✅ תיקון: בלי רווח */
   cursor: pointer;
   background: #ffffff;
 }
