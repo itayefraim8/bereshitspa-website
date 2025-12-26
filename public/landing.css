@@ -89,6 +89,7 @@ body.landing-page {
   gap: 8px;
 }
 
+/* ✅ תג שלא ייחתך / לא יופיע עם ... */
 .product-card .tag {
   display: inline-flex;
   align-items: center;
@@ -97,19 +98,35 @@ body.landing-page {
   border-radius: 999px;
   background: #e5e7eb;
   color: #374151;
+
+  /* FIX */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
 }
 
+/* ✅ FIX מרכזי: כותרת לא תיחתך עם ... ותוצג עד 2 שורות בצורה מקצועית */
 .product-title {
   margin: 4px 0 4px;
   font-size: 1.05rem;
   font-weight: 600;
-
-  /* ✅ תמיד באותה שורה (לא יורד שורה בין EN/HE) */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.25;
   unicode-bidi: plaintext;
+
+  /* במקום nowrap + ellipsis */
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: clip;
+
+  /* 2 שורות ללא "..." (נראה בוטיקי) */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* במובייל: תן עוד שורה כדי שלא ייחתך כמעט כלום */
+@media (max-width: 640px) {
+  .product-title { -webkit-line-clamp: 3; }
 }
 
 .product-card p {
@@ -135,34 +152,23 @@ body.landing-page {
 .duration-options label {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid #d1d5db;
   font-size: 0.9rem;
   cursor: pointer;
   background: #ffffff;
-  transition: border-color 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
 }
 
 .duration-options input[type="radio"] {
   accent-color: #b98b3c;
 }
 
-/* ✅ מצב נבחר (תואם JS שמעדכן את ה-span עם "30/60/90") */
-.duration-options input[type="radio"]:checked + span {
-  font-weight: 700;
-}
-
-.duration-options label:has(input[type="radio"]:checked) {
-  border-color: rgba(185, 139, 60, 0.7);
-  box-shadow: 0 8px 18px rgba(185, 139, 60, 0.15);
-}
-
 /* ===== כפתור וואטסאפ צף ===== */
 .wa-float {
   position: fixed;
-  inset-inline-end: 22px; /* ✅ תומך RTL/LTR */
+  right: 22px;
   bottom: 22px;
   width: 52px;
   height: 52px;
@@ -197,11 +203,6 @@ body.landing-page {
 
 .lang-btn img { width: 22px; height: 22px; }
 
-/* אופציונלי: מצב פעיל (אם תוסיף aria-current="true" בכפתור של השפה הנוכחית) */
-.lang-btn[aria-current="true"] {
-  background: rgba(17, 24, 39, 0.08);
-}
-
 /* ===== מודאל הזמנה ===== */
 .booking-modal {
   position: fixed;
@@ -234,7 +235,7 @@ body.landing-page {
 .booking-close {
   position: absolute;
   top: 10px;
-  inset-inline-end: 10px; /* ✅ כבר לוגי */
+  inset-inline-end: 10px;
   border: none;
   background: transparent;
   font-size: 1.6rem;
@@ -360,9 +361,8 @@ body.landing-page {
 
 .video-slider__nav:hover { background: rgba(255, 255, 255, 0.92); }
 
-/* ✅ לוגי ל-RTL/LTR */
-.video-slider__nav--prev { inset-inline-start: 12px; }
-.video-slider__nav--next { inset-inline-end: 12px; }
+.video-slider__nav--prev { left: 12px; }
+.video-slider__nav--next { right: 12px; }
 
 /* Dots */
 .video-slider__dots {
