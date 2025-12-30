@@ -60,32 +60,39 @@
         כל הטיפולים מתבצעים על-ידי צוות תאילנדי מקצועי, באווירה שקטה ומוסיקה מרגיעה.
       </p>
 
+<!-- ===== Simple Video Slider (3 videos, muted) ===== -->
 <section class="video-slider" aria-label="Video highlights">
   <div class="video-slider__viewport" id="videoSlider">
     <div class="video-slider__track">
 
       <div class="video-slide is-active">
-        <video autoplay loop muted playsinline preload="auto">
-          <source src="assets/videos/slide-1.mp4" type="video/mp4">
+        <video class="video-slide__video" autoplay loop muted playsinline preload="metadata">
+          <source src="assets/videos/slide-1.mp4" type="video/mp4" />
         </video>
       </div>
 
       <div class="video-slide">
-        <video autoplay loop muted playsinline preload="auto">
-          <source src="assets/videos/slide-2.mp4" type="video/mp4">
+        <video class="video-slide__video" autoplay loop muted playsinline preload="metadata">
+          <source src="assets/videos/slide-2.mp4" type="video/mp4" />
         </video>
       </div>
 
       <div class="video-slide">
-        <video autoplay loop muted playsinline preload="auto">
-          <source src="assets/videos/slide-3.mp4" type="video/mp4">
+        <video class="video-slide__video" autoplay loop muted playsinline preload="metadata">
+          <source src="assets/videos/slide-3.mp4" type="video/mp4" />
         </video>
       </div>
 
     </div>
 
-    <button class="video-slider__nav video-slider__nav--prev">‹</button>
-    <button class="video-slider__nav video-slider__nav--next">›</button>
+    <button class="video-slider__nav video-slider__nav--prev" type="button" aria-label="Previous">‹</button>
+    <button class="video-slider__nav video-slider__nav--next" type="button" aria-label="Next">›</button>
+
+    <div class="video-slider__dots" aria-label="Slider dots">
+      <button class="video-slider__dot is-active" type="button"></button>
+      <button class="video-slider__dot" type="button"></button>
+      <button class="video-slider__dot" type="button"></button>
+    </div>
   </div>
 </section>
 
