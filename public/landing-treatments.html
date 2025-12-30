@@ -60,35 +60,35 @@
         כל הטיפולים מתבצעים על-ידי צוות תאילנדי מקצועי, באווירה שקטה ומוסיקה מרגיעה.
       </p>
 
-<!-- ===== Simple Video Slider (3 videos, muted) ===== -->
-<section class="vslider" aria-label="Video highlights">
-  <div class="vslider__viewport" id="vslider">
-    <div class="vslider__track">
+<section class="video-slider" aria-label="Video highlights">
+  <div class="video-slider__viewport" id="videoSlider">
+    <div class="video-slider__track">
 
-      <div class="vslide">
-        <video class="vslide__video" muted playsinline preload="metadata"></video>
+      <div class="video-slide is-active">
+        <video autoplay loop muted playsinline preload="auto">
+          <source src="assets/videos/slide-1.mp4" type="video/mp4">
+        </video>
       </div>
 
-      <div class="vslide">
-        <video class="vslide__video" muted playsinline preload="metadata"></video>
+      <div class="video-slide">
+        <video autoplay loop muted playsinline preload="auto">
+          <source src="assets/videos/slide-2.mp4" type="video/mp4">
+        </video>
       </div>
 
-      <div class="vslide">
-        <video class="vslide__video" muted playsinline preload="metadata"></video>
+      <div class="video-slide">
+        <video autoplay loop muted playsinline preload="auto">
+          <source src="assets/videos/slide-3.mp4" type="video/mp4">
+        </video>
       </div>
 
     </div>
 
-    <button class="vslider__nav vslider__nav--prev" type="button" aria-label="Previous">‹</button>
-    <button class="vslider__nav vslider__nav--next" type="button" aria-label="Next">›</button>
-
-    <div class="vslider__dots" aria-label="Slider dots">
-      <button class="vslider__dot is-active" type="button" aria-label="Go to slide 1.mp4"></button>
-      <button class="vslider__dot" type="button" aria-label="Go to slide 2.mp4"></button>
-      <button class="vslider__dot" type="button" aria-label="Go to slide 3.mp4"></button>
-    </div>
+    <button class="video-slider__nav video-slider__nav--prev">‹</button>
+    <button class="video-slider__nav video-slider__nav--next">›</button>
   </div>
 </section>
+
 
 
       <div class="home-grid">
