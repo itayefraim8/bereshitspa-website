@@ -736,86 +736,68 @@ function setupTreatmentButtons() {
   });
 }
 
-// ===== Video Slider (כפתורים + נקודות + סווייפ) =====
-function setupVideoSlider() {
-  const viewport = document.getElementById('videoSlider');
+// ===== Simple Video Slider (3 videos, muted) =====
+function setupSimpleVideoSlider() {
+  const viewport = document.getElementById('vslider');
   if (!viewport) return;
 
-  const track = viewport.querySelector('.video-slider__track');
-  const slides = Array.from(viewport.querySelectorAll('.video-slide'));
-  const prevBtn = viewport.querySelector('.video-slider__nav--prev');
-  const nextBtn = viewport.querySelector('.video-slider__nav--next');
-  const dotsWrap = viewport.querySelector('.video-slider__dots');
-  const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.video-slider__dot')) : [];
+  const track = viewport.querySelector('.vslider__track');
+  const slides = Array.from(viewport.querySelectorAll('.vslide'));
+  const videos = slides.map(s => s.querySelector('video'));
+  const prevBtn = viewport.querySelector('.vslider__nav--prev');
+  const nextBtn = viewport.querySelector('.vslider__nav--next');
+  const dots = Array.from(viewport.querySelectorAll('.vslider__dot'));
 
-  if (!track || !slides.length) return;
+  if (!track || slides.length !== 3) return;
 
-  let index = slides.findIndex((s) => s.classList.contains('is-active'));
-  if (index < 0) index = 0;
+  // ❗ לפי הבקשה שלך: בלי סיומת
+  // אם לא עובד - החלף ל: ['assets/videos/slide-1.mp4', ...]
+  const SRC = [
+    'assets/videos/slide-1',
+    'assets/videos/slide-2',
+    'assets/videos/slide-3'
+  ];
 
-  // ✅ מפעיל וידאו בצורה "קשוחה" כדי שיעבוד גם אחרי מעבר סלייד
-  function forcePlay(video) {
-    if (!video) return;
+  // set src + base video flags
+  videos.forEach((v, i) => {
+    if (!v) return;
+    v.src = SRC[i];
+    v.loop = true;
+    v.muted = true;
+    v.playsInline = true;
+    v.preload = 'metadata';
+  });
 
-    // לוודא את ההגדרות ש-autoplay דורש
-    video.muted = true;
-    video.playsInline = true;
-    video.setAttribute('muted', '');
-    video.setAttribute('playsinline', '');
+  let index = 0;
 
-    // ניסיון הפעלה
-    const p = video.play();
-    if (p && typeof p.catch === 'function') {
-      p.catch(() => {
-        // fallback: לטעון מחדש ואז לנסות שוב
-        try {
-          video.load();
-          const p2 = video.play();
-          if (p2 && typeof p2.catch === 'function') p2.catch(() => {});
-        } catch (_) {}
-      });
-    }
-  }
-
-  function pauseAndReset(video) {
-    if (!video) return;
-    try { video.pause(); } catch (_) {}
-    try { video.currentTime = 0; } catch (_) {}
-  }
-
-  function setActive(i) {
-    index = (i + slides.length) % slides.length;
+  function update() {
+    const w = viewport.clientWidth;
+    track.style.transform = `translateX(${-index * w}px)`;
 
     slides.forEach((s, si) => s.classList.toggle('is-active', si === index));
     dots.forEach((d, di) => d.classList.toggle('is-active', di === index));
 
-    // translateX לפי רוחב viewport
-    const w = viewport.clientWidth;
-    track.style.transform = `translateX(${-(index * w)}px)`;
-
-    // ✅ עצור את כולם, אפס, ואז הפעל רק את הפעיל
-    slides.forEach((s, si) => {
-      const v = s.querySelector('video');
+    // play active, pause others
+    videos.forEach((v, vi) => {
       if (!v) return;
-      if (si !== index) pauseAndReset(v);
+      if (vi === index) {
+        // חשוב לאוטופליי: play רק אחרי user gesture או כשהדפדפן מאפשר
+        const p = v.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      } else {
+        v.pause();
+      }
     });
-
-    const activeVideo = slides[index].querySelector('video');
-    if (activeVideo) {
-      // לפעמים צריך "טיק" אחרי שינוי transform
-      requestAnimationFrame(() => forcePlay(activeVideo));
-    }
   }
 
-  function next() { setActive(index + 1); }
-  function prev() { setActive(index - 1); }
+  function next() { index = (index + 1) % slides.length; update(); }
+  function prev() { index = (index - 1 + slides.length) % slides.length; update(); }
 
-  // init sizing
   function syncSizes() {
     const w = viewport.clientWidth;
-    slides.forEach((s) => { s.style.width = `${w}px`; });
+    slides.forEach(s => (s.style.width = `${w}px`));
     track.style.width = `${w * slides.length}px`;
-    setActive(index);
+    update();
   }
 
   window.addEventListener('resize', syncSizes, { passive: true });
@@ -823,50 +805,40 @@ function setupVideoSlider() {
   if (prevBtn) prevBtn.addEventListener('click', prev);
   if (nextBtn) nextBtn.addEventListener('click', next);
 
-  dots.forEach((dot, di) => {
-    dot.addEventListener('click', () => setActive(di));
-  });
+  dots.forEach((dot, di) => dot.addEventListener('click', () => { index = di; update(); }));
 
   // swipe
-  let startX = 0;
-  let deltaX = 0;
-  let isDown = false;
+  let startX = 0, dx = 0, down = false;
 
-  function onDown(clientX) {
-    isDown = true;
-    startX = clientX;
-    deltaX = 0;
+  viewport.addEventListener('pointerdown', (e) => {
+    down = true; startX = e.clientX; dx = 0;
+  });
+  viewport.addEventListener('pointermove', (e) => {
+    if (!down) return;
+    dx = e.clientX - startX;
+  });
+  function endSwipe() {
+    if (!down) return;
+    down = false;
+    const threshold = Math.max(50, viewport.clientWidth * 0.15);
+    if (dx > threshold) prev();
+    else if (dx < -threshold) next();
   }
-  function onMove(clientX) {
-    if (!isDown) return;
-    deltaX = clientX - startX;
-  }
-  function onUp() {
-    if (!isDown) return;
-    isDown = false;
+  viewport.addEventListener('pointerup', endSwipe);
+  viewport.addEventListener('pointercancel', endSwipe);
+  viewport.addEventListener('pointerleave', endSwipe);
 
-    const threshold = Math.max(40, viewport.clientWidth * 0.12);
-    if (deltaX > threshold) prev();
-    else if (deltaX < -threshold) next();
-  }
-
-  viewport.addEventListener('pointerdown', (e) => onDown(e.clientX));
-  viewport.addEventListener('pointermove', (e) => onMove(e.clientX));
-  viewport.addEventListener('pointerup', onUp);
-  viewport.addEventListener('pointercancel', onUp);
-  viewport.addEventListener('pointerleave', onUp);
-
-  // autoplay (עדין) — אם לא רוצים, אפשר למחוק
-  let autoTimer = null;
+  // autoplay
+  let timer = null;
   const AUTO_MS = 7000;
 
   function startAuto() {
     stopAuto();
-    autoTimer = setInterval(() => next(), AUTO_MS);
+    timer = setInterval(next, AUTO_MS);
   }
   function stopAuto() {
-    if (autoTimer) clearInterval(autoTimer);
-    autoTimer = null;
+    if (timer) clearInterval(timer);
+    timer = null;
   }
 
   viewport.addEventListener('mouseenter', stopAuto);
@@ -874,10 +846,11 @@ function setupVideoSlider() {
   viewport.addEventListener('focusin', stopAuto);
   viewport.addEventListener('focusout', startAuto);
 
-  // kick
+  // init
   syncSizes();
   startAuto();
 }
+
 
 
 // ===== אתחול =====
@@ -886,5 +859,5 @@ document.addEventListener('DOMContentLoaded', () => {
   applyLang(lang);
   setupLangButtons();
   setupTreatmentButtons();
-  setupVideoSlider();
+  setupSimpleVideoSlider(); // במקום setupVideoSlider()
 });
