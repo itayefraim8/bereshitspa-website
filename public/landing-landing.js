@@ -753,9 +753,9 @@ function setupSimpleVideoSlider() {
   // ❗ לפי הבקשה שלך: בלי סיומת
   // אם לא עובד - החלף ל: ['assets/videos/slide-1.mp4', ...]
   const SRC = [
-    'assets/videos/slide-1',
-    'assets/videos/slide-2',
-    'assets/videos/slide-3'
+    'assets/videos/slide-1.mp4',
+    'assets/videos/slide-2.mp4',
+    'assets/videos/slide-3.mp4'
   ];
 
   // set src + base video flags
