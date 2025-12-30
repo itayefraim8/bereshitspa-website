@@ -753,6 +753,36 @@ function setupVideoSlider() {
   let index = slides.findIndex((s) => s.classList.contains('is-active'));
   if (index < 0) index = 0;
 
+  // ✅ מפעיל וידאו בצורה "קשוחה" כדי שיעבוד גם אחרי מעבר סלייד
+  function forcePlay(video) {
+    if (!video) return;
+
+    // לוודא את ההגדרות ש-autoplay דורש
+    video.muted = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+
+    // ניסיון הפעלה
+    const p = video.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(() => {
+        // fallback: לטעון מחדש ואז לנסות שוב
+        try {
+          video.load();
+          const p2 = video.play();
+          if (p2 && typeof p2.catch === 'function') p2.catch(() => {});
+        } catch (_) {}
+      });
+    }
+  }
+
+  function pauseAndReset(video) {
+    if (!video) return;
+    try { video.pause(); } catch (_) {}
+    try { video.currentTime = 0; } catch (_) {}
+  }
+
   function setActive(i) {
     index = (i + slides.length) % slides.length;
 
@@ -763,18 +793,18 @@ function setupVideoSlider() {
     const w = viewport.clientWidth;
     track.style.transform = `translateX(${-(index * w)}px)`;
 
-    // הפעל וידאו פעיל, עצור אחרים
+    // ✅ עצור את כולם, אפס, ואז הפעל רק את הפעיל
     slides.forEach((s, si) => {
       const v = s.querySelector('video');
       if (!v) return;
-      if (si === index) {
-        try { v.play(); } catch (_) {}
-      } else {
-        try { v.pause(); } catch (_) {}
-        // לא מחזירים זמן להתחלה כדי למנוע "קפיצה" – אם תרצה, אפשר להפעיל:
-        // v.currentTime = 0;
-      }
+      if (si !== index) pauseAndReset(v);
     });
+
+    const activeVideo = slides[index].querySelector('video');
+    if (activeVideo) {
+      // לפעמים צריך "טיק" אחרי שינוי transform
+      requestAnimationFrame(() => forcePlay(activeVideo));
+    }
   }
 
   function next() { setActive(index + 1); }
@@ -848,6 +878,7 @@ function setupVideoSlider() {
   syncSizes();
   startAuto();
 }
+
 
 // ===== אתחול =====
 document.addEventListener('DOMContentLoaded', () => {
