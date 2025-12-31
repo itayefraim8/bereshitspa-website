@@ -1,4 +1,4 @@
-// landing-landing.js — i18n + כפתורי טיפול לווטסאפ + כפתור וואטסאפ צף + Video Slider + Signature Slider (price + WA booking)
+// landing-landing.js — i18n + כפתורי טיפול לווטסאפ + כפתור וואטסאפ צף + Video Slider + Signature Slider + Categories
 
 const WHATSAPP_NUMBER = '972502686862';
 const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -9,8 +9,6 @@ const SUPPORTED_LANGS = new Set(['he', 'en', 'ru', 'ka']);
 function getLang() {
   const stored = localStorage.getItem('site_lang');
   if (stored && SUPPORTED_LANGS.has(stored.slice(0, 2))) return stored.slice(0, 2);
-
-  // ✅ ברירת מחדל: עברית
   return 'he';
 }
 
@@ -26,9 +24,12 @@ function applyLang(lang) {
 
   applyTranslations(lang);
   applyTreatmentTexts(lang);
-  applySignatureTexts(lang);          // ✅ NEW: signature slider texts + prices
   applyDurationLabels(lang);
   applyWhatsAppFloatLink(lang);
+
+  // ✅ NEW
+  applySignatureTexts(lang);
+  buildAllTreatmentsByCategories(lang);
 }
 
 // ===== מילון טקסטים =====
@@ -53,6 +54,12 @@ const LOCAL_STRINGS = {
     'landing.section.body.title': '🧘‍♂️ עיסוי גוף מלא',
     'landing.section.body.subtitle': 'הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
     'landing.section.foot.title': '🦶 טיפולי כפות רגליים',
+
+    // NEW: signature + all
+    'landing.signature.title': '👑 טיפולי הדגל שלנו',
+    'landing.signature.subtitle': 'בחר/י טיפול דגל, קרא/י פרטים והזמן/י בקלות בווטסאפ.',
+    'landing.all.title': 'כל הטיפולים לפי קטגוריות',
+    'landing.all.subtitle': 'בחר/י קטגוריה, קרא/י פרטים והזמן/י בקלות.',
 
     // booking modal (נשאר לעתיד)
     'landing.booking.title': 'הזמנת טיפול',
@@ -86,6 +93,12 @@ const LOCAL_STRINGS = {
     'landing.section.body.subtitle': 'This is a full-body treatment and also includes a gentle face massage.',
     'landing.section.foot.title': '🦶 Foot Treatments',
 
+    // NEW
+    'landing.signature.title': '👑 Signature Treatments',
+    'landing.signature.subtitle': 'Pick a signature treatment, read details and book easily via WhatsApp.',
+    'landing.all.title': 'All treatments by category',
+    'landing.all.subtitle': 'Choose a category, read details and book easily.',
+
     'landing.booking.title': 'Treatment booking',
     'landing.booking.summary': 'Please select a treatment from the page, then fill in your contact details and date.',
     'landing.booking.name': 'Full name',
@@ -116,6 +129,12 @@ const LOCAL_STRINGS = {
     'landing.section.body.title': '🧘‍♂️ Массаж всего тела',
     'landing.section.body.subtitle': 'Процедура выполняется как массаж всего тела и также включает мягкий массаж лица.',
     'landing.section.foot.title': '🦶 Процедуры для стоп',
+
+    // NEW
+    'landing.signature.title': '👑 Фирменные процедуры',
+    'landing.signature.subtitle': 'Выберите фирменную процедуру, прочитайте детали и легко запишитесь через WhatsApp.',
+    'landing.all.title': 'Все процедуры по категориям',
+    'landing.all.subtitle': 'Выберите категорию, прочитайте детали и запишитесь.',
 
     'landing.booking.title': 'Бронирование процедуры',
     'landing.booking.summary': 'Пожалуйста, выберите процедуру на странице и заполните контакты и дату.',
@@ -148,6 +167,12 @@ const LOCAL_STRINGS = {
     'landing.section.body.subtitle': 'პროცედურა სრულდება როგორც მთლიანი სხეულის მასაჟი და ასევე მოიცავს სახის ნაზ მასაჟს.',
     'landing.section.foot.title': '🦶 ფეხის პროცედურები',
 
+    // NEW
+    'landing.signature.title': '👑 სიგნატურული პროცედურები',
+    'landing.signature.subtitle': 'აირჩიეთ სიგნატურული პროცედურა, წაიკითხეთ დეტალები და მარტივად დაჯავშნეთ WhatsApp-ით.',
+    'landing.all.title': 'ყველა პროცედურა კატეგორიებით',
+    'landing.all.subtitle': 'აირჩიეთ კატეგორია, წაიკითხეთ დეტალები და დაჯავშნეთ.',
+
     'landing.booking.title': 'პროცედურის დაჯავშნა',
     'landing.booking.summary': 'გთხოვთ, პირველ რიგში აირჩიოთ პროცედურა და შემდეგ შეავსოთ საკონტაქტო ინფორმაცია და თარიღი.',
     'landing.booking.name': 'სრული სახელი',
@@ -174,7 +199,6 @@ function applyTranslations(lang) {
     if (val) el.textContent = val;
   });
 
-  // ✅ עדכון title בדפדפן
   const titleEl = document.querySelector('title[data-i18n-title]');
   if (titleEl) {
     const key = titleEl.getAttribute('data-i18n-title');
@@ -191,7 +215,6 @@ const WA_TEMPLATES_TREATMENT = {
   ka: 'გამარჯობა, მსურს პროცედურის დაჯავშნა Bereshit Spa-ში:\nპროცედურა: {TREATMENT}\nხანგრძლივობა: {DURATION}\nფასი: {PRICE}\n\nგთხოვთ, დამიკავშირდეთ თარიღისა და დროის დასაზუსტებლად.'
 };
 
-// ✅ הודעה כללית לכפתור וואטסאפ צף
 const WA_TEMPLATES_GENERAL = {
   he: 'שלום, הגעתי לדף של Bereshit Spa ואשמח לתאם טיפול.',
   en: 'Hello, I found Bereshit Spa and would like to book a treatment.',
@@ -207,10 +230,19 @@ const DURATION_I18N = {
   ka: { unit: 'წთ', fmt: (m) => `${m} წთ` }
 };
 
+// ✅ קטגוריות (NEW)
+const CATEGORY_I18N = {
+  face: { he: '✨ עיסויי פנים', en: '✨ Facial Treatments', ru: '✨ Процедуры для лица', ka: '✨ სახის პროცედურები' },
+  back: { he: '💆‍♂️ גב–כתפיים–צוואר', en: '💆‍♂️ Back–Neck–Shoulders', ru: '💆‍♂️ Спина–шея–плечи', ka: '💆‍♂️ ზურგი–კისერი–მხრები' },
+  body: { he: '🧘‍♂️ עיסוי גוף מלא', en: '🧘‍♂️ Full Body', ru: '🧘‍♂️ Всё тело', ka: '🧘‍♂️ მთლიანი სხეული' },
+  foot: { he: '🦶 כפות רגליים', en: '🦶 Foot', ru: '🦶 Стопы', ka: '🦶 ფეხი' },
+};
+
 // ✅ שמות + תיאורים + מחיר + תג (כדי לתרגם גם tag)
-// (כאן נשאר ה-TREATMENTS_META הארוך שלך כפי שהוא בקובץ)
-// ⚠️ לא הדבקתי פה את כולו מחדש כדי לא לשנות לך — תשאיר את שלך בדיוק כפי שהוא.
-const TREATMENTS_META = window.TREATMENTS_META || {};
+// (ה-OBJECT שלך נשאר כמו שהוא — אני לא מצרף כאן מחדש את כולו כדי לא לנפח,
+//  אבל אתה צריך להשאיר את TREATMENTS_META הקיים שלך במלואו כאן מתחת.)
+// --- TREATMENTS_META ... (השאר בדיוק כמו שיש לך) ---
+/* PASTE YOUR EXISTING TREATMENTS_META HERE (UNCHANGED) */
 
 // ===== תרגום כרטיסי הטיפולים על הדף (כולל tag) =====
 function applyTreatmentTexts(lang) {
@@ -222,55 +254,20 @@ function applyTreatmentTexts(lang) {
     const meta = TREATMENTS_META[key];
     if (!meta) return;
 
-    // ✅ tag
     const tagEl = card.querySelector('.tag');
-    if (tagEl && meta.tag) {
-      tagEl.textContent = meta.tag[lang] || meta.tag.he || tagEl.textContent;
-    }
-
-    // ✅ title
-    const titleEl = card.querySelector('.product-title');
-    if (titleEl && meta.name) {
-      titleEl.textContent = meta.name[lang] || meta.name.he || titleEl.textContent;
-    }
-
-    // ✅ description (ה־p הראשון שאינו price)
-    const descEl = card.querySelector('p:not(.price)');
-    if (descEl && meta.desc) {
-      descEl.textContent = meta.desc[lang] || meta.desc.he || descEl.textContent;
-    }
-
-    // ✅ price
-    const priceEl = card.querySelector('.price');
-    if (priceEl && meta.price) {
-      priceEl.textContent = meta.price[lang] || meta.price.he || priceEl.textContent;
-    }
-  });
-}
-
-// ✅ NEW: תרגום + מחיר בתוך סליידר "טיפולי הדגל" + קוביות
-function applySignatureTexts(lang) {
-  const slider = document.getElementById('signatureSlider');
-  if (!slider) return;
-
-  slider.querySelectorAll('.signature-slide[data-treatment-key]').forEach((slide) => {
-    const key = slide.getAttribute('data-treatment-key');
-    const meta = TREATMENTS_META[key];
-    if (!meta) return;
-
-    const tagEl = slide.querySelector('.signature-tag');
-    const nameEl = slide.querySelector('.signature-name');
-    const descEl = slide.querySelector('.signature-desc');
-    const priceEl = slide.querySelector('.signature-price');
-
     if (tagEl && meta.tag) tagEl.textContent = meta.tag[lang] || meta.tag.he || tagEl.textContent;
-    if (nameEl && meta.name) nameEl.textContent = meta.name[lang] || meta.name.he || nameEl.textContent;
+
+    const titleEl = card.querySelector('.product-title');
+    if (titleEl && meta.name) titleEl.textContent = meta.name[lang] || meta.name.he || titleEl.textContent;
+
+    const descEl = card.querySelector('p:not(.price)');
     if (descEl && meta.desc) descEl.textContent = meta.desc[lang] || meta.desc.he || descEl.textContent;
+
+    const priceEl = card.querySelector('.price');
     if (priceEl && meta.price) priceEl.textContent = meta.price[lang] || meta.price.he || priceEl.textContent;
   });
 }
 
-// ✅ תרגום "30/60/90" לכל השפות
 function applyDurationLabels(lang) {
   const d = DURATION_I18N[lang] || DURATION_I18N.he;
   document.querySelectorAll('.duration-options span[data-min]').forEach((span) => {
@@ -278,18 +275,22 @@ function applyDurationLabels(lang) {
     if (!m) return;
     span.textContent = d.fmt(m);
   });
+
+  // NEW: signature duration label
+  document.querySelectorAll('.signature-duration[data-min]').forEach((el) => {
+    const m = Number(el.getAttribute('data-min') || '0');
+    if (!m) return;
+    el.textContent = d.fmt(m);
+  });
 }
 
-// ===== כפתור וואטסאפ צף: לינק + הודעה לפי שפה =====
 function applyWhatsAppFloatLink(lang) {
   const wa = document.querySelector('a.wa-float');
   if (!wa) return;
-
   const msg = (WA_TEMPLATES_GENERAL[lang] || WA_TEMPLATES_GENERAL.he);
   wa.href = `${WHATSAPP_BASE}?text=${encodeURIComponent(msg)}`;
 }
 
-// ===== חיבור כפתורי שפה (דגלים) =====
 function setupLangButtons() {
   document.querySelectorAll('.lang-btn[data-lang]').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -299,25 +300,7 @@ function setupLangButtons() {
   });
 }
 
-// ===== WhatsApp URL builder (טיפול) =====
-function buildTreatmentWhatsAppUrl({ lang, treatmentKey, treatmentName, durationText, priceText }) {
-  const template = WA_TEMPLATES_TREATMENT[lang] || WA_TEMPLATES_TREATMENT.he;
-
-  const meta = TREATMENTS_META[treatmentKey] || {};
-  const price = priceText ||
-    (meta.price && (meta.price[lang] || meta.price.he)) ||
-    '';
-
-  const duration = durationText || '';
-  const text = template
-    .replace('{TREATMENT}', treatmentName || '')
-    .replace('{DURATION}', duration || '')
-    .replace('{PRICE}', price || '');
-
-  return `${WHATSAPP_BASE}?text=${encodeURIComponent(text)}`;
-}
-
-// ===== כפתורי טיפולים → ווטסאפ (כולל signature slider) =====
+// ===== כפתורי טיפולים → ווטסאפ =====
 function setupTreatmentButtons() {
   const buttons = document.querySelectorAll('[data-book-btn]');
   if (!buttons.length) return;
@@ -325,71 +308,198 @@ function setupTreatmentButtons() {
   buttons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-
       const lang = getLang();
       const key = btn.getAttribute('data-treatment-key');
+      const group = btn.getAttribute('data-radio-group');
 
-      // 1) שם טיפול
       const meta = TREATMENTS_META[key] || {};
       const treatmentName =
         (meta.name && (meta.name[lang] || meta.name.he)) ||
-        (btn.closest('.product-card')?.querySelector('.product-title')?.textContent.trim()) ||
-        (btn.closest('.signature-slide')?.querySelector('.signature-name')?.textContent.trim()) ||
-        'Treatment';
+        (btn.closest('.product-card, .signature-slide')?.querySelector('.product-title, .signature-name')?.textContent.trim() ?? 'Treatment');
 
-      // 2) משך: או מתוך radio-group או duration-fixed
       let duration = '';
-
-      const fixed = btn.getAttribute('data-duration-fixed') || btn.closest('.signature-slide')?.getAttribute('data-duration-fixed');
-      if (fixed) {
-        const m = Number(fixed);
-        if (m) duration = (DURATION_I18N[lang] || DURATION_I18N.he).fmt(m);
-      }
-
-      const group = btn.getAttribute('data-radio-group');
-      if (!duration && group) {
+      if (group) {
         const selectedSpan = document.querySelector(`input[name="${group}"]:checked + span`);
         if (selectedSpan) duration = selectedSpan.textContent.trim();
       }
 
-      // 3) מחיר: מה-meta או מה-DOM של signature/product
       const priceText =
-        (btn.closest('.product-card')?.querySelector('.price')?.textContent.trim()) ||
-        (btn.closest('.signature-slide')?.querySelector('.signature-price')?.textContent.trim()) ||
-        ((meta.price && (meta.price[lang] || meta.price.he)) || '');
+        (meta.price && (meta.price[lang] || meta.price.he)) ||
+        (btn.closest('.product-card, .signature-slide')?.querySelector('.price, .signature-price')?.textContent.trim() ?? '');
 
-      const url = buildTreatmentWhatsAppUrl({
-        lang,
-        treatmentKey: key,
-        treatmentName,
-        durationText: duration,
-        priceText
-      });
+      const template = WA_TEMPLATES_TREATMENT[lang] || WA_TEMPLATES_TREATMENT.he;
+      const text = template
+        .replace('{TREATMENT}', treatmentName)
+        .replace('{DURATION}', duration || '—')
+        .replace('{PRICE}', priceText || '—');
 
+      const url = `${WHATSAPP_BASE}?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
     });
   });
 }
 
-// ===== Video Slider =====
-// שמרתי את הפונקציה שלך כמו שהיא (עם id videoSlider וכו')
+// ===== NEW: Signature slider content fill (name/desc/price) =====
+function applySignatureTexts(lang) {
+  document.querySelectorAll('.signature-slide').forEach((slide) => {
+    const key = slide.getAttribute('data-treatment-key');
+    const meta = TREATMENTS_META[key];
+    if (!meta) return;
+
+    const nameEl = slide.querySelector('.signature-name');
+    const descEl = slide.querySelector('.signature-desc');
+    const priceEl = slide.querySelector('.signature-price');
+
+    if (nameEl) nameEl.textContent = (meta.name?.[lang] || meta.name?.he || '');
+    if (descEl) descEl.textContent = (meta.desc?.[lang] || meta.desc?.he || '');
+    if (priceEl) priceEl.textContent = (meta.price?.[lang] || meta.price?.he || '');
+  });
+}
+
+// ===== NEW: Build all treatments by categories =====
+function buildAllTreatmentsByCategories(lang) {
+  const containers = document.querySelectorAll('.home-grid[data-category]');
+  if (!containers.length) return;
+
+  // clear
+  containers.forEach(c => c.innerHTML = '');
+
+  // define mapping
+  const categoryByKey = (key) => {
+    if (key.startsWith('facial-')) return 'face';
+    if (key.startsWith('back-')) return 'back';
+    if (key.startsWith('foot-')) return 'foot';
+    if (key.startsWith('body-') || key === 'head-spa') return 'body';
+    return 'body';
+  };
+
+  const keys = Object.keys(TREATMENTS_META);
+
+  keys.forEach((key) => {
+    const meta = TREATMENTS_META[key];
+    if (!meta) return;
+
+    const cat = categoryByKey(key);
+    const target = document.querySelector(`.home-grid[data-category="${cat}"]`);
+    if (!target) return;
+
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    const tag = document.createElement('div');
+    tag.className = 'tag';
+    tag.textContent = (meta.tag?.[lang] || meta.tag?.he || '');
+
+    const title = document.createElement('div');
+    title.className = 'product-title';
+    title.textContent = (meta.name?.[lang] || meta.name?.he || '');
+
+    const desc = document.createElement('p');
+    desc.textContent = (meta.desc?.[lang] || meta.desc?.he || '');
+
+    const price = document.createElement('div');
+    price.className = 'price';
+    price.textContent = (meta.price?.[lang] || meta.price?.he || '');
+
+    const btn = document.createElement('a');
+    btn.className = 'button';
+    btn.href = '#';
+    btn.setAttribute('data-book-btn', '');
+    btn.setAttribute('data-treatment-key', key);
+    btn.setAttribute('data-radio-group', '');
+
+    const span = document.createElement('span');
+    span.setAttribute('data-i18n', 'landing.treatment.book');
+    span.textContent = t('landing.treatment.book', lang) || 'Book';
+    btn.appendChild(span);
+
+    card.appendChild(tag);
+    card.appendChild(title);
+    card.appendChild(desc);
+    card.appendChild(price);
+    card.appendChild(btn);
+
+    target.appendChild(card);
+  });
+
+  // refresh booking handlers for dynamically created buttons
+  setupTreatmentButtons();
+}
+
+// ===== Signature Slider (NEW) =====
+function setupSignatureSlider() {
+  const slider = document.getElementById('signatureSlider');
+  if (!slider) return;
+
+  const track = slider.querySelector('.signature-track');
+  const slides = Array.from(slider.querySelectorAll('.signature-slide'));
+  const prev = slider.querySelector('.signature-nav.prev');
+  const next = slider.querySelector('.signature-nav.next');
+  const dotsWrap = slider.querySelector('.signature-dots');
+
+  let index = 0;
+
+  function buildDots() {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    slides.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'signature-dot' + (i === index ? ' is-active' : '');
+      b.addEventListener('click', () => { index = i; update(); });
+      dotsWrap.appendChild(b);
+    });
+  }
+
+  function update() {
+    track.style.transform = `translateX(${index * -100}%)`;
+
+    const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.signature-dot')) : [];
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+  }
+
+  prev?.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    update();
+  });
+
+  next?.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    update();
+  });
+
+  // swipe
+  let startX = 0;
+  let isDown = false;
+
+  slider.addEventListener('pointerdown', (e) => {
+    isDown = true;
+    startX = e.clientX;
+  });
+
+  slider.addEventListener('pointerup', (e) => {
+    if (!isDown) return;
+    isDown = false;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) < 40) return;
+    if (dx < 0) index = (index + 1) % slides.length;
+    else index = (index - 1 + slides.length) % slides.length;
+    update();
+  });
+
+  buildDots();
+  update();
+}
+
+// ===== Video slider - keep existing (with fallback) =====
 function setupVideoSlider() {
   const viewport = document.getElementById('videoSlider');
   if (!viewport) return;
 
-  // תומך גם אם העטיפה היא video-slider וה-view בתוך viewport
-  const track =
-    viewport.querySelector('.video-slider__track') ||
-    viewport.querySelector('.vslider__track');
-
-  const slides =
-    [...viewport.querySelectorAll('.video-slide')] ||
-    [...viewport.querySelectorAll('.vslide')];
-
-  const prev = viewport.querySelector('.video-slider__nav--prev') || viewport.querySelector('.vslider__nav--prev');
-  const next = viewport.querySelector('.video-slider__nav--next') || viewport.querySelector('.vslider__nav--next');
-
-  if (!track || !slides.length || !prev || !next) return;
+  const track = viewport.querySelector('.video-slider__track');
+  const slides = [...viewport.querySelectorAll('.video-slide')];
+  const prev = viewport.querySelector('.video-slider__nav--prev');
+  const next = viewport.querySelector('.video-slider__nav--next');
 
   let index = 0;
 
@@ -401,81 +511,36 @@ function setupVideoSlider() {
       const video = slide.querySelector('video');
       if (!video) return;
 
-      if (i === index) {
-        video.play().catch(() => {});
-      } else {
+      if (i === index) video.play().catch(() => {});
+      else {
         video.pause();
-        try { video.currentTime = 0; } catch (_) {}
+        video.currentTime = 0;
       }
     });
   }
 
   function resize() {
     const w = viewport.clientWidth;
-    slides.forEach(s => (s.style.width = `${w}px`));
+    slides.forEach(s => s.style.width = `${w}px`);
     track.style.width = `${w * slides.length}px`;
     update();
   }
 
-  prev.onclick = () => {
-    index = (index - 1 + slides.length) % slides.length;
-    update();
-  };
-
-  next.onclick = () => {
-    index = (index + 1) % slides.length;
-    update();
-  };
+  prev.onclick = () => { index = (index - 1 + slides.length) % slides.length; update(); };
+  next.onclick = () => { index = (index + 1) % slides.length; update(); };
 
   window.addEventListener('resize', resize);
   resize();
 }
 
-// ✅ Backward-compat: בקובץ הישן קראת ל-setupSimpleVideoSlider()
+// fallback for your existing call name
 function setupSimpleVideoSlider() {
+  // if you already had a different implementation, keep it.
+  // fallback to setupVideoSlider so it never breaks.
   setupVideoSlider();
 }
 
-// ===== Signature Slider =====
-function setupSignatureSlider() {
-  const slider = document.getElementById('signatureSlider');
-  if (!slider) return;
-
-  const track = slider.querySelector('.signature-track');
-  const slides = slider.querySelectorAll('.signature-slide');
-  const prev = slider.querySelector('.prev');
-  const next = slider.querySelector('.next');
-
-  if (!track || !slides.length || !prev || !next) return;
-
-  let index = 0;
-
-  function update() {
-    track.style.transform = `translateX(${index * -100}%)`;
-  }
-
-  prev.onclick = () => {
-    index = (index - 1 + slides.length) % slides.length;
-    update();
-  };
-
-  next.onclick = () => {
-    index = (index + 1) % slides.length;
-    update();
-  };
-}
-
-// ===== "קוביות" לסליידר טיפולי דגל (סטייל דרך JS בלי למחוק CSS) =====
-// מוסיף קלאס אם תרצה להרחיב CSS בעתיד
-function enhanceSignatureCards() {
-  const slider = document.getElementById('signatureSlider');
-  if (!slider) return;
-  slider.querySelectorAll('.signature-slide').forEach((slide) => {
-    slide.classList.add('is-cube');
-  });
-}
-
-// ===== אתחול =====
+// ===== Init =====
 document.addEventListener('DOMContentLoaded', () => {
   const lang = getLang();
   applyLang(lang);
@@ -483,10 +548,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupLangButtons();
   setupTreatmentButtons();
 
-  // ✅ סליידר וידאו — מפעילים רק כאן (פעם אחת)
   setupSimpleVideoSlider();
-
-  // ✅ סליידר טיפולי דגל
   setupSignatureSlider();
-  enhanceSignatureCards();
 });

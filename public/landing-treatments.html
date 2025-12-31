@@ -96,70 +96,233 @@
   </div>
 </section>
 
-<!-- ===== Signature Treatments Slider ===== -->
-<section class="signature-section" aria-label="Signature Treatments">
-  <h2 class="signature-title" data-i18n="landing.signature.title">
-    טיפולי הדגל שלנו
-  </h2>
+<!-- ===== Signature Treatments Slider (NEW) ===== -->
+<section class="signature-section" id="signature">
+  <h2 class="signature-title" data-i18n="landing.signature.title">👑 טיפולי הדגל שלנו</h2>
+  <p class="signature-subtitle muted" data-i18n="landing.signature.subtitle">
+    בחר/י טיפול דגל, קרא/י פרטים והזמן/י בקלות בווטסאפ.
+  </p>
 
   <div class="signature-slider" id="signatureSlider">
-    <div class="signature-track">
+    <button class="signature-nav prev" type="button" aria-label="Previous">‹</button>
 
-      <article class="signature-slide">
-        <h3 data-i18n="signature.headspa.title">Japanese Head Spa | ספא ראש יפני</h3>
-        <p data-i18n="signature.headspa">
-          טיפול יפני מסורתי המשלב ניקוי עמוק של הקרקפת, עיסוי ממוקד, מסכות ייעודיות ופינוקי מים.
-          ממריץ זרימת דם, מחזק שורשי שיער ומרגיע עומסים נפשיים.
-          כולל שטיפה, מגבת חמה, סרום וייבוש מלא.
-          מסתיים במנוחה עם תה וניחוח ארומטי.
-        </p>
-      </article>
+    <div class="signature-viewport">
+      <div class="signature-track">
+        <!-- Slide: Head Spa -->
+        <div class="signature-slide" data-treatment-key="head-spa" data-signature="1">
+          <div class="signature-card">
+            <div class="signature-card__head">
+              <span class="signature-badge" data-i18n-tag="head-spa">👑</span>
+              <h3 class="signature-name"></h3>
+            </div>
 
-      <article class="signature-slide">
-        <h3 data-i18n="signature.reflexology.title">Thai Reflexology Foot Massage | עיסוי תאילנדי רפלקסולוגי</h3>
-        <p data-i18n="signature.reflexology">
-          עיסוי תאילנדי ממוקד לכפות הרגליים המבוסס על רפלקסולוגיה.
-          מתבצע עם משחה תאילנדית חריפה ולחיצות עמוקות על נקודות השתקפות.
-          מסייע בהמרצת זרימת הדם ובהשפעה מערכתית.
-        </p>
-      </article>
+            <p class="signature-desc"></p>
 
-      <article class="signature-slide">
-        <h3 data-i18n="signature.sports.title">Sports Massage | עיסוי ספורט</h3>
-        <p data-i18n="signature.sports">
-          עיסוי אינטנסיבי לשחרור עומסים מפעילות גופנית.
-          משלב טכניקות עומק ומתיחות.
-          מסייע בהתאוששות ומניעת פציעות.
-         עיסוי גוף מלא.
-        </p>
-      </article>
+            <div class="signature-meta">
+              <div class="signature-price"></div>
+              <div class="signature-duration" data-min="60"></div>
+            </div>
 
-      <article class="signature-slide">
-        <h3 data-i18n="signature.karsai.title">Karsai Massage | עיסוי תאילנדי קארסאי – פרימיום</h3>
-        <p data-i18n="signature.karsai">
-          עיסוי תאילנדי מתקדם מהרפואה העתיקה.
-          מתמקד באזורים אנרגטיים עמוקים לאיזון וחיזוק הגוף.
-         טיפול עוצמתי ונישתי למטופלים מנוסים בלבד.
-          עיסוי גוף מלא.
+            <a class="button signature-book"
+               href="#"
+               data-book-btn
+               data-treatment-key="head-spa"
+               data-radio-group="">
+              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
+            </a>
+          </div>
+        </div>
 
-        </p>
-      </article>
+        <!-- Slide: Vitamin E -->
+        <div class="signature-slide" data-treatment-key="body-vitamin-e" data-signature="1">
+          <div class="signature-card">
+            <div class="signature-card__head">
+              <span class="signature-badge">✨</span>
+              <h3 class="signature-name"></h3>
+            </div>
 
-      <article class="signature-slide">
-        <h3 data-i18n="signature.vitamine.title">Thai Vitamin E Cream Massage | עיסוי תאילנדי עם קרם ויטמין E</h3>
-        <p data-i18n="signature.vitamine">
-          עיסוי תאילנדי עם קרם מועשר בויטמין E להזנה עמוקה של העור.
-          משפר גמישות, מפחית יובש ומשלב רוגע וטיפוח קוסמטי.
-         עיסוי גוף מלא.
-        </p>
-      </article>
+            <p class="signature-desc"></p>
 
+            <div class="signature-meta">
+              <div class="signature-price"></div>
+              <div class="signature-duration" data-min="60"></div>
+            </div>
+
+            <a class="button signature-book"
+               href="#"
+               data-book-btn
+               data-treatment-key="body-vitamin-e"
+               data-radio-group="">
+              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slide: Therapeutic -->
+        <div class="signature-slide" data-treatment-key="body-thai-ther" data-signature="1">
+          <div class="signature-card">
+            <div class="signature-card__head">
+              <span class="signature-badge">🇹🇭</span>
+              <h3 class="signature-name"></h3>
+            </div>
+
+            <p class="signature-desc"></p>
+
+            <div class="signature-meta">
+              <div class="signature-price"></div>
+              <div class="signature-duration" data-min="60"></div>
+            </div>
+
+            <a class="button signature-book"
+               href="#"
+               data-book-btn
+               data-treatment-key="body-thai-ther"
+               data-radio-group="">
+              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slide: Sports -->
+        <div class="signature-slide" data-treatment-key="body-sports" data-signature="1">
+          <div class="signature-card">
+            <div class="signature-card__head">
+              <span class="signature-badge">🏃</span>
+              <h3 class="signature-name"></h3>
+            </div>
+
+            <p class="signature-desc"></p>
+
+            <div class="signature-meta">
+              <div class="signature-price"></div>
+              <div class="signature-duration" data-min="60"></div>
+            </div>
+
+            <a class="button signature-book"
+               href="#"
+               data-book-btn
+               data-treatment-key="body-sports"
+               data-radio-group="">
+              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slide: Karsai -->
+        <div class="signature-slide" data-treatment-key="body-karsai" data-signature="1">
+          <div class="signature-card">
+            <div class="signature-card__head">
+              <span class="signature-badge">⭐</span>
+              <h3 class="signature-name"></h3>
+            </div>
+
+            <p class="signature-desc"></p>
+
+            <div class="signature-meta">
+              <div class="signature-price"></div>
+              <div class="signature-duration" data-min="60"></div>
+            </div>
+
+            <a class="button signature-book"
+               href="#"
+               data-book-btn
+               data-treatment-key="body-karsai"
+               data-radio-group="">
+              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slide: Herbal Compress -->
+        <div class="signature-slide" data-treatment-key="body-thai-comp" data-signature="1">
+          <div class="signature-card">
+            <div class="signature-card__head">
+              <span class="signature-badge">🌼</span>
+              <h3 class="signature-name"></h3>
+            </div>
+
+            <p class="signature-desc"></p>
+
+            <div class="signature-meta">
+              <div class="signature-price"></div>
+              <div class="signature-duration" data-min="60"></div>
+            </div>
+
+            <a class="button signature-book"
+               href="#"
+               data-book-btn
+               data-treatment-key="body-thai-comp"
+               data-radio-group="">
+              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slide: Reflexology Foot -->
+        <div class="signature-slide" data-treatment-key="foot-reflexology" data-signature="1">
+          <div class="signature-card">
+            <div class="signature-card__head">
+              <span class="signature-badge">🦶</span>
+              <h3 class="signature-name"></h3>
+            </div>
+
+            <p class="signature-desc"></p>
+
+            <div class="signature-meta">
+              <div class="signature-price"></div>
+              <div class="signature-duration" data-min="60"></div>
+            </div>
+
+            <a class="button signature-book"
+               href="#"
+               data-book-btn
+               data-treatment-key="foot-reflexology"
+               data-radio-group="">
+              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <button class="signature-nav prev">‹</button>
-    <button class="signature-nav next">›</button>
+    <button class="signature-nav next" type="button" aria-label="Next">›</button>
+
+    <div class="signature-dots" aria-label="Slider dots"></div>
   </div>
 </section>
+
+<!-- ===== All Treatments (NEW) ===== -->
+<section class="all-treatments" id="allTreatments">
+  <h2 class="all-treatments__title" data-i18n="landing.all.title">כל הטיפולים לפי קטגוריות</h2>
+  <p class="muted all-treatments__subtitle" data-i18n="landing.all.subtitle">
+    בחר/י קטגוריה, קרא/י פרטים והזמן/י בקלות.
+  </p>
+
+  <div class="category-block" id="cat-face">
+    <h3 class="category-title" data-i18n="landing.section.face.title">✨ עיסויי פנים</h3>
+    <div class="home-grid" data-category="face"></div>
+  </div>
+
+  <div class="category-block" id="cat-back">
+    <h3 class="category-title" data-i18n="landing.section.back.title">💆‍♂️ עיסוי גב – כתפיים – צוואר</h3>
+    <div class="home-grid" data-category="back"></div>
+  </div>
+
+  <div class="category-block" id="cat-body">
+    <h3 class="category-title" data-i18n="landing.section.body.title">🧘‍♂️ עיסוי גוף מלא</h3>
+    <p class="muted" data-i18n="landing.section.body.subtitle">
+      הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.
+    </p>
+    <div class="home-grid" data-category="body"></div>
+  </div>
+
+  <div class="category-block" id="cat-foot">
+    <h3 class="category-title" data-i18n="landing.section.foot.title">🦶 טיפולי כפות רגליים</h3>
+    <div class="home-grid" data-category="foot"></div>
+  </div>
+</section>
+
 
       <div class="home-grid">
 

@@ -556,3 +556,194 @@ body.landing-page {
 
 .signature-nav.prev { left: 10px; }
 .signature-nav.next { right: 10px; }
+/* =========================================================
+   Signature Treatments Slider – Cards (ADD AT END)
+   ========================================================= */
+
+.signature-section {
+  margin: 44px 0 52px;
+  text-align: center;
+}
+
+.signature-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.signature-subtitle {
+  margin: 0 0 18px;
+}
+
+.signature-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.signature-viewport {
+  overflow: hidden;
+}
+
+.signature-track {
+  display: flex;
+  transition: transform 420ms ease;
+  will-change: transform;
+}
+
+.signature-slide {
+  min-width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.signature-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(185, 139, 60, 0.18);
+  padding: 18px 16px 16px;
+  text-align: start;
+  display: grid;
+  gap: 12px;
+}
+
+.signature-card__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.signature-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: rgba(185, 139, 60, 0.14);
+  border: 1px solid rgba(185, 139, 60, 0.22);
+  font-size: 18px;
+}
+
+.signature-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+  unicode-bidi: plaintext;
+}
+
+.signature-desc {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.signature-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 6px;
+  border-top: 1px solid #eef2f7;
+}
+
+.signature-price {
+  font-weight: 800;
+  color: #111827;
+}
+
+.signature-duration {
+  font-weight: 700;
+  color: #6b7280;
+}
+
+.signature-book {
+  width: 100%;
+}
+
+/* Nav buttons */
+.signature-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 12px 28px rgba(15,23,42,0.16);
+  font-size: 28px;
+  line-height: 44px;
+  z-index: 3;
+}
+
+.signature-nav.prev { left: 10px; }
+.signature-nav.next { right: 10px; }
+
+/* Dots */
+.signature-dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.32);
+  backdrop-filter: blur(8px);
+  z-index: 3;
+}
+
+.signature-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.55);
+}
+
+.signature-dot.is-active {
+  background: rgba(255,255,255,0.95);
+  transform: scale(1.15);
+}
+
+/* All Treatments section */
+.all-treatments {
+  margin: 42px 0 10px;
+}
+
+.all-treatments__title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.all-treatments__subtitle {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.category-block {
+  margin: 26px 0 34px;
+}
+
+.category-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .signature-slide { padding: 10px 6px; }
+  .signature-card { padding: 16px 14px; }
+  .signature-nav { width: 40px; height: 40px; line-height: 40px; }
+}
