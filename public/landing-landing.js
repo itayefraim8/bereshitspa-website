@@ -1,4 +1,4 @@
-// landing-landing.js — i18n + כפתורי טיפול לווטסאפ + כפתור וואטסאפ צף + Video Slider
+// landing-landing.js — i18n + כפתורי טיפול לווטסאפ + כפתור וואטסאפ צף + Video Slider + Signature Slider
 
 const WHATSAPP_NUMBER = '972502686862';
 const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -28,6 +28,7 @@ function applyLang(lang) {
   applyTreatmentTexts(lang);
   applyDurationLabels(lang);
   applyWhatsAppFloatLink(lang);
+  applySignatureTexts(lang);
 }
 
 // ===== מילון טקסטים =====
@@ -46,7 +47,15 @@ const LOCAL_STRINGS = {
     'landing.treatments.subtitle': 'כל הטיפולים מתבצעים על-ידי צוות תאילנדי מקצועי, באווירה שקטה ומוסיקה מרגיעה.',
     'landing.treatment.book': 'להזמנת הטיפול',
 
-    // section headings
+    // signature
+    'landing.signature.title': 'טיפולי הדגל שלנו',
+    'signature.headspa': 'טיפול יפני מסורתי המשלב ניקוי עמוק של הקרקפת, עיסוי ממוקד, מסכות ייעודיות ופינוקי מים. ממריץ זרימת דם, מחזק שורשי שיער ומרגיע עומסים נפשיים. כולל שטיפה, מגבת חמה, סרום וייבוש מלא. מסתיים במנוחה עם תה וניחוח ארומטי.',
+    'signature.reflexology': 'עיסוי תאילנדי ממוקד לכפות הרגליים המבוסס על רפלקסולוגיה. מתבצע עם משחה תאילנדית חריפה ולחיצות עמוקות על נקודות השתקפות. מסייע בהמרצת זרימת הדם ובהשפעה מערכתית.',
+    'signature.sports': 'עיסוי אינטנסיבי לשחרור עומסים מפעילות גופנית. משלב טכניקות עומק ומתיחות. מסייע בהתאוששות ומניעת פציעות. עיסוי גוף מלא.',
+    'signature.karsai': 'עיסוי תאילנדי מתקדם מהרפואה העתיקה. מתמקד באזורים אנרגטיים עמוקים לאיזון וחיזוק הגוף. טיפול עוצמתי ונישתי למטופלים מנוסים בלבד. עיסוי גוף מלא.',
+    'signature.vitamine': 'עיסוי תאילנדי עם קרם מועשר בויטמין E להזנה עמוקה של העור. משפר גמישות, מפחית יובש ומשלב רוגע וטיפוח קוסמטי. עיסוי גוף מלא.',
+
+    // section headings (נשאר לעתיד אם תשתמש)
     'landing.section.face.title': '✨ עיסויי פנים',
     'landing.section.back.title': '💆‍♂️ עיסוי גב – כתפיים – צוואר',
     'landing.section.body.title': '🧘‍♂️ עיסוי גוף מלא',
@@ -79,6 +88,14 @@ const LOCAL_STRINGS = {
     'landing.treatments.subtitle': 'All treatments are done by professional Thai therapists, in a quiet atmosphere with relaxing music.',
     'landing.treatment.book': 'Book this treatment',
 
+    // signature
+    'landing.signature.title': 'Our Signature Treatments',
+    'signature.headspa': 'A traditional Japanese treatment combining deep scalp cleansing, focused massage, dedicated masks, and water pampering. Boosts circulation, supports hair roots, and eases mental stress. Includes wash, hot towel, serum and full blow-dry. Ends with tea and a gentle aroma.',
+    'signature.reflexology': 'A focused Thai foot treatment based on reflexology, using warming balm and deep pressure on reflex points. Helps stimulate circulation and supports whole-body balance.',
+    'signature.sports': 'An intensive massage to release load from physical activity. Combines deep techniques and stretches. Supports recovery and injury prevention. Full-body massage.',
+    'signature.karsai': 'An advanced Thai treatment from ancient medicine, focusing on deep energetic areas for balance and strengthening. A powerful niche treatment for experienced clients only. Full-body massage.',
+    'signature.vitamine': 'A Thai massage with Vitamin E cream for deep skin nourishment. Improves elasticity, reduces dryness and blends relaxation with cosmetic care. Full-body massage.',
+
     'landing.section.face.title': '✨ Facial Treatments',
     'landing.section.back.title': '💆‍♂️ Back–Neck–Shoulders',
     'landing.section.body.title': '🧘‍♂️ Full Body Massage',
@@ -110,6 +127,14 @@ const LOCAL_STRINGS = {
     'landing.treatments.subtitle': 'Все процедуры выполняют профессиональные мастера из Таиланда, в тихой атмосфере и под расслабляющую музыку.',
     'landing.treatment.book': 'Записаться на процедуру',
 
+    // signature
+    'landing.signature.title': 'Наши фирменные процедуры',
+    'signature.headspa': 'Традиционная японская процедура: глубокое очищение кожи головы, точечный массаж, специальные маски и водная терапия. Улучшает кровообращение, укрепляет корни волос и снимает стресс. Включает полотенце, сыворотку и полную сушку. Завершается чаем и лёгким ароматом.',
+    'signature.reflexology': 'Тайская рефлексология стоп: согревающий бальзам и глубокие надавливания на рефлекторные точки. Помогает улучшить кровообращение и системный баланс.',
+    'signature.sports': 'Интенсивный массаж для снятия нагрузки после физической активности. Глубокие техники и растяжки. Поддерживает восстановление и профилактику травм. Массаж всего тела.',
+    'signature.karsai': 'Продвинутая тайская процедура из древней медицины с фокусом на глубоких энергетических зонах для баланса и укрепления. Мощная нишевая процедура для опытных клиентов. Массаж всего тела.',
+    'signature.vitamine': 'Тайский массаж с кремом Vitamin E для глубокого питания кожи. Улучшает эластичность, снижает сухость и сочетает расслабление с уходом. Массаж всего тела.',
+
     'landing.section.face.title': '✨ Процедуры для лица',
     'landing.section.back.title': '💆‍♂️ Спина–шея–плечи',
     'landing.section.body.title': '🧘‍♂️ Массаж всего тела',
@@ -140,6 +165,14 @@ const LOCAL_STRINGS = {
     'landing.treatments.title': 'აირჩიეთ სასურველი პროცედურა',
     'landing.treatments.subtitle': 'ყველა პროცედურას ასრულებენ პროფესიონალი თაილანდელი თერაპევტები, მშვიდ გარემოში და დამამშვიდებელი მუსიკით.',
     'landing.treatment.book': 'დაჯავშნა',
+
+    // signature
+    'landing.signature.title': 'ჩვენი სიგნატურული პროცედურები',
+    'signature.headspa': 'ტრადიციული იაპონური პროცედურა: თავის კანის ღრმა წმენდა, მიზნობრივი მასაჟი, სპეციალური ნიღბები და წყლის თერაპია. აუმჯობესებს სისხლის მიმოქცევას და ამცირებს სტრესს. მოიცავს ცხელ პირსახოცს, სერუმს და სრულ გაშრობას. სრულდება ჩაით და ნაზი არომატით.',
+    'signature.reflexology': 'ფოკუსირებული თაილანდური ფეხის რეფლექსოლოგია გამათბობელი ბალზამით და ღრმა წერტილოვანი წნევით. ხელს უწყობს სისხლის მიმოქცევასა და სხეულის ბალანსს.',
+    'signature.sports': 'ინტენსიური მასაჟი ფიზიკური აქტივობით გამოწვეული დატვირთვის მოსახსნელად. აერთიანებს ღრმა ტექნიკებს და გაჭიმვებს. ეხმარება აღდგენასა და ტრავმების პრევენციას. მთლიანი სხეულის მასაჟი.',
+    'signature.karsai': 'განვითარებული თაილანდური პროცედურა უძველესი მედიცინიდან, ფოკუსით ღრმა ენერგეტიკულ ზონებზე ბალანსისა და გაძლიერებისთვის. ძლიერი ნიშური პროცედურა გამოცდილ კლიენტებისთვის. მთლიანი სხეულის მასაჟი.',
+    'signature.vitamine': 'თაილანდური მასაჟი ვიტამინ E-ის კრემით კანის ღრმა კვებისთვის. აუმჯობესებს ელასტიურობას, ამცირებს სიმშრალეს და აერთიანებს რელაქსაციასა და მოვლას. მთლიანი სხეულის მასაჟი.',
 
     'landing.section.face.title': '✨ სახის პროცედურები',
     'landing.section.back.title': '💆‍♂️ ზურგი–კისერი–მხრები',
@@ -209,46 +242,20 @@ const DURATION_I18N = {
 // ✅ שמות + תיאורים + מחיר + תג (כדי לתרגם גם tag)
 const TREATMENTS_META = {
   'head-spa': {
-    tag: {
-      he: '👑 טיפול הדגל – ספא ראש יפני',
-      en: '👑 Signature Japanese Head Spa',
-      ru: '👑 Фирменный японский Head Spa',
-      ka: '👑 სიგნატურული იაპონური Head Spa'
-    },
-    name: {
-      he: 'Japanese Head Spa | ספא ראש יפני',
-      en: 'Japanese Head Spa',
-      ru: 'Японский Head Spa',
-      ka: 'იაპონური Head Spa'
-    },
+    tag: { he: '👑 טיפול הדגל – ספא ראש יפני', en: '👑 Signature Japanese Head Spa', ru: '👑 Фирменный японский Head Spa', ka: '👑 სიგნატურული იაპონური Head Spa' },
+    name: { he: 'Japanese Head Spa | ספא ראש יפני', en: 'Japanese Head Spa', ru: 'Японский Head Spa', ka: 'იაპონური Head Spa' },
     desc: {
       he: 'טיפול יפני מסורתי המשלב ניקוי עמוק של הקרקפת, עיסוי ממוקד, מסכות ייעודיות ופינוקי מים. הטכניקה ממריצה את זרימת הדם, מחזקת את שורשי השיער ומרגיעה עומסים נפשיים. כולל שטיפה יסודית, מגבת חמה, סרום לקרקפת וייבוש שיער מלא. הטיפול מסתיים במנוחה קצרה עם תה וניחוח ארומטי עדין.',
       en: 'A traditional Japanese treatment combining deep scalp cleansing, focused massage, dedicated masks, and water pampering. Boosts circulation, supports hair roots, and eases mental stress. Includes thorough wash, hot towel, scalp serum, and full blow-dry. Ends with a short rest with tea and a gentle aroma.',
       ru: 'Традиционная японская процедура: глубокое очищение кожи головы, точечный массаж, специальные маски и водная терапия. Улучшает кровообращение, укрепляет корни волос и снимает стресс. Включает тщательное мытьё, горячее полотенце, сыворотку и полную сушку. Завершается коротким отдыхом с чаем и лёгким ароматом.',
       ka: 'ტრადიციული იაპონური პროცედურა: თავის კანის ღრმა წმენდა, მიზნობრივი მასაჟი, სპეციალური ნიღბები და წყლის თერაპია. აუმჯობესებს სისხლის მიმოქცევას, ამაგრებს თმის ფესვებს და ამცირებს სტრესს. მოიცავს სრულ დაბანას, ცხელ პირსახოცს, თავის კანის სერუმს და სრულ გაშრობას. სრულდება მოკლე დასვენებით ჩაით და ნაზი არომატით.'
     },
-    price: {
-      he: '60 דק׳ – 200₾',
-      en: '60 min – 200₾',
-      ru: '60 мин – 200₾',
-      ka: '60 წთ – 200₾'
-    }
+    price: { he: '60 דק׳ – 200₾', en: '60 min – 200₾', ru: '60 мин – 200₾', ka: '60 წთ – 200₾' }
   },
 
-  // NOTE: משאירים את המפתח הקיים 'facial-thai-compress' כדי לא לשבור HTML/כפתורים
   'facial-thai-compress': {
-    tag: {
-      he: '🌼 עיסוי פנים תאילנדי בצמחי מרפא ושמנים',
-      en: '🌼 Thai Herbal Facial Therapy',
-      ru: '🌼 Тайская травяная терапия лица',
-      ka: '🌼 თაილანდური მცენარეული სახის თერაპია'
-    },
-    name: {
-      he: 'Thai Herbal Facial Therapy | עיסוי פנים תאילנדי בצמחי מרפא ושמנים',
-      en: 'Thai Herbal Facial Therapy',
-      ru: 'Тайская травяная терапия лица',
-      ka: 'თაილანდური მცენარეული სახის თერაპია'
-    },
+    tag: { he: '🌼 עיסוי פנים תאילנדי בצמחי מרפא ושמנים', en: '🌼 Thai Herbal Facial Therapy', ru: '🌼 Тайская травяная терапия лица', ka: '🌼 თაილანდური მცენარეული სახის თერაპია' },
+    name: { he: 'Thai Herbal Facial Therapy | עיסוי פנים תאילנדי בצמחי מרפא ושמנים', en: 'Thai Herbal Facial Therapy', ru: 'Тайская травяная терапия лица', ka: 'თაილანდური მცენარეული სახის თერაპია' },
     desc: {
       he: 'עיסוי פנים תאילנדי עדין המשלב שמנים, אידוי צמחי ולחיצות רכות. מבוסס על טכניקות מסורתיות המותאמות במיוחד לעור הפנים. משפר זרימת דם, תומך בניקוז טבעי ומרגיע את מערכת העצבים. כולל עיסוי פנים מעמיק, קרקפת מרגיעה ועבודה על פלג גוף עליון.',
       en: 'A gentle Thai facial combining oils, herbal steam, and soft pressure. Based on traditional techniques adapted for facial skin. Improves circulation, supports natural drainage, and calms the nervous system. Includes deep face massage, relaxing scalp work, and upper-body treatment.',
@@ -271,7 +278,7 @@ const TREATMENTS_META = {
   },
 
   'facial-thai': {
-    tag: { he: '🌺 עיסוי פנים תאילנדי מסורתי', en: '🌺 Traditional Thai Face Massage', ru: '🌺 Тайский массаж лица', ka: '🌺 ტაილاندური სახის მასაჟი' },
+    tag: { he: '🌺 עיסוי פנים תאילנדי מסורתי', en: '🌺 Traditional Thai Face Massage', ru: '🌺 Тайский массаж лица', ka: '🌺 ტაილანდური სახის მასაჟი' },
     name: { he: 'Traditional Thai Face Massage | עיסוי פנים תאילנדי מסורתי', en: 'Traditional Thai Face Massage', ru: 'Традиционный тайский массаж лица', ka: 'ტრადიციული ტაილანდური სახის მასაჟი' },
     desc: {
       he: 'עיסוי עדין המבוסס על טכניקות תאילנדיות עתיקות ולחיצות אנרגטיות. מתמקד בפנים, בלסת ובצוואר לשחרור מתחים עמוקים. בגרסת 60 דקות משולב גם עיסוי כתפיים ופלג גוף עליון. מעודד רגיעה עמוקה, איזון עצבי וזרימה אנרגטית טבעית.',
@@ -295,13 +302,13 @@ const TREATMENTS_META = {
   },
 
   'back-basic': {
-    tag: { he: '💆‍♂️ עיסוי תאילנדי עמוק בשמן גב–כתפיים–צוואר', en: '💆‍♂️ Deep Thai Oil Back–Neck–Shoulders', ru: '💆‍♂️ Глубокий тайский масляный (спина–шея–плечи)', ka: '💆‍♂️ ღრმა თაილანდური ზეთოვანი (ზურგი–კისერი–მხრები)' },
-    name: { he: 'Deep Thai Oil Back–Neck–Shoulders Massage | עיסוי תאילנדי עמוק בשמן גב–כתפיים–צוואר', en: 'Deep Thai Oil Back–Neck–Shoulders Massage', ru: 'Глубокий тайский масляный массаж спины, шеи и плеч', ka: 'ღრმა თაილანდური ზეთოვანი მასაჟი ზურგის, კისრისა და მხრების' },
+    tag: { he: '💪 עיסוי תאילנדי עמוק בשמן', en: '💪 Deep Thai Oil Massage', ru: '💪 Глубокий тайский масляный', ka: '💪 ღრმა თაილანდური ზეთოვანი' },
+    name: { he: 'Deep Thai Oil Back–Neck–Shoulders Massage | עיסוי תאילנדי עמוק בשמן', en: 'Deep Thai Oil Back–Neck–Shoulders Massage', ru: 'Глубокий тайский масляный (спина–шея–плечи)', ka: 'ღრმა თაილანდური ზეთოვანი (ზურგი–კისერი–მხრები)' },
     desc: {
-      he: 'עיסוי תאילנדי טיפולי בשמן המתמקד בשכבות השריר העמוקות של הגב העליון, הכתפיים והצוואר. משלב לחיצות חזקות, עבודה עם מרפקים ואמות ותנועות שמן איטיות ומדויקות. מיועד לשחרור עומסים כרוניים, קשרים שריריים ומתחים יומיומיים. מסייע בהפחתת כאבים, שיפור טווח תנועה ותחושת הקלה עמוקה.',
-      en: 'Therapeutic Thai oil massage focusing on deep layers of the upper back, shoulders and neck. Combines strong pressure, elbows/forearms and slow precise oil strokes. Designed to release chronic load, muscle knots and daily tension. Helps reduce pain and improve range of motion.',
-      ru: 'Лечебный тайский массаж с маслом, направленный на глубокие слои верхней части спины, плеч и шеи. Сильные надавливания, работа локтями и предплечьями, медленные точные движения. Для снятия хронической нагрузки, узлов и ежедневного напряжения. Помогает уменьшить боль и улучшить подвижность.',
-      ka: 'თერაპიული თაილანდური ზეთოვანი მასაჟი, რომელიც ფოკუსირდება ზედა ზურგის, მხრებისა და კისრის ღრმა შრეებზე. აერთიანებს ძლიერ წნევას, იდაყვებით/მაჯებით მუშაობას და ნელ, ზუსტ ზეთოვან მოძრაობებს. გათვლილია ქრონიკული დატვირთვისა და კუნთოვანი კვანძების მოსახსნელად. ეხმარება ტკივილის შემცირებას და მოძრაობის დიაპაზონის გაუმჯობესებას.'
+      he: 'עיסוי תאילנדי טיפולי בשמן המתמקד באזורי עומס מרכזיים. משלב לחיצות עמוקות, עבודה מדויקת עם אמות ומרפקים. מסייע בהפחתת כאבי צוואר, כתפיים וגב עליון. מתאים לעומס יומיומי וישיבה ממושכת.',
+      en: 'Therapeutic Thai oil massage focusing on key tension areas. Combines deep pressure and precise forearm/elbow work. Helps reduce neck, shoulders and upper-back pain. Great for daily overload and prolonged sitting.',
+      ru: 'Лечебный тайский массаж с маслом, фокус на ключевых зонах напряжения. Глубокие надавливания и работа предплечьями/локтями. Помогает уменьшить боль в шее, плечах и верхней части спины. Отлично при сидячей работе.',
+      ka: 'თერაპიული თაილანდური ზეთოვანი მასაჟი ძირითადი დაძაბულობის ზონებზე. აერთიანებს ღრმა წნევას და ზუსტ მუშაობას წინამხრით/იდაყვით. ეხმარება კისრის, მხრების და ზედა ზურგის ტკივილის შემცირებას.'
     },
     price: { he: '60 דק׳ – 150₾', en: '60 min – 150₾', ru: '60 мин – 150₾', ka: '60 წთ – 150₾' }
   },
@@ -310,256 +317,118 @@ const TREATMENTS_META = {
     tag: { he: '🔥 עיסוי גב–כתפיים–צוואר עם אבנים חמות', en: '🔥 Hot Stone Back–Neck–Shoulders', ru: '🔥 Горячие камни (спина–шея–плечи)', ka: '🔥 ცხელი ქვები (ზურგი–კისერი–მხრები)' },
     name: { he: 'Hot Stone Back–Neck–Shoulders Massage | עיסוי גב–כתפיים–צוואר עם אבנים חמות', en: 'Hot Stone Back–Neck–Shoulders Massage', ru: 'Массаж спины, шеи и плеч горячими камнями', ka: 'ზურგის, კისრის და მხრების მასაჟი ცხელ ქვებთან' },
     desc: {
-      he: 'עיסוי ממוקד המשלב עבודה ידנית עם אבני בזלת חמות. החום חודר לרקמות ומאפשר שחרור עמוק ובטוח של שרירים תפוסים. מתאים במיוחד לכאבים כרוניים, עומס חוזר ומתח נפשי. יוצר הרפיה מלאה של פלג הגוף העליון.',
-      en: 'Focused massage combining manual work with warm basalt stones. Heat penetrates tissues for deep, safe release of tight muscles. Especially suitable for chronic pain, recurring overload and mental stress. Creates full upper-body relaxation.',
-      ru: 'Прицельный массаж с ручной техникой и тёплыми базальтовыми камнями. Тепло проникает в ткани и помогает безопасно снять глубокие зажимы. Особенно подходит при хронических болях, повторяющихся нагрузках и стрессе. Дает полное расслабление верхней части тела.',
-      ka: 'მიზანმიმართული მასაჟი, რომელიც აერთიანებს მანუალურ ტექნიკას და თბილ ბაზალტის ქვებს. სითბო ღრმად აღწევს ქსოვილებში და ხელს უწყობს დაჭიმული კუნთების უსაფრთხო განტვირთვას. განსაკუთრებით კარგია ქრონიკული ტკივილის, განმეორებადი დატვირთვისა და სტრესისას. ქმნის ზედა სხეულის სრულ რელაქსაციას.'
+      he: 'עיסוי ממוקד המשלב עבודה ידנית עם אבני בזלת חמימות. החום מאפשר שחרור עמוק ובטוח של שרירים תפוסים. מפחית מתח נפשי וכאבים כרוניים בפלג הגוף העליון. יוצר הרפיה מלאה ותחושת קלילות.',
+      en: 'Focused massage combining manual work with warm basalt stones. Heat enables a deep, safe release of tight muscles. Reduces stress and chronic pain in the upper body.',
+      ru: 'Прицельный массаж с тёплыми базальтовыми камнями. Тепло помогает глубоко и безопасно снять зажимы, уменьшает стресс и хроническую боль в верхней части тела.',
+      ka: 'მიზანმიმართული მასაჟი თბილი ბაზალტის ქვებით. სითბო ეხმარება ღრმა და უსაფრთხო განტვირთვას, ამცირებს სტრესსა და ქრონიკულ ტკივილს ზედა სხეულში.'
     },
     price: { he: '60 דק׳ – 180₾', en: '60 min – 180₾', ru: '60 мин – 180₾', ka: '60 წთ – 180₾' }
   },
 
-  'body-thai': {
-    tag: { he: '🇹🇭 עיסוי תאילנדי מסורתי', en: '🇹🇭 Traditional Thai Massage', ru: '🇹🇭 Традиционный тайский массаж', ka: '🇹🇭 ტრადიციული ტაილანდური' },
-    name: { he: 'Traditional Thai Massage | עיסוי תאילנדי מסורתי', en: 'Traditional Thai Massage', ru: 'Традиционный тайский массаж', ka: 'ტრადიციული ტაილანდური მასაჟი' },
+  'body-aloe-vera': {
+    tag: { he: '🌿 עיסוי תאילנדי עם אלוורה', en: '🌿 Thai Aloe Vera Massage', ru: '🌿 Тайский массаж с алоэ вера', ka: '🌿 თაილანდური მასაჟი ალოე ვერათი' },
+    name: { he: 'Thai Aloe Vera Massage | עיסוי תאילנדי עם אלוורה', en: 'Thai Aloe Vera Massage', ru: 'Тайский массаж с алоэ вера', ka: 'თაილანდური მასაჟი ალოე ვერათი' },
     desc: {
-      he: 'עיסוי תאילנדי מסורתי ללא שמן המשלב לחיצות, מתיחות ועבודה על קווי האנרגיה (Sen). משפר גמישות, מפיג עומסים ומחזיר תנועה חופשית לגוף. מעורר זרימה אנרגטית ומעניק תחושת חיוניות עמוקה. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'Traditional oil-free Thai massage combining pressure, stretches and work on energy lines (Sen). Improves flexibility, relieves load and restores free movement. Awakens energy flow and brings deep vitality. This is a full-body treatment and also includes a gentle face massage.',
-      ru: 'Традиционный тайский массаж без масла: надавливания, растяжки и работа по энергетическим линиям (Sen). Улучшает гибкость, снимает нагрузку и возвращает свободу движений. Активирует поток энергии и дарит жизненный тонус. Это массаж всего тела и он также включает мягкий массаж лица.',
-      ka: 'ტრადიციული თაილანდური მასაჟი ზეთის გარეშე: წნევა, გაჭიმვები და ენერგეტიკულ ხაზებზე (Sen) მუშაობა. აუმჯობესებს მოქნილობას, ხსნის დატვირთვას და აბრუნებს თავისუფალ მოძრაობას. ააქტიურებს ენერგიის ნაკადს და აძლევს სიცოცხლისუნარიანობას. ეს არის მთლიანი სხეულის პროცედურა და ასევე მოიცავს სახის ნაზ მასაჟს.'
-    },
-    price: { he: '60 דק׳ – 190₾', en: '60 min – 190₾', ru: '60 мин – 190₾', ka: '60 წთ – 190₾' }
-  },
-
-  'body-thai-oil': {
-    tag: { he: '🇹🇭 עיסוי תאילנדי בשמן', en: '🇹🇭 Thai Oil Massage', ru: '🇹🇭 Тайский масляный массаж', ka: '🇹🇭 ტაილანდური ზეთოვანი მასაჟი' },
-    name: { he: 'Thai Oil Massage | עיסוי תאילנדי בשמן', en: 'Thai Oil Massage', ru: 'Тайский масляный массаж', ka: 'ტაილანდური ზეთოვანი მასაჟი' },
-    desc: {
-      he: 'עיסוי גוף מלא בשמן בתנועות זורמות ועמוקות. משלב לחיצות תאילנדיות להמסה של מתח ועומס שרירי. מאזן את מערכת העצבים ומשרה רוגע בכל הגוף. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'Full-body oil massage with flowing, deeper strokes. Combines Thai pressure to melt tension and muscular load. Balances the nervous system and brings calm throughout the body. Full-body treatment including a gentle face massage.',
-      ru: 'Массаж всего тела с маслом: плавные и глубокие движения. С тайскими надавливаниями для снятия напряжения и мышечной нагрузки. Балансирует нервную систему и приносит расслабление всему телу. Полный массаж тела с мягким массажем лица.',
-      ka: 'მთლიანი სხეულის ზეთოვანი მასაჟი — მოლივლივე და ღრმა მოძრაობებით. შეიცავს ტაილანდურ წნევას დაძაბულობისა და კუნთოვანი დატვირთვის მოსახსნელად. აბალანსებს ნერვულ სისტემას და ქმნის სიმშვიდეს მთელ სხეულში. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
-    },
-    price: { he: '60 דק׳ – 180₾', en: '60 min – 180₾', ru: '60 мин – 180₾', ka: '60 წთ – 180₾' }
-  },
-
-  'body-aroma': {
-    tag: { he: '🌿 עיסוי ארומתרפי בשמנים אתריים', en: '🌿 Aromatherapy Oil Massage', ru: '🌿 Аромамассаж с маслами', ka: '🌿 არომატერაპიული ზეთოვანი მასაჟი' },
-    name: { he: 'Aromatherapy Oil Massage | עיסוי ארומתרפי בשמנים אתריים', en: 'Aromatherapy Oil Massage', ru: 'Ароматерапевтический массаж с маслом', ka: 'არომატერაპიული ზეთოვანი მასაჟი' },
-    desc: {
-      he: 'עיסוי גוף רגוע ועדין עם שמנים אתריים טהורים. הריחות הטבעיים מאזנים את מערכת העצבים ומפחיתים מתח. התנועות האיטיות יוצרות תחושת שלווה והרפיה עמוקה. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'A calm, gentle body massage with pure essential oils. Natural aromas balance the nervous system and reduce stress. Slow movements create deep peace and relaxation. Full-body treatment including a gentle face massage.',
-      ru: 'Спокойный, нежный массаж тела с чистыми эфирными маслами. Природные ароматы балансируют нервную систему и снижают стресс. Медленные движения создают глубокое расслабление. Полный массаж тела с мягким массажем лица.',
-      ka: 'მშვიდი და ნაზი სხეულის მასაჟი სუფთა ეთერზეთებით. ბუნებრივი არომატები აბალანსებს ნერვულ სისტემას და ამცირებს სტრესს. ნელი მოძრაობები ქმნის ღრმა რელაქსაციას. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+      he: 'עיסוי תאילנדי עדין בשילוב ג׳ל אלוורה טבעי. האלוורה מרגיעה, מקררת ומזינה את העור תוך שמירה על לחות וגמישות. התנועות הרכות משחררות מתחים שריריים קלים. מתאים במיוחד לעור רגיש ולאחר חשיפה לשמש. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
+      en: 'A gentle Thai massage combined with natural aloe vera gel. Aloe soothes, cools and nourishes the skin while supporting hydration and elasticity. Soft strokes release mild muscular tension. Especially suitable for sensitive skin and after sun exposure. Full-body treatment including a face massage.',
+      ru: 'Нежный тайский массаж с натуральным гелем алоэ вера. Алоэ успокаивает, охлаждает и питает кожу. Особенно подходит для чувствительной кожи и после солнца. Полный массаж тела с мягким массажем лица.',
+      ka: 'ნაზი თაილანდური მასაჟი ბუნებრივი ალოე ვერას გელით. განსაკუთრებით კარგია მგრძნობიარე კანისთვის და მზეზე ყოფნის შემდეგ. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
     price: { he: '60 דק׳ – 170₾', en: '60 min – 170₾', ru: '60 мин – 170₾', ka: '60 წთ – 170₾' }
   },
-// 1) הוסף ל-TREATMENTS_META (בתוך landing-landing.js)
-  'body-aloe-vera': {
-    tag: {
-      he: '🌿 עיסוי תאילנדי עם אלוורה',
-      en: '🌿 Thai Aloe Vera Massage',
-      ru: '🌿 Тайский массаж с алоэ вера',
-      ka: '🌿 თაილანდური მასაჟი ალოე ვერათი'
-    },
-    name: {
-      he: 'Thai Aloe Vera Massage | עיסוי תאילנדי עם אלוורה',
-      en: 'Thai Aloe Vera Massage',
-      ru: 'Тайский массаж с алоэ вера',
-      ka: 'თაილანდური მასაჟი ალოე ვერათი'
-    },
-    desc: {
-      he: 'עיסוי תאילנדי עדין בשילוב ג׳ל אלוורה טבעי. האלוורה מרגיעה, מקררת ומזינה את העור תוך שמירה על לחות וגמישות. התנועות הרכות משחררות מתחים שריריים קלים. מתאים במיוחד לעור רגיש ולאחר חשיפה לשמש. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
-      en: 'A gentle Thai massage combined with natural aloe vera gel. Aloe soothes, cools and nourishes the skin while supporting hydration and elasticity. Soft strokes release mild muscular tension. Especially suitable for sensitive skin and after sun exposure. This is a full-body treatment and also includes a face massage.',
-      ru: 'Нежный тайский массаж с натуральным гелем алоэ вера. Алоэ успокаивает, охлаждает и питает кожу, сохраняя увлажнение и эластичность. Мягкие движения снимают лёгкое мышечное напряжение. Особенно подходит для чувствительной кожи и после солнца. Это массаж всего тела и он также включает мягкий массаж лица.',
-      ka: 'ნაზი თაილანდური მასაჟი ბუნებრივი ალოე ვერას გელით. ალოე ამშვიდებს, აგრილებს და კვებავს კანს, ხელს უწყობს დატენიანებასა და ელასტიურობას. რბილი მოძრაობები ხსნის მსუბუქ კუნთოვან დაძაბულობას. განსაკუთრებით კარგია მგრძნობიარე კანისთვის და მზეზე ყოფნის შემდეგ. ეს არის მთლიანი სხეულის პროცედურა და ასევე მოიცავს სახის ნაზ მასაჟს.'
-    },
-    price: {
-      he: '60 דק׳ – 170₾',
-      en: '60 min – 170₾',
-      ru: '60 мин – 170₾',
-      ka: '60 წთ – 170₾'
-    }
-  },
 
   'body-vitamin-e': {
-    tag: {
-      he: '✨ עיסוי תאילנדי עם קרם ויטמין E',
-      en: '✨ Thai Vitamin E Cream Massage',
-      ru: '✨ Тайский массаж с кремом Vitamin E',
-      ka: '✨ თაილანდური მასაჟი ვიტამინ E-ის კრემით'
-    },
-    name: {
-      he: 'Thai Vitamin E Cream Massage | עיסוי תאילנדי עם קרם ויטמין E',
-      en: 'Thai Vitamin E Cream Massage',
-      ru: 'Тайский массаж с кремом Vitamin E',
-      ka: 'თაილანდური მასაჟი ვიტამინ E-ის კრემით'
-    },
+    tag: { he: '✨ עיסוי תאילנדי עם קרם ויטמין E', en: '✨ Thai Vitamin E Cream Massage', ru: '✨ Тайский массаж с кремом Vitamin E', ka: '✨ თაილანდური მასაჟი ვიტამინ E-ის კრემით' },
+    name: { he: 'Thai Vitamin E Cream Massage | עיסוי תאילנדי עם קרם ויטמין E', en: 'Thai Vitamin E Cream Massage', ru: 'Тайский массаж с кремом Vitamin E', ka: 'თაილანდური მასაჟი ვიტამინ E-ის კრემით' },
     desc: {
       he: 'עיסוי תאילנדי בשילוב קרם מועשר בויטמין E להזנה עמוקה של העור. מסייע בשיפור גמישות העור ובהפחתת יובש. משלב רוגע וטיפוח קוסמטי. יוצר תחושת רכות והרפיה כללית. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
-      en: 'A Thai massage combined with a Vitamin E enriched cream for deep skin nourishment. Helps improve elasticity and reduce dryness. Blends relaxation with cosmetic care, leaving the skin soft and the body deeply relaxed. This is a full-body treatment and also includes a face massage.',
-      ru: 'Тайский массаж с кремом, обогащённым витамином E, для глубокого питания кожи. Помогает улучшить эластичность и уменьшить сухость. Сочетает расслабление и косметический уход, дарит мягкость и общее расслабление. Это массаж всего тела и он также включает мягкий массаж лица.',
-      ka: 'თაილანდური მასაჟი ვიტამინ E-ით გამდიდრებული კრემით კანის ღრმა კვებისთვის. ეხმარება ელასტიურობის გაუმჯობესებასა და სიმშრალის შემცირებას. აერთიანებს რელაქსაციასა და კოსმეტიკურ მოვლას, ქმნის რბილობისა და საერთო განტვირთვის შეგრძნებას. ეს არის მთლიანი სხეულის პროცედურა და ასევე მოიცავს სახის ნაზ მასაჟს.'
+      en: 'A Thai massage with Vitamin E enriched cream for deep skin nourishment. Helps improve elasticity and reduce dryness. Full-body treatment including a face massage.',
+      ru: 'Тайский массаж с кремом, обогащённым витамином E, для глубокого питания кожи. Полный массаж тела с мягким массажем лица.',
+      ka: 'თაილანდური მასაჟი ვიტამინ E-ით გამდიდრებული კრემით. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
-    price: {
-      he: '60 דק׳ – 175₾',
-      en: '60 min – 175₾',
-      ru: '60 мин – 175₾',
-      ka: '60 წთ – 175₾'
-    }
+    price: { he: '60 דק׳ – 175₾', en: '60 min – 175₾', ru: '60 мин – 175₾', ka: '60 წთ – 175₾' }
   },
 
   'body-relaxing-oil': {
-    tag: {
-      he: '🧘 עיסוי שמן מרגיע',
-      en: '🧘 Relaxing Oil Massage',
-      ru: '🧘 Расслабляющий массаж с маслом',
-      ka: '🧘 დამამშვიდებელი ზეთოვანი მასაჟი'
-    },
-    name: {
-      he: 'Relaxing Oil Massage | עיסוי שמן מרגיע',
-      en: 'Relaxing Oil Massage',
-      ru: 'Расслабляющий массаж с маслом',
-      ka: 'დამამშვიდებელი ზეთოვანი მასაჟი'
-    },
+    tag: { he: '🧘 עיסוי שמן מרגיע', en: '🧘 Relaxing Oil Massage', ru: '🧘 Расслабляющий массаж с маслом', ka: '🧘 დამამშვიდებელი ზეთოვანი მასაჟი' },
+    name: { he: 'Relaxing Oil Massage | עיסוי שמן מרגיע', en: 'Relaxing Oil Massage', ru: 'Расслабляющий массаж с маслом', ka: 'დამამშვიდებელი ზეთოვანი მასაჟი' },
     desc: {
       he: 'עיסוי גוף מלא בשמן איכותי בתנועות ארוכות, רכות וזורמות. מתמקד בהרפיה עמוקה של מערכת העצבים ובהפחתת סטרס. משחרר מתחים קלים ומשרה תחושת שלווה ואיזון. מתאים למי שמחפש חוויה עדינה ולא אינטנסיבית. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
-      en: 'A full-body massage with quality oil using long, soft, flowing strokes. Focuses on deep nervous-system relaxation and stress reduction. Releases mild tension and creates a sense of calm and balance. Ideal for those seeking a gentle, non-intensive experience. This is a full-body treatment and also includes a face massage.',
-      ru: 'Массаж всего тела с качественным маслом: длинные мягкие и плавные движения. Фокус на глубоком расслаблении нервной системы и снижении стресса. Снимает лёгкое напряжение и дарит ощущение спокойствия и баланса. Подходит тем, кто ищет мягкую, неинтенсивную процедуру. Это массаж всего тела и он также включает мягкий массаж лица.',
-      ka: 'მთლიანი სხეულის მასაჟი ხარისხიანი ზეთით — გრძელი, რბილი და მოლივლივე მოძრაობებით. ფოკუსირდება ნერვული სისტემის ღრმა რელაქსაციასა და სტრესის შემცირებაზე. ხსნის მსუბუქ დაძაბულობას და ქმნის სიმშვიდისა და ბალანსის შეგრძნებას. იდეალურია მათთვის, ვინც ეძებს ნაზ, არაინტენსიურ გამოცდილებას. ეს არის მთლიანი სხეულის პროცედურა და ასევე მოიცავს სახის ნაზ მასაჟს.'
+      en: 'Full-body oil massage with long, soft, flowing strokes. Focuses on deep relaxation and stress reduction. Full-body treatment including a face massage.',
+      ru: 'Массаж всего тела с маслом: мягкие плавные движения для глубокого расслабления и снижения стресса. Полный массаж тела с мягким массажем лица.',
+      ka: 'მთლიანი სხეულის ზეთოვანი მასაჟი რბილი, მოლივლივე მოძრაობებით. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
-    price: {
-      he: '60 דק׳ – 180₾',
-      en: '60 min – 180₾',
-      ru: '60 мин – 180₾',
-      ka: '60 წთ – 180₾'
-    }
+    price: { he: '60 דק׳ – 180₾', en: '60 min – 180₾', ru: '60 мин – 180₾', ka: '60 წთ – 180₾' }
   },
 
   'body-coconut-oil': {
-    tag: {
-      he: '🥥 עיסוי תאילנדי עם שמן קוקוס',
-      en: '🥥 Thai Coconut Oil Massage',
-      ru: '🥥 Тайский массаж с кокосовым маслом',
-      ka: '🥥 თაილანდური მასაჟი ქოქოსის ზეთით'
-    },
-    name: {
-      he: 'Thai Coconut Oil Massage | עיסוי תאילנדי עם שמן קוקוס',
-      en: 'Thai Coconut Oil Massage',
-      ru: 'Тайский массаж с кокосовым маслом',
-      ka: 'თაილანდური მასაჟი ქოქოსის ზეთით'
-    },
+    tag: { he: '🥥 עיסוי תאילנדי עם שמן קוקוס', en: '🥥 Thai Coconut Oil Massage', ru: '🥥 Тайский массаж с кокосовым маслом', ka: '🥥 თაილანდური მასაჟი ქოქოსის ზეთით' },
+    name: { he: 'Thai Coconut Oil Massage | עיסוי תאילנדי עם שמן קוקוס', en: 'Thai Coconut Oil Massage', ru: 'Тайский массаж с кокосовым маслом', ka: 'თაილანდური მასაჟი ქოქოსის ზეთით' },
     desc: {
       he: 'עיסוי תאילנדי עדין בשילוב שמן קוקוס טבעי. מזין את העור, מעניק לחות עמוקה ותחושת רכות ממושכת. התנועות זורמות ומאזנות את הגוף והנפש. מתאים במיוחד לעור יבש או רגיש. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
-      en: 'A gentle Thai massage combined with natural coconut oil. Nourishes the skin, provides deep hydration and lasting softness. Flowing movements balance body and mind. Especially suitable for dry or sensitive skin. This is a full-body treatment and also includes a face massage.',
-      ru: 'Нежный тайский массаж с натуральным кокосовым маслом. Питает кожу, обеспечивает глубокое увлажнение и длительную мягкость. Плавные движения гармонизируют тело и ум. Особенно подходит для сухой или чувствительной кожи. Это массаж всего тела и он также включает мягкий массаж лица.',
-      ka: 'ნაზი თაილანდური მასაჟი ბუნებრივი ქოქოსის ზეთით. კვებავს კანს, აძლევს ღრმა დატენიანებას და ხანგრძლივ რბილობას. მოლივლივე მოძრაობები აბალანსებს სხეულსა და გონებას. განსაკუთრებით კარგია მშრალი ან მგრძნობიარე კანისთვის. ეს არის მთლიანი სხეულის პროცედურა და ასევე მოიცავს სახის ნაზ მასაჟს.'
+      en: 'Gentle Thai massage with natural coconut oil. Nourishes skin and provides deep hydration. Full-body treatment including a face massage.',
+      ru: 'Нежный тайский массаж с натуральным кокосовым маслом. Полный массаж тела с мягким массажем лица.',
+      ka: 'ნაზი თაილანდური მასაჟი ბუნებრივი ქოქოსის ზეთით. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
-    price: {
-      he: '60 דק׳ – 175₾',
-      en: '60 min – 175₾',
-      ru: '60 мин – 175₾',
-      ka: '60 წთ – 175₾'
-    }
+    price: { he: '60 דק׳ – 175₾', en: '60 min – 175₾', ru: '60 мин – 175₾', ka: '60 წთ – 175₾' }
   },
 
-  'body-sports': {
-    tag: {
-      he: '🏃 עיסוי ספורט',
-      en: '🏃 Sports Massage',
-      ru: '🏃 Спортивный массаж',
-      ka: '🏃 სპორტული მასაჟი'
-    },
-    name: {
-      he: 'Sports Massage | עיסוי ספורט',
-      en: 'Sports Massage',
-      ru: 'Спортивный массаж',
-      ka: 'სპორტული მასაჟი'
-    },
+  'body-thai': {
+    tag: { he: '🇹🇭 עיסוי תאילנדי מסורתי', en: '🇹🇭 Traditional Thai Massage', ru: '🇹🇭 Традиционный тайский массаж', ka: '🇹🇭 ტრადიციული ტაილანდური მასაჟი' },
+    name: { he: 'Traditional Thai Massage | עיסוי תאילנדי מסורתי', en: 'Traditional Thai Massage', ru: 'Традиционный тайский массаж', ka: 'ტრადიციული ტაილანდური მასაჟი' },
     desc: {
-      he: 'עיסוי אינטנסיבי לשחרור עומסים מפעילות גופנית. משלב טכניקות עומק ומתיחות. מסייע בהתאוששות ומניעת פציעות. מתאים לספורטאים ולאנשים פעילים. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
-      en: 'An intensive massage to release load from physical activity. Combines deep techniques and stretches. Supports recovery and injury prevention. Suitable for athletes and active people. This is a full-body treatment and also includes a face massage.',
-      ru: 'Интенсивный массаж для снятия нагрузки после физической активности. Сочетает глубокие техники и растяжки. Помогает восстановлению и профилактике травм. Подходит спортсменам и активным людям. Это массаж всего тела и он также включает мягкий массаж лица.',
-      ka: 'ინტენსიური მასაჟი ფიზიკური აქტივობით გამოწვეული დატვირთვის მოსახსნელად. აერთიანებს ღრმა ტექნიკებს და გაჭიმვებს. ეხმარება აღდგენასა და ტრავმების პრევენციას. შესაფერისია სპორტსმენებისთვის და აქტიური ადამიანებისთვის. ეს არის მთლიანი სხეულის პროცედურა და ასევე მოიცავს სახის ნაზ მასაჟს.'
-    },
-    price: {
-      he: '60 דק׳ – 240₾',
-      en: '60 min – 240₾',
-      ru: '60 мин – 240₾',
-      ka: '60 წთ – 240₾'
-    }
-  },
-
-'body-swedish': {
-  tag: {
-    he: '🇸🇪 עיסוי שוודי',
-    en: '🇸🇪 Swedish Massage',
-    ru: '🇸🇪 Шведский массаж',
-    ka: '🇸🇪 შვედური მასაჟი'
-  },
-  name: {
-    he: 'Swedish Massage | עיסוי שוודי',
-    en: 'Swedish Massage',
-    ru: 'Шведский массаж',
-    ka: 'შვედური მასაჟი'
-  },
-  desc: {
-    he: 'עיסוי גוף מלא קלאסי בתנועות ארוכות, לישה עדינה והנעות זורמות לשחרור מתחים והרגעה עמוקה. משפר זרימת דם, מסייע בהפחתת עומס שרירי ומחזיר תחושת קלילות ורעננות. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-    en: 'A classic full-body massage with long flowing strokes, gentle kneading, and smooth movements for deep relaxation. Improves circulation, helps reduce muscular load, and restores a light, refreshed feeling. This is a full-body treatment and also includes a gentle face massage.',
-    ru: 'Классический массаж всего тела: длинные плавные движения, мягкое разминание и ритмичные техники для глубокого расслабления. Улучшает кровообращение, снижает мышечную нагрузку и возвращает ощущение лёгкости и свежести. Это массаж всего тела и он также включает мягкий массаж лица.',
-    ka: 'კლასიკური მთლიანი სხეულის მასაჟი გრძელი მოლივლივე მოძრაობებით, რბილი ზელვით და ნაზი ტექნიკებით ღრმა რელაქსაციისთვის. აუმჯობესებს სისხლის მიმოქცევას, ამცირებს კუნთოვან დატვირთვას და აბრუნებს სიმსუბუქისა და სიგრილის შეგრძნებას. ეს არის მთლიანი სხეულის პროცედურა და ასევე მოიცავს სახის ნაზ მასაჟს.'
-  },
-  price: {
-    he: '60 דק׳ – 160₾',
-    en: '60 min – 160₾',
-    ru: '60 мин – 160₾',
-    ka: '60 წთ – 160₾'
-  }
-},
-
-  'body-thai-balm': {
-    tag: { he: '🇹🇭 עיסוי תאילנדי עם באלם', en: '🇹🇭 Thai Balm Massage', ru: '🇹🇭 Тайский массаж с бальзамом', ka: '🇹🇭 თაილანდური მასაჟი ბალზამით' },
-    name: { he: 'Thai Balm Massage | עיסוי תאילנדי עם באלם', en: 'Thai Balm Massage', ru: 'Тайский массаж с бальзамом', ka: 'თაილანდური მასაჟი ბალზამით' },
-    desc: {
-      he: 'עיסוי תאילנדי ממוקד המשלב שימוש בבאלם תאילנדי ייעודי. מסייע בהפחתת כאבים, נוקשות ועומס שרירי. מתאים במיוחד לשרירים תפוסים ועומס פיזי. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'A focused Thai massage using a dedicated Thai balm. Helps reduce pain, stiffness and muscular load—especially for tight muscles and physical strain. Full-body treatment including a gentle face massage.',
-      ru: 'Прицельный тайский массаж с использованием специального тайского бальзама. Помогает уменьшить боль, скованность и мышечную нагрузку. Особенно подходит при зажатых мышцах и физической усталости. Полный массаж тела с мягким массажем лица.',
-      ka: 'მიზანმიმართული თაილანდური მასაჟი სპეციალური თაილანდური ბალზამით. ეხმარება ტკივილის, სიმყარესა და კუნთოვანი დატვირთვის შემცირებაში. განსაკუთრებით კარგია დაჭიმული კუნთებისა და ფიზიკური გადაღლისას. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+      he: 'עיסוי תאילנדי מסורתי ללא שמן. משלב לחיצות, מתיחות ועבודה על קווי האנרגיה (Sen). משפר גמישות, זרימה וחיוניות. עיסוי פעיל ודינמי. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
+      en: 'Traditional oil-free Thai massage with pressure, stretches and energy lines (Sen). Improves flexibility and vitality. Full-body treatment including a face massage.',
+      ru: 'Традиционный тайский массаж без масла: надавливания, растяжки и энергетические линии (Sen). Полный массаж тела с мягким массажем лица.',
+      ka: 'ტრადიციული თაილანდური მასაჟი ზეთის გარეშე. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
     price: { he: '60 דק׳ – 190₾', en: '60 min – 190₾', ru: '60 мин – 190₾', ka: '60 წთ – 190₾' }
   },
 
-  'body-thai-hot-oil': {
-    tag: { he: '🔥 עיסוי תאילנדי בשמן חם', en: '🔥 Thai Hot Oil Massage', ru: '🔥 Тайский массаж горячим маслом', ka: '🔥 თაილანდური მასაჟი თბილი ზეთით' },
-    name: { he: 'Thai Hot Oil Massage | עיסוי תאילנדי בשמן חם', en: 'Thai Hot Oil Massage', ru: 'Тайский массаж горячим маслом', ka: 'თაილანდური მასაჟი თბილი ზეთით' },
+  'body-thai-balm': {
+    tag: { he: '🔥 עיסוי תאילנדי עם באלם', en: '🔥 Thai Balm Massage', ru: '🔥 Тайский массаж с бальзамом', ka: '🔥 თაილანდური მასაჟი ბალზამით' },
+    name: { he: 'Thai Balm Massage | עיסוי תאילנדי עם באלם', en: 'Thai Balm Massage', ru: 'Тайский массаж с бальзамом', ka: 'თაილანდური მასაჟი ბალზამით' },
     desc: {
-      he: 'עיסוי תאילנדי עם שמן המחומם בעדינות לטמפרטורה נעימה. החום מסייע בשחרור שרירים עמוקים ובהפחתת מתחים. יוצר הרפיה עמוקה ותחושת איזון כללית. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'A Thai massage using gently warmed oil. The heat helps release deep muscles and reduce tension, creating deep relaxation and overall balance. Full-body treatment including a gentle face massage.',
-      ru: 'Тайский массаж с мягко подогретым маслом. Тепло помогает расслабить глубокие мышцы и снизить напряжение, создавая глубокую релаксацию и чувство баланса. Полный массаж тела с мягким массажем лица.',
-      ka: 'თაილანდური მასაჟი ნაზად გათბობილი ზეთით. სითბო ხელს უწყობს ღრმა კუნთების განტვირთვას და დაძაბულობის შემცირებას, ქმნის ღრმა რელაქსაციას და საერთო ბალანსს. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+      he: 'עיסוי תאילנדי ממוקד עם באלם תאילנדי ייעודי. מסייע בהפחתת כאבים, נוקשות ודלקות מקומיות. מתבצע בלחיצות עמוקות על אזורי עומס. מתאים לשרירים תפוסים. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
+      en: 'Focused Thai massage using a dedicated balm to ease pain and stiffness. Full-body treatment including a face massage.',
+      ru: 'Прицельный тайский массаж с бальзамом для снижения боли и скованности. Полный массаж тела с мягким массажем лица.',
+      ka: 'მიზანმიმართული თაილანდური მასაჟი ბალზამით. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
     price: { he: '60 דק׳ – 190₾', en: '60 min – 190₾', ru: '60 мин – 190₾', ka: '60 წთ – 190₾' }
   },
 
   'body-thai-ther': {
-    tag: { he: '🇹🇭 עיסוי תאילנדי טיפולי', en: '🇹🇭 Thai Therapeutic Massage', ru: '🇹🇭 Лечебный тайский массаж', ka: '🇹🇭 თერაპიული თაილანდური' },
-    name: { he: 'Thai Therapeutic Massage | עיסוי תאילנדי טיפולי', en: 'Thai Therapeutic Massage', ru: 'Тайский лечебный массаж', ka: 'ტაილანდური თერაპიული მასაჟი' },
+    tag: { he: '🩺 עיסוי תאילנדי טיפולי', en: '🩺 Thai Therapeutic Massage', ru: '🩺 Лечебный тайский массаж', ka: '🩺 თერაპიული თაილანდური მასაჟი' },
+    name: { he: 'Thai Therapeutic Massage | עיסוי תאילנדי טיפולי', en: 'Thai Therapeutic Massage', ru: 'Тайский лечебный массаж', ka: 'თაილანდური თერაპიული მასაჟი' },
     desc: {
-      he: 'עיסוי תאילנדי טיפולי עמוק המשלב לחיצות ומתיחות מדויקות. מתמקד בכאבי גב, צוואר וכתפיים ובשרירים תפוסים כרונית. מעודד שיקום תנועתי והקלה אמיתית ומתמשכת. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'Deep therapeutic Thai massage with focused pressure and precise stretches. Targets back, neck and shoulders and chronically tight muscles. Encourages mobility recovery and lasting relief. Full-body treatment including a gentle face massage.',
-      ru: 'Глубокий лечебный тайский массаж: прицельные надавливания и точные растяжки. Фокус на боли в спине, шее и плечах и хронических зажимах. Способствует восстановлению подвижности и длительному облегчению. Полный массаж тела с мягким массажем лица.',
-      ka: 'ღრმა თერაპიული თაილანდური მასაჟი მიზნობრივი წნევით და ზუსტი გაჭიმვებით. ფოკუსირდება ზურგის/კისრის/მხრების ტკივილზე და ქრონიკულად დაჭიმულ კუნთებზე. ხელს უწყობს მოძრაობის აღდგენას და ხანგრძლივ შვებას. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+      he: 'עיסוי תאילנדי טיפולי עמוק וממוקד. מטפל בכאבי גב, צוואר ושרירים תפוסים כרונית. משפר טווח תנועה ומפחית עומסים. מיועד למי שמחפש טיפול אמיתי. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
+      en: 'Deep therapeutic Thai massage for chronic tightness and pain. Full-body treatment including a face massage.',
+      ru: 'Глубокий лечебный тайский массаж для хронических зажимов и боли. Полный массаж тела с мягким массажем лица.',
+      ka: 'ღრმა თერაპიული თაილანდური მასაჟი. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
     price: { he: '60 דק׳ – 230₾', en: '60 min – 230₾', ru: '60 мин – 230₾', ka: '60 წთ – 230₾' }
   },
 
-  'body-deep-tissue-cream': {
-    tag: { he: '💪 עיסוי תאילנדי עמוק (דיפ טישיו) עם קרם – פרימיום', en: '💪 Deep Tissue Thai Massage with Cream (Premium)', ru: '💪 Глубокий тайский массаж с кремом (Премиум)', ka: '💪 ღრმა თაილანდური მასაჟი კრემით (Premium)' },
-    name: { he: 'Deep Tissue Thai Massage with Cream | עיסוי תאילנדי עמוק (דיפ טישיו) עם קרם – פרימיום', en: 'Deep Tissue Thai Massage with Cream', ru: 'Глубокий тайский массаж с кремом', ka: 'ღრმა თაილანდური მასაჟი კრემით' },
+  'body-sports': {
+    tag: { he: '🏃 עיסוי ספורט', en: '🏃 Sports Massage', ru: '🏃 Спортивный массаж', ka: '🏃 სპორტული მასაჟი' },
+    name: { he: 'Sports Massage | עיסוי ספורט', en: 'Sports Massage', ru: 'Спортивный массаж', ka: 'სპორტული მასაჟი' },
     desc: {
-      he: 'עיסוי תאילנדי עמוק במיוחד המתמקד בשכבות השריר הפנימיות. משלב טכניקות לחץ חזקות עם קרם ייעודי לעבודה טיפולית מדויקת. מיועד לעומס כרוני, ספורטאים וכאבים מתמשכים. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'An extra-deep Thai massage targeting inner muscle layers. Combines strong pressure techniques with a dedicated cream for precise therapeutic work. Ideal for chronic load, athletes and ongoing pain. Full-body treatment including a gentle face massage.',
-      ru: 'Очень глубокий тайский массаж, работающий с внутренними слоями мышц. Сочетает сильные техники давления с специальным кремом для точной терапевтической работы. Подходит при хронической нагрузке, спортсменам и при длительных болях. Полный массаж тела с мягким массажем лица.',
-      ka: 'განსაკუთრებით ღრმა თაილანდური მასაჟი შიდა კუნთოვან შრეებზე. აერთიანებს ძლიერ წნევას და სპეციალურ კრემს ზუსტი თერაპიული მუშაობისთვის. იდეალურია ქრონიკული დატვირთვის, სპორტსმენებისა და ხანგრძლივი ტკივილისას. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+      he: 'עיסוי אינטנסיבי לשחרור עומסים מפעילות גופנית. משלב טכניקות עומק ומתיחות. מסייע בהתאוששות ומניעת פציעות. מתאים לספורטאים ולאנשים פעילים. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
+      en: 'An intensive massage combining deep techniques and stretches. Supports recovery and injury prevention. Full-body treatment including a face massage.',
+      ru: 'Интенсивный массаж: глубокие техники и растяжки для восстановления. Полный массаж тела с мягким массажем лица.',
+      ka: 'ინტენსიური მასაჟი აღდგენისთვის. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+    },
+    price: { he: '60 דק׳ – 240₾', en: '60 min – 240₾', ru: '60 мин – 240₾', ka: '60 წთ – 240₾' }
+  },
+
+  'body-deep-tissue-cream': {
+    tag: { he: '💪 עיסוי תאילנדי עמוק עם קרם', en: '💪 Deep Tissue Thai Massage with Cream', ru: '💪 Глубокий тайский массаж с кремом', ka: '💪 ღრმა თაილანდური მასაჟი კრემით' },
+    name: { he: 'Deep Tissue Thai Massage with Cream | עיסוי תאילנדי עמוק עם קרם', en: 'Deep Tissue Thai Massage with Cream', ru: 'Глубокий тайский массаж с кремом', ka: 'ღრმა თაილანდური მასაჟი კრემით' },
+    desc: {
+      he: 'עיסוי תאילנדי עמוק במיוחד לשכבות השריר הפנימיות. משלב לחץ חזק עם קרם ייעודי. מטפל בעומסים וכאבים כרוניים. מיועד למטופלים מנוסים. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
+      en: 'Extra-deep Thai massage with dedicated cream for chronic load. Full-body treatment including a face massage.',
+      ru: 'Очень глубокий тайский массаж с кремом при хронической нагрузке. Полный массаж тела с мягким массажем лица.',
+      ka: 'განსაკუთრებით ღრმა თაილანდური მასაჟი კრემით. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
     price: { he: '60 דק׳ – 250₾', en: '60 min – 250₾', ru: '60 мин – 250₾', ka: '60 წთ – 250₾' }
   },
@@ -568,10 +437,10 @@ const TREATMENTS_META = {
     tag: { he: '🌿 עיסוי תאילנדי עם שמן קנאביס', en: '🌿 Thai Cannabis Oil Massage', ru: '🌿 Тайский массаж с маслом каннабиса', ka: '🌿 თაილანდური მასაჟი კანაბისის ზეთით' },
     name: { he: 'Thai Cannabis Oil Massage | עיסוי תאילנדי עם שמן קנאביס', en: 'Thai Cannabis Oil Massage', ru: 'Тайский массаж с маслом каннабиса', ka: 'თაილანდური მასაჟი კანაბისის ზეთით' },
     desc: {
-      he: 'עיסוי תאילנדי מתקדם בשילוב שמן קנאביס ייעודי. מסייע בהפחתת כאבים, דלקות ומתחים שריריים. מתאים במיוחד לכאבים כרוניים ועומס פיזי מתמשך. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'An advanced Thai massage with dedicated cannabis oil. Helps reduce pain, inflammation and muscle tension. Especially suitable for chronic pain and ongoing physical load. Full-body treatment including a gentle face massage.',
-      ru: 'Продвинутый тайский массаж со специальным маслом каннабиса. Помогает уменьшить боль, воспаление и мышечное напряжение. Особенно подходит при хронических болях и длительной физической нагрузке. Полный массаж тела с мягким массажем лица.',
-      ka: 'განვითარებული თაილანდური მასაჟი სპეციალური კანაბისის ზეთით. ეხმარება ტკივილის, ანთებისა და კუნთოვანი დაძაბულობის შემცირებას. განსაკუთრებით კარგია ქრონიკული ტკივილისა და ხანგრძლივი ფიზიკური დატვირთვისას. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+      he: 'עיסוי תאילנדי מתקדם בשמן קנאביס ייעודי. מסייע בהפחתת כאבים, דלקות ומתח שרירי. מתאים לכאבים כרוניים. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
+      en: 'Advanced Thai massage with dedicated cannabis oil for pain/tension relief. Full-body treatment including a face massage.',
+      ru: 'Продвинутый тайский массаж со специальным маслом каннабиса. Полный массаж тела с мягким массажем лица.',
+      ka: 'განვითარებული თაილანდური მასაჟი კანაბისის ზეთით. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
     price: { he: '60 דק׳ – 230₾', en: '60 min – 230₾', ru: '60 мин – 230₾', ka: '60 წთ – 230₾' }
   },
@@ -580,10 +449,10 @@ const TREATMENTS_META = {
     tag: { he: '🔥 עיסוי אבנים חמות', en: '🔥 Hot Stone Massage', ru: '🔥 Массаж горячими камнями', ka: '🔥 ცხელი ქვების მასაჟი' },
     name: { he: 'Hot Stone Massage | עיסוי אבנים חמות', en: 'Hot Stone Massage', ru: 'Массаж горячими камнями', ka: 'ცხელი ქვების მასაჟი' },
     desc: {
-      he: 'עיסוי גוף מלא באמצעות אבני בזלת חמות. החום חודר לרקמות, משחרר מתחים עמוקים ומשפר זרימת דם. מאפשר עבודה רכה אך יעילה על עייפות וכאבים. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'A full-body massage using warm basalt stones. Heat penetrates tissues, releases deep tension and improves circulation. Gentle yet effective for fatigue and aches. Full-body treatment including a gentle face massage.',
-      ru: 'Массаж всего тела тёплыми базальтовыми камнями. Тепло проникает в ткани, снимает глубокие зажимы и улучшает кровообращение. Мягко, но эффективно при усталости и болях. Полный массаж тела с мягким массажем лица.',
-      ka: 'მთლიანი სხეულის მასაჟი თბილი ბაზალტის ქვებით. სითბო აღწევს ქსოვილებში, ხსნის ღრმა დაძაბულობას და აუმჯობესებს სისხლის მიმოქცევას. ნაზი, მაგრამ ეფექტური დაღლილობისა და ტკივილებისას. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+      he: 'עיסוי גוף מלא באמצעות אבני בזלת חמימות. החום חודר לרקמות ומשחרר מתחים עמוקים. משפר זרימת דם ומרפה שרירים. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
+      en: 'Full-body massage using warm basalt stones. Full-body treatment including a face massage.',
+      ru: 'Массаж всего тела тёплыми базальтовыми камнями. Полный массаж тела с мягким массажем лица.',
+      ka: 'მთლიანი სხეულის მასაჟი თბილი ბაზალტის ქვებით. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
     price: { he: '60 דק׳ – 210₾', en: '60 min – 210₾', ru: '60 мин – 210₾', ka: '60 წთ – 210₾' }
   },
@@ -592,48 +461,60 @@ const TREATMENTS_META = {
     tag: { he: '🌼 עיסוי תאילנדי בקומפרסים צמחיים', en: '🌼 Thai Herbal Compress Massage', ru: '🌼 Травяные компрессы', ka: '🌼 მცენარეული კომპრესი' },
     name: { he: 'Thai Herbal Compress Massage | עיסוי תאילנדי בקומפרסים צמחיים', en: 'Thai Herbal Compress Massage', ru: 'Массаж травяными компрессами', ka: 'მცენარეული კომპრესის მასაჟი' },
     desc: {
-      he: 'עיסוי מסורתי עם שקיות צמחים תאילנדיים מחוממות. החום והעשבים מסייעים בהרגעת כאבים, הפחתת דלקת ושחרור עומסים. משולב עם עיסוי ידני להעצמת תחושת הריפוי. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'Traditional massage with heated Thai herbal compresses. Heat and herbs help soothe pain, reduce inflammation and release overload. Combined with manual massage to enhance the healing effect. Full-body treatment including a gentle face massage.',
-      ru: 'Традиционный массаж с подогретыми тайскими травяными мешочками. Тепло и травы помогают уменьшить боль, воспаление и снять перегрузку. В сочетании с ручным массажем усиливает эффект восстановления. Полный массаж тела с мягким массажем лица.',
-      ka: 'ტრადიციული მასაჟი გახურებული თაილანდური მცენარეული კომპრესებით. სითბო და მცენარეები ამშვიდებს ტკივილს, ამცირებს ანთებას და ხსნის დატვირთვას. ერთიანდება მანუალურ მასაჟთან, რათა გაძლიერდეს აღდგენის ეფექტი. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+      he: 'עיסוי מסורתי עם שקיות צמחים תאילנדיים מחוממות. החום והעשבים מסייעים בהרגעת כאבים והפחתת דלקת. משולב עם עיסוי ידני עמוק. חוויה טיפולית ייחודית. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
+      en: 'Traditional massage with heated Thai herbal compresses, combined with deep manual work. Full-body treatment including a face massage.',
+      ru: 'Традиционный массаж с подогретыми травяными мешочками и глубокой ручной техникой. Полный массаж тела с мягким массажем лица.',
+      ka: 'ტრადიციული მასაჟი გახურებული მცენარეული კომპრესებით. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
     price: { he: '60 דק׳ – 220₾', en: '60 min – 220₾', ru: '60 мин – 220₾', ka: '60 წთ – 220₾' }
   },
 
   'body-karsai': {
-    tag: { he: '🇹🇭 עיסוי תאילנדי קארסאי – פרימיום', en: '🇹🇭 Karsai Massage (Premium)', ru: '🇹🇭 Карсай массаж (Премиум)', ka: '🇹🇭 Karsai მასაჟი (Premium)' },
-    name: { he: 'Karsai Massage | עיסוי תאילנדי קארסאי – פרימיום', en: 'Karsai Massage', ru: 'Карсай массаж', ka: 'Karsai მასაჟი' },
+    tag: { he: '⚡ עיסוי תאילנדי קארסאי', en: '⚡ Karsai Massage', ru: '⚡ Карсай массаж', ka: '⚡ Karsai მასაჟი' },
+    name: { he: 'Karsai Massage | עיסוי תאילנדי קארסאי', en: 'Karsai Massage', ru: 'Карсай массаж', ka: 'Karsai მასაჟი' },
     desc: {
-      he: 'עיסוי תאילנדי מסורתי מתקדם מהרפואה העתיקה. מתמקד באזורים אנרגטיים עמוקים לאיזון וחיזוק הגוף. טיפול עוצמתי ונישתי המיועד למטופלים מנוסים בלבד. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
-      en: 'An advanced traditional Thai treatment from ancient medicine. Focuses on deep energetic areas for balance and strengthening. A powerful niche treatment intended for experienced clients only. Full-body treatment including a gentle face massage.',
-      ru: 'Продвинутая традиционная тайская процедура из древней медицины. Фокус на глубоких энергетических зонах для баланса и укрепления. Мощная нишевая процедура — только для опытных клиентов. Полный массаж тела с мягким массажем лица.',
-      ka: 'განვითარებული ტრადიციული თაილანდური პროცედურა უძველესი მედიცინიდან. ფოკუსირდება ღრმა ენერგეტიკულ ზონებზე ბალანსისა და გაძლიერებისთვის. ძლიერი, ნიშური პროცედურა მხოლოდ გამოცდილ კლიენტებისთვის. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+      he: 'עיסוי תאילנדי מסורתי מתקדם מהרפואה העתיקה. מתמקד באזורים אנרגטיים עמוקים. טיפול עוצמתי ונישתי. מיועד למטופלים מנוסים בלבד. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
+      en: 'Advanced Thai treatment focusing on deep energetic areas. Powerful niche treatment for experienced clients. Full-body treatment including a face massage.',
+      ru: 'Продвинутая тайская процедура с фокусом на глубоких энергетических зонах. Полный массаж тела с мягким массажем лица.',
+      ka: 'განვითარებული თაილანდური პროცედურა ღრმა ენერგეტიკულ ზონებზე. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
     },
     price: { he: '60 דק׳ – 260₾', en: '60 min – 260₾', ru: '60 мин – 260₾', ka: '60 წთ – 260₾' }
   },
 
   'foot-massage': {
-    tag: { he: '🦶 פוט מסאז’ – עיסוי כפות רגליים (מרגיע)', en: '🦶 Foot Massage (Relaxing)', ru: '🦶 Массаж стоп (расслабляющий)', ka: '🦶 ფეხის მასაჟი (დამამშვიდებელი)' },
-    name: { he: 'Foot Massage | פוט מסאז’ – עיסוי כפות רגליים (מרגיע)', en: 'Foot Massage', ru: 'Массаж стоп', ka: 'ფეხის მასაჟი' },
+    tag: { he: '🦶 טיפולי כפות רגליים', en: '🦶 Foot Massage', ru: '🦶 Массаж стоп', ka: '🦶 ფეხის მასაჟი' },
+    name: { he: 'Foot Massage | פוט מסאז’ – עיסוי כפות רגליים', en: 'Foot Massage', ru: 'Массаж стоп', ka: 'ფეხის მასაჟი' },
     desc: {
-      he: 'עיסוי כפות רגליים עדין ומרגיע לשחרור עייפות והרפיה כללית.',
-      en: 'A gentle, relaxing foot massage to release fatigue and bring overall relaxation.',
-      ru: 'Нежный расслабляющий массаж стоп для снятия усталости и общего расслабления.',
-      ka: 'ნაზი, დამამშვიდებელი ფეხის მასაჟი დაღლილობის მოსახსნელად და საერთო რელაქსაციისთვის.'
+      he: 'עיסוי כפות רגליים מרגיע לשחרור עייפות. משפר זרימת דם ומעניק תחושת קלילות.',
+      en: 'Relaxing foot massage to release fatigue. Improves circulation and leaves you feeling light.',
+      ru: 'Расслабляющий массаж стоп для снятия усталости. Улучшает кровообращение и даёт ощущение лёгкости.',
+      ka: 'დამამშვიდებელი ფეხის მასაჟი დაღლილობის მოსახსნელად. აუმჯობესებს სისხლის მიმოქცევას და ქმნის სიმსუბუქის შეგრძნებას.'
     },
     price: { he: '30 דק׳ – 80₾ · 60 דק׳ – 120₾', en: '30 min – 80₾ · 60 min – 120₾', ru: '30 мин – 80₾ · 60 мин – 120₾', ka: '30 წთ – 80₾ · 60 წთ – 120₾' }
   },
 
   'foot-reflexology': {
-    tag: { he: '🦶 עיסוי תאילנדי כפות רגליים רפלקסולוגי – טיפולי', en: '🦶 Thai Reflexology Foot Massage (Therapeutic)', ru: '🦶 Тайская рефлексология стоп (лечебная)', ka: '🦶 თაილანდური რეფლექსოლოგია ფეხზე (თერაპიული)' },
-    name: { he: 'Thai Reflexology Foot Massage | עיסוי תאילנדי כפות רגליים רפלקסולוגי – טיפולי', en: 'Thai Reflexology Foot Massage', ru: 'Тайский массаж стоп (рефлексология)', ka: 'ტაილანდური ფეხის რეფლექსოლოგიური მასაჟი' },
+    tag: { he: '🦶 עיסוי תאילנדי כפות רגליים רפלקסולוגי', en: '🦶 Thai Reflexology Foot Massage', ru: '🦶 Тайская рефлексология стоп', ka: '🦶 თაილანდური ფეხის რეფლექსოლოგია' },
+    name: { he: 'Thai Reflexology Foot Massage | עיסוי תאילנדי כפות רגליים רפלקסולוגי', en: 'Thai Reflexology Foot Massage', ru: 'Тайская рефлексология стоп', ka: 'თაილანდური ფეხის რეფლექსოლოგიური მასაჟი' },
     desc: {
-      he: 'עיסוי תאילנדי ממוקד לכפות הרגליים המבוסס על רפלקסולוגיה. מתבצע עם משחה תאילנדית חריפה ולחיצות עמוקות על נקודות השתקפות. מסייע בהמרצת זרימת הדם, שחרור עומסים והשפעה מערכתית.',
-      en: 'A focused Thai foot treatment based on reflexology. Performed with a Thai warming balm and deep pressure on reflex points. Helps stimulate circulation, release load and support whole-body balance.',
-      ru: 'Прицельная тайская процедура для стоп на основе рефлексологии. Выполняется с тайским разогревающим бальзамом и глубокими надавливаниями на рефлекторные точки. Помогает улучшить кровообращение, снять нагрузку и поддержать системный баланс.',
-      ka: 'ფოკუსირებული თაილანდური ფეხის პროცედურა რეფლექსოლოგიის საფუძველზე. სრულდება თაილანდური გამათბობელი ბალზამით და ღრმა წერტილოვანი წნევით. ეხმარება სისხლის მიმოქცევის სტიმულაციას, დატვირთვის მოხსნას და სხეულის ბალანსს.'
+      he: 'עיסוי תאילנדי ממוקד לכפות הרגליים המבוסס על רפלקסולוגיה. מתבצע עם משחה תאילנדית חריפה ולחיצות עמוקות על נקודות השתקפות. מסייע בהמרצת זרימת הדם ובהשפעה מערכתית.',
+      en: 'Focused Thai foot treatment based on reflexology with warming balm and deep pressure on reflex points.',
+      ru: 'Фокусная тайская рефлексология стоп с разогревающим бальзамом и глубокими надавливаниями.',
+      ka: 'ფოკუსირებული თაილანდური ფეხის რეფლექსოლოგია გამათბობელი ბალზამით და ღრმა წერტილოვანი წნევით.'
     },
     price: { he: '60 דק׳ – 140₾', en: '60 min – 140₾', ru: '60 мин – 140₾', ka: '60 წთ – 140₾' }
+  },
+
+  'body-swedish': {
+    tag: { he: '🇸🇪 עיסוי שוודי', en: '🇸🇪 Swedish Massage', ru: '🇸🇪 Шведский массаж', ka: '🇸🇪 შვედური მასაჟი' },
+    name: { he: 'Swedish Massage | עיסוי שוודי', en: 'Swedish Massage', ru: 'Шведский массаж', ka: 'შვედური მასაჟი' },
+    desc: {
+      he: 'עיסוי גוף מלא קלאסי בתנועות ארוכות, לישה עדינה והנעות זורמות לשחרור מתחים והרגעה עמוקה. משפר זרימת דם, מסייע בהפחתת עומס שרירי ומחזיר תחושת קלילות ורעננות. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.',
+      en: 'A classic full-body massage with long flowing strokes and gentle kneading for deep relaxation. Improves circulation and restores a light, refreshed feeling. Full-body treatment including a gentle face massage.',
+      ru: 'Классический массаж всего тела: длинные плавные движения и мягкое разминание. Улучшает кровообращение и возвращает ощущение лёгкости. Полный массаж тела с мягким массажем лица.',
+      ka: 'კლასიკური მთლიანი სხეულის მასაჟი გრძელი მოლივლივე მოძრაობებით. აუმჯობესებს სისხლის მიმოქცევას და აბრუნებს სიმსუბუქის შეგრძნებას. მთლიანი სხეულის პროცედურა, სახის ნაზი მასაჟის ჩათვლით.'
+    },
+    price: { he: '60 דק׳ – 160₾', en: '60 min – 160₾', ru: '60 мин – 160₾', ka: '60 წთ – 160₾' }
   }
 };
 
@@ -702,7 +583,7 @@ function setupLangButtons() {
   });
 }
 
-// ===== כפתורי טיפולים → ווטסאפ =====
+// ===== כפתורי טיפולים → ווטסאפ (שם טיפול + משך) =====
 function setupTreatmentButtons() {
   const buttons = document.querySelectorAll('[data-book-btn]');
   if (!buttons.length) return;
@@ -710,6 +591,7 @@ function setupTreatmentButtons() {
   buttons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+
       const lang = getLang();
       const key = btn.getAttribute('data-treatment-key');
       const group = btn.getAttribute('data-radio-group');
@@ -731,67 +613,232 @@ function setupTreatmentButtons() {
         .replace('{DURATION}', duration || '');
 
       const url = `${WHATSAPP_BASE}?text=${encodeURIComponent(text)}`;
-      window.open(url, '_blank');
+      window.open(url, '_blank', 'noopener,noreferrer');
     });
   });
 }
 
-function setupVideoSlider() {
+// ===== Signature slider translations (בלי לשנות HTML) =====
+function applySignatureTexts(lang) {
+  const slider = document.getElementById('signatureSlider');
+  if (!slider) return;
+
+  // כותרות H3 לפי סדר השקופיות
+  const titlesByLang = {
+    he: [
+      'ספא ראש יפני',
+      'עיסוי תאילנדי רפלקסולוגי לכפות הרגליים',
+      'עיסוי ספורט',
+      'עיסוי תאילנדי קארסאי – פרימיום',
+      'עיסוי תאילנדי עם קרם ויטמין E'
+    ],
+    en: [
+      'Japanese Head Spa',
+      'Thai Reflexology Foot Massage',
+      'Sports Massage',
+      'Karsai Massage (Premium)',
+      'Thai Vitamin E Cream Massage'
+    ],
+    ru: [
+      'Японский Head Spa',
+      'Тайская рефлексология стоп',
+      'Спортивный массаж',
+      'Карсай массаж (Премиум)',
+      'Тайский массаж с кремом Vitamin E'
+    ],
+    ka: [
+      'იაპონური Head Spa',
+      'თაილანდური ფეხის რეფლექსოლოგია',
+      'სპორტული მასაჟი',
+      'Karsai მასაჟი (Premium)',
+      'თაილანდური მასაჟი ვიტამინ E-ის კრემით'
+    ]
+  };
+
+  const list = titlesByLang[lang] || titlesByLang.he;
+  const h3s = slider.querySelectorAll('.signature-slide h3');
+  h3s.forEach((h3, i) => {
+    if (list[i]) h3.textContent = list[i];
+  });
+}
+
+// ===== Video Slider (Responsive + dots + swipe + RTL safe) =====
+function setupSimpleVideoSlider() {
   const viewport = document.getElementById('videoSlider');
   if (!viewport) return;
 
   const track = viewport.querySelector('.video-slider__track');
-  const slides = [...viewport.querySelectorAll('.video-slide')];
+  const slides = Array.from(viewport.querySelectorAll('.video-slide'));
   const prev = viewport.querySelector('.video-slider__nav--prev');
   const next = viewport.querySelector('.video-slider__nav--next');
+  const dotsWrap = viewport.querySelector('.video-slider__dots');
+  const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.video-slider__dot')) : [];
+
+  if (!track || !slides.length) return;
 
   let index = 0;
+  let startX = 0;
+  let startY = 0;
+  let isPointerDown = false;
 
-  function update() {
-    const w = viewport.clientWidth;
-    track.style.transform = `translateX(${-index * w}px)`;
+  // קובע סימן תנועה לפי RTL/LTR כדי ש"Next" תמיד יתקדם טבעי
+  function dirSign() {
+    return (document.documentElement.dir === 'rtl') ? 1 : -1;
+  }
 
+  function setActiveDot(i) {
+    dots.forEach((d, di) => d.classList.toggle('is-active', di === i));
+  }
+
+  function setActiveSlide(i) {
+    slides.forEach((s, si) => s.classList.toggle('is-active', si === i));
+  }
+
+  function playOnlyActive() {
     slides.forEach((slide, i) => {
       const video = slide.querySelector('video');
       if (!video) return;
-
       if (i === index) {
         video.play().catch(() => {});
       } else {
         video.pause();
-        video.currentTime = 0;
+        try { video.currentTime = 0; } catch (_) {}
       }
     });
   }
 
+  function updateTransform() {
+    // אנחנו מזיזים לפי רוחב ה-viewport, עם תמיכה RTL/LTR
+    const w = viewport.clientWidth;
+    track.style.transform = `translateX(${dirSign() * index * w}px)`;
+
+    setActiveDot(index);
+    setActiveSlide(index);
+    playOnlyActive();
+  }
+
   function resize() {
     const w = viewport.clientWidth;
-    slides.forEach(s => s.style.width = `${w}px`);
+
+    // רוחב לכל slide + track
+    slides.forEach((s) => (s.style.width = `${w}px`));
     track.style.width = `${w * slides.length}px`;
+
+    // חשוב: מנרמל ל-index הנוכחי אחרי שינוי גודל
+    updateTransform();
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    updateTransform();
+  }
+
+  function goNext() { goTo(index + 1); }
+  function goPrev() { goTo(index - 1); }
+
+  if (prev) prev.addEventListener('click', goPrev);
+  if (next) next.addEventListener('click', goNext);
+
+  // dots click
+  dots.forEach((d, i) => {
+    d.addEventListener('click', () => goTo(i));
+  });
+
+  // swipe (pointer)
+  viewport.addEventListener('pointerdown', (e) => {
+    isPointerDown = true;
+    startX = e.clientX;
+    startY = e.clientY;
+  });
+
+  viewport.addEventListener('pointerup', (e) => {
+    if (!isPointerDown) return;
+    isPointerDown = false;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    // אם המשתמש גלל אנכי - לא נוגעים
+    if (Math.abs(dy) > Math.abs(dx)) return;
+
+    // סף החלקה
+    const threshold = Math.max(40, viewport.clientWidth * 0.12);
+
+    if (dx > threshold) {
+      // החלקה ימינה: ב-LTR זה Prev, ב-RTL זה Next
+      if (document.documentElement.dir === 'rtl') goNext();
+      else goPrev();
+    } else if (dx < -threshold) {
+      // החלקה שמאלה: ב-LTR זה Next, ב-RTL זה Prev
+      if (document.documentElement.dir === 'rtl') goPrev();
+      else goNext();
+    }
+  });
+
+  // אם יצא מהאלמנט תוך כדי
+  viewport.addEventListener('pointercancel', () => { isPointerDown = false; });
+
+  // resize handler (עם debounce קל)
+  let rAF = null;
+  window.addEventListener('resize', () => {
+    if (rAF) cancelAnimationFrame(rAF);
+    rAF = requestAnimationFrame(resize);
+  });
+
+  // init
+  resize();
+}
+
+// ===== Signature slider (כבר היה אצלך, נשאר; רק מעט חיזוק לרספונסיביות/RTL) =====
+function setupSignatureSlider() {
+  const slider = document.getElementById('signatureSlider');
+  if (!slider) return;
+
+  const track = slider.querySelector('.signature-track');
+  const slides = slider.querySelectorAll('.signature-slide');
+  const prev = slider.querySelector('.prev');
+  const next = slider.querySelector('.next');
+
+  if (!track || !slides.length) return;
+
+  let index = 0;
+
+  function dirSign() {
+    return (document.documentElement.dir === 'rtl') ? 1 : -1;
+  }
+
+  function update() {
+    // כל שקופית 100% רוחב — הכיוון משתנה לפי RTL/LTR
+    track.style.transform = `translateX(${dirSign() * index * 100}%)`;
+  }
+
+  function goPrev() {
+    index = (index - 1 + slides.length) % slides.length;
     update();
   }
 
-  prev.onclick = () => {
-    index = (index - 1 + slides.length) % slides.length;
-    update();
-  };
-
-  next.onclick = () => {
+  function goNext() {
     index = (index + 1) % slides.length;
     update();
-  };
+  }
 
-  window.addEventListener('resize', resize);
-  resize();
+  if (prev) prev.onclick = goPrev;
+  if (next) next.onclick = goNext;
+
+  update();
 }
 
 // ===== אתחול =====
 document.addEventListener('DOMContentLoaded', () => {
   const lang = getLang();
   applyLang(lang);
+
   setupLangButtons();
   setupTreatmentButtons();
 
-  // ✅ סליידר וידאו — מפעילים רק כאן (פעם אחת)
+  // ✅ סליידר וידאו — רספונסיבי + dots + swipe
   setupSimpleVideoSlider();
+
+  // ✅ סליידר signature
+  setupSignatureSlider();
 });

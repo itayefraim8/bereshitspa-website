@@ -394,9 +394,11 @@ body.landing-page {
     height: 40px;
   }
 }
-/* ===== FIX: Video Slider height + alignment (put at END of file) ===== */
 
+/* ===== FIX: Video Slider height + alignment (put at END of file) ===== */
+/* 🔥 עדכון: מוסיפים גם .video-slider כדי שה-CSS יעבוד גם אם העטיפה היא video-slider (ולא רק viewport) */
 /* שמירה על יחס 16:9 בצורה יציבה בכל דפדפן */
+.video-slider,
 .video-slider__viewport {
   position: relative;
   width: 100%;
@@ -406,6 +408,7 @@ body.landing-page {
 }
 
 /* Fallback ל-aspect-ratio (וגם מייצב גובה) */
+.video-slider::before,
 .video-slider__viewport::before {
   content: "";
   display: block;
@@ -455,10 +458,12 @@ body.landing-page {
 
 /* מובייל: קצת פחות רדיוס אם בא לך */
 @media (max-width: 640px) {
+  .video-slider,
   .video-slider__viewport {
     border-radius: 14px;
   }
 }
+
 /* =========================================================
    FIX TITLES – max 3 lines, NO ellipsis
    ========================================================= */
@@ -485,7 +490,9 @@ body.landing-page {
 
   /* RTL + EN יחד (Thai Coconut Oil Massage | עיסוי...) */
   unicode-bidi: plaintext;
-  direction: rtl;
+
+  /* 🔥 עדכון: לא לנעול RTL — לתת ל-dir של הדף לשלוט (he=rtl, en/ru/ka=ltr) */
+  direction: inherit;
 
   margin: 6px 0 0;
   font-weight: 800;
@@ -496,3 +503,56 @@ body.landing-page {
 .product-card *{
   min-width: 0;
 }
+
+/* ===== Signature Treatments Slider ===== */
+.signature-section {
+  margin: 48px 0;
+  text-align: center;
+}
+
+.signature-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.signature-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.signature-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.signature-slide {
+  min-width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.signature-slide h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.signature-slide p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.signature-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: none;
+  font-size: 22px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.signature-nav.prev { left: 10px; }
+.signature-nav.next { right: 10px; }
