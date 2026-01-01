@@ -469,9 +469,11 @@ body.landing-page {
   line-height: 1.3;
   max-height: calc(1.3em * 3);
 
-  /* RTL + EN יחד (Thai Coconut Oil Massage | עיסוי...) */
+  /* RTL + EN יחד */
   unicode-bidi: plaintext;
-  direction: rtl;
+
+  /* ✅ FIX חשוב: לא להכריח RTL, לקבל כיוון מה-document.dir (JS) */
+  direction: inherit;
 
   margin: 6px 0 0;
   font-weight: 800;
