@@ -5,1068 +5,244 @@
   <title data-i18n-title="landing.page.title">Bereshit Spa – דף נחיתה טיפולים</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- פונט -->
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- CSS ייעודי לדפי הנחיתה -->
+  <!-- Landing CSS -->
   <link rel="stylesheet" href="landing.css" />
 
-  <!-- אייקון לשונית -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
+
 <body class="landing-page">
 
-  <!-- Hero -->
-  <main class="container" style="max-width:960px;margin:24px auto 40px;padding:0 12px;">
-    <section class="hero" id="top" style="margin-bottom:32px;">
-      <img src="images/logo.png" alt="BERESHIT SPA" style="max-width:260px;width:100%;margin:0 auto 16px;display:block;" />
+<main class="container">
 
-      <p class="promo-eyebrow" data-i18n="landing.hero.eyebrow">
-        ספא ראש יפני ועיסוי תאילנדי – בטומי
-      </p>
-      <h1 class="promo-title xl" data-i18n="landing.hero.title">
-        ספא ראש יפני ועיסויי גוף תאילנדיים ברמת בוטיק
-      </h1>
-      <p class="promo-text lg" data-i18n="landing.hero.subtitle">
-        בחר/י טיפול, קבע/י שעה נוחה ותאם/י את ההזמנה בקלות בווטסאפ או בטלפון – הכול בדף אחד.
-      </p>
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <img src="images/logo.png" alt="BERESHIT SPA" />
 
-      <!-- כפתור גלילה לטיפולים -->
-      <div style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-        <button class="button"
-                onclick="document.getElementById('treatments').scrollIntoView({behavior:'smooth'})"
-                data-i18n="landing.hero.cta">
-          לבחור טיפול ולהזמין עכשיו
-        </button>
-      </div>
-
-      <!-- מתגי שפה (דגלים) -->
-      <div style="margin-top:20px;display:flex;justify-content:center;">
-        <div class="lang-switch">
-          <button class="lang-btn" type="button" data-lang="he"><img src="assets/icons/flag-il.svg" alt="HE" /></button>
-          <button class="lang-btn" type="button" data-lang="en"><img src="assets/icons/flag-uk.svg" alt="EN" /></button>
-          <button class="lang-btn" type="button" data-lang="ru"><img src="assets/icons/flag-ru.svg" alt="RU" /></button>
-          <button class="lang-btn" type="button" data-lang="ka"><img src="assets/icons/flag-ge.svg" alt="KA" /></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- רשימת טיפולים -->
-    <section id="treatments">
-      <h2 style="text-align:center;margin-bottom:18px;" data-i18n="landing.treatments.title">
-        בחר/י טיפול מפנק
-      </h2>
-      <p class="muted" style="text-align:center;margin-bottom:24px;" data-i18n="landing.treatments.subtitle">
-        כל הטיפולים מתבצעים על-ידי צוות תאילנדי מקצועי, באווירה שקטה ומוסיקה מרגיעה.
-      </p>
-
-<!-- ===== Simple Video Slider (3 videos, muted) ===== -->
-<section class="video-slider" aria-label="Video highlights">
-  <div class="video-slider__viewport" id="videoSlider">
-    <div class="video-slider__track">
-
-      <div class="video-slide is-active">
-        <video class="video-slide__video" autoplay loop muted playsinline preload="metadata">
-          <source src="assets/videos/slide-1.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      <div class="video-slide">
-        <video class="video-slide__video" autoplay loop muted playsinline preload="metadata">
-          <source src="assets/videos/slide-2.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      <div class="video-slide">
-        <video class="video-slide__video" autoplay loop muted playsinline preload="metadata">
-          <source src="assets/videos/slide-3.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-    </div>
-
-    <button class="video-slider__nav video-slider__nav--prev" type="button" aria-label="Previous">‹</button>
-    <button class="video-slider__nav video-slider__nav--next" type="button" aria-label="Next">›</button>
-
-    <div class="video-slider__dots" aria-label="Slider dots">
-      <button class="video-slider__dot is-active" type="button"></button>
-      <button class="video-slider__dot" type="button"></button>
-      <button class="video-slider__dot" type="button"></button>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Signature Treatments Slider (NEW) ===== -->
-<section class="signature-section" id="signature">
-  <h2 class="signature-title" data-i18n="landing.signature.title">👑 טיפולי הדגל שלנו</h2>
-  <p class="signature-subtitle muted" data-i18n="landing.signature.subtitle">
-    בחר/י טיפול דגל, קרא/י פרטים והזמן/י בקלות בווטסאפ.
-  </p>
-
-  <div class="signature-slider" id="signatureSlider">
-    <button class="signature-nav prev" type="button" aria-label="Previous">‹</button>
-
-    <div class="signature-viewport">
-      <div class="signature-track">
-        <!-- Slide: Head Spa -->
-        <div class="signature-slide" data-treatment-key="head-spa" data-signature="1">
-          <div class="signature-card">
-            <div class="signature-card__head">
-              <span class="signature-badge" data-i18n-tag="head-spa">👑</span>
-              <h3 class="signature-name"></h3>
-            </div>
-
-            <p class="signature-desc"></p>
-
-            <div class="signature-meta">
-              <div class="signature-price"></div>
-              <div class="signature-duration" data-min="60"></div>
-            </div>
-
-            <a class="button signature-book"
-               href="#"
-               data-book-btn
-               data-treatment-key="head-spa"
-               data-radio-group="">
-              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Slide: Vitamin E -->
-        <div class="signature-slide" data-treatment-key="body-vitamin-e" data-signature="1">
-          <div class="signature-card">
-            <div class="signature-card__head">
-              <span class="signature-badge">✨</span>
-              <h3 class="signature-name"></h3>
-            </div>
-
-            <p class="signature-desc"></p>
-
-            <div class="signature-meta">
-              <div class="signature-price"></div>
-              <div class="signature-duration" data-min="60"></div>
-            </div>
-
-            <a class="button signature-book"
-               href="#"
-               data-book-btn
-               data-treatment-key="body-vitamin-e"
-               data-radio-group="">
-              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Slide: Therapeutic -->
-        <div class="signature-slide" data-treatment-key="body-thai-ther" data-signature="1">
-          <div class="signature-card">
-            <div class="signature-card__head">
-              <span class="signature-badge">🇹🇭</span>
-              <h3 class="signature-name"></h3>
-            </div>
-
-            <p class="signature-desc"></p>
-
-            <div class="signature-meta">
-              <div class="signature-price"></div>
-              <div class="signature-duration" data-min="60"></div>
-            </div>
-
-            <a class="button signature-book"
-               href="#"
-               data-book-btn
-               data-treatment-key="body-thai-ther"
-               data-radio-group="">
-              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Slide: Sports -->
-        <div class="signature-slide" data-treatment-key="body-sports" data-signature="1">
-          <div class="signature-card">
-            <div class="signature-card__head">
-              <span class="signature-badge">🏃</span>
-              <h3 class="signature-name"></h3>
-            </div>
-
-            <p class="signature-desc"></p>
-
-            <div class="signature-meta">
-              <div class="signature-price"></div>
-              <div class="signature-duration" data-min="60"></div>
-            </div>
-
-            <a class="button signature-book"
-               href="#"
-               data-book-btn
-               data-treatment-key="body-sports"
-               data-radio-group="">
-              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Slide: Karsai -->
-        <div class="signature-slide" data-treatment-key="body-karsai" data-signature="1">
-          <div class="signature-card">
-            <div class="signature-card__head">
-              <span class="signature-badge">⭐</span>
-              <h3 class="signature-name"></h3>
-            </div>
-
-            <p class="signature-desc"></p>
-
-            <div class="signature-meta">
-              <div class="signature-price"></div>
-              <div class="signature-duration" data-min="60"></div>
-            </div>
-
-            <a class="button signature-book"
-               href="#"
-               data-book-btn
-               data-treatment-key="body-karsai"
-               data-radio-group="">
-              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Slide: Herbal Compress -->
-        <div class="signature-slide" data-treatment-key="body-thai-comp" data-signature="1">
-          <div class="signature-card">
-            <div class="signature-card__head">
-              <span class="signature-badge">🌼</span>
-              <h3 class="signature-name"></h3>
-            </div>
-
-            <p class="signature-desc"></p>
-
-            <div class="signature-meta">
-              <div class="signature-price"></div>
-              <div class="signature-duration" data-min="60"></div>
-            </div>
-
-            <a class="button signature-book"
-               href="#"
-               data-book-btn
-               data-treatment-key="body-thai-comp"
-               data-radio-group="">
-              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Slide: Reflexology Foot -->
-        <div class="signature-slide" data-treatment-key="foot-reflexology" data-signature="1">
-          <div class="signature-card">
-            <div class="signature-card__head">
-              <span class="signature-badge">🦶</span>
-              <h3 class="signature-name"></h3>
-            </div>
-
-            <p class="signature-desc"></p>
-
-            <div class="signature-meta">
-              <div class="signature-price"></div>
-              <div class="signature-duration" data-min="60"></div>
-            </div>
-
-            <a class="button signature-book"
-               href="#"
-               data-book-btn
-               data-treatment-key="foot-reflexology"
-               data-radio-group="">
-              <span data-i18n="landing.treatment.book">להזמנת הטיפול</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <button class="signature-nav next" type="button" aria-label="Next">›</button>
-
-    <div class="signature-dots" aria-label="Slider dots"></div>
-  </div>
-</section>
-
-<!-- ===== All Treatments (NEW) ===== -->
-<section class="all-treatments" id="allTreatments">
-  <h2 class="all-treatments__title" data-i18n="landing.all.title">כל הטיפולים לפי קטגוריות</h2>
-  <p class="muted all-treatments__subtitle" data-i18n="landing.all.subtitle">
-    בחר/י קטגוריה, קרא/י פרטים והזמן/י בקלות.
-  </p>
-
-  <div class="category-block" id="cat-face">
-    <h3 class="category-title" data-i18n="landing.section.face.title">✨ עיסויי פנים</h3>
-    <div class="home-grid" data-category="face"></div>
-  </div>
-
-  <div class="category-block" id="cat-back">
-    <h3 class="category-title" data-i18n="landing.section.back.title">💆‍♂️ עיסוי גב – כתפיים – צוואר</h3>
-    <div class="home-grid" data-category="back"></div>
-  </div>
-
-  <div class="category-block" id="cat-body">
-    <h3 class="category-title" data-i18n="landing.section.body.title">🧘‍♂️ עיסוי גוף מלא</h3>
-    <p class="muted" data-i18n="landing.section.body.subtitle">
-      הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.
+    <p class="promo-eyebrow" data-i18n="landing.hero.eyebrow">
+      ספא ראש יפני ועיסוי תאילנדי – בטומי
     </p>
-    <div class="home-grid" data-category="body"></div>
-  </div>
 
-  <div class="category-block" id="cat-foot">
-    <h3 class="category-title" data-i18n="landing.section.foot.title">🦶 טיפולי כפות רגליים</h3>
-    <div class="home-grid" data-category="foot"></div>
-  </div>
-</section>
+    <h1 class="promo-title xl" data-i18n="landing.hero.title">
+      ספא ראש יפני ועיסויי גוף תאילנדיים ברמת בוטיק
+    </h1>
 
+    <p class="promo-text lg" data-i18n="landing.hero.subtitle">
+      בחר/י טיפול, קבע/י שעה ותאם/י בקלות בווטסאפ
+    </p>
 
-      <div class="home-grid">
+    <div style="margin-top:18px">
+      <button class="button"
+        onclick="document.getElementById('signature').scrollIntoView({behavior:'smooth'})"
+        data-i18n="landing.hero.cta">
+        לבחירת טיפולי הדגל
+      </button>
+    </div>
 
-        <!-- 🌸 Japanese Head Spa -->
-        <article class="product-card">
-          <div class="tag">🌸 ספא ראש יפני</div>
-          <h3 class="product-title">
-            <span>Japanese Head Spa</span><span> | </span><span>ספא ראש יפני</span>
-          </h3>
-          <p>
-            טיפול יפני מסורתי המשלב ניקוי יסודי של הקרקפת, עיסוי ממוקד, מסכות טיפוליות ופינוקי מים חמימים.
-            הטכניקה ממריצה את זרימת הדם לקרקפת, מחזקת את שורשי השיער ומרגיעה עומסים נפשיים.
-            כולל שטיפה עמוקה, מגבת חמה, סרום ייעודי לקרקפת וייבוש שיער מלא.
-            הטיפול מסתיים במנוחה קצרה עם תה וניחוח ארומטי עדין.
-          </p>
-          <p class="price">60 דק׳ – 200₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-head" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="head-spa"
-                  data-radio-group="dur-head"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
+    <!-- Language Switch -->
+    <div style="margin-top:20px;display:flex;justify-content:center">
+      <div class="lang-switch">
+        <button class="lang-btn" data-lang="he"><img src="assets/icons/flag-il.svg" /></button>
+        <button class="lang-btn" data-lang="en"><img src="assets/icons/flag-uk.svg" /></button>
+        <button class="lang-btn" data-lang="ru"><img src="assets/icons/flag-ru.svg" /></button>
+        <button class="lang-btn" data-lang="ka"><img src="assets/icons/flag-ge.svg" /></button>
+      </div>
+    </div>
+  </section>
 
-        <!-- 🌿 Thai Herbal Facial Therapy -->
-        <article class="product-card">
-          <div class="tag">🌿 עיסוי פנים תאילנדי בצמחי מרפא ושמנים</div>
-          <h3 class="product-title">
-            <span>Thai Herbal Facial Therapy</span><span> | </span><span>עיסוי פנים תאילנדי בצמחי מרפא ושמנים</span>
-          </h3>
-          <p>
-            עיסוי פנים תאילנדי מסורתי ועדין המבוסס על טכניקות עתיקות.
-            משלב שמנים צמחיים טבעיים, מגע רך ולחיצות מדויקות להרפיית שרירי הפנים.
-            מסייע בשיפור זרימת הדם, ניקוז טבעי והפחתת מתחים בפנים ובלסת.
-            כולל עיסוי פנים, קרקפת ועבודה על פלג גוף עליון.
-          </p>
-          <p class="price">60 דק׳ – 150₾</p>
-          <div class="duration-options" style="display:none;">
-            <label>
-              <input type="radio" name="dur-facial-herbal" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="facial-thai-compress"
-                  data-radio-group="dur-facial-herbal"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
+  <!-- ================= VIDEO SLIDER ================= -->
+  <section class="video-slider" aria-label="Video highlights">
+    <div class="video-slider__viewport" id="videoSlider">
+      <div class="video-slider__track">
 
-        <!-- 🔥 Hot Stone Facial -->
-        <article class="product-card">
-          <div class="tag">🔥 עיסוי פנים באבנים חמות</div>
-          <h3 class="product-title">
-            <span>Hot Stone Facial</span><span> | </span><span>עיסוי פנים באבנים חמות</span>
-          </h3>
-          <p>
-            עיסוי פנים ייחודי באמצעות אבני בזלת חמימות.
-            החום חודר לשכבות השריר, משחרר מתחים ומרפה אזורי עומס בפנים ובצוואר.
-            משפר זרימת דם ומעניק תחושת רוגע עמוקה.
-            כולל עיסוי פנים, קרקפת, צוואר וכתפיים.
-          </p>
-          <p class="price">60 דק׳ – 160₾</p>
-          <div class="duration-options" style="display:none;">
-            <label>
-              <input type="radio" name="dur-facial-hot-stone" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="facial-hot-stone"
-                  data-radio-group="dur-facial-hot-stone"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
+        <div class="video-slide is-active">
+          <video class="video-slide__video" autoplay loop muted playsinline>
+            <source src="assets/videos/slide-1.mp4" type="video/mp4" />
+          </video>
+        </div>
 
-        <!-- 🌺 Traditional Thai Face Massage -->
-        <article class="product-card">
-          <div class="tag">🌺 עיסוי פנים תאילנדי מסורתי</div>
-          <h3 class="product-title">
-            <span>Traditional Thai Face Massage</span><span> | </span><span>עיסוי פנים תאילנדי מסורתי</span>
-          </h3>
-          <p>
-            עיסוי פנים המבוסס על טכניקות תאילנדיות עתיקות ולחיצות אנרגטיות עדינות.
-            מתמקד בפנים, בלסת ובצוואר לשחרור מתחים מצטברים.
-            בגרסת 60 דקות משולב גם עיסוי כתפיים ופלג גוף עליון.
-            מעודד רגיעה עמוקה ואיזון עצבי.
-          </p>
-          <p class="price">30 דק׳ – 90₾ · 60 דק׳ – 150₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-face-thai" value="30" checked />
-              <span data-min="30">30 דק׳</span>
-            </label>
-            <label>
-              <input type="radio" name="dur-face-thai" value="60" />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="facial-thai"
-                  data-radio-group="dur-face-thai"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
+        <div class="video-slide">
+          <video class="video-slide__video" autoplay loop muted playsinline>
+            <source src="assets/videos/slide-2.mp4" type="video/mp4" />
+          </video>
+        </div>
 
-        <!-- 🌼 Aromatherapy Facial Massage -->
-        <article class="product-card">
-          <div class="tag">🌼 עיסוי פנים ארומתרפי</div>
-          <h3 class="product-title">
-            <span>Aromatherapy Facial Massage</span><span> | </span><span>עיסוי פנים ארומתרפי</span>
-          </h3>
-          <p>
-            עיסוי פנים עדין עם שמנים אתריים טהורים.
-            הריחות והתנועות הרכות מרגיעים את מערכת העצבים ומשפרים את זרימת הדם בעור.
-            מעניק לעור תחושת רכות וזוהר טבעי.
-            בגרסת 60 דקות כולל עיסוי כתפיים וקרקפת.
-          </p>
-          <p class="price">30 דק׳ – 80₾ · 60 דק׳ – 140₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-face-aroma" value="30" checked />
-              <span data-min="30">30 דק׳</span>
-            </label>
-            <label>
-              <input type="radio" name="dur-face-aroma" value="60" />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="facial-aroma"
-                  data-radio-group="dur-face-aroma"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-<!-- 🇸🇪 Swedish Massage -->
-<article class="product-card">
-  <div class="tag">🇸🇪 עיסוי שוודי</div>
-  <h3 class="product-title">Swedish Massage | עיסוי שוודי</h3>
-  <p>
-    עיסוי גוף מלא קלאסי בתנועות ארוכות, לישה עדינה והנעות זורמות לשחרור מתחים והרגעה עמוקה.
-    משפר זרימת דם, מסייע בהפחתת עומס שרירי ומחזיר תחושת קלילות ורעננות.
-    הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי עדין באזור הפנים.
-  </p>
-  <p class="price">60 דק׳ – 160₾</p>
-
-  <div class="duration-options">
-    <label>
-      <input type="radio" name="dur-swedish" value="60" checked />
-      <span data-min="60">60 דק׳</span>
-    </label>
-  </div>
-
-  <button class="button"
-          data-book-btn
-          data-treatment-key="body-swedish"
-          data-radio-group="dur-swedish"
-          data-i18n="landing.treatment.book">
-    להזמנת הטיפול
-  </button>
-</article>
-
-        <!-- 💪 Deep Thai Oil Back–Neck–Shoulders -->
-        <article class="product-card">
-          <div class="tag">💪 עיסוי תאילנדי עמוק בשמן</div>
-          <h3 class="product-title">
-            <span>Deep Thai Oil Back–Neck–Shoulders Massage</span><span> | </span><span>עיסוי תאילנדי עמוק בשמן</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי טיפולי בשמן המתמקד באזורי עומס מרכזיים.
-            משלב לחיצות עמוקות, עבודה מדויקת עם אמות ומרפקים.
-            מסייע בהפחתת כאבי צוואר, כתפיים וגב עליון.
-            מתאים לעומס יומיומי וישיבה ממושכת.
-          </p>
-          <p class="price">60 דק׳ – 150₾</p>
-          <div class="duration-options" style="display:none;">
-            <label>
-              <input type="radio" name="dur-back-deep" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="back-basic"
-                  data-radio-group="dur-back-deep"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🔥 Hot Stone Back–Neck–Shoulders -->
-        <article class="product-card">
-          <div class="tag">🔥 עיסוי גב–כתפיים–צוואר עם אבנים חמות</div>
-          <h3 class="product-title">
-            <span>Hot Stone Back–Neck–Shoulders Massage</span><span> | </span><span>עיסוי גב–כתפיים–צוואר עם אבנים חמות</span>
-          </h3>
-          <p>
-            עיסוי ממוקד המשלב עבודה ידנית עם אבני בזלת חמימות.
-            החום מאפשר שחרור עמוק ובטוח של שרירים תפוסים.
-            מפחית מתח נפשי וכאבים כרוניים בפלג הגוף העליון.
-            יוצר הרפיה מלאה ותחושת קלילות.
-          </p>
-          <p class="price">60 דק׳ – 180₾</p>
-          <div class="duration-options" style="display:none;">
-            <label>
-              <input type="radio" name="dur-back-stone" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="back-hot-stone"
-                  data-radio-group="dur-back-stone"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🌿 Thai Aloe Vera Massage -->
-        <article class="product-card">
-          <div class="tag">🌿 עיסוי תאילנדי עם אלוורה</div>
-          <h3 class="product-title">
-            <span>Thai Aloe Vera Massage</span><span> | </span><span>עיסוי תאילנדי עם אלוורה</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי עדין בשילוב ג׳ל אלוורה טבעי.
-            האלוורה מרגיעה, מקררת ומזינה את העור תוך שמירה על לחות וגמישות.
-            התנועות הרכות משחררות מתחים שריריים קלים.
-            מתאים במיוחד לעור רגיש ולאחר חשיפה לשמש.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 170₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-aloe" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-aloe-vera"
-                  data-radio-group="dur-aloe"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- ✨ Thai Vitamin E Cream Massage -->
-        <article class="product-card">
-          <div class="tag">✨ עיסוי תאילנדי עם קרם ויטמין E</div>
-          <h3 class="product-title">
-            <span>Thai Vitamin E Cream Massage</span><span> | </span><span>עיסוי תאילנדי עם קרם ויטמין E</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי בשילוב קרם מועשר בויטמין E להזנה עמוקה של העור.
-            מסייע בשיפור גמישות העור ובהפחתת יובש.
-            משלב רוגע וטיפוח קוסמטי.
-            יוצר תחושת רכות והרפיה כללית.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 175₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-vit-e" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-vitamin-e"
-                  data-radio-group="dur-vit-e"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🧘 Relaxing Oil Massage -->
-        <article class="product-card">
-          <div class="tag">🧘 עיסוי שמן מרגיע</div>
-          <h3 class="product-title">
-            <span>Relaxing Oil Massage</span><span> | </span><span>עיסוי שמן מרגיע</span>
-          </h3>
-          <p>
-            עיסוי גוף מלא בשמן איכותי בתנועות ארוכות, רכות וזורמות.
-            מתמקד בהרפיה עמוקה של מערכת העצבים ובהפחתת סטרס.
-            משחרר מתחים קלים ומשרה תחושת שלווה ואיזון.
-            מתאים למי שמחפש חוויה עדינה ולא אינטנסיבית.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 180₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-relax" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-relaxing-oil"
-                  data-radio-group="dur-relax"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🥥 Thai Coconut Oil Massage -->
-        <article class="product-card">
-          <div class="tag">🥥 עיסוי תאילנדי עם שמן קוקוס</div>
-          <h3 class="product-title">
-            <span>Thai Coconut Oil Massage</span><span> | </span><span>עיסוי תאילנדי עם שמן קוקוס</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי עדין בשילוב שמן קוקוס טבעי.
-            מזין את העור, מעניק לחות עמוקה ותחושת רכות ממושכת.
-            התנועות זורמות ומאזנות את הגוף והנפש.
-            מתאים במיוחד לעור יבש או רגיש.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 175₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-coconut" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-coconut-oil"
-                  data-radio-group="dur-coconut"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🇹🇭 Traditional Thai Massage -->
-        <article class="product-card">
-          <div class="tag">🇹🇭 עיסוי תאילנדי מסורתי</div>
-          <h3 class="product-title">
-            <span>Traditional Thai Massage</span><span> | </span><span>עיסוי תאילנדי מסורתי</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי מסורתי ללא שמן.
-            משלב לחיצות, מתיחות ועבודה על קווי האנרגיה (Sen).
-            משפר גמישות, זרימה וחיוניות.
-            עיסוי פעיל ודינמי.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 190₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-thai" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-thai"
-                  data-radio-group="dur-thai"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🔥 Thai Balm Massage -->
-        <article class="product-card">
-          <div class="tag">🔥 עיסוי תאילנדי עם באלם</div>
-          <h3 class="product-title">
-            <span>Thai Balm Massage</span><span> | </span><span>עיסוי תאילנדי עם באלם</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי ממוקד עם באלם תאילנדי ייעודי.
-            מסייע בהפחתת כאבים, נוקשות ודלקות מקומיות.
-            מתבצע בלחיצות עמוקות על אזורי עומס.
-            מתאים לשרירים תפוסים.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 190₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-balm" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-thai-balm"
-                  data-radio-group="dur-balm"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🩺 Thai Therapeutic Massage -->
-        <article class="product-card">
-          <div class="tag">🩺 עיסוי תאילנדי טיפולי</div>
-          <h3 class="product-title">
-            <span>Thai Therapeutic Massage</span><span> | </span><span>עיסוי תאילנדי טיפולי</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי טיפולי עמוק וממוקד.
-            מטפל בכאבי גב, צוואר ושרירים תפוסים כרונית.
-            משפר טווח תנועה ומפחית עומסים.
-            מיועד למי שמחפש טיפול אמיתי.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 230₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-thai-ther" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-thai-ther"
-                  data-radio-group="dur-thai-ther"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🏃 Sports Massage -->
-        <article class="product-card">
-          <div class="tag">🏃 עיסוי ספורט</div>
-          <h3 class="product-title">
-            <span>Sports Massage</span><span> | </span><span>עיסוי ספורט</span>
-          </h3>
-          <p>
-            עיסוי אינטנסיבי לשחרור עומסים מפעילות גופנית.
-            משלב טכניקות עומק ומתיחות.
-            מסייע בהתאוששות ומניעת פציעות.
-            מתאים לספורטאים ולאנשים פעילים.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 240₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-sports" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-sports"
-                  data-radio-group="dur-sports"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 💪 Deep Tissue Thai Massage with Cream -->
-        <article class="product-card">
-          <div class="tag">💪 עיסוי תאילנדי עמוק עם קרם</div>
-          <h3 class="product-title">
-            <span>Deep Tissue Thai Massage with Cream</span><span> | </span><span>עיסוי תאילנדי עמוק עם קרם</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי עמוק במיוחד לשכבות השריר הפנימיות.
-            משלב לחץ חזק עם קרם ייעודי.
-            מטפל בעומסים וכאבים כרוניים.
-            מיועד למטופלים מנוסים.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 250₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-deep-cream" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-deep-tissue-cream"
-                  data-radio-group="dur-deep-cream"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🌿 Thai Cannabis Oil Massage -->
-        <article class="product-card">
-          <div class="tag">🌿 עיסוי תאילנדי עם שמן קנאביס</div>
-          <h3 class="product-title">
-            <span>Thai Cannabis Oil Massage</span><span> | </span><span>עיסוי תאילנדי עם שמן קנאביס</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי מתקדם בשמן קנאביס ייעודי.
-            מסייע בהפחתת כאבים, דלקות ומתח שרירי.
-            יוצר תחושת רוגע עמוקה.
-            מתאים לכאבים כרוניים.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 230₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-cannabis" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-cannabis-oil"
-                  data-radio-group="dur-cannabis"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🔥 Hot Stone Massage -->
-        <article class="product-card">
-          <div class="tag">🔥 עיסוי אבנים חמות</div>
-          <h3 class="product-title">
-            <span>Hot Stone Massage</span><span> | </span><span>עיסוי אבנים חמות</span>
-          </h3>
-          <p>
-            עיסוי גוף מלא באמצעות אבני בזלת חמימות.
-            החום חודר לרקמות ומשחרר מתחים עמוקים.
-            משפר זרימת דם ומרפה שרירים.
-            מתאים לעייפות ומתח מצטבר.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 210₾</p>
-          <div class="duration-options" style="display:none;">
-            <label>
-              <input type="radio" name="dur-body-stone" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-hot-stone"
-                  data-radio-group="dur-body-stone"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🌼 Thai Herbal Compress Massage -->
-        <article class="product-card">
-          <div class="tag">🌼 עיסוי תאילנדי בקומפרסים צמחיים</div>
-          <h3 class="product-title">
-            <span>Thai Herbal Compress Massage</span><span> | </span><span>עיסוי תאילנדי בקומפרסים צמחיים</span>
-          </h3>
-          <p>
-            עיסוי מסורתי עם שקיות צמחים תאילנדיים מחוממות.
-            החום והעשבים מסייעים בהרגעת כאבים והפחתת דלקת.
-            משולב עם עיסוי ידני עמוק.
-            חוויה טיפולית ייחודית.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 220₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-thai-comp-body" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-thai-comp"
-                  data-radio-group="dur-thai-comp-body"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- ⚡ Karsai Massage -->
-        <article class="product-card">
-          <div class="tag">⚡ עיסוי תאילנדי קארסאי</div>
-          <h3 class="product-title">
-            <span>Karsai Massage</span><span> | </span><span>עיסוי תאילנדי קארסאי</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי מסורתי מתקדם מהרפואה העתיקה.
-            מתמקד באזורים אנרגטיים עמוקים.
-            טיפול עוצמתי ונישתי.
-            מיועד למטופלים מנוסים בלבד.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 260₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-karsai" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-karsai"
-                  data-radio-group="dur-karsai"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🦶 Foot Massage -->
-        <article class="product-card">
-          <div class="tag">🦶 טיפולי כפות רגליים</div>
-          <h3 class="product-title">
-            <span>Foot Massage</span><span> | </span><span>פוט מסאז’ – עיסוי כפות רגליים</span>
-          </h3>
-          <p>
-            עיסוי כפות רגליים מרגיע לשחרור עייפות.
-            משפר זרימת דם ומעניק תחושת קלילות.
-          </p>
-          <p class="price">30 דק׳ – 80₾ · 60 דק׳ – 120₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-foot" value="30" checked />
-              <span data-min="30">30 דק׳</span>
-            </label>
-            <label>
-              <input type="radio" name="dur-foot" value="60" />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="foot-massage"
-                  data-radio-group="dur-foot"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-
-        <!-- 🦶 Thai Reflexology Foot Massage -->
-        <article class="product-card">
-          <div class="tag">🦶 עיסוי תאילנדי כפות רגליים רפלקסולוגי</div>
-          <h3 class="product-title">
-            <span>Thai Reflexology Foot Massage</span><span> | </span><span>עיסוי תאילנדי כפות רגליים רפלקסולוגי</span>
-          </h3>
-          <p>
-            עיסוי רפלקסולוגי תאילנדי עם לחיצות עמוקות ומשחה חריפה.
-            משפיע על מערכות הגוף דרך נקודות השתקפות בכפות הרגליים.
-            טיפול ממוקד ויעיל.
-          </p>
-          <p class="price">60 דק׳ – 140₾</p>
-          <div class="duration-options" style="display:none;">
-            <label>
-              <input type="radio" name="dur-foot-ref" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
-          </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="foot-reflexology"
-                  data-radio-group="dur-foot-ref"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
+        <div class="video-slide">
+          <video class="video-slide__video" autoplay loop muted playsinline>
+            <source src="assets/videos/slide-3.mp4" type="video/mp4" />
+          </video>
+        </div>
 
       </div>
-    </section>
-  </main>
 
-  <!-- כפתור וואטסאפ צף -->
-  <a href="https://wa.me/972502686862"
-     class="wa-float"
-     target="_blank"
-     rel="noopener"
-     aria-label="WhatsApp">
-    <img src="assets/icons/whatsapp.svg" alt="WhatsApp" />
-  </a>
+      <button class="video-slider__nav video-slider__nav--prev">‹</button>
+      <button class="video-slider__nav video-slider__nav--next">›</button>
 
-  <!-- מודאל הזמנה (נשמר לעתיד, אם תרצה לחזור לסליקה ישירה) -->
-  <div class="booking-modal hidden" id="bookingModal" aria-hidden="true">
-    <div class="booking-backdrop" data-booking-close></div>
+      <div class="video-slider__dots">
+        <button class="video-slider__dot is-active"></button>
+        <button class="video-slider__dot"></button>
+        <button class="video-slider__dot"></button>
+      </div>
+    </div>
+  </section>
 
-    <section class="booking-dialog" aria-modal="true" role="dialog" aria-labelledby="bookingTitle">
-      <button class="booking-close" type="button" data-booking-close>&times;</button>
+  <!-- ================= SIGNATURE SLIDER ================= -->
+  <section class="signature-section" id="signature">
+    <h2 class="signature-title" data-i18n="landing.signature.title">👑 טיפולי הדגל שלנו</h2>
+    <p class="signature-subtitle muted" data-i18n="landing.signature.subtitle">
+      בחר/י טיפול דגל והזמן/י מיידית בווטסאפ
+    </p>
 
-      <h2 id="bookingTitle" data-i18n="landing.booking.title">הזמנת טיפול</h2>
-      <p class="booking-treatment" id="bookingSummary" data-i18n="landing.booking.summary">
-        נא לבחור טיפול מהדף, ואז למלא פרטי קשר ותאריך.
-      </p>
+    <div class="signature-slider" id="signatureSlider">
 
-      <form id="bookingForm">
-        <div class="booking-row">
-          <label for="fullName" data-i18n="landing.booking.name">שם מלא</label>
-          <input id="fullName" name="name" type="text" required />
-        </div>
+      <button class="signature-nav prev">‹</button>
 
-        <div class="booking-row">
-          <label for="phone" data-i18n="landing.booking.phone">טלפון ליצירת קשר (WhatsApp)</label>
-          <input id="phone" name="phone" type="tel" required />
-        </div>
+      <div class="signature-viewport">
+        <div class="signature-track">
 
-        <div class="booking-row two-cols">
-          <div>
-            <label for="date" data-i18n="landing.booking.date">תאריך טיפול</label>
-            <input id="date" name="date" type="date" required />
+          <!-- Head Spa -->
+          <div class="signature-slide" data-treatment-key="head-spa">
+            <div class="signature-card">
+              <div class="signature-card__head">
+                <span class="signature-badge">👑</span>
+                <h3 class="signature-name"></h3>
+              </div>
+              <p class="signature-desc"></p>
+              <div class="signature-meta">
+                <div class="signature-price"></div>
+                <div class="signature-duration"></div>
+              </div>
+              <a href="#" class="button signature-book"
+                 data-book-btn
+                 data-treatment-key="head-spa">
+                 להזמנת הטיפול
+              </a>
+            </div>
           </div>
-          <div>
-            <label for="time" data-i18n="landing.booking.time">שעת טיפול</label>
-            <select id="time" name="time" required>
-              <option value="" data-i18n="landing.booking.chooseTime">בחר/י שעה</option>
-              <option>10:00</option>
-              <option>12:00</option>
-              <option>14:00</option>
-              <option>16:00</option>
-              <option>18:00</option>
-              <option>20:00</option>
-            </select>
+
+          <!-- Vitamin E -->
+          <div class="signature-slide" data-treatment-key="body-vitamin-e">
+            <div class="signature-card">
+              <div class="signature-card__head">
+                <span class="signature-badge">✨</span>
+                <h3 class="signature-name"></h3>
+              </div>
+              <p class="signature-desc"></p>
+              <div class="signature-meta">
+                <div class="signature-price"></div>
+                <div class="signature-duration"></div>
+              </div>
+              <a href="#" class="button signature-book"
+                 data-book-btn
+                 data-treatment-key="body-vitamin-e">
+                 להזמנת הטיפול
+              </a>
+            </div>
           </div>
+
+          <!-- Therapeutic -->
+          <div class="signature-slide" data-treatment-key="body-thai-ther">
+            <div class="signature-card">
+              <div class="signature-card__head">
+                <span class="signature-badge">🇹🇭</span>
+                <h3 class="signature-name"></h3>
+              </div>
+              <p class="signature-desc"></p>
+              <div class="signature-meta">
+                <div class="signature-price"></div>
+                <div class="signature-duration"></div>
+              </div>
+              <a href="#" class="button signature-book"
+                 data-book-btn
+                 data-treatment-key="body-thai-ther">
+                 להזמנת הטיפול
+              </a>
+            </div>
+          </div>
+
+          <!-- Sports -->
+          <div class="signature-slide" data-treatment-key="body-sports">
+            <div class="signature-card">
+              <div class="signature-card__head">
+                <span class="signature-badge">🏃</span>
+                <h3 class="signature-name"></h3>
+              </div>
+              <p class="signature-desc"></p>
+              <div class="signature-meta">
+                <div class="signature-price"></div>
+                <div class="signature-duration"></div>
+              </div>
+              <a href="#" class="button signature-book"
+                 data-book-btn
+                 data-treatment-key="body-sports">
+                 להזמנת הטיפול
+              </a>
+            </div>
+          </div>
+
+          <!-- Karsai -->
+          <div class="signature-slide" data-treatment-key="body-karsai">
+            <div class="signature-card">
+              <div class="signature-card__head">
+                <span class="signature-badge">⭐</span>
+                <h3 class="signature-name"></h3>
+              </div>
+              <p class="signature-desc"></p>
+              <div class="signature-meta">
+                <div class="signature-price"></div>
+                <div class="signature-duration"></div>
+              </div>
+              <a href="#" class="button signature-book"
+                 data-book-btn
+                 data-treatment-key="body-karsai">
+                 להזמנת הטיפול
+              </a>
+            </div>
+          </div>
+
+          <!-- Reflexology -->
+          <div class="signature-slide" data-treatment-key="foot-reflexology">
+            <div class="signature-card">
+              <div class="signature-card__head">
+                <span class="signature-badge">🦶</span>
+                <h3 class="signature-name"></h3>
+              </div>
+              <p class="signature-desc"></p>
+              <div class="signature-meta">
+                <div class="signature-price"></div>
+                <div class="signature-duration"></div>
+              </div>
+              <a href="#" class="button signature-book"
+                 data-book-btn
+                 data-treatment-key="foot-reflexology">
+                 להזמנת הטיפול
+              </a>
+            </div>
+          </div>
+
         </div>
+      </div>
 
-        <div class="booking-row">
-          <label data-i18n="landing.booking.duration">משך הטיפול</label>
-          <div class="duration-options" id="bookingDurations"></div>
-        </div>
+      <button class="signature-nav next">›</button>
+    </div>
+  </section>
 
-        <div class="booking-row">
-          <label for="notes" data-i18n="landing.booking.notes">העדפות / הערות (אופציונלי)</label>
-          <textarea id="notes" name="notes" rows="3"></textarea>
-        </div>
+</main>
 
-        <p class="booking-note" data-i18n="landing.booking.note">
-          התשלום מתבצע בכרטיס אשראי מאובטח דרך Stripe. אישור הזמנה יישלח אליך אוטומטית.
-        </p>
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/972502686862"
+   class="wa-float"
+   target="_blank"
+   aria-label="WhatsApp">
+  <img src="assets/icons/whatsapp.svg" alt="WhatsApp" />
+</a>
 
-        <button type="submit" class="booking-submit" data-i18n="landing.booking.payCta">
-          מעבר לתשלום מאובטח
-        </button>
-      </form>
-    </section>
-  </div>
+<!-- JS -->
+<script src="landing-landing.js"></script>
 
-  <script src="landing-landing.js" type="module"></script>
 </body>
 </html>

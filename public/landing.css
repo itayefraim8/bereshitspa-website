@@ -1,6 +1,6 @@
-/* landing.css – דפי נחיתה נקיים */
-
-/* ===== בסיס ===== */
+/* ======================================================
+   BASE
+====================================================== */
 body.landing-page {
   margin: 0;
   padding: 0;
@@ -9,7 +9,6 @@ body.landing-page {
   color: #111827;
 }
 
-/* הקונטיינר העיקרי של דפי הנחיתה */
 .container {
   max-width: 960px;
   margin: 24px auto 40px;
@@ -19,403 +18,106 @@ body.landing-page {
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
 }
 
-/* ===== Hero ===== */
-.hero { text-align: center; }
-.hero img { display: block; margin: 0 auto 16px; }
+/* ======================================================
+   HERO
+====================================================== */
+.hero {
+  text-align: center;
+}
+
+.hero img {
+  max-width: 260px;
+  margin: 0 auto 16px;
+  display: block;
+}
 
 .promo-eyebrow {
   font-size: 0.9rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #6b7280;
-  margin: 4px 0 8px;
+  margin-bottom: 6px;
 }
 
-.promo-title { margin: 0 0 8px; font-weight: 700; line-height: 1.2; }
-.promo-title.xl { font-size: 1.9rem; }
+.promo-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
 
-.promo-text { margin: 0; color: #4b5563; }
-.promo-text.lg { font-size: 1.05rem; }
+.promo-text {
+  font-size: 1.05rem;
+  color: #4b5563;
+}
 
-/* ===== כפתורים ===== */
+/* ======================================================
+   BUTTONS
+====================================================== */
 .button,
 .booking-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 20px;
+  padding: 11px 22px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
   font-size: 0.98rem;
-  font-weight: 600;
+  font-weight: 700;
   background: #b98b3c;
-  color: #ffffff;
+  color: #fff;
   box-shadow: 0 10px 25px rgba(185, 139, 60, 0.35);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  transition: all 0.15s ease;
 }
 
 .button:hover,
 .booking-submit:hover {
   background: #c99a45;
   transform: translateY(-1px);
-  box-shadow: 0 14px 32px rgba(185, 139, 60, 0.45);
 }
 
-.button:active,
-.booking-submit:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 16px rgba(185, 139, 60, 0.35);
-}
-
-/* ===== טקסטים משניים ===== */
-.muted { font-size: 0.92rem; color: #6b7280; }
-
-/* ===== רשימת טיפולים ===== */
-.home-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-}
-
-.product-card {
-  background: #f9fafb;
-  border-radius: 16px;
-  padding: 16px 14px 18px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.product-card .tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px 10px;
-  font-size: 0.9rem;
-  border-radius: 999px;
-  background: #e5e7eb;
-  color: #374151;
-}
-
-.product-title {
-  margin: 4px 0 4px;
-  font-size: 1.05rem;
-  font-weight: 600;
-
-  /* ✅ FIX: תמיד באותה שורה (לא יורד שורה בין EN/HE) */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.25;
-  unicode-bidi: plaintext;
-}
-
-.product-card p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #4b5563;
-}
-
-.price {
-  margin-top: 6px;
-  font-weight: 600;
-  color: #111827;
-}
-
-/* רדיו של משך טיפול */
-.duration-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 8px 0 10px;
-}
-
-.duration-options label {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid #d1d5db;
-  font-size: 0.9rem; /* ✅ תיקון: בלי רווח */
-  cursor: pointer;
-  background: #ffffff;
-}
-
-.duration-options input[type="radio"] {
-  accent-color: #b98b3c;
-}
-
-/* ===== כפתור וואטסאפ צף ===== */
-.wa-float {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  width: 52px;
-  height: 52px;
-  border-radius: 999px;
-  background: #25d366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
-  z-index: 40;
-}
-
-.wa-float img { width: 28px; height: 28px; }
-
-/* ===== סוויצ'ר שפות ===== */
+/* ======================================================
+   LANGUAGE SWITCH
+====================================================== */
 .lang-switch {
   display: inline-flex;
   gap: 8px;
   padding: 6px 10px;
   border-radius: 999px;
   background: #f3f4f6;
-  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1);
 }
 
 .lang-btn {
-  border: none;
-  padding: 4px;
-  border-radius: 999px;
-  cursor: pointer;
-  background: transparent;
-}
-
-.lang-btn img { width: 22px; height: 22px; }
-
-/* ===== מודאל הזמנה ===== */
-.booking-modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 50;
-}
-
-.booking-modal.active { display: flex; }
-
-.booking-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.booking-dialog {
-  position: relative;
-  max-width: 480px;
-  width: 92%;
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 20px 18px 22px;
-  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.4);
-  z-index: 51;
-}
-
-.booking-close {
-  position: absolute;
-  top: 10px;
-  inset-inline-end: 10px;
-  border: none;
-  background: transparent;
-  font-size: 1.6rem;
-  cursor: pointer;
-}
-
-.booking-row { margin-bottom: 10px; }
-
-.booking-row label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 4px;
-}
-
-.booking-row input,
-.booking-row textarea,
-.booking-row select {
-  width: 100%;
-  padding: 7px 9px;
-  font-size: 0.95rem;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  box-sizing: border-box;
-}
-
-.booking-row.two-cols { display: flex; gap: 10px; }
-.booking-row.two-cols > div { flex: 1; }
-
-.booking-note {
-  font-size: 0.85rem;
-  color: #6b7280;
-  margin-top: 6px;
-  margin-bottom: 10px;
-}
-
-/* ===== רספונסיב ===== */
-@media (max-width: 640px) {
-  .container {
-    margin: 0;
-    border-radius: 0;
-    box-shadow: none;
-  }
-}
-
-/* כל כרטיס – גובה אחיד ויישור למטה */
-.product-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.product-card p { flex-grow: 0; }
-
-.product-card .price {
-  margin-top: 8px;
-  font-weight: 700;
-}
-
-.product-card .duration-options {
-  margin-top: auto;
-  margin-bottom: 14px;
-  display: flex;
-  gap: 12px;
-}
-
-.product-card .button { margin-top: 0; }
-
-/* ===== Simple Video Slider ===== */
-.vslider {
-  margin: 18px 0 28px;
-}
-
-.vslider__viewport {
-  position: relative;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #070b14;
-  height: 420px; /* אפשר לשנות */
-}
-
-.vslider__track {
-  display: flex;
-  height: 100%;
-  will-change: transform;
-  transition: transform 420ms ease;
-}
-
-.vslide {
-  flex: 0 0 100%;
-  height: 100%;
-}
-
-.vslide__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.vslider__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: 0;
-  cursor: pointer;
-  background: rgba(255,255,255,0.85);
-  font-size: 28px;
-  line-height: 44px;
-}
-
-.vslider__nav--prev { left: 14px; }
-.vslider__nav--next { right: 14px; }
-
-.vslider__dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 12px;
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
-}
-
-.vslider__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: 0;
-  cursor: pointer;
-  opacity: 0.55;
-}
-
-.vslider__dot.is-active {
-  opacity: 1;
-  transform: scale(1.15);
-}
-
-/* Dots */
-.video-slider__dots {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 10px;
-  display: inline-flex;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(17, 24, 39, 0.35);
-  backdrop-filter: blur(8px);
-  z-index: 2;
-}
-
-.video-slider__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
+  background: none;
   border: none;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.55);
 }
 
-.video-slider__dot.is-active { background: rgba(255, 255, 255, 0.95); }
-
-/* Mobile tweaks */
-@media (max-width: 640px) {
-  .video-slider__nav {
-    width: 40px;
-    height: 40px;
-  }
+.lang-btn img {
+  width: 22px;
+  height: 22px;
 }
 
-/* ===== FIX: Video Slider height + alignment (put at END of file) ===== */
-/* 🔥 עדכון: מוסיפים גם .video-slider כדי שה-CSS יעבוד גם אם העטיפה היא video-slider (ולא רק viewport) */
-/* שמירה על יחס 16:9 בצורה יציבה בכל דפדפן */
-.video-slider,
-.video-slider__viewport {
-  position: relative;
-  width: 100%;
+/* ======================================================
+   VIDEO SLIDER
+====================================================== */
+.video-slider {
+  margin: 26px 0 36px;
   border-radius: 18px;
   overflow: hidden;
   background: #0b0f1a;
 }
 
-/* Fallback ל-aspect-ratio (וגם מייצב גובה) */
-.video-slider::before,
+.video-slider__viewport {
+  position: relative;
+}
+
 .video-slider__viewport::before {
   content: "";
   display: block;
-  padding-top: 56.25%; /* 16:9 */
+  padding-top: 56.25%;
 }
 
-/* כל מה שבתוך ה-viewport יושב “מוחלט” על ה-16:9 */
 .video-slider__track,
 .video-slide,
 .video-slide__video {
@@ -423,162 +125,80 @@ body.landing-page {
   inset: 0;
 }
 
-/* ה-track נשאר flex אבל לא משפיע על גובה */
 .video-slider__track {
   display: flex;
-  height: 100%;
-  width: 100%;
-  transition: transform 420ms ease;
-  will-change: transform;
+  transition: transform 0.45s ease;
 }
 
-/* כל שקף תופס 100% רוחב/גובה של ה-viewport */
 .video-slide {
   flex: 0 0 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #0b0f1a;
 }
 
-/* הווידאו ממלא יפה בלי לשבור גובה */
 .video-slide__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-/* כפתורי ניווט ודוטים נשארים מעל */
-.video-slider__nav,
-.video-slider__dots {
+.video-slider__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
   z-index: 3;
 }
 
-/* מובייל: קצת פחות רדיוס אם בא לך */
-@media (max-width: 640px) {
-  .video-slider,
-  .video-slider__viewport {
-    border-radius: 14px;
-  }
+.video-slider__nav--prev { left: 12px; }
+.video-slider__nav--next { right: 12px; }
+
+.video-slider__dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
 }
 
-/* =========================================================
-   FIX TITLES – max 3 lines, NO ellipsis
-   ========================================================= */
-
-.product-card .product-title,
-.product-card .title,
-.product-card .card-title,
-.product-card h3,
-.product-card h4,
-.product-card [class*="title"]{
-
-  /* ביטול מוחלט של אליפסיס / line-clamp */
-  white-space: normal !important;
-  text-overflow: unset !important;
-  overflow: hidden !important;
-
-  display: block !important;
-  -webkit-box-orient: initial !important;
-  -webkit-line-clamp: unset !important;
-
-  /* הגבלה ל־3 שורות */
-  line-height: 1.3;
-  max-height: calc(1.3em * 3);
-
-  /* RTL + EN יחד (Thai Coconut Oil Massage | עיסוי...) */
-  unicode-bidi: plaintext;
-
-  /* 🔥 עדכון: לא לנעול RTL — לתת ל-dir של הדף לשלוט (he=rtl, en/ru/ka=ltr) */
-  direction: inherit;
-
-  margin: 6px 0 0;
-  font-weight: 800;
+.video-slider__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.6);
 }
 
-/* חשוב – מבטל חיתוך שמגיע מהורה */
-.product-card,
-.product-card *{
-  min-width: 0;
+.video-slider__dot.is-active {
+  background: #fff;
 }
 
-/* ===== Signature Treatments Slider ===== */
+/* ======================================================
+   SIGNATURE TREATMENTS SLIDER  (🔥 מתוקן לגמרי)
+====================================================== */
 .signature-section {
-  margin: 48px 0;
+  margin: 46px 0 56px;
   text-align: center;
 }
 
 .signature-title {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.signature-subtitle {
+  color: #6b7280;
   margin-bottom: 20px;
 }
 
 .signature-slider {
   position: relative;
-  overflow: hidden;
-}
-
-.signature-track {
-  display: flex;
-  transition: transform 0.4s ease;
-}
-
-.signature-slide {
-  min-width: 100%;
-  padding: 24px;
-  box-sizing: border-box;
-}
-
-.signature-slide h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.signature-slide p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #555;
-}
-
-.signature-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #fff;
-  border: none;
-  font-size: 22px;
-  padding: 6px 12px;
-  cursor: pointer;
-}
-
-.signature-nav.prev { left: 10px; }
-.signature-nav.next { right: 10px; }
-/* =========================================================
-   Signature Treatments Slider – Cards (ADD AT END)
-   ========================================================= */
-
-.signature-section {
-  margin: 44px 0 52px;
-  text-align: center;
-}
-
-.signature-title {
-  font-size: 28px;
-  font-weight: 800;
-  margin: 0 0 8px;
-}
-
-.signature-subtitle {
-  margin: 0 0 18px;
-}
-
-.signature-slider {
-  position: relative;
-  overflow: hidden;
-  border-radius: 18px;
 }
 
 .signature-viewport {
@@ -587,25 +207,26 @@ body.landing-page {
 
 .signature-track {
   display: flex;
-  transition: transform 420ms ease;
-  will-change: transform;
+  transition: transform 0.45s ease;
 }
 
 .signature-slide {
-  min-width: 100%;
-  padding: 12px;
+  flex: 0 0 100%;
+  padding: 10px;
   box-sizing: border-box;
 }
 
+/* ===== CARD ===== */
 .signature-card {
   background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-  border: 1px solid rgba(185, 139, 60, 0.18);
-  padding: 18px 16px 16px;
+  border-radius: 20px;
+  padding: 20px 18px 18px;
+  border: 1px solid rgba(185, 139, 60, 0.25);
+  box-shadow: 0 18px 42px rgba(15,23,42,0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   text-align: start;
-  display: grid;
-  gap: 12px;
 }
 
 .signature-card__head {
@@ -615,135 +236,140 @@ body.landing-page {
 }
 
 .signature-badge {
-  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(185, 139, 60, 0.15);
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  background: rgba(185, 139, 60, 0.14);
-  border: 1px solid rgba(185, 139, 60, 0.22);
   font-size: 18px;
 }
 
 .signature-name {
-  margin: 0;
   font-size: 18px;
   font-weight: 800;
-  line-height: 1.25;
+  margin: 0;
   unicode-bidi: plaintext;
 }
 
 .signature-desc {
-  margin: 0;
-  color: #4b5563;
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   line-height: 1.55;
+  color: #4b5563;
 }
 
 .signature-meta {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
   justify-content: space-between;
-  padding-top: 6px;
+  align-items: center;
   border-top: 1px solid #eef2f7;
+  padding-top: 10px;
+  gap: 12px;
 }
 
 .signature-price {
   font-weight: 800;
-  color: #111827;
+  font-size: 1rem;
 }
 
 .signature-duration {
-  font-weight: 700;
   color: #6b7280;
+  font-weight: 700;
 }
 
 .signature-book {
+  margin-top: 6px;
   width: 100%;
 }
 
-/* Nav buttons */
+/* ===== NAV ===== */
 .signature-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 44px;
   height: 44px;
-  border-radius: 999px;
-  border: 0;
-  cursor: pointer;
-  background: rgba(255,255,255,0.92);
-  box-shadow: 0 12px 28px rgba(15,23,42,0.16);
-  font-size: 28px;
-  line-height: 44px;
-  z-index: 3;
-}
-
-.signature-nav.prev { left: 10px; }
-.signature-nav.next { right: 10px; }
-
-/* Dots */
-.signature-dots {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 10px;
-  display: inline-flex;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(17, 24, 39, 0.32);
-  backdrop-filter: blur(8px);
-  z-index: 3;
-}
-
-.signature-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  background: rgba(255,255,255,0.55);
-}
-
-.signature-dot.is-active {
+  border-radius: 50%;
   background: rgba(255,255,255,0.95);
-  transform: scale(1.15);
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 5;
 }
 
-/* All Treatments section */
-.all-treatments {
-  margin: 42px 0 10px;
+.signature-nav.prev { left: 8px; }
+.signature-nav.next { right: 8px; }
+
+/* ======================================================
+   PRODUCT GRID (unchanged but cleaned)
+====================================================== */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
 }
 
-.all-treatments__title {
-  font-size: 24px;
+.product-card {
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-title {
+  font-size: 1.05rem;
   font-weight: 800;
-  margin: 0 0 8px;
-  text-align: center;
+  margin: 6px 0;
+  unicode-bidi: plaintext;
 }
 
-.all-treatments__subtitle {
-  text-align: center;
-  margin-bottom: 18px;
+.price {
+  font-weight: 700;
+  margin-top: 6px;
 }
 
-.category-block {
-  margin: 26px 0 34px;
+/* ======================================================
+   FLOATING WHATSAPP
+====================================================== */
+.wa-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+  z-index: 50;
 }
 
-.category-title {
-  margin: 0 0 12px;
-  font-size: 18px;
-  font-weight: 800;
+.wa-float img {
+  width: 28px;
 }
 
-/* Mobile tweaks */
+/* ======================================================
+   RESPONSIVE
+====================================================== */
 @media (max-width: 640px) {
-  .signature-slide { padding: 10px 6px; }
-  .signature-card { padding: 16px 14px; }
-  .signature-nav { width: 40px; height: 40px; line-height: 40px; }
+  .container {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .signature-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+
+  .signature-card {
+    padding: 16px 14px;
+  }
 }
