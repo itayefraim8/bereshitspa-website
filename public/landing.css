@@ -484,3 +484,38 @@ body.landing-page {
 .product-card *{
   min-width: 0;
 }
+/* =========================================================
+   VIDEO SLIDER FIX (override) — prevent slides stacking
+   Put at VERY END of landing.css
+   ========================================================= */
+
+.video-slider__viewport {
+  position: relative;
+}
+
+/* track stays absolute over the 16:9 box */
+.video-slider__track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* ✅ CRITICAL: slides must NOT be absolute (otherwise they stack) */
+.video-slider__track .video-slide {
+  position: relative !important;
+  inset: auto !important;
+  flex: 0 0 100%;
+  height: 100%;
+  aspect-ratio: auto; /* מבטל את מה שמיותר כאן */
+}
+
+/* video fills each slide */
+.video-slider__track .video-slide__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
