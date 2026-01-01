@@ -519,3 +519,44 @@ body.landing-page {
   height: 100%;
   object-fit: cover;
 }
+
+/* =====================================================================
+   ✅ FINAL OVERRIDE (NEW) — stabilize slider & prevent double-height bugs
+   Put at ABSOLUTE END (wins everything above)
+   ===================================================================== */
+
+/* 1) קובעים שדווקא ה-viewport קובע גובה (16:9) */
+.video-slider__viewport {
+  overflow: hidden;
+}
+
+/* 2) מבטלים אפשרות ש-aspect-ratio על slide ייצור חישובי גובה כפולים */
+.video-slider__viewport .video-slide {
+  aspect-ratio: auto !important;
+}
+
+/* 3) מוודאים שה-track תמיד בגובה מלא ושהשקופיות לא נערמות */
+.video-slider__viewport .video-slider__track {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.video-slider__viewport .video-slider__track .video-slide {
+  position: relative !important;
+  flex: 0 0 100%;
+  min-width: 100%;
+  height: 100%;
+}
+
+/* 4) הווידאו תמיד מכסה את השקופית בצורה יציבה */
+.video-slider__viewport .video-slide__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
