@@ -1,14 +1,15 @@
-/* ======================================================
-   BASE
-====================================================== */
+/* landing.css – דפי נחיתה נקיים */
+
+/* ===== בסיס ===== */
 body.landing-page {
   margin: 0;
   padding: 0;
   font-family: "Heebo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f5f7;
+  background: #f5f5f7;        /* רקע אפור בהיר, לא שחור */
   color: #111827;
 }
 
+/* הקונטיינר העיקרי של דפי הנחיתה */
 .container {
   max-width: 960px;
   margin: 24px auto 40px;
@@ -18,17 +19,14 @@ body.landing-page {
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
 }
 
-/* ======================================================
-   HERO
-====================================================== */
+/* ===== Hero ===== */
 .hero {
   text-align: center;
 }
 
 .hero img {
-  max-width: 260px;
-  margin: 0 auto 16px;
   display: block;
+  margin: 0 auto 16px;
 }
 
 .promo-eyebrow {
@@ -36,274 +34,67 @@ body.landing-page {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #6b7280;
-  margin-bottom: 6px;
+  margin: 4px 0 8px;
 }
 
 .promo-title {
-  font-size: 1.9rem;
-  font-weight: 800;
   margin: 0 0 8px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.promo-title.xl {
+  font-size: 1.9rem;
 }
 
 .promo-text {
-  font-size: 1.05rem;
+  margin: 0;
   color: #4b5563;
 }
 
-/* ======================================================
-   BUTTONS
-====================================================== */
+.promo-text.lg {
+  font-size: 1.05rem;
+}
+
+/* ===== כפתורים ===== */
 .button,
 .booking-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 11px 22px;
+  gap: 8px;
+  padding: 10px 20px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
   font-size: 0.98rem;
-  font-weight: 700;
+  font-weight: 600;
   background: #b98b3c;
-  color: #fff;
+  color: #ffffff;
   box-shadow: 0 10px 25px rgba(185, 139, 60, 0.35);
-  transition: all 0.15s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
 }
 
 .button:hover,
 .booking-submit:hover {
   background: #c99a45;
   transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(185, 139, 60, 0.45);
 }
 
-/* ======================================================
-   LANGUAGE SWITCH
-====================================================== */
-.lang-switch {
-  display: inline-flex;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: #f3f4f6;
+.button:active,
+.booking-submit:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(185, 139, 60, 0.35);
 }
 
-.lang-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.lang-btn img {
-  width: 22px;
-  height: 22px;
-}
-
-/* ======================================================
-   VIDEO SLIDER
-====================================================== */
-.video-slider {
-  margin: 26px 0 36px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #0b0f1a;
-}
-
-.video-slider__viewport {
-  position: relative;
-}
-
-.video-slider__viewport::before {
-  content: "";
-  display: block;
-  padding-top: 56.25%;
-}
-
-.video-slider__track,
-.video-slide,
-.video-slide__video {
-  position: absolute;
-  inset: 0;
-}
-
-.video-slider__track {
-  display: flex;
-  transition: transform 0.45s ease;
-}
-
-.video-slide {
-  flex: 0 0 100%;
-}
-
-.video-slide__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-slider__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.9);
-  border: none;
-  font-size: 26px;
-  cursor: pointer;
-  z-index: 3;
-}
-
-.video-slider__nav--prev { left: 12px; }
-.video-slider__nav--next { right: 12px; }
-
-.video-slider__dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-}
-
-.video-slider__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.6);
-}
-
-.video-slider__dot.is-active {
-  background: #fff;
-}
-
-/* ======================================================
-   SIGNATURE TREATMENTS SLIDER  (🔥 מתוקן לגמרי)
-====================================================== */
-.signature-section {
-  margin: 46px 0 56px;
-  text-align: center;
-}
-
-.signature-title {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 6px;
-}
-
-.signature-subtitle {
+/* ===== טקסטים משניים ===== */
+.muted {
+  font-size: 0.92rem;
   color: #6b7280;
-  margin-bottom: 20px;
 }
 
-.signature-slider {
-  position: relative;
-}
-
-.signature-viewport {
-  overflow: hidden;
-}
-
-.signature-track {
-  display: flex;
-  transition: transform 0.45s ease;
-}
-
-.signature-slide {
-  flex: 0 0 100%;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-/* ===== CARD ===== */
-.signature-card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 20px 18px 18px;
-  border: 1px solid rgba(185, 139, 60, 0.25);
-  box-shadow: 0 18px 42px rgba(15,23,42,0.14);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  text-align: start;
-}
-
-.signature-card__head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.signature-badge {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background: rgba(185, 139, 60, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
-
-.signature-name {
-  font-size: 18px;
-  font-weight: 800;
-  margin: 0;
-  unicode-bidi: plaintext;
-}
-
-.signature-desc {
-  font-size: 0.96rem;
-  line-height: 1.55;
-  color: #4b5563;
-}
-
-.signature-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #eef2f7;
-  padding-top: 10px;
-  gap: 12px;
-}
-
-.signature-price {
-  font-weight: 800;
-  font-size: 1rem;
-}
-
-.signature-duration {
-  color: #6b7280;
-  font-weight: 700;
-}
-
-.signature-book {
-  margin-top: 6px;
-  width: 100%;
-}
-
-/* ===== NAV ===== */
-.signature-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.95);
-  border: none;
-  font-size: 26px;
-  cursor: pointer;
-  z-index: 5;
-}
-
-.signature-nav.prev { left: 8px; }
-.signature-nav.next { right: 8px; }
-
-/* ======================================================
-   PRODUCT GRID (unchanged but cleaned)
-====================================================== */
+/* ===== רשימת טיפולים ===== */
 .home-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -313,63 +104,332 @@ body.landing-page {
 .product-card {
   background: #f9fafb;
   border-radius: 16px;
-  padding: 16px;
+  padding: 16px 14px 18px;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 8px;
+}
+
+.product-card .tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  background: #e5e7eb;
+  color: #374151;
 }
 
 .product-title {
+  margin: 4px 0 4px;
   font-size: 1.05rem;
-  font-weight: 800;
-  margin: 6px 0;
-  unicode-bidi: plaintext;
+  font-weight: 600;
+}
+
+.product-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4b5563;
 }
 
 .price {
-  font-weight: 700;
   margin-top: 6px;
+  font-weight: 600;
+  color: #111827;
 }
 
-/* ======================================================
-   FLOATING WHATSAPP
-====================================================== */
+/* רדיו של משך טיפול */
+.duration-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 10px;
+}
+
+.duration-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9 rem;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.duration-options input[type="radio"] {
+  accent-color: #b98b3c;
+}
+
+/* ===== כפתור וואטסאפ צף ===== */
 .wa-float {
   position: fixed;
   right: 22px;
   bottom: 22px;
   width: 52px;
   height: 52px;
-  border-radius: 50%;
+  border-radius: 999px;
   background: #25d366;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
-  z-index: 50;
+  z-index: 40;
 }
 
 .wa-float img {
   width: 28px;
+  height: 28px;
 }
 
-/* ======================================================
-   RESPONSIVE
-====================================================== */
+/* ===== סוויצ'ר שפות ===== */
+.lang-switch {
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1);
+}
+
+.lang-btn {
+  border: none;
+  padding: 4px;
+  border-radius: 999px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.lang-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+/* ===== מודאל הזמנה ===== */
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.booking-modal.active {
+  display: flex;
+}
+
+.booking-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.booking-dialog {
+  position: relative;
+  max-width: 480px;
+  width: 92%;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 18px 22px;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.4);
+  z-index: 51;
+}
+
+.booking-close {
+  position: absolute;
+  top: 10px;
+  inset-inline-end: 10px;
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.booking-row {
+  margin-bottom: 10px;
+}
+
+.booking-row label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.booking-row input,
+.booking-row textarea,
+.booking-row select {
+  width: 100%;
+  padding: 7px 9px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  box-sizing: border-box;
+}
+
+.booking-row.two-cols {
+  display: flex;
+  gap: 10px;
+}
+
+.booking-row.two-cols > div {
+  flex: 1;
+}
+
+.booking-note {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+/* ===== רספונסיב ===== */
 @media (max-width: 640px) {
   .container {
     margin: 0;
     border-radius: 0;
+    box-shadow: none;
+  }
+}
+/* כל כרטיס – גובה אחיד ויישור למטה */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* מוודא שטקסט התיאור לא דוחף הכל */
+.product-card p {
+  flex-grow: 0;
+}
+
+/* קופסת המחיר */
+.product-card .price {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* משך הטיפול – תמיד מעל הכפתור */
+.product-card .duration-options {
+  margin-top: auto;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 12px;
+}
+
+/* הכפתור – צמוד לתחתית הכרטיס */
+.product-card .button {
+  margin-top: 0;
+}
+
+/* ===== Video Slider ===== */
+.video-slider {
+  margin: 18px 0 6px;
+}
+
+.video-slider__viewport {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+  background: #0b0f1a;
+
+  /* ✅ חדש: גובה קטן יותר (במקום שהגובה ינבע מ-aspect-ratio) */
+  height: 320px; /* אפשר להוריד ל-260px/280px אם תרצה */
+}
+
+.video-slider__track {
+  display: flex;
+  transition: transform 420ms ease;
+  will-change: transform;
+}
+
+.video-slide {
+  flex: 0 0 100%;
+  /* ✅ חדש: כדי שלא יכפה 16:9 ויגדיל גובה */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0f1a;
+}
+
+.video-slide__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Nav buttons */
+.video-slider__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.78);
+  color: #111827;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.video-slider__nav:hover {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.video-slider__nav--prev { left: 12px; }
+.video-slider__nav--next { right: 12px; }
+
+/* Dots */
+.video-slider__dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.35);
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+.video-slider__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.video-slider__dot.is-active {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .video-slider__nav {
+    width: 40px;
+    height: 40px;
   }
 
-  .signature-nav {
-    width: 38px;
-    height: 38px;
-    font-size: 22px;
-  }
-
-  .signature-card {
-    padding: 16px 14px;
+  /* ✅ חדש: גובה קטן יותר למובייל */
+  .video-slider__viewport {
+    height: 220px;
   }
 }
