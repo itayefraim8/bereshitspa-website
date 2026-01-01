@@ -245,7 +245,7 @@ const TREATMENTS_META = {
     desc: {
       he: 'עיסוי פנים תאילנדי מסורתי ועדין המבוסס על טכניקות עתיקות. משלב שמנים צמחיים טבעיים, מגע רך ולחיצות מדויקות להרפיית שרירי הפנים. מסייע בשיפור זרימת הדם, ניקוז טבעי והפחתת מתחים בפנים ובלסת. כולל עיסוי פנים, קרקפת ועבודה על פלג גוף עליון.',
       en: 'A gentle Thai facial based on traditional techniques. Combines natural plant oils, soft touch, and precise pressure to relax facial muscles. Helps improve circulation, supports natural drainage, and reduces tension in the face and jaw. Includes face, scalp and upper-body work.',
-      ru: 'Нежный тайский массаж лица на основе традиционных техник. Сочетает натуральные масла, мягкие движения и точечное давление для расслабления мышц лица. Улучшает кровообращение, поддерживает естественный дренаж и снижает напряжение. Включает лицо, голову и верхнюю часть тела.',
+      ru: 'Нежный тайский массаж лица на основе традиционных техник. Сочетает натуральные масла, мягкие движения и точечное давление для расслабления мышц лица. Помогает улучшить кровообращение, поддерживает естественный дренаж и снижает напряжение. Включает лицо, голову и верхнюю часть тела.',
       ka: 'ნაზი თაილანდური სახის პროცედურა ტრადიციულ ტექნიკებზე დაფუძნებით. აერთიანებს ბუნებრივ ზეთებს, რბილ მოძრაობებს და ზუსტ წერტილოვან წნევას. აუმჯობესებს სისხლის მიმოქცევას, ხელს უწყობს დრენაჟს და ამცირებს დაძაბულობას. მოიცავს სახეს, თავის კანს და ზედა სხეულს.'
     },
     price: { he: '60 דק׳ – 150₾', en: '60 min – 150₾', ru: '60 мин – 150₾', ka: '60 წთ – 150₾' }
@@ -316,7 +316,7 @@ const TREATMENTS_META = {
   },
 
   'body-vitamin-e': {
-    tag: { he: '✨ עיסוי תאילנדי עם קרם ויטמין E', en: '✨ Thai Vitamin E Cream Massage', ru: '✨ Тайский массаж с кремом Vitamin E', ka: '✨ თაილანდური მასაჟი Vitamin E კრემით' },
+    tag: { he: '✨ עיסוי תאילנדי עם קרם ויטמין E', en: '✨ Thai Vitamin E Cream Massage', ru: '✨ Тайский массаж с кремом Vitamin E', ka: '✨ თაილاندური მასაჟი Vitamin E კრემით' },
     name: { he: 'Thai Vitamin E Cream Massage | עיסוי תאילנדי עם קרם ויטמין E', en: 'Thai Vitamin E Cream Massage', ru: 'Тайский массаж с кремом Vitamin E', ka: 'თაილანდური მასაჟი Vitamin E კრემით' },
     desc: {
       he: 'עיסוי תאילנדי בשילוב קרם מועשר בויטמין E להזנה עמוקה של העור. מסייע בשיפור גמישות ובהפחתת יובש. משלב רוגע וטיפוח קוסמטי. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.',
@@ -589,10 +589,108 @@ function setupTreatmentButtons() {
   });
 }
 
+// ===== Video Slider =====
+function setupVideoSlider() {
+  const slider = document.querySelector('.video-slider');
+  if (!slider) return;
+
+  const track = slider.querySelector('.video-slider__track');
+  const slides = Array.from(slider.querySelectorAll('.video-slide'));
+  if (!track || slides.length <= 1) return;
+
+  const prevBtn = slider.querySelector('.video-slider__nav--prev');
+  const nextBtn = slider.querySelector('.video-slider__nav--next');
+  const dotsWrap = slider.querySelector('.video-slider__dots');
+  const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.video-slider__dot')) : [];
+
+  let index = 0;
+  let timer = null;
+
+  const isRTL = () => (document.documentElement.dir || '').toLowerCase() === 'rtl';
+
+  function pauseAllVideos() {
+    slides.forEach((s) => {
+      const v = s.querySelector('video');
+      if (!v) return;
+      try { v.pause(); } catch (_) {}
+    });
+  }
+
+  async function playActiveVideo() {
+    const active = slides[index];
+    const v = active ? active.querySelector('video') : null;
+    if (!v) return;
+    try {
+      // חשוב: autoplay דורש muted + playsinline (כבר יש אצלך)
+      await v.play();
+    } catch (_) {
+      // אם הדפדפן חסם, לא נקריס – עדיין יראו את הפריים הראשון
+    }
+  }
+
+  function setActiveDot() {
+    if (!dots.length) return;
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+  }
+
+  function goTo(i) {
+    const max = slides.length;
+    index = (i + max) % max;
+
+    // RTL: מרגיש טבעי להפוך כיוון
+    const offset = -index * 100;
+    track.style.transform = `translateX(${offset}%)`;
+
+    setActiveDot();
+
+    // מנגן רק את הסרטון הפעיל (כדי שלא "יתקע" שחור במעבר)
+    pauseAllVideos();
+    playActiveVideo();
+  }
+
+  function next() { goTo(index + 1); }
+  function prev() { goTo(index - 1); }
+
+  function startAuto() {
+    stopAuto();
+    timer = window.setInterval(next, 5500);
+  }
+
+  function stopAuto() {
+    if (timer) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  // חיבור כפתורים
+  if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+
+  // חיבור נקודות
+  if (dots.length) {
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+    });
+  }
+
+  // כשהמשתמש נוגע/מקליק על הסליידר – לא לעצור לצמיתות, רק לרענן
+  slider.addEventListener('mouseenter', stopAuto);
+  slider.addEventListener('mouseleave', startAuto);
+
+  // אתחול
+  // אם האתר RTL, לפעמים רוצים להפוך את "ההיגיון" של prev/next לפי תחושה – אבל ה-translate נשאר עקבי.
+  goTo(0);
+  startAuto();
+}
+
 // ===== אתחול =====
 document.addEventListener('DOMContentLoaded', () => {
   const lang = getLang();
   applyLang(lang);
   setupLangButtons();
   setupTreatmentButtons();
+
+  // ✅ חדש: Slider
+  setupVideoSlider();
 });

@@ -380,6 +380,7 @@ body.landing-page {
     height: 40px;
   }
 }
+
 /* ===== FIX: Video Slider height + alignment (put at END of file) ===== */
 
 /* שמירה על יחס 16:9 בצורה יציבה בכל דפדפן */
@@ -398,16 +399,13 @@ body.landing-page {
   padding-top: 56.25%; /* 16:9 */
 }
 
-/* כל מה שבתוך ה-viewport יושב “מוחלט” על ה-16:9 */
-.video-slider__track,
-.video-slide,
-.video-slide__video {
+/* ✅ תיקון אמיתי:
+   ה-track בלבד יושב "מוחלט" על ה-viewport (כדי לשבת על ה-16:9),
+   אבל הסליידים והווידאו נשארים flex/רגילים — בלי absolute,
+   אחרת כל הסליידים נערמים אחד על השני ורואים רק סרטון אחד. */
+.video-slider__track {
   position: absolute;
   inset: 0;
-}
-
-/* ה-track נשאר flex אבל לא משפיע על גובה */
-.video-slider__track {
   display: flex;
   height: 100%;
   width: 100%;
@@ -415,9 +413,10 @@ body.landing-page {
   will-change: transform;
 }
 
-/* כל שקף תופס 100% רוחב/גובה של ה-viewport */
+/* כל שקף תופס 100% רוחב/גובה של ה-viewport (בלי absolute) */
 .video-slide {
   flex: 0 0 100%;
+  min-width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -445,6 +444,7 @@ body.landing-page {
     border-radius: 14px;
   }
 }
+
 /* =========================================================
    FIX TITLES – max 3 lines, NO ellipsis
    ========================================================= */
