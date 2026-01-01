@@ -1,4 +1,4 @@
-// landing-landing.js — i18n + כפתורי טיפול לווטסאפ + כפתור וואטסאפ צף + Video Slider
+// landing-landing.js — i18n + כפתורי טיפול לווטסאפ + כרטיסייה לווטסאפ
 
 const WHATSAPP_NUMBER = '972502686862';
 const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -27,7 +27,6 @@ function applyLang(lang) {
   applyTranslations(lang);
   applyTreatmentTexts(lang);
   applyDurationLabels(lang);
-  applyWhatsAppFloatLink(lang);
 }
 
 // ===== מילון טקסטים =====
@@ -188,14 +187,6 @@ const WA_TEMPLATES_TREATMENT = {
   en: 'Hello, I would like to book a treatment at Bereshit Spa:\nTreatment: {TREATMENT}\nDuration: {DURATION}\n\nPlease contact me to coordinate date and time.',
   ru: 'Здравствуйте! Я хочу записаться на процедуру в Bereshit Spa:\nПроцедура: {TREATMENT}\nДлительность: {DURATION}\n\nПожалуйста, свяжитесь со мной для согласования даты и времени.',
   ka: 'გამარჯობა, მსურს პროცედურის დაჯავშნა Bereshit Spa-ში:\nპროცედურა: {TREATMENT}\nხანგრძლივობა: {DURATION}\n\nგთხოვთ, დამიკავშირდეთ თარიღისა და დროის დასაზუსტებლად.'
-};
-
-// ✅ הודעה כללית לכפתור וואטסאפ צף
-const WA_TEMPLATES_GENERAL = {
-  he: 'שלום, הגעתי לדף של Bereshit Spa ואשמח לתאם טיפול.',
-  en: 'Hello, I found Bereshit Spa and would like to book a treatment.',
-  ru: 'Здравствуйте! Я нашёл(ла) Bereshit Spa и хочу записаться на процедуру.',
-  ka: 'გამარჯობა, Bereshit Spa-ის გვერდიდან გწერთ და მსურს პროცედურის დაჯავშნა.'
 };
 
 // ✅ תרגום יחידת דקות + פורמט תצוגה
@@ -521,15 +512,6 @@ function applyDurationLabels(lang) {
   });
 }
 
-// ===== כפתור וואטסאפ צף: לינק + הודעה לפי שפה =====
-function applyWhatsAppFloatLink(lang) {
-  const wa = document.querySelector('a.wa-float');
-  if (!wa) return;
-
-  const msg = (WA_TEMPLATES_GENERAL[lang] || WA_TEMPLATES_GENERAL.he);
-  wa.href = `${WHATSAPP_BASE}?text=${encodeURIComponent(msg)}`;
-}
-
 // ===== חיבור כפתורי שפה (דגלים) =====
 function setupLangButtons() {
   document.querySelectorAll('.lang-btn[data-lang]').forEach((btn) => {
@@ -574,124 +556,10 @@ function setupTreatmentButtons() {
   });
 }
 
-// ===== Video Slider (כפתורים + נקודות + סווייפ) =====
-function setupVideoSlider() {
-  const viewport = document.getElementById('videoSlider');
-  if (!viewport) return;
-
-  const track = viewport.querySelector('.video-slider__track');
-  const slides = Array.from(viewport.querySelectorAll('.video-slide'));
-  const prevBtn = viewport.querySelector('.video-slider__nav--prev');
-  const nextBtn = viewport.querySelector('.video-slider__nav--next');
-  const dotsWrap = viewport.querySelector('.video-slider__dots');
-  const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.video-slider__dot')) : [];
-
-  if (!track || !slides.length) return;
-
-  let index = slides.findIndex((s) => s.classList.contains('is-active'));
-  if (index < 0) index = 0;
-
-  function setActive(i) {
-    index = (i + slides.length) % slides.length;
-
-    slides.forEach((s, si) => s.classList.toggle('is-active', si === index));
-    dots.forEach((d, di) => d.classList.toggle('is-active', di === index));
-
-    // translateX לפי רוחב viewport
-    const w = viewport.clientWidth;
-    track.style.transform = `translateX(${-(index * w)}px)`;
-
-    // הפעל וידאו פעיל, עצור אחרים
-    slides.forEach((s, si) => {
-      const v = s.querySelector('video');
-      if (!v) return;
-      if (si === index) {
-        try { v.play(); } catch (_) {}
-      } else {
-        try { v.pause(); } catch (_) {}
-        // לא מחזירים זמן להתחלה כדי למנוע "קפיצה" – אם תרצה, אפשר להפעיל:
-        // v.currentTime = 0;
-      }
-    });
-  }
-
-  function next() { setActive(index + 1); }
-  function prev() { setActive(index - 1); }
-
-  // init sizing
-  function syncSizes() {
-    const w = viewport.clientWidth;
-    slides.forEach((s) => { s.style.width = `${w}px`; });
-    track.style.width = `${w * slides.length}px`;
-    setActive(index);
-  }
-
-  window.addEventListener('resize', syncSizes, { passive: true });
-
-  if (prevBtn) prevBtn.addEventListener('click', prev);
-  if (nextBtn) nextBtn.addEventListener('click', next);
-
-  dots.forEach((dot, di) => {
-    dot.addEventListener('click', () => setActive(di));
-  });
-
-  // swipe
-  let startX = 0;
-  let deltaX = 0;
-  let isDown = false;
-
-  function onDown(clientX) {
-    isDown = true;
-    startX = clientX;
-    deltaX = 0;
-  }
-  function onMove(clientX) {
-    if (!isDown) return;
-    deltaX = clientX - startX;
-  }
-  function onUp() {
-    if (!isDown) return;
-    isDown = false;
-
-    const threshold = Math.max(40, viewport.clientWidth * 0.12);
-    if (deltaX > threshold) prev();
-    else if (deltaX < -threshold) next();
-  }
-
-  viewport.addEventListener('pointerdown', (e) => onDown(e.clientX));
-  viewport.addEventListener('pointermove', (e) => onMove(e.clientX));
-  viewport.addEventListener('pointerup', onUp);
-  viewport.addEventListener('pointercancel', onUp);
-  viewport.addEventListener('pointerleave', onUp);
-
-  // autoplay (עדין) — אם לא רוצים, אפשר למחוק
-  let autoTimer = null;
-  const AUTO_MS = 7000;
-
-  function startAuto() {
-    stopAuto();
-    autoTimer = setInterval(() => next(), AUTO_MS);
-  }
-  function stopAuto() {
-    if (autoTimer) clearInterval(autoTimer);
-    autoTimer = null;
-  }
-
-  viewport.addEventListener('mouseenter', stopAuto);
-  viewport.addEventListener('mouseleave', startAuto);
-  viewport.addEventListener('focusin', stopAuto);
-  viewport.addEventListener('focusout', startAuto);
-
-  // kick
-  syncSizes();
-  startAuto();
-}
-
 // ===== אתחול =====
 document.addEventListener('DOMContentLoaded', () => {
   const lang = getLang();
   applyLang(lang);
   setupLangButtons();
   setupTreatmentButtons();
-  setupVideoSlider();
 });
