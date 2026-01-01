@@ -5,7 +5,7 @@ body.landing-page {
   margin: 0;
   padding: 0;
   font-family: "Heebo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f5f7;        /* רקע אפור בהיר, לא שחור */
+  background: #f5f5f7;
   color: #111827;
 }
 
@@ -20,14 +20,8 @@ body.landing-page {
 }
 
 /* ===== Hero ===== */
-.hero {
-  text-align: center;
-}
-
-.hero img {
-  display: block;
-  margin: 0 auto 16px;
-}
+.hero { text-align: center; }
+.hero img { display: block; margin: 0 auto 16px; }
 
 .promo-eyebrow {
   font-size: 0.9rem;
@@ -37,24 +31,11 @@ body.landing-page {
   margin: 4px 0 8px;
 }
 
-.promo-title {
-  margin: 0 0 8px;
-  font-weight: 700;
-  line-height: 1.2;
-}
+.promo-title { margin: 0 0 8px; font-weight: 700; line-height: 1.2; }
+.promo-title.xl { font-size: 1.9rem; }
 
-.promo-title.xl {
-  font-size: 1.9rem;
-}
-
-.promo-text {
-  margin: 0;
-  color: #4b5563;
-}
-
-.promo-text.lg {
-  font-size: 1.05rem;
-}
+.promo-text { margin: 0; color: #4b5563; }
+.promo-text.lg { font-size: 1.05rem; }
 
 /* ===== כפתורים ===== */
 .button,
@@ -89,10 +70,7 @@ body.landing-page {
 }
 
 /* ===== טקסטים משניים ===== */
-.muted {
-  font-size: 0.92rem;
-  color: #6b7280;
-}
+.muted { font-size: 0.92rem; color: #6b7280; }
 
 /* ===== רשימת טיפולים ===== */
 .home-grid {
@@ -125,6 +103,13 @@ body.landing-page {
   margin: 4px 0 4px;
   font-size: 1.05rem;
   font-weight: 600;
+
+  /* ✅ FIX: תמיד באותה שורה (לא יורד שורה בין EN/HE) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+  unicode-bidi: plaintext;
 }
 
 .product-card p {
@@ -154,7 +139,7 @@ body.landing-page {
   padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid #d1d5db;
-  font-size: 0.9 rem;
+  font-size: 0.9rem; /* ✅ תיקון: בלי רווח */
   cursor: pointer;
   background: #ffffff;
 }
@@ -179,10 +164,7 @@ body.landing-page {
   z-index: 40;
 }
 
-.wa-float img {
-  width: 28px;
-  height: 28px;
-}
+.wa-float img { width: 28px; height: 28px; }
 
 /* ===== סוויצ'ר שפות ===== */
 .lang-switch {
@@ -202,10 +184,7 @@ body.landing-page {
   background: transparent;
 }
 
-.lang-btn img {
-  width: 22px;
-  height: 22px;
-}
+.lang-btn img { width: 22px; height: 22px; }
 
 /* ===== מודאל הזמנה ===== */
 .booking-modal {
@@ -217,9 +196,7 @@ body.landing-page {
   z-index: 50;
 }
 
-.booking-modal.active {
-  display: flex;
-}
+.booking-modal.active { display: flex; }
 
 .booking-backdrop {
   position: absolute;
@@ -248,9 +225,7 @@ body.landing-page {
   cursor: pointer;
 }
 
-.booking-row {
-  margin-bottom: 10px;
-}
+.booking-row { margin-bottom: 10px; }
 
 .booking-row label {
   display: block;
@@ -269,14 +244,8 @@ body.landing-page {
   box-sizing: border-box;
 }
 
-.booking-row.two-cols {
-  display: flex;
-  gap: 10px;
-}
-
-.booking-row.two-cols > div {
-  flex: 1;
-}
+.booking-row.two-cols { display: flex; gap: 10px; }
+.booking-row.two-cols > div { flex: 1; }
 
 .booking-note {
   font-size: 0.85rem;
@@ -293,6 +262,7 @@ body.landing-page {
     box-shadow: none;
   }
 }
+
 /* כל כרטיס – גובה אחיד ויישור למטה */
 .product-card {
   display: flex;
@@ -301,18 +271,13 @@ body.landing-page {
   height: 100%;
 }
 
-/* מוודא שטקסט התיאור לא דוחף הכל */
-.product-card p {
-  flex-grow: 0;
-}
+.product-card p { flex-grow: 0; }
 
-/* קופסת המחיר */
 .product-card .price {
   margin-top: 8px;
   font-weight: 700;
 }
 
-/* משך הטיפול – תמיד מעל הכפתור */
 .product-card .duration-options {
   margin-top: auto;
   margin-bottom: 14px;
@@ -320,15 +285,10 @@ body.landing-page {
   gap: 12px;
 }
 
-/* הכפתור – צמוד לתחתית הכרטיס */
-.product-card .button {
-  margin-top: 0;
-}
+.product-card .button { margin-top: 0; }
 
 /* ===== Video Slider ===== */
-.video-slider {
-  margin: 18px 0 6px;
-}
+.video-slider { margin: 18px 0 6px; }
 
 .video-slider__viewport {
   position: relative;
@@ -337,9 +297,6 @@ body.landing-page {
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
   background: #0b0f1a;
-
-  /* ✅ חדש: גובה קטן יותר (במקום שהגובה ינבע מ-aspect-ratio) */
-  height: 320px; /* אפשר להוריד ל-260px/280px אם תרצה */
 }
 
 .video-slider__track {
@@ -350,8 +307,7 @@ body.landing-page {
 
 .video-slide {
   flex: 0 0 100%;
-  /* ✅ חדש: כדי שלא יכפה 16:9 ויגדיל גובה */
-  height: 100%;
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -386,9 +342,7 @@ body.landing-page {
   z-index: 2;
 }
 
-.video-slider__nav:hover {
-  background: rgba(255, 255, 255, 0.92);
-}
+.video-slider__nav:hover { background: rgba(255, 255, 255, 0.92); }
 
 .video-slider__nav--prev { left: 12px; }
 .video-slider__nav--next { right: 12px; }
@@ -417,9 +371,7 @@ body.landing-page {
   background: rgba(255, 255, 255, 0.55);
 }
 
-.video-slider__dot.is-active {
-  background: rgba(255, 255, 255, 0.95);
-}
+.video-slider__dot.is-active { background: rgba(255, 255, 255, 0.95); }
 
 /* Mobile tweaks */
 @media (max-width: 640px) {
@@ -427,9 +379,69 @@ body.landing-page {
     width: 40px;
     height: 40px;
   }
+}
+/* ===== FIX: Video Slider height + alignment (put at END of file) ===== */
 
-  /* ✅ חדש: גובה קטן יותר למובייל */
+/* שמירה על יחס 16:9 בצורה יציבה בכל דפדפן */
+.video-slider__viewport {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0b0f1a;
+}
+
+/* Fallback ל-aspect-ratio (וגם מייצב גובה) */
+.video-slider__viewport::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 */
+}
+
+/* כל מה שבתוך ה-viewport יושב “מוחלט” על ה-16:9 */
+.video-slider__track,
+.video-slide,
+.video-slide__video {
+  position: absolute;
+  inset: 0;
+}
+
+/* ה-track נשאר flex אבל לא משפיע על גובה */
+.video-slider__track {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 420ms ease;
+  will-change: transform;
+}
+
+/* כל שקף תופס 100% רוחב/גובה של ה-viewport */
+.video-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0f1a;
+}
+
+/* הווידאו ממלא יפה בלי לשבור גובה */
+.video-slide__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* כפתורי ניווט ודוטים נשארים מעל */
+.video-slider__nav,
+.video-slider__dots {
+  z-index: 3;
+}
+
+/* מובייל: קצת פחות רדיוס אם בא לך */
+@media (max-width: 640px) {
   .video-slider__viewport {
-    height: 220px;
+    border-radius: 14px;
   }
 }
