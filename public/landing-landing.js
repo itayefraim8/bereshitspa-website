@@ -45,6 +45,10 @@ const LOCAL_STRINGS = {
     'landing.treatments.subtitle': 'כל הטיפולים מתבצעים על-ידי צוות תאילנדי מקצועי, באווירה שקטה ומוסיקה מרגיעה.',
     'landing.treatment.book': 'להזמנת הטיפול',
 
+    // flagship
+    'landing.flagship.title': 'טיפולי הדגל שלנו',
+    'landing.flagship.subtitle': '6 טיפולים מובילים — בחרו את הטיפול שלכם והזמינו בווטסאפ.',
+
     // section headings
     'landing.section.face.title': '✨ עיסויי פנים',
     'landing.section.back.title': '💆‍♂️ עיסוי גב – כתפיים – צוואר',
@@ -78,6 +82,9 @@ const LOCAL_STRINGS = {
     'landing.treatments.subtitle': 'All treatments are done by professional Thai therapists, in a quiet atmosphere with relaxing music.',
     'landing.treatment.book': 'Book this treatment',
 
+    'landing.flagship.title': 'Our Flagship Treatments',
+    'landing.flagship.subtitle': '6 best-sellers — choose your treatment and book via WhatsApp.',
+
     'landing.section.face.title': '✨ Facial Treatments',
     'landing.section.back.title': '💆‍♂️ Back–Neck–Shoulders',
     'landing.section.body.title': '🧘‍♂️ Full Body Massage',
@@ -109,6 +116,9 @@ const LOCAL_STRINGS = {
     'landing.treatments.subtitle': 'Все процедуры выполняют профессиональные мастера из Таиланда, в тихой атмосфере и под расслабляющую музыку.',
     'landing.treatment.book': 'Записаться на процедуру',
 
+    'landing.flagship.title': 'Наши флагманские процедуры',
+    'landing.flagship.subtitle': '6 хитов — выберите процедуру и запишитесь через WhatsApp.',
+
     'landing.section.face.title': '✨ Процедуры для лица',
     'landing.section.back.title': '💆‍♂️ Спина–шея–плечи',
     'landing.section.body.title': '🧘‍♂️ Массаж всего тела',
@@ -139,6 +149,9 @@ const LOCAL_STRINGS = {
     'landing.treatments.title': 'აირჩიეთ სასურველი პროცედურა',
     'landing.treatments.subtitle': 'ყველა პროცედურას ასრულებენ პროფესიონალი თაილანდელი თერაპევტები, მშვიდ გარემოში და დამამშვიდებელი მუსიკით.',
     'landing.treatment.book': 'დაჯავშნა',
+
+    'landing.flagship.title': 'ჩვენი მთავარი პროცედურები',
+    'landing.flagship.subtitle': '6 ყველაზე პოპულარული — აირჩიეთ და დაჯავშნეთ WhatsApp-ით.',
 
     'landing.section.face.title': '✨ სახის პროცედურები',
     'landing.section.back.title': '💆‍♂️ ზურგი–კისერი–მხრები',
@@ -478,7 +491,8 @@ const TREATMENTS_META = {
 
 // ===== תרגום כרטיסי הטיפולים על הדף (כולל tag) =====
 function applyTreatmentTexts(lang) {
-  document.querySelectorAll('.product-card').forEach((card) => {
+  // ✅ תומך גם בכרטיסי סליידר הדגל
+  document.querySelectorAll('.product-card, .flagship-card').forEach((card) => {
     const btn = card.querySelector('[data-treatment-key]');
     if (!btn) return;
 
@@ -496,7 +510,8 @@ function applyTreatmentTexts(lang) {
       titleEl.textContent = meta.name[lang] || meta.name.he || titleEl.textContent;
     }
 
-    const descEl = card.querySelector('p:not(.price)');
+    // בכרטיסי הדגל יש class ייעודי לתיאור, ובכרטיסי grid נשאר כמו שהיה
+    const descEl = card.querySelector('.flagship-desc') || card.querySelector('p:not(.price)');
     if (descEl && meta.desc) {
       descEl.textContent = meta.desc[lang] || meta.desc.he || descEl.textContent;
     }
@@ -543,7 +558,7 @@ function setupTreatmentButtons() {
       const meta = TREATMENTS_META[key] || {};
       const treatmentName =
         (meta.name && (meta.name[lang] || meta.name.he)) ||
-        (btn.closest('.product-card')?.querySelector('.product-title')?.textContent.trim() ?? 'Treatment');
+        (btn.closest('.product-card, .flagship-card')?.querySelector('.product-title')?.textContent.trim() ?? 'Treatment');
 
       let duration = '';
       if (group) {
@@ -591,30 +606,20 @@ function setupVideoSlider() {
     const active = slides[index];
     const v = active ? active.querySelector('video') : null;
     if (!v) return;
-    try {
-      await v.play();
-    } catch (_) {
-      // אם חסום autoplay – לא קורסים. עדיין יראו פריים ראשון.
-    }
+    try { await v.play(); } catch (_) {}
   }
 
   function setActiveDot() {
     if (!dots.length) return;
-
-    // ✅ ניקוי מצב שנשאר מה-HTML (למשל אם בטעות שמו is-active על כולם)
     dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
   }
 
   function goTo(i) {
     const max = slides.length;
     index = (i + max) % max;
-
-    // ✅ חשוב: translateX(-100%) עובד נכון כאשר ה-track ברוחב ה-viewport
     const offset = -index * 100;
     track.style.transform = `translateX(${offset}%)`;
-
     setActiveDot();
-
     pauseAllVideos();
     playActiveVideo();
   }
@@ -637,16 +642,69 @@ function setupVideoSlider() {
   if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
   if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
 
-  if (dots.length) {
-    // ✅ אם מספר הדוטים לא תואם למספר השקופיות – עדיין נמשיך לעבוד (רק בלי דוטים תקינים)
-    if (dots.length !== slides.length) {
-      // לא עוצרים את הסליידר, רק לא משתמשים בדוטים כדי למנוע מצב “חצי תקין”
-      // (עדיף לתקן ב-HTML שיהיו בדיוק כמו מספר הווידיאואים)
-    } else {
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
-      });
+  if (dots.length && dots.length === slides.length) {
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+    });
+  }
+
+  slider.addEventListener('mouseenter', stopAuto);
+  slider.addEventListener('mouseleave', startAuto);
+
+  goTo(0);
+  startAuto();
+}
+
+// ===== Flagship Slider (Treatments) =====
+function setupFlagshipSlider() {
+  const slider = document.querySelector('#flagshipSlider');
+  if (!slider) return;
+
+  const track = slider.querySelector('.flagship-slider__track');
+  const slides = Array.from(slider.querySelectorAll('.flagship-card'));
+  if (!track || slides.length <= 1) return;
+
+  const prevBtn = slider.querySelector('.flagship-slider__nav--prev');
+  const nextBtn = slider.querySelector('.flagship-slider__nav--next');
+  const dotsWrap = slider.querySelector('.flagship-slider__dots');
+  const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.flagship-slider__dot')) : [];
+
+  let index = 0;
+  let timer = null;
+
+  function setActiveDot() {
+    if (!dots.length) return;
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+  }
+
+  function goTo(i) {
+    const max = slides.length;
+    index = (i + max) % max;
+    const offset = -index * 100;
+    track.style.transform = `translateX(${offset}%)`;
+    setActiveDot();
+  }
+
+  function next() { goTo(index + 1); }
+  function prev() { goTo(index - 1); }
+
+  function startAuto() {
+    stopAuto();
+    timer = window.setInterval(next, 6500);
+  }
+
+  function stopAuto() {
+    if (timer) {
+      window.clearInterval(timer);
+      timer = null;
     }
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+
+  if (dots.length && dots.length === slides.length) {
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); }));
   }
 
   slider.addEventListener('mouseenter', stopAuto);
@@ -663,4 +721,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupLangButtons();
   setupTreatmentButtons();
   setupVideoSlider();
+  setupFlagshipSlider();
 });
