@@ -28,8 +28,21 @@ function applyLang(lang) {
   applyTreatmentTexts(lang);
   applyDurationLabels(lang);
 
+  // ✅ אם הסליידר כבר אותחל – רענון (כדי לחשב מידות מחדש אחרי שינוי כיוון)
   if (window.__flagshipSlider?.refresh) window.__flagshipSlider.refresh();
+
+  // ✅ הפיכת חיצי הסליידר בהתאם ל-RTL / LTR
+  const prevIcon = document.querySelector('.flagship-slider__nav--prev');
+  const nextIcon = document.querySelector('.flagship-slider__nav--next');
+
+  if (prevIcon && nextIcon) {
+    const isRTL = document.documentElement.dir === 'rtl';
+    prevIcon.textContent = isRTL ? '›' : '‹';
+    nextIcon.textContent = isRTL ? '‹' : '›';
+  }
 }
+
+
 
 
 // ===== מילון טקסטים =====
@@ -617,15 +630,15 @@ function setupVideoSlider() {
     dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
   }
 
-  function goTo(i) {
-    const max = slides.length;
-    index = (i + max) % max;
-    const offset = -index * 100;
-    track.style.transform = `translateX(${offset}%)`;
-    setActiveDot();
-    pauseAllVideos();
-    playActiveVideo();
-  }
+function goTo(i) {
+  const max = slides.length;
+  index = (i + max) % max;
+
+  // ✅ תמיד מזיזים שמאלה ב־100% לכל שקף (זה עובד נכון גם ב־RTL)
+  track.style.transform = `translateX(${-index * 100}%)`;
+  setDots();
+}
+
 
   function next() { goTo(index + 1); }
   function prev() { goTo(index - 1); }
@@ -642,8 +655,20 @@ function setupVideoSlider() {
     }
   }
 
-  if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
-  if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+const isRTL = document.documentElement.dir === 'rtl';
+
+if (prevBtn) prevBtn.addEventListener('click', () => {
+  stopAuto();
+  isRTL ? next() : prev();   // ✅ ב-RTL "שמאל" מתקדם קדימה
+  startAuto();
+});
+
+if (nextBtn) nextBtn.addEventListener('click', () => {
+  stopAuto();
+  isRTL ? prev() : next();   // ✅ ב-RTL "ימין" חוזר אחורה
+  startAuto();
+});
+
 
   if (dots.length && dots.length === slides.length) {
     dots.forEach((dot, i) => {

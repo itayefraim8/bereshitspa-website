@@ -797,3 +797,36 @@ body.landing-page {
   .flagship-slider__viewport{ border-radius: 14px; padding: 12px; }
   .flagship-slider__nav{ width: 40px; height: 40px; }
 }
+/* ===== Flagship Slider responsive fixes (put at END) ===== */
+
+/* viewport בלי padding כדי ש-translateX(-100%) יהיה מדויק */
+.flagship-slider__viewport {
+  padding: 0 !important;
+}
+
+/* את המרווחים נשים בתוך הסלייד עצמו */
+.flagship-slide.product-card {
+  margin: 0;
+  border-radius: 18px;
+  padding: 16px 14px 18px;
+}
+
+/* track + slide יציבים בכל רוחב */
+.flagship-slider__track {
+  width: 100%;
+}
+
+.flagship-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+/* במובייל: קצת פחות padding וכפתורים נוחים */
+@media (max-width: 640px) {
+  .flagship-slide.product-card {
+    padding: 14px 12px 16px;
+  }
+
+  .flagship-slider__nav--prev { left: 10px; }
+  .flagship-slider__nav--next { right: 10px; }
+}
