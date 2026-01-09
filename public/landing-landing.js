@@ -683,13 +683,14 @@ if (nextBtn) nextBtn.addEventListener('click', () => {
   startAuto();
 }
 
-// ===== Flagship Treatments Slider =====
+// ===== Flagship Treatments Slider (responsive + works with variable widths) =====
 function setupFlagshipSlider() {
-  const slider = document.getElementById('flagshipSlider');
-  if (!slider) return;
+  const viewport = document.getElementById('flagshipSlider'); // זה ה-viewport אצלך
+  if (!viewport) return;
 
-  const track = slider.querySelector('.flagship-slider__track');
-  const slides = Array.from(slider.querySelectorAll('.flagship-slide'));
+  const slider = viewport.closest('.flagship-slider') || viewport; // עוטף כדי למצוא חצים/דוטים תמיד
+  const track = viewport.querySelector('.flagship-slider__track');
+  const slides = Array.from(viewport.querySelectorAll('.flagship-slide'));
   if (!track || slides.length <= 1) return;
 
   const prevBtn = slider.querySelector('.flagship-slider__nav--prev');
@@ -700,20 +701,21 @@ function setupFlagshipSlider() {
   let timer = null;
 
   function setDots() {
+    if (!dots.length) return;
     dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
   }
 
-  function getDirSign() {
-    // RTL: נזיז הפוך כדי ש"next" ירגיש טבעי בעברית
-    return (document.documentElement.dir === 'rtl') ? 1 : -1;
-  }
-
-  function goTo(i) {
+  function goTo(i, smooth = true) {
     const max = slides.length;
     index = (i + max) % max;
 
-    const sign = getDirSign();
-    track.style.transform = `translateX(${sign * index * 100}%)`;
+    // ✅ רספונסיבי אמיתי: לא תלוי ב-100% ולא נשבר עם gap/רוחבים משתנים
+    slides[index].scrollIntoView({
+      behavior: smooth ? 'smooth' : 'auto',
+      inline: 'center',
+      block: 'nearest'
+    });
+
     setDots();
   }
 
@@ -732,8 +734,8 @@ function setupFlagshipSlider() {
     }
   }
 
-  if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
-  if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+  prevBtn?.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+  nextBtn?.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
 
   if (dots.length === slides.length) {
     dots.forEach((dot, i) => {
@@ -741,15 +743,17 @@ function setupFlagshipSlider() {
     });
   }
 
+  // עצירה בהובר (בדסקטופ)
   slider.addEventListener('mouseenter', stopAuto);
   slider.addEventListener('mouseleave', startAuto);
 
-  // מאפשר ריענון כשמשנים שפה (dir משתנה)
-  window.__flagshipSlider = { refresh: () => goTo(index) };
+  // מאפשר ריענון כשמשנים שפה / dir
+  window.__flagshipSlider = { refresh: () => goTo(index, false) };
 
-  goTo(0);
+  goTo(0, false);
   startAuto();
 }
+
 
 
 // ===== אתחול =====
