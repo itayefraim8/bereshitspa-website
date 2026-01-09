@@ -27,7 +27,10 @@ function applyLang(lang) {
   applyTranslations(lang);
   applyTreatmentTexts(lang);
   applyDurationLabels(lang);
+
+  if (window.__flagshipSlider?.refresh) window.__flagshipSlider.refresh();
 }
+
 
 // ===== מילון טקסטים =====
 const LOCAL_STRINGS = {
@@ -655,34 +658,38 @@ function setupVideoSlider() {
   startAuto();
 }
 
-// ===== Flagship Slider (Treatments) =====
+// ===== Flagship Treatments Slider =====
 function setupFlagshipSlider() {
-  const slider = document.querySelector('#flagshipSlider');
+  const slider = document.getElementById('flagshipSlider');
   if (!slider) return;
 
   const track = slider.querySelector('.flagship-slider__track');
-  const slides = Array.from(slider.querySelectorAll('.flagship-card'));
+  const slides = Array.from(slider.querySelectorAll('.flagship-slide'));
   if (!track || slides.length <= 1) return;
 
   const prevBtn = slider.querySelector('.flagship-slider__nav--prev');
   const nextBtn = slider.querySelector('.flagship-slider__nav--next');
-  const dotsWrap = slider.querySelector('.flagship-slider__dots');
-  const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.flagship-slider__dot')) : [];
+  const dots = Array.from(slider.querySelectorAll('.flagship-slider__dot'));
 
   let index = 0;
   let timer = null;
 
-  function setActiveDot() {
-    if (!dots.length) return;
+  function setDots() {
     dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+  }
+
+  function getDirSign() {
+    // RTL: נזיז הפוך כדי ש"next" ירגיש טבעי בעברית
+    return (document.documentElement.dir === 'rtl') ? 1 : -1;
   }
 
   function goTo(i) {
     const max = slides.length;
     index = (i + max) % max;
-    const offset = -index * 100;
-    track.style.transform = `translateX(${offset}%)`;
-    setActiveDot();
+
+    const sign = getDirSign();
+    track.style.transform = `translateX(${sign * index * 100}%)`;
+    setDots();
   }
 
   function next() { goTo(index + 1); }
@@ -690,7 +697,7 @@ function setupFlagshipSlider() {
 
   function startAuto() {
     stopAuto();
-    timer = window.setInterval(next, 6500);
+    timer = window.setInterval(next, 6000);
   }
 
   function stopAuto() {
@@ -703,16 +710,22 @@ function setupFlagshipSlider() {
   if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
   if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
 
-  if (dots.length && dots.length === slides.length) {
-    dots.forEach((dot, i) => dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); }));
+  if (dots.length === slides.length) {
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+    });
   }
 
   slider.addEventListener('mouseenter', stopAuto);
   slider.addEventListener('mouseleave', startAuto);
 
+  // מאפשר ריענון כשמשנים שפה (dir משתנה)
+  window.__flagshipSlider = { refresh: () => goTo(index) };
+
   goTo(0);
   startAuto();
 }
+
 
 // ===== אתחול =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -721,5 +734,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupLangButtons();
   setupTreatmentButtons();
   setupVideoSlider();
+  // setupVideoSlider(); // לא צריך לסליידר טיפולים
   setupFlagshipSlider();
 });
+

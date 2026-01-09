@@ -96,181 +96,102 @@
         </div>
       </section>
 
-      <!-- ==========================
-           ✅ Flagship Treatments Slider
-           ========================== -->
-      <section class="flagship" aria-label="Flagship treatments">
-        <h2 class="flagship__title" data-i18n="landing.flagship.title">טיפולי הדגל שלנו</h2>
-        <p class="muted flagship__subtitle" data-i18n="landing.flagship.subtitle">
-          6 טיפולים מובילים — בחרו את הטיפול שלכם והזמינו בווטסאפ.
-        </p>
+<!-- ===== Flagship Treatments Slider (6 slides) ===== -->
+<section class="flagship-slider" aria-label="Flagship treatments">
+  <h2 class="flagship-title" data-i18n="landing.flagship.title">טיפולי הדגל שלנו</h2>
+  <p class="flagship-subtitle muted" data-i18n="landing.flagship.subtitle">6 טיפולים מובילים — בחרו את הטיפול שלכם והזמינו בווטסאפ.</p>
 
-        <div class="flagship-slider" id="flagshipSlider">
-          <div class="flagship-slider__viewport">
-            <div class="flagship-slider__track">
+  <div class="flagship-slider__viewport" id="flagshipSlider">
+    <div class="flagship-slider__track">
 
-              <!-- 1) Japanese Head Spa -->
-              <article class="flagship-card">
-                <div class="tag">🌸 ספא ראש יפני</div>
-                <h3 class="product-title">Japanese Head Spa | ספא ראש יפני</h3>
-                <p class="flagship-desc">
-                  טיפול יפני מסורתי המשלב ניקוי יסודי של הקרקפת, עיסוי ממוקד, מסכות טיפוליות ופינוקי מים חמימים.
-                  הטכניקה ממריצה את זרימת הדם לקרקפת, מחזקת את שורשי השיער ומרגיעה עומסים נפשיים.
-                  כולל שטיפה עמוקה, מגבת חמה, סרום ייעודי לקרקפת וייבוש שיער מלא.
-                  הטיפול מסתיים במנוחה קצרה עם תה וניחוח ארומטי עדין.
-                </p>
-                <p class="price">60 דק׳ – 200₾</p>
-                <div class="duration-options">
-                  <label>
-                    <input type="radio" name="fs-head" value="60" checked />
-                    <span data-min="60">60 דק׳</span>
-                  </label>
-                </div>
-                <button class="button"
-                        data-book-btn
-                        data-treatment-key="head-spa"
-                        data-radio-group="fs-head"
-                        data-i18n="landing.treatment.book">
-                  להזמנת הטיפול
-                </button>
-              </article>
-
-              <!-- 2) Thai Vitamin E Cream Massage -->
-              <article class="flagship-card">
-                <div class="tag">✨ עיסוי תאילנדי עם קרם ויטמין E</div>
-                <h3 class="product-title">Thai Vitamin E Cream Massage | עיסוי תאילנדי עם קרם ויטמין E</h3>
-                <p class="flagship-desc">
-                  עיסוי תאילנדי בשילוב קרם מועשר בויטמין E להזנה עמוקה של העור. מסייע בשיפור גמישות ובהפחתת יובש.
-                  משלב רוגע וטיפוח קוסמטי. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-                </p>
-                <p class="price">60 דק׳ – 130₾</p>
-                <div class="duration-options">
-                  <label>
-                    <input type="radio" name="fs-vit-e" value="60" checked />
-                    <span data-min="60">60 דק׳</span>
-                  </label>
-                </div>
-                <button class="button"
-                        data-book-btn
-                        data-treatment-key="body-vitamin-e"
-                        data-radio-group="fs-vit-e"
-                        data-i18n="landing.treatment.book">
-                  להזמנת הטיפול
-                </button>
-              </article>
-
-              <!-- 3) Thai Therapeutic Massage -->
-              <article class="flagship-card">
-                <div class="tag">🩺 עיסוי תאילנדי טיפולי</div>
-                <h3 class="product-title">Thai Therapeutic Massage | עיסוי תאילנדי טיפולי</h3>
-                <p class="flagship-desc">
-                  עיסוי תאילנדי טיפולי עמוק וממוקד. מטפל בכאבי גב, צוואר ושרירים תפוסים כרונית.
-                  משפר טווח תנועה ומפחית עומסים. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-                </p>
-                <p class="price">60 דק׳ – 200₾</p>
-                <div class="duration-options">
-                  <label>
-                    <input type="radio" name="fs-ther" value="60" checked />
-                    <span data-min="60">60 דק׳</span>
-                  </label>
-                </div>
-                <button class="button"
-                        data-book-btn
-                        data-treatment-key="body-thai-ther"
-                        data-radio-group="fs-ther"
-                        data-i18n="landing.treatment.book">
-                  להזמנת הטיפול
-                </button>
-              </article>
-
-              <!-- 4) Sports Massage -->
-              <article class="flagship-card">
-                <div class="tag">🏃 עיסוי ספורט</div>
-                <h3 class="product-title">Sports Massage | עיסוי ספורט</h3>
-                <p class="flagship-desc">
-                  עיסוי אינטנסיבי לשחרור עומסים מפעילות גופנית. משלב טכניקות עומק ומתיחות.
-                  מסייע בהתאוששות ומניעת פציעות. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-                </p>
-                <p class="price">60 דק׳ – 170₾</p>
-                <div class="duration-options">
-                  <label>
-                    <input type="radio" name="fs-sports" value="60" checked />
-                    <span data-min="60">60 דק׳</span>
-                  </label>
-                </div>
-                <button class="button"
-                        data-book-btn
-                        data-treatment-key="body-sports"
-                        data-radio-group="fs-sports"
-                        data-i18n="landing.treatment.book">
-                  להזמנת הטיפול
-                </button>
-              </article>
-
-              <!-- 5) Karsai Massage -->
-              <article class="flagship-card">
-                <div class="tag">⚡ עיסוי תאילנדי קארסאי – פרימיום</div>
-                <h3 class="product-title">Karsai Massage | עיסוי תאילנדי קארסאי – פרימיום</h3>
-                <p class="flagship-desc">
-                  עיסוי תאילנדי מסורתי מתקדם מהרפואה העתיקה. מתמקד באזורים אנרגטיים עמוקים.
-                  טיפול עוצמתי ונישתי המיועד למטופלים מנוסים בלבד. הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-                </p>
-                <p class="price">60 דק׳ – 180₾</p>
-                <div class="duration-options">
-                  <label>
-                    <input type="radio" name="fs-karsai" value="60" checked />
-                    <span data-min="60">60 דק׳</span>
-                  </label>
-                </div>
-                <button class="button"
-                        data-book-btn
-                        data-treatment-key="body-karsai"
-                        data-radio-group="fs-karsai"
-                        data-i18n="landing.treatment.book">
-                  להזמנת הטיפול
-                </button>
-              </article>
-
-              <!-- 6) Thai Reflexology Foot Massage -->
-              <article class="flagship-card">
-                <div class="tag">🦶 עיסוי תאילנדי כפות רגליים רפלקסולוגי</div>
-                <h3 class="product-title">Thai Reflexology Foot Massage | עיסוי תאילנדי כפות רגליים רפלקסולוגי</h3>
-                <p class="flagship-desc">
-                  עיסוי רפלקסולוגי תאילנדי עם לחיצות עמוקות ומשחה חריפה.
-                  משפיע על מערכות הגוף דרך נקודות השתקפות בכפות הרגליים. טיפול ממוקד ויעיל.
-                </p>
-                <p class="price">60 דק׳ – 140₾</p>
-                <div class="duration-options">
-                  <label>
-                    <input type="radio" name="fs-foot-ref" value="60" checked />
-                    <span data-min="60">60 דק׳</span>
-                  </label>
-                </div>
-                <button class="button"
-                        data-book-btn
-                        data-treatment-key="foot-reflexology"
-                        data-radio-group="fs-foot-ref"
-                        data-i18n="landing.treatment.book">
-                  להזמנת הטיפול
-                </button>
-              </article>
-
-            </div>
-          </div>
-
-          <button class="flagship-slider__nav flagship-slider__nav--prev" type="button" aria-label="Previous treatment">‹</button>
-          <button class="flagship-slider__nav flagship-slider__nav--next" type="button" aria-label="Next treatment">›</button>
-
-          <div class="flagship-slider__dots" aria-label="Flagship slider dots">
-            <button class="flagship-slider__dot is-active" type="button" aria-label="Go to slide 1"></button>
-            <button class="flagship-slider__dot" type="button" aria-label="Go to slide 2"></button>
-            <button class="flagship-slider__dot" type="button" aria-label="Go to slide 3"></button>
-            <button class="flagship-slider__dot" type="button" aria-label="Go to slide 4"></button>
-            <button class="flagship-slider__dot" type="button" aria-label="Go to slide 5"></button>
-            <button class="flagship-slider__dot" type="button" aria-label="Go to slide 6"></button>
-          </div>
+      <!-- 1) Head Spa -->
+      <article class="flagship-slide product-card">
+        <div class="tag">🌸 ספא ראש יפני</div>
+        <h3 class="product-title">Japanese Head Spa | ספא ראש יפני</h3>
+        <p></p>
+        <p class="price">60 דק׳ – 200₾</p>
+        <div class="duration-options">
+          <label><input type="radio" name="fs-dur-1" value="60" checked /><span data-min="60">60 דק׳</span></label>
         </div>
-      </section>
+        <button class="button" data-book-btn data-treatment-key="head-spa" data-radio-group="fs-dur-1" data-i18n="landing.treatment.book">להזמנת הטיפול</button>
+      </article>
+
+      <!-- 2) Vitamin E -->
+      <article class="flagship-slide product-card">
+        <div class="tag">✨ עיסוי תאילנדי עם קרם ויטמין E</div>
+        <h3 class="product-title">Thai Vitamin E Cream Massage | עיסוי תאילנדי עם קרם ויטמין E</h3>
+        <p></p>
+        <p class="price">60 דק׳ – 130₾</p>
+        <div class="duration-options">
+          <label><input type="radio" name="fs-dur-2" value="60" checked /><span data-min="60">60 דק׳</span></label>
+        </div>
+        <button class="button" data-book-btn data-treatment-key="body-vitamin-e" data-radio-group="fs-dur-2" data-i18n="landing.treatment.book">להזמנת הטיפול</button>
+      </article>
+
+      <!-- 3) Therapeutic -->
+      <article class="flagship-slide product-card">
+        <div class="tag">🩺 עיסוי תאילנדי טיפולי</div>
+        <h3 class="product-title">Thai Therapeutic Massage | עיסוי תאילנדי טיפולי</h3>
+        <p></p>
+        <p class="price">60 דק׳ – 200₾</p>
+        <div class="duration-options">
+          <label><input type="radio" name="fs-dur-3" value="60" checked /><span data-min="60">60 דק׳</span></label>
+        </div>
+        <button class="button" data-book-btn data-treatment-key="body-thai-ther" data-radio-group="fs-dur-3" data-i18n="landing.treatment.book">להזמנת הטיפול</button>
+      </article>
+
+      <!-- 4) Sports -->
+      <article class="flagship-slide product-card">
+        <div class="tag">🏃 עיסוי ספורט</div>
+        <h3 class="product-title">Sports Massage | עיסוי ספורט</h3>
+        <p></p>
+        <p class="price">60 דק׳ – 170₾</p>
+        <div class="duration-options">
+          <label><input type="radio" name="fs-dur-4" value="60" checked /><span data-min="60">60 דק׳</span></label>
+        </div>
+        <button class="button" data-book-btn data-treatment-key="body-sports" data-radio-group="fs-dur-4" data-i18n="landing.treatment.book">להזמנת הטיפול</button>
+      </article>
+
+      <!-- 5) Karsai -->
+      <article class="flagship-slide product-card">
+        <div class="tag">⚡ עיסוי תאילנדי קארסאי – פרימיום</div>
+        <h3 class="product-title">Karsai Massage | עיסוי תאילנדי קארסאי – פרימיום</h3>
+        <p></p>
+        <p class="price">60 דק׳ – 180₾</p>
+        <div class="duration-options">
+          <label><input type="radio" name="fs-dur-5" value="60" checked /><span data-min="60">60 דק׳</span></label>
+        </div>
+        <button class="button" data-book-btn data-treatment-key="body-karsai" data-radio-group="fs-dur-5" data-i18n="landing.treatment.book">להזמנת הטיפול</button>
+      </article>
+
+      <!-- 6) Reflexology -->
+      <article class="flagship-slide product-card">
+        <div class="tag">🦶 עיסוי תאילנדי כפות רגליים רפלקסולוגי</div>
+        <h3 class="product-title">Thai Reflexology Foot Massage | עיסוי תאילנדי כפות רגליים רפלקסולוגי</h3>
+        <p></p>
+        <p class="price">60 דק׳ – 140₾</p>
+        <div class="duration-options">
+          <label><input type="radio" name="fs-dur-6" value="60" checked /><span data-min="60">60 דק׳</span></label>
+        </div>
+        <button class="button" data-book-btn data-treatment-key="foot-reflexology" data-radio-group="fs-dur-6" data-i18n="landing.treatment.book">להזמנת הטיפול</button>
+      </article>
+
+    </div>
+
+    <button class="flagship-slider__nav flagship-slider__nav--prev" type="button" aria-label="Previous">‹</button>
+    <button class="flagship-slider__nav flagship-slider__nav--next" type="button" aria-label="Next">›</button>
+
+    <div class="flagship-slider__dots" aria-label="Slider dots">
+      <button class="flagship-slider__dot" type="button" aria-label="1"></button>
+      <button class="flagship-slider__dot" type="button" aria-label="2"></button>
+      <button class="flagship-slider__dot" type="button" aria-label="3"></button>
+      <button class="flagship-slider__dot" type="button" aria-label="4"></button>
+      <button class="flagship-slider__dot" type="button" aria-label="5"></button>
+      <button class="flagship-slider__dot" type="button" aria-label="6"></button>
+    </div>
+  </div>
+</section>
+
 
       <div class="home-grid">
 

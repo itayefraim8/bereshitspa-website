@@ -706,3 +706,94 @@ body.landing-page {
   .flagship-slider__nav { width: 40px; height: 40px; }
   .flagship-desc { max-height: calc(1.55em * 7); }
 }
+/* =========================
+   Flagship Treatments Slider
+   ========================= */
+.flagship-title { text-align:center; margin: 10px 0 6px; }
+.flagship-subtitle { text-align:center; margin: 0 0 16px; }
+
+.flagship-slider { margin: 14px 0 22px; }
+
+.flagship-slider__viewport{
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.10);
+  padding: 14px;
+}
+
+.flagship-slider__track{
+  display: flex;
+  transition: transform 420ms ease;
+  will-change: transform;
+}
+
+/* כל סלייד תופס 100% רוחב */
+.flagship-slide{
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+/* בתוך סלייד – נשמור על עיצוב אחיד */
+.flagship-slide.product-card{
+  margin: 0;
+  height: auto;
+}
+
+/* Nav */
+.flagship-slider__nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.7rem;
+  font-weight: 800;
+  background: rgba(255,255,255,0.82);
+  color: #111827;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.22);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.flagship-slider__nav:hover{ background: rgba(255,255,255,0.95); }
+
+.flagship-slider__nav--prev{ left: 12px; }
+.flagship-slider__nav--next{ right: 12px; }
+
+/* Dots */
+.flagship-slider__dots{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.28);
+  backdrop-filter: blur(8px);
+  z-index: 3;
+}
+
+.flagship-slider__dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.55);
+}
+
+.flagship-slider__dot.is-active{ background: rgba(255,255,255,0.95); }
+
+@media (max-width: 640px){
+  .flagship-slider__viewport{ border-radius: 14px; padding: 12px; }
+  .flagship-slider__nav{ width: 40px; height: 40px; }
+}
