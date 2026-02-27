@@ -886,3 +886,15 @@ body.landing-page {
 .flagship-slider__dot.is-active{
   background: rgba(0,0,0,0.7);
 }
+/* ===== WhatsApp Floating Button FIX (put at END) ===== */
+.wa-float{
+  background: #ffffff !important;
+  border: 2px solid #25d366;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+}
+
+.wa-float img{
+  width: 28px;
+  height: 28px;
+  display: block;
+}
