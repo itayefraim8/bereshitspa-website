@@ -898,8 +898,17 @@ body.landing-page {
   height: 28px;
   display: block;
 }
+/* ===== Bereshit Spa Logo ===== */
 .site-logo {
-  width: 220px;
-  max-width: 80%;
+  display: block;
+  margin: 0 auto 20px;
+  width: 300px;      /* גודל בדסקטופ */
+  max-width: 85%;    /* שלא יגלוש במסכים קטנים */
   height: auto;
+}
+
+@media (max-width: 640px) {
+  .site-logo {
+    width: 200px;    /* גודל במובייל */
+  }
 }
