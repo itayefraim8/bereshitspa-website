@@ -898,3 +898,8 @@ body.landing-page {
   height: 28px;
   display: block;
 }
+.site-logo {
+  width: 220px;
+  max-width: 80%;
+  height: auto;
+}
