@@ -457,17 +457,17 @@ const TREATMENTS_META = {
   price: { he: '60 דק׳ – 170₾', en: '60 min – 170₾', ru: '60 мин – 170₾', ka: '60 წთ – 170₾' }
 },
 
-  'Thai foot-massage': {
-    tag: { he: '🦶 טיפולי כפות רגליים', en: '🦶 Foot Massage', ru: '🦶 Массаж стоп', ka: '🦶 ფეხის მასაჟი' },
-    name: { he: 'THai Foot Massage | פוט מסאז’ – עיסוי כפות רגליים', en: 'Thai Foot Massage', ru: 'Массаж стоп', ka: 'ფეხის მასაჟი' },
-    desc: {
-      he: 'עיסוי כפות רגליים מרגיע לשחרור עייפות. משפר זרימת דם ומעניק תחושת קלילות.',
-      en: 'A relaxing foot massage to release fatigue, improve circulation and create a light feeling.',
-      ru: 'Расслабляющий массаж стоп для снятия усталости, улучшения кровообращения и ощущения лёгкости.',
-      ka: 'დამამშვიდებელი ფეხის მასაჟი დაღლილობის მოსახსნელად, სისხლის მიმოქცევის გასაუმჯობესებლად და სიმსუბუქისთვის.'
-    },
-    price: { he: '30 דק׳ – 80₾ · 60 דק׳ – 120₾', en: '30 min – 80₾ · 60 min – 120₾', ru: '30 мин – 80₾ · 60 мин – 120₾', ka: '30 წთ – 80₾ · 60 წთ – 120₾' }
+'foot-massage': {
+  tag: { he: '🦶 טיפולי כפות רגליים', en: '🦶 Thai Foot Massage', ru: '🦶 Тайский массаж стоп', ka: '🦶 ტაილანდური ფეხის მასაჟი' },
+  name: { he: 'Thai Foot Massage | עיסוי כפות רגליים', en: 'Thai Foot Massage', ru: 'Thai Foot Massage', ka: 'Thai Foot Massage' },
+  desc: {
+    he: 'עיסוי כפות רגליים מרגיע לשחרור עייפות. משפר זרימת דם ומעניק תחושת קלילות.',
+    en: 'A relaxing Thai foot massage to release fatigue, improve circulation and create a light feeling.',
+    ru: 'Расслабляющий тайский массаж стоп для снятия усталости и улучшения кровообращения.',
+    ka: 'დამამშვიდებელი ტაილანდური ფეხის მასაჟი დაღლილობის მოსახსნელად და სისხლის მიმოქცევის გასაუმჯობესებლად.'
   },
+  price: { he: '30 דק׳ – 80₾ · 60 דק׳ – 120₾', en: '30 min – 80₾ · 60 min – 120₾', ru: '30 мин – 80₾ · 60 мин – 120₾', ka: '30 წთ – 80₾ · 60 წთ – 120₾' }
+},
 
   'foot-reflexology': {
     tag: { he: '🦶 עיסוי תאילנדי כפות רגליים רפלקסולוגי', en: '🦶 Thai Reflexology Foot Massage', ru: '🦶 Тайская рефлексология стоп', ka: '🦶 თაილანდური რეფლექსოლოგია ფეხზე' },
