@@ -32,10 +32,10 @@ body.landing-page {
 /* ===== Hero ===== */
 .hero {
   text-align: center;
-  background: #ffffff;
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-  padding: 28px 20px 24px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 40px 20px 30px;
   margin-bottom: 32px;
 }
 
