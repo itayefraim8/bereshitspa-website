@@ -1,22 +1,34 @@
 /* landing.css – דפי נחיתה נקיים */
 
 /* ===== בסיס ===== */
+:root {
+  --bg: #efebe8;
+  --surface: #ffffff;
+  --surface-soft: #d8d1cd;
+  --text: #2d2928;
+  --muted: #6e6764;
+  --accent: #8a8567;
+  --accent-hover: #78745a;
+  --gold: #b98b3c;
+  --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
 body.landing-page {
   margin: 0;
   padding: 0;
   font-family: "Heebo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f5f7;
-  color: #111827;
+  background: linear-gradient(180deg, #f3f0ee 0%, #ece7e4 100%);
+  color: var(--text);
 }
 
-/* הקונטיינר העיקרי של דפי הנחיתה */
+/* הקונטיינר העיקרי של דפי נחיתה */
 .container {
-  max-width: 960px;
-  margin: 24px auto 40px;
-  padding: 24px 18px 32px;
-  background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  max-width: 1180px;
+  margin: 28px auto 40px;
+  padding: 0 18px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* ===== Hero ===== */
@@ -27,15 +39,15 @@ body.landing-page {
   font-size: 0.9rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #6b7280;
-  margin: 4px 0 8px;
+  color: var(--muted);
+  margin: 0 0 10px;
 }
 
-.promo-title { margin: 0 0 8px; font-weight: 700; line-height: 1.2; }
-.promo-title.xl { font-size: 1.9rem; }
+.promo-title { margin: 0 0 10px; font-weight: 700; line-height: 1.2; }
+.promo-title.xl { font-size: clamp(1.9rem, 3vw, 2.6rem); }
 
-.promo-text { margin: 0; color: #4b5563; }
-.promo-text.lg { font-size: 1.05rem; }
+.promo-text { margin: 0; color: #4f4a48; }
+.promo-text.lg { font-size: 1.05rem; line-height: 1.75; }
 
 /* ===== כפתורים ===== */
 .button,
@@ -44,13 +56,13 @@ body.landing-page {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 12px 22px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
   font-size: 0.98rem;
   font-weight: 600;
-  background: #b98b3c;
+  background: var(--gold);
   color: #ffffff;
   box-shadow: 0 10px 25px rgba(185, 139, 60, 0.35);
   transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
@@ -70,7 +82,93 @@ body.landing-page {
 }
 
 /* ===== טקסטים משניים ===== */
-.muted { font-size: 0.92rem; color: #6b7280; }
+.muted {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* ===== עמוד כרטיסייה – עיצוב חדש ===== */
+.card-page-container {
+  max-width: 1380px;
+}
+
+.card-offer-layout {
+  display: grid;
+  grid-template-columns: minmax(340px, 1fr) minmax(380px, 1.05fr);
+  background: var(--surface-soft);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  min-height: 640px;
+  direction: ltr;
+}
+
+.card-offer-layout__media {
+  position: relative;
+  min-height: 100%;
+}
+
+.card-offer-layout__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 640px;
+}
+
+.card-offer-layout__content {
+  padding: 42px 38px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  direction: rtl;
+}
+
+.card-hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.card-hero__logo {
+  max-width: 220px;
+  width: 100%;
+  margin: 0 auto 18px;
+  display: block;
+}
+
+.card-hero__cta {
+  margin-top: 22px;
+}
+
+.card-details-box {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 24px 22px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.card-details-box h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+}
+
+.card-details-list {
+  margin: 0;
+  padding-inline-start: 20px;
+  line-height: 1.9;
+}
+
+.card-price-text {
+  font-size: 1.2rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #1f1b1a;
+}
+
+.card-details-note {
+  margin-top: 6px;
+}
 
 /* ===== רשימת טיפולים ===== */
 .home-grid {
@@ -103,8 +201,6 @@ body.landing-page {
   margin: 4px 0 4px;
   font-size: 1.05rem;
   font-weight: 600;
-
-  /* ✅ FIX: תמיד באותה שורה (לא יורד שורה בין EN/HE) */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -139,7 +235,7 @@ body.landing-page {
   padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid #d1d5db;
-  font-size: 0.9rem; /* ✅ תיקון: בלי רווח */
+  font-size: 0.9rem;
   cursor: pointer;
   background: #ffffff;
 }
@@ -153,18 +249,23 @@ body.landing-page {
   position: fixed;
   right: 22px;
   bottom: 22px;
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   border-radius: 999px;
-  background: #25d366;
+  background: #ffffff !important;
+  border: 2px solid #25d366;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
   z-index: 40;
 }
 
-.wa-float img { width: 28px; height: 28px; }
+.wa-float img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
 
 /* ===== סוויצ'ר שפות ===== */
 .lang-switch {
@@ -255,660 +356,66 @@ body.landing-page {
 }
 
 /* ===== רספונסיב ===== */
+@media (max-width: 980px) {
+  .card-offer-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .card-offer-layout__image {
+    min-height: 340px;
+  }
+
+  .card-offer-layout__content {
+    padding: 28px 20px 24px;
+  }
+}
+
 @media (max-width: 640px) {
   .container {
     margin: 0;
-    border-radius: 0;
+    padding: 0;
+  }
+
+  .card-offer-layout {
     box-shadow: none;
   }
-}
 
-/* כל כרטיס – גובה אחיד ויישור למטה */
-.product-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
+  .card-offer-layout__image {
+    min-height: 260px;
+  }
 
-.product-card p { flex-grow: 0; }
+  .card-offer-layout__content {
+    padding: 22px 14px 18px;
+  }
 
-.product-card .price {
-  margin-top: 8px;
-  font-weight: 700;
-}
+  .card-details-box {
+    padding: 18px 14px;
+  }
 
-.product-card .duration-options {
-  margin-top: auto;
-  margin-bottom: 14px;
-  display: flex;
-  gap: 12px;
-}
+  .card-hero__logo {
+    max-width: 170px;
+  }
 
-.product-card .button { margin-top: 0; }
+  .promo-title.xl {
+    font-size: 1.65rem;
+  }
 
-/* ===== Video Slider ===== */
-.video-slider { margin: 18px 0 6px; }
-
-.video-slider__viewport {
-  position: relative;
-  width: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
-  background: #0b0f1a;
-}
-
-.video-slider__track {
-  display: flex;
-  transition: transform 420ms ease;
-  will-change: transform;
-}
-
-.video-slide {
-  flex: 0 0 100%;
-  aspect-ratio: 16 / 9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #0b0f1a;
-}
-
-.video-slide__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Nav buttons */
-.video-slider__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 1.6rem;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.78);
-  color: #111827;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.video-slider__nav:hover { background: rgba(255, 255, 255, 0.92); }
-
-.video-slider__nav--prev { left: 12px; }
-.video-slider__nav--next { right: 12px; }
-
-/* Dots */
-.video-slider__dots {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 10px;
-  display: inline-flex;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(17, 24, 39, 0.35);
-  backdrop-filter: blur(8px);
-  z-index: 2;
-}
-
-.video-slider__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.55);
-}
-
-.video-slider__dot.is-active { background: rgba(255, 255, 255, 0.95); }
-
-/* Mobile tweaks */
-@media (max-width: 640px) {
-  .video-slider__nav {
-    width: 40px;
-    height: 40px;
+  .promo-text.lg {
+    font-size: 0.98rem;
   }
 }
 
-/* ===== FIX: Video Slider height + alignment (put at END of file) ===== */
-
-/* שמירה על יחס 16:9 בצורה יציבה בכל דפדפן */
-.video-slider__viewport {
-  position: relative;
-  width: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #0b0f1a;
-}
-
-/* Fallback ל-aspect-ratio (וגם מייצב גובה) */
-.video-slider__viewport::before {
-  content: "";
-  display: block;
-  padding-top: 56.25%; /* 16:9 */
-}
-
-/* ✅ תיקון אמיתי:
-   ה-track בלבד יושב "מוחלט" על ה-viewport (כדי לשבת על ה-16:9),
-   אבל הסליידים והווידאו נשארים flex/רגילים — בלי absolute,
-   אחרת כל הסליידים נערמים אחד על השני ורואים רק סרטון אחד. */
-.video-slider__track {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  transition: transform 420ms ease;
-  will-change: transform;
-}
-
-/* כל שקף תופס 100% רוחב/גובה של ה-viewport (בלי absolute) */
-.video-slide {
-  flex: 0 0 100%;
-  min-width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #0b0f1a;
-}
-
-/* הווידאו ממלא יפה בלי לשבור גובה */
-.video-slide__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* כפתורי ניווט ודוטים נשארים מעל */
-.video-slider__nav,
-.video-slider__dots {
-  z-index: 3;
-}
-
-/* מובייל: קצת פחות רדיוס אם בא לך */
-@media (max-width: 640px) {
-  .video-slider__viewport {
-    border-radius: 14px;
-  }
-}
-
-/* =========================================================
-   FIX TITLES – max 3 lines, NO ellipsis
-   ========================================================= */
-
-.product-card .product-title,
-.product-card .title,
-.product-card .card-title,
-.product-card h3,
-.product-card h4,
-.product-card [class*="title"],
-.flagship-card .product-title,
-.flagship-card h3 {
-
-  /* ביטול מוחלט של אליפסיס / line-clamp */
-  white-space: normal !important;
-  text-overflow: unset !important;
-  overflow: hidden !important;
-
-  display: block !important;
-  -webkit-box-orient: initial !important;
-  -webkit-line-clamp: unset !important;
-
-  /* הגבלה ל־3 שורות */
-  line-height: 1.3;
-  max-height: calc(1.3em * 3);
-
-  /* RTL + EN יחד */
-  unicode-bidi: plaintext;
-
-  /* ✅ FIX חשוב: לא להכריח RTL, לקבל כיוון מה-document.dir (JS) */
-  direction: inherit;
-
-  margin: 6px 0 0;
-  font-weight: 800;
-}
-
-/* חשוב – מבטל חיתוך שמגיע מהורה */
-.product-card,
-.product-card *,
-.flagship-card,
-.flagship-card *{
-  min-width: 0;
-}
-
-/* =========================================================
-   VIDEO SLIDER FIX (override) — prevent slides stacking
-   Put at VERY END of landing.css
-   ========================================================= */
-
-.video-slider__viewport {
-  position: relative;
-}
-
-/* track stays absolute over the 16:9 box */
-.video-slider__track {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  height: 100%;
-  width: 100%;
-}
-
-/* ✅ CRITICAL: slides must NOT be absolute (otherwise they stack) */
-.video-slider__track .video-slide {
-  position: relative !important;
-  inset: auto !important;
-  flex: 0 0 100%;
-  height: 100%;
-  aspect-ratio: auto; /* מבטל את מה שמיותר כאן */
-}
-
-/* video fills each slide */
-.video-slider__track .video-slide__video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* =====================================================================
-   ✅ FINAL OVERRIDE (NEW) — stabilize slider & prevent double-height bugs
-   Put at ABSOLUTE END (wins everything above)
-   ===================================================================== */
-
-/* 1) קובעים שדווקא ה-viewport קובע גובה (16:9) */
-.video-slider__viewport {
-  overflow: hidden;
-}
-
-/* 2) מבטלים אפשרות ש-aspect-ratio על slide ייצור חישובי גובה כפולים */
-.video-slider__viewport .video-slide {
-  aspect-ratio: auto !important;
-}
-
-/* 3) מוודאים שה-track תמיד בגובה מלא ושהשקופיות לא נערמות */
-.video-slider__viewport .video-slider__track {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-}
-
-.video-slider__viewport .video-slider__track .video-slide {
-  position: relative !important;
-  flex: 0 0 100%;
-  min-width: 100%;
-  height: 100%;
-}
-
-/* 4) הווידאו תמיד מכסה את השקופית בצורה יציבה */
-.video-slider__viewport .video-slide__video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-/* =========================================================
-   ✅ FLAGSHIP SLIDER (Treatments) — NEW
-   ========================================================= */
-
-.flagship {
-  margin: 18px 0 22px;
-}
-
-.flagship__title {
-  text-align: center;
-  margin: 18px 0 6px;
-}
-
-.flagship__subtitle {
-  text-align: center;
-  margin: 0 0 14px;
-}
-
-/* Slider shell */
-.flagship-slider {
-  position: relative;
-  margin: 10px 0 14px;
-}
-
-.flagship-slider__viewport {
-  position: relative;
-  width: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.10);
-}
-
-/* Track */
-.flagship-slider__track {
-  display: flex;
-  transition: transform 420ms ease;
-  will-change: transform;
-}
-
-/* Slide = 100% width */
-.flagship-card {
-  flex: 0 0 100%;
-  min-width: 100%;
-  padding: 16px 14px 18px;
-  background: #f9fafb;
-  border-radius: 0; /* ה-viewport כבר עגול */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* תיאור בסליידר – חיתוך רך כדי לא להאריך מידי */
-.flagship-desc {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #4b5563;
-  line-height: 1.55;
-  overflow: hidden;
-  max-height: calc(1.55em * 6);
-}
-
-.flagship-card .tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px 10px;
-  font-size: 0.9rem;
-  border-radius: 999px;
-  background: #e5e7eb;
-  color: #374151;
-  width: fit-content;
-}
-
-.flagship-card .price {
-  margin-top: 0;
-  font-weight: 800;
-}
-
-.flagship-card .duration-options {
-  margin-top: 0;
-  margin-bottom: 4px;
-}
-
-/* Nav buttons */
-.flagship-slider__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 1.6rem;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.90);
-  color: #111827;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.22);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-}
-
-.flagship-slider__nav:hover { background: rgba(255, 255, 255, 0.98); }
-
-.flagship-slider__nav--prev { left: 10px; }
-.flagship-slider__nav--next { right: 10px; }
-
-/* Dots */
-.flagship-slider__dots {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 10px;
-  display: inline-flex;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(17, 24, 39, 0.20);
-  backdrop-filter: blur(8px);
-  z-index: 3;
-}
-
-.flagship-slider__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.55);
-}
-
-.flagship-slider__dot.is-active { background: rgba(255, 255, 255, 0.95); }
-
-@media (max-width: 640px) {
-  .flagship-slider__viewport { border-radius: 14px; }
-  .flagship-slider__nav { width: 40px; height: 40px; }
-  .flagship-desc { max-height: calc(1.55em * 7); }
-}
-/* =========================
-   Flagship Treatments Slider
-   ========================= */
-.flagship-title { text-align:center; margin: 10px 0 6px; }
-.flagship-subtitle { text-align:center; margin: 0 0 16px; }
-
-.flagship-slider { margin: 14px 0 22px; }
-
-.flagship-slider__viewport{
-  position: relative;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #ffffff;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.10);
-  padding: 14px;
-}
-
-.flagship-slider__track{
-  display: flex;
-  transition: transform 420ms ease;
-  will-change: transform;
-}
-
-/* כל סלייד תופס 100% רוחב */
-.flagship-slide{
-  flex: 0 0 100%;
-  min-width: 100%;
-}
-
-/* בתוך סלייד – נשמור על עיצוב אחיד */
-.flagship-slide.product-card{
-  margin: 0;
-  height: auto;
-}
-
-/* Nav */
-.flagship-slider__nav{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 1.7rem;
-  font-weight: 800;
-  background: rgba(255,255,255,0.82);
-  color: #111827;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.22);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-}
-
-.flagship-slider__nav:hover{ background: rgba(255,255,255,0.95); }
-
-.flagship-slider__nav--prev{ left: 12px; }
-.flagship-slider__nav--next{ right: 12px; }
-
-/* Dots */
-.flagship-slider__dots{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 10px;
-  display: inline-flex;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(17, 24, 39, 0.28);
-  backdrop-filter: blur(8px);
-  z-index: 3;
-}
-
-.flagship-slider__dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  background: rgba(255,255,255,0.55);
-}
-
-.flagship-slider__dot.is-active{ background: rgba(255,255,255,0.95); }
-
-@media (max-width: 640px){
-  .flagship-slider__viewport{ border-radius: 14px; padding: 12px; }
-  .flagship-slider__nav{ width: 40px; height: 40px; }
-}
-/* ===== Flagship Slider responsive fixes (put at END) ===== */
-
-/* viewport בלי padding כדי ש-translateX(-100%) יהיה מדויק */
-.flagship-slider__viewport {
-  padding: 0 !important;
-}
-
-/* את המרווחים נשים בתוך הסלייד עצמו */
-.flagship-slide.product-card {
-  margin: 0;
-  border-radius: 18px;
-  padding: 16px 14px 18px;
-}
-
-/* track + slide יציבים בכל רוחב */
-.flagship-slider__track {
-  width: 100%;
-}
-
-.flagship-slide {
-  flex: 0 0 100%;
-  min-width: 100%;
-}
-
-/* במובייל: קצת פחות padding וכפתורים נוחים */
-@media (max-width: 640px) {
-  .flagship-slide.product-card {
-    padding: 14px 12px 16px;
-  }
-
-  .flagship-slider__nav--prev { left: 10px; }
-  .flagship-slider__nav--next { right: 10px; }
-}
-/* ===== Flagship Slider ===== */
-.flagship-slider__track{
-  display: flex;
-  gap: 14px;
-  padding: 10px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.flagship-slider__track::-webkit-scrollbar{ display:none; }
-
-.flagship-slide{
-  scroll-snap-align: center;
-  flex: 0 0 86%;
-}
-
-@media (min-width: 700px){
-  .flagship-slide{ flex-basis: 48%; }
-}
-@media (min-width: 980px){
-  .flagship-slide{ flex-basis: 32%; }
-}
-
-.flagship-slider__nav{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.9);
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 5;
-}
-.flagship-slider__nav--prev{ left: 10px; }
-.flagship-slider__nav--next{ right: 10px; }
-
-.flagship-slider__dots{
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 10px;
-}
-.flagship-slider__dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0,0,0,0.3);
-}
-.flagship-slider__dot.is-active{
-  background: rgba(0,0,0,0.7);
-}
-/* ===== WhatsApp Floating Button FIX (put at END) ===== */
-.wa-float{
-  background: #ffffff !important;
-  border: 2px solid #25d366;
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
-}
-
-.wa-float img{
-  width: 28px;
-  height: 28px;
-  display: block;
-}
 /* ===== Bereshit Spa Logo ===== */
 .site-logo {
   display: block;
   margin: 0 auto 20px;
-  width: 300px;      /* גודל בדסקטופ */
-  max-width: 85%;    /* שלא יגלוש במסכים קטנים */
+  width: 300px;
+  max-width: 85%;
   height: auto;
 }
 
 @media (max-width: 640px) {
   .site-logo {
-    width: 200px;    /* גודל במובייל */
+    width: 200px;
   }
 }
