@@ -288,3 +288,62 @@ body.landing-page {
     min-height: 26px !important;
   }
 }
+/* ===== Premium Language Switch ===== */
+
+.lang-switch {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(6px);
+}
+
+/* כל דגל */
+.lang-switch img {
+  width: 34px;
+  height: 22px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #ffffff;
+
+  transition: all 0.25s ease;
+}
+
+/* Hover – תחושת יוקרה */
+.lang-switch img:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  border-color: #d6c2a1;
+}
+
+/* מצב פעיל (שפה נבחרת) */
+.lang-switch img.active {
+  border: 2px solid #b98b3c;
+  box-shadow: 0 4px 14px rgba(185,139,60,0.35);
+  transform: scale(1.05);
+}
+
+/* אפקט עדין בלחיצה */
+.lang-switch img:active {
+  transform: scale(0.95);
+}
+
+/* מובייל */
+@media (max-width: 640px) {
+  .lang-switch {
+    gap: 8px;
+    padding: 5px 10px;
+  }
+
+  .lang-switch img {
+    width: 30px;
+    height: 20px;
+  }
+}
