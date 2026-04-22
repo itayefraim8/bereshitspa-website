@@ -42,196 +42,77 @@ body.landing-page {
 /* ===== טיפולים ===== */
 .treatments-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 38px;
 }
 
 /* 🔥 כרטיס טיפול */
 .product-card {
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: minmax(220px, 0.95fr) minmax(280px, 1fr);
   background: var(--surface);
   overflow: hidden;
   box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
   direction: ltr;
-  align-items: stretch;
+
+  /* חשוב מאוד */
+  align-items: start;
 }
 
-/* מבטל היפוך צדדים */
+/* צדדים מתחלפים */
 .product-card:nth-child(even) .product-card__image {
-  order: 0;
+  order: 2;
 }
 
 .product-card:nth-child(even) .product-card__content {
-  order: 0;
+  order: 1;
 }
 
 /* 🔥 אזור תמונה */
 .product-card__image {
   width: 100%;
-  height: 100%;
   background: #cfc7c2;
-  overflow: hidden;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 /* 🔥 התמונה עצמה */
 .product-card__image img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
 }
 
 /* תוכן */
 .product-card__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 28px 26px 24px;
   text-align: center;
   direction: rtl;
 }
 
-.product-card .tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  padding: 4px 12px;
-  font-size: 0.9rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.68);
-  color: #374151;
-  margin-bottom: 12px;
-}
-
-.product-title {
-  margin: 0 0 16px;
-  font-size: 1.85rem;
-  font-weight: 500;
-  white-space: normal;
-  overflow: visible;
-  text-overflow: unset;
-  line-height: 1.22;
-  unicode-bidi: plaintext;
-  color: #2f2b2a;
-}
-
-.product-card p {
-  margin: 0 0 10px;
-  font-size: 0.98rem;
-  color: #4b5563;
-  line-height: 1.8;
-}
-
-.price {
-  margin-top: 0;
-  margin-bottom: 16px;
-  font-weight: 500;
-  color: #4a4745;
-  font-size: 1rem;
-  line-height: 1.9;
-}
-
-/* רדיו של משך טיפול */
-.duration-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin: 0 0 18px;
-}
-
-.duration-options label {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid #cfc6c1;
-  font-size: 0.9rem;
-  cursor: pointer;
-  background: #ffffff;
-}
-
-.duration-options input[type="radio"] {
-  accent-color: #b98b3c;
-}
-
-/* כפתורים */
-.button,
-.booking-submit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 22px;
-  border-radius: 0;
-  border: none;
-  cursor: pointer;
-  font-size: 0.98rem;
-  font-weight: 600;
-  background: var(--button);
-  color: #ffffff;
-  box-shadow: none;
-  transition: transform 0.12s ease, background 0.12s ease, opacity 0.12s ease;
-}
-
-.button:hover,
-.booking-submit:hover {
-  background: var(--button-hover);
-  transform: translateY(-1px);
-}
-
-.button:active,
-.booking-submit:active {
-  transform: translateY(0);
-}
-
 /* ===== מובייל ===== */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .treatments-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
   .product-card {
     grid-template-columns: 1fr;
   }
 
+  /* חשוב — לא לחתוך תמונה */
   .product-card__image {
-    height: 320px;
-  }
-
-  .product-card__content {
-    padding: 22px 16px 18px;
-  }
-
-  .product-title {
-    font-size: 1.45rem;
+    height: auto;
   }
 }
 
 @media (max-width: 640px) {
-  .container {
-    margin: 0;
-    padding: 0 0 24px;
-  }
-
-  .hero {
-    border-radius: 0;
-    box-shadow: none;
-    padding: 24px 14px 18px;
-    margin-bottom: 22px;
-  }
-
-  .treatments-grid {
-    gap: 18px;
-    padding: 0 10px;
-  }
-
   .product-card__image {
-    height: 260px;
-  }
-
-  .button,
-  .booking-submit {
-    width: 100%;
+    height: auto;
   }
 }
