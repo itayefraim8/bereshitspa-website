@@ -2,13 +2,14 @@
 
 /* ===== בסיס ===== */
 :root {
-  --bg: #efebe8;
-  --surface: #ffffff;
-  --surface-soft: #d8d1cd;
-  --text: #2d2928;
-  --muted: #6e6764;
-  --accent: #8a8567;
-  --accent-hover: #78745a;
+  --page-bg: #f2efec;
+  --surface: #d9d0cb;
+  --surface-strong: #ffffff;
+  --text: #2e2a29;
+  --muted: #6a6461;
+  --line: #e7dfdb;
+  --button: #8a8667;
+  --button-hover: #767157;
   --gold: #b98b3c;
   --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
 }
@@ -17,37 +18,75 @@ body.landing-page {
   margin: 0;
   padding: 0;
   font-family: "Heebo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(180deg, #f3f0ee 0%, #ece7e4 100%);
+  background: var(--page-bg);
   color: var(--text);
 }
 
-/* הקונטיינר העיקרי של דפי נחיתה */
+/* הקונטיינר העיקרי של דפי הנחיתה */
 .container {
-  max-width: 1180px;
-  margin: 28px auto 40px;
-  padding: 0 18px;
+  max-width: 1360px;
+  margin: 24px auto 40px;
+  padding: 0 18px 32px;
   background: transparent;
   border-radius: 0;
   box-shadow: none;
 }
 
 /* ===== Hero ===== */
-.hero { text-align: center; }
-.hero img { display: block; margin: 0 auto 16px; }
+.hero {
+  text-align: center;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 28px 20px 24px;
+  margin-bottom: 32px;
+}
+
+.hero img {
+  display: block;
+  margin: 0 auto 16px;
+}
+
+.hero-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-lang-wrap {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
 
 .promo-eyebrow {
   font-size: 0.9rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 10px;
+  color: #6b7280;
+  margin: 4px 0 8px;
 }
 
-.promo-title { margin: 0 0 10px; font-weight: 700; line-height: 1.2; }
-.promo-title.xl { font-size: clamp(1.9rem, 3vw, 2.6rem); }
+.promo-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+  line-height: 1.2;
+}
 
-.promo-text { margin: 0; color: #4f4a48; }
-.promo-text.lg { font-size: 1.05rem; line-height: 1.75; }
+.promo-title.xl {
+  font-size: 1.9rem;
+}
+
+.promo-text {
+  margin: 0;
+  color: #4b5563;
+}
+
+.promo-text.lg {
+  font-size: 1.05rem;
+}
 
 /* ===== כפתורים ===== */
 .button,
@@ -57,175 +96,143 @@ body.landing-page {
   justify-content: center;
   gap: 8px;
   padding: 12px 22px;
-  border-radius: 999px;
+  border-radius: 0;
   border: none;
   cursor: pointer;
   font-size: 0.98rem;
   font-weight: 600;
-  background: var(--gold);
+  background: var(--button);
   color: #ffffff;
-  box-shadow: 0 10px 25px rgba(185, 139, 60, 0.35);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  box-shadow: none;
+  transition: transform 0.12s ease, background 0.12s ease, opacity 0.12s ease;
 }
 
 .button:hover,
 .booking-submit:hover {
-  background: #c99a45;
+  background: var(--button-hover);
   transform: translateY(-1px);
-  box-shadow: 0 14px 32px rgba(185, 139, 60, 0.45);
 }
 
 .button:active,
 .booking-submit:active {
   transform: translateY(0);
-  box-shadow: 0 6px 16px rgba(185, 139, 60, 0.35);
 }
 
 /* ===== טקסטים משניים ===== */
 .muted {
   font-size: 0.92rem;
-  color: var(--muted);
+  color: #6b7280;
 }
 
-/* ===== עמוד כרטיסייה – עיצוב חדש ===== */
-.card-page-container {
-  max-width: 1380px;
-}
-
-.card-offer-layout {
-  display: grid;
-  grid-template-columns: minmax(340px, 1fr) minmax(380px, 1.05fr);
-  background: var(--surface-soft);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  min-height: 640px;
-  direction: ltr;
-}
-
-.card-offer-layout__media {
-  position: relative;
-  min-height: 100%;
-}
-
-.card-offer-layout__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  min-height: 640px;
-}
-
-.card-offer-layout__content {
-  padding: 42px 38px 34px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  direction: rtl;
-}
-
-.card-hero {
+.section-title {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
 }
 
-.card-hero__logo {
-  max-width: 220px;
-  width: 100%;
-  margin: 0 auto 18px;
-  display: block;
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 24px;
 }
 
-.card-hero__cta {
-  margin-top: 22px;
+/* ===== רשימת טיפולים - עיצוב חדש ===== */
+.treatments-section {
+  margin-top: 10px;
 }
 
-.card-details-box {
-  background: rgba(255, 255, 255, 0.62);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  padding: 24px 22px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-}
-
-.card-details-box h2 {
-  margin: 0 0 12px;
-  font-size: 1.35rem;
-}
-
-.card-details-list {
-  margin: 0;
-  padding-inline-start: 20px;
-  line-height: 1.9;
-}
-
-.card-price-text {
-  font-size: 1.2rem;
-  margin-top: 16px;
-  margin-bottom: 8px;
-  font-weight: 700;
-  color: #1f1b1a;
-}
-
-.card-details-note {
-  margin-top: 6px;
-}
-
-/* ===== רשימת טיפולים ===== */
-.home-grid {
+.treatments-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 38px;
 }
 
 .product-card {
-  background: #f9fafb;
-  border-radius: 16px;
-  padding: 16px 14px 18px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  display: grid;
+  grid-template-columns: minmax(220px, 0.95fr) minmax(280px, 1fr);
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  min-height: 320px;
+  direction: ltr;
+}
+
+.product-card:nth-child(even) .product-card__image {
+  order: 2;
+}
+
+.product-card:nth-child(even) .product-card__content {
+  order: 1;
+}
+
+.product-card__image {
+  position: relative;
+  min-height: 100%;
+  background: #cfc7c2;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.product-card__content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: center;
+  padding: 28px 26px 24px;
+  text-align: center;
+  direction: rtl;
 }
 
 .product-card .tag {
   display: inline-flex;
   align-items: center;
-  padding: 3px 10px;
+  justify-content: center;
+  align-self: center;
+  padding: 4px 12px;
   font-size: 0.9rem;
   border-radius: 999px;
-  background: #e5e7eb;
+  background: rgba(255, 255, 255, 0.68);
   color: #374151;
+  margin-bottom: 12px;
 }
 
 .product-title {
-  margin: 4px 0 4px;
-  font-size: 1.05rem;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.25;
+  margin: 0 0 16px;
+  font-size: 1.85rem;
+  font-weight: 500;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.22;
   unicode-bidi: plaintext;
+  color: #2f2b2a;
 }
 
 .product-card p {
-  margin: 0;
-  font-size: 0.95rem;
+  margin: 0 0 10px;
+  font-size: 0.98rem;
   color: #4b5563;
+  line-height: 1.8;
 }
 
 .price {
-  margin-top: 6px;
-  font-weight: 600;
-  color: #111827;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 500;
+  color: #4a4745;
+  font-size: 1rem;
+  line-height: 1.9;
 }
 
 /* רדיו של משך טיפול */
 .duration-options {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
-  margin: 8px 0 10px;
+  margin: 0 0 18px;
 }
 
 .duration-options label {
@@ -234,7 +241,7 @@ body.landing-page {
   gap: 4px;
   padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #cfc6c1;
   font-size: 0.9rem;
   cursor: pointer;
   background: #ffffff;
@@ -249,8 +256,8 @@ body.landing-page {
   position: fixed;
   right: 22px;
   bottom: 22px;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 999px;
   background: #ffffff !important;
   border: 2px solid #25d366;
@@ -285,7 +292,10 @@ body.landing-page {
   background: transparent;
 }
 
-.lang-btn img { width: 22px; height: 22px; }
+.lang-btn img {
+  width: 22px;
+  height: 22px;
+}
 
 /* ===== מודאל הזמנה ===== */
 .booking-modal {
@@ -297,7 +307,9 @@ body.landing-page {
   z-index: 50;
 }
 
-.booking-modal.active { display: flex; }
+.booking-modal.active {
+  display: flex;
+}
 
 .booking-backdrop {
   position: absolute;
@@ -326,7 +338,9 @@ body.landing-page {
   cursor: pointer;
 }
 
-.booking-row { margin-bottom: 10px; }
+.booking-row {
+  margin-bottom: 10px;
+}
 
 .booking-row label {
   display: block;
@@ -345,8 +359,14 @@ body.landing-page {
   box-sizing: border-box;
 }
 
-.booking-row.two-cols { display: flex; gap: 10px; }
-.booking-row.two-cols > div { flex: 1; }
+.booking-row.two-cols {
+  display: flex;
+  gap: 10px;
+}
+
+.booking-row.two-cols > div {
+  flex: 1;
+}
 
 .booking-note {
   font-size: 0.85rem;
@@ -355,57 +375,7 @@ body.landing-page {
   margin-bottom: 10px;
 }
 
-/* ===== רספונסיב ===== */
-@media (max-width: 980px) {
-  .card-offer-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .card-offer-layout__image {
-    min-height: 340px;
-  }
-
-  .card-offer-layout__content {
-    padding: 28px 20px 24px;
-  }
-}
-
-@media (max-width: 640px) {
-  .container {
-    margin: 0;
-    padding: 0;
-  }
-
-  .card-offer-layout {
-    box-shadow: none;
-  }
-
-  .card-offer-layout__image {
-    min-height: 260px;
-  }
-
-  .card-offer-layout__content {
-    padding: 22px 14px 18px;
-  }
-
-  .card-details-box {
-    padding: 18px 14px;
-  }
-
-  .card-hero__logo {
-    max-width: 170px;
-  }
-
-  .promo-title.xl {
-    font-size: 1.65rem;
-  }
-
-  .promo-text.lg {
-    font-size: 0.98rem;
-  }
-}
-
-/* ===== Bereshit Spa Logo ===== */
+/* ===== לוגו ===== */
 .site-logo {
   display: block;
   margin: 0 auto 20px;
@@ -414,8 +384,82 @@ body.landing-page {
   height: auto;
 }
 
+/* ===== רספונסיב ===== */
+@media (max-width: 1100px) {
+  .treatments-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}
+
+@media (max-width: 760px) {
+  .product-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .product-card:nth-child(even) .product-card__image,
+  .product-card:nth-child(even) .product-card__content {
+    order: initial;
+  }
+
+  .product-card__image {
+    height: 260px;
+  }
+
+  .product-card__content {
+    padding: 22px 16px 18px;
+  }
+
+  .product-title {
+    font-size: 1.45rem;
+  }
+}
+
 @media (max-width: 640px) {
+  .container {
+    margin: 0;
+    padding: 0 0 24px;
+  }
+
+  .hero {
+    border-radius: 0;
+    box-shadow: none;
+    padding: 24px 14px 18px;
+    margin-bottom: 22px;
+  }
+
   .site-logo {
     width: 200px;
+  }
+
+  .promo-title.xl {
+    font-size: 1.6rem;
+  }
+
+  .promo-text.lg {
+    font-size: 0.98rem;
+  }
+
+  .section-title {
+    padding: 0 12px;
+  }
+
+  .section-subtitle {
+    padding: 0 12px;
+  }
+
+  .treatments-grid {
+    gap: 18px;
+    padding: 0 10px;
+  }
+
+  .product-card__image {
+    height: 220px;
+  }
+
+  .button,
+  .booking-submit {
+    width: 100%;
   }
 }

@@ -13,21 +13,21 @@
 
   <!-- אייקון לשונית -->
   <link rel="icon" type="image/png" href="images/logo.png" />
-  <!-- ===== Social Share / Open Graph ===== -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Bereshit Spa – ספא ראש יפני ועיסויים תאילנדיים בבטומי" />
-<meta property="og:description" content="ספא בוטיק בבטומי עם ספא ראש יפני ועיסויים תאילנדיים. הזמנה מהירה בווטסאפ." />
-<meta property="og:url" content="https://bereshitspa.com/landing-treatments.html" />
-<meta property="og:image" content="https://bereshitspa.com/images/logo.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
 
+  <!-- ===== Social Share / Open Graph ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bereshit Spa – ספא ראש יפני ועיסויים תאילנדיים בבטומי" />
+  <meta property="og:description" content="ספא בוטיק בבטומי עם ספא ראש יפני ועיסויים תאילנדיים. הזמנה מהירה בווטסאפ." />
+  <meta property="og:url" content="https://bereshitspa.com/landing-treatments.html" />
+  <meta property="og:image" content="https://bereshitspa.com/images/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 </head>
 <body class="landing-page">
 
   <!-- Hero -->
-  <main class="container" style="max-width:960px;margin:24px auto 40px;padding:0 12px;">
-    <section class="hero" id="top" style="margin-bottom:32px;">
+  <main class="container">
+    <section class="hero" id="top">
       <img src="images/logo.png" alt="BERESHIT SPA" class="site-logo" />
 
       <p class="promo-eyebrow" data-i18n="landing.hero.eyebrow">
@@ -41,7 +41,7 @@
       </p>
 
       <!-- כפתור גלילה לטיפולים -->
-      <div style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <div class="hero-actions">
         <button class="button"
                 onclick="document.getElementById('treatments').scrollIntoView({behavior:'smooth'})"
                 data-i18n="landing.hero.cta">
@@ -50,7 +50,7 @@
       </div>
 
       <!-- מתגי שפה (דגלים) -->
-      <div style="margin-top:20px;display:flex;justify-content:center;">
+      <div class="hero-lang-wrap">
         <div class="lang-switch">
           <button class="lang-btn" type="button" data-lang="he"><img src="assets/icons/flag-il.svg" alt="HE" /></button>
           <button class="lang-btn" type="button" data-lang="en"><img src="assets/icons/flag-uk.svg" alt="EN" /></button>
@@ -61,577 +61,658 @@
     </section>
 
     <!-- רשימת טיפולים -->
-    <section id="treatments">
-      <h2 style="text-align:center;margin-bottom:18px;" data-i18n="landing.treatments.title">
+    <section id="treatments" class="treatments-section">
+      <h2 class="section-title" data-i18n="landing.treatments.title">
         בחר/י טיפול מפנק
       </h2>
-      <p class="muted" style="text-align:center;margin-bottom:24px;" data-i18n="landing.treatments.subtitle">
+      <p class="muted section-subtitle" data-i18n="landing.treatments.subtitle">
         כל הטיפולים מתבצעים על-ידי צוות תאילנדי מקצועי, באווירה שקטה ומוסיקה מרגיעה.
       </p>
 
-      <!-- ===== Simple Video Slider (3 videos, muted) ===== -->
-      <section class="video-slider" aria-label="Video highlights">
-        <div class="video-slider__viewport" id="videoSlider">
-          <div class="video-slider__track">
-
-            <div class="video-slide is-active">
-              <video class="video-slide__video" autoplay loop muted playsinline preload="metadata">
-                <source src="/assets/videos/slide-1.mp4" type="video/mp4" />
-              </video>
-            </div>
-      </section>
-
+      <div class="treatments-grid">
 
         <!-- 🌸 Japanese Head Spa -->
         <article class="product-card">
-          <div class="tag">🌸 ספא ראש יפני</div>
-          <h3 class="product-title">
-            <span>Japanese Head Spa</span><span> | </span><span>ספא ראש יפני</span>
-          </h3>
-          <p>
-            טיפול יפני מסורתי המשלב ניקוי יסודי של הקרקפת, עיסוי ממוקד, מסכות טיפוליות ופינוקי מים חמימים.
-            הטכניקה ממריצה את זרימת הדם לקרקפת, מחזקת את שורשי השיער ומרגיעה עומסים נפשיים.
-            כולל שטיפה עמוקה, מגבת חמה, סרום ייעודי לקרקפת וייבוש שיער מלא.
-            הטיפול מסתיים במנוחה קצרה עם תה וניחוח ארומטי עדין.
-          </p>
-          <p class="price">60 דק׳ – 200₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-head" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/japanese-head-spa.jpg" alt="Japanese Head Spa" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="head-spa"
-                  data-radio-group="dur-head"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">🌸 ספא ראש יפני</div>
+            <h3 class="product-title">
+              <span>Japanese Head Spa</span><span> | </span><span>ספא ראש יפני</span>
+            </h3>
+            <p>
+              טיפול יפני מסורתי המשלב ניקוי יסודי של הקרקפת, עיסוי ממוקד, מסכות טיפוליות ופינוקי מים חמימים.
+              הטכניקה ממריצה את זרימת הדם לקרקפת, מחזקת את שורשי השיער ומרגיעה עומסים נפשיים.
+              כולל שטיפה עמוקה, מגבת חמה, סרום ייעודי לקרקפת וייבוש שיער מלא.
+              הטיפול מסתיים במנוחה קצרה עם תה וניחוח ארומטי עדין.
+            </p>
+            <p class="price">60 דק׳ – 200₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-head" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="head-spa"
+                    data-radio-group="dur-head"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
-
 
         <!-- 💪 Deep Thai Oil Back–Neck–Shoulders -->
         <article class="product-card">
-          <div class="tag">💪 עיסוי תאילנדי עמוק בשמן</div>
-          <h3 class="product-title">
-            <span>Deep Thai Oil Back–Neck–Shoulders Massage</span><span> | </span><span>עיסוי תאילנדי עמוק בשמן</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי טיפולי בשמן המתמקד באזורי עומס מרכזיים.
-            משלב לחיצות עמוקות, עבודה מדויקת עם אמות ומרפקים.
-            מסייע בהפחתת כאבי צוואר, כתפיים וגב עליון.
-            מתאים לעומס יומיומי וישיבה ממושכת.
-          </p>
-          <p class="price">60 דק׳ – 150₾</p>
-          <div class="duration-options" style="display:none;">
-            <label>
-              <input type="radio" name="dur-back-deep" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/deep-thai-oil-back-neck-shoulders.jpg" alt="Deep Thai Oil Back–Neck–Shoulders Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="back-basic"
-                  data-radio-group="dur-back-deep"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">💪 עיסוי תאילנדי עמוק בשמן</div>
+            <h3 class="product-title">
+              <span>Deep Thai Oil Back–Neck–Shoulders Massage</span><span> | </span><span>עיסוי תאילנדי עמוק בשמן</span>
+            </h3>
+            <p>
+              עיסוי תאילנדי טיפולי בשמן המתמקד באזורי עומס מרכזיים.
+              משלב לחיצות עמוקות, עבודה מדויקת עם אמות ומרפקים.
+              מסייע בהפחתת כאבי צוואר, כתפיים וגב עליון.
+              מתאים לעומס יומיומי וישיבה ממושכת.
+            </p>
+            <p class="price">60 דק׳ – 150₾</p>
+            <div class="duration-options" style="display:none;">
+              <label>
+                <input type="radio" name="dur-back-deep" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="back-basic"
+                    data-radio-group="dur-back-deep"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
-        <!-- 🧘 Thai Oil Massage  -->
+        <!-- 🧘 Thai Oil Massage -->
         <article class="product-card">
-          <div class="tag">🧘 Thai Oil Massage</div>
-          <h3 class="product-title">
-            <span>Thai Oil Massage</span><span> | </span><span>עיסוי תאילנדי בשמן</span>
-          </h3>
-          <p>
-            עיסוי גוף מלא בשמן איכותי בתנועות ארוכות, רכות וזורמות.
-            מתמקד בהרפיה עמוקה של מערכת העצבים ובהפחתת סטרס.
-            משחרר מתחים קלים ומשרה תחושת שלווה ואיזון.
-            מתאים למי שמחפש חוויה עדינה ולא אינטנסיבית.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 150₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-relax" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/thai-oil-massage.jpg" alt="Thai Oil Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-relaxing-oil"
-                  data-radio-group="dur-relax"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">🧘 Thai Oil Massage</div>
+            <h3 class="product-title">
+              <span>Thai Oil Massage</span><span> | </span><span>עיסוי תאילנדי בשמן</span>
+            </h3>
+            <p>
+              עיסוי גוף מלא בשמן איכותי בתנועות ארוכות, רכות וזורמות.
+              מתמקד בהרפיה עמוקה של מערכת העצבים ובהפחתת סטרס.
+              משחרר מתחים קלים ומשרה תחושת שלווה ואיזון.
+              מתאים למי שמחפש חוויה עדינה ולא אינטנסיבית.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 150₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-relax" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-relaxing-oil"
+                    data-radio-group="dur-relax"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
-                <!-- 🇹🇭 Traditional Thai Massage -->
+        <!-- 🇹🇭 Traditional Thai Massage -->
         <article class="product-card">
-          <div class="tag">🇹🇭 עיסוי תאילנדי מסורתי</div>
-          <h3 class="product-title">
-            <span>Traditional Thai Massage</span><span> | </span><span>עיסוי תאילנדי מסורתי</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי מסורתי ללא שמן.
-            משלב לחיצות, מתיחות ועבודה על קווי האנרגיה (Sen).
-            משפר גמישות, זרימה וחיוניות.
-            עיסוי פעיל ודינמי.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 150₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-thai" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/traditional-thai-massage.jpg" alt="Traditional Thai Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-thai"
-                  data-radio-group="dur-thai"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">🇹🇭 עיסוי תאילנדי מסורתי</div>
+            <h3 class="product-title">
+              <span>Traditional Thai Massage</span><span> | </span><span>עיסוי תאילנדי מסורתי</span>
+            </h3>
+            <p>
+              עיסוי תאילנדי מסורתי ללא שמן.
+              משלב לחיצות, מתיחות ועבודה על קווי האנרגיה (Sen).
+              משפר גמישות, זרימה וחיוניות.
+              עיסוי פעיל ודינמי.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 150₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-thai" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-thai"
+                    data-radio-group="dur-thai"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
+        <!-- 🌿 Thai Relax Oil Massage -->
+        <article class="product-card">
+          <div class="product-card__image">
+            <img src="images/treatments/thai-relax-oil-massage.jpg" alt="Thai Relax Oil Massage" />
+          </div>
+          <div class="product-card__content">
+            <div class="tag">🌿 עיסוי תאילנדי מרגיע</div>
+            <h3 class="product-title">
+              <span>Thai Relax Oil Massage</span><span> | </span><span>עיסוי תאילנדי מרגיע</span>
+            </h3>
+            <p>
+              עיסוי גוף מלא בסגנון תאילנדי רגוע, בקצב איטי וזורם עם שמנים איכותיים ומגע עמוק ועדין.
+              משחרר מתחים, מרפה את השרירים ומאזן את מערכת העצבים.
+              מתאים למי שמחפש חוויית רוגע עמוקה ופינוק אמיתי.
+            </p>
+            <p class="price">60 דק׳ – 150₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-thai-relax" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-thai-relax-oil"
+                    data-radio-group="dur-thai-relax"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
+        </article>
 
-<!-- 🌿 Thai Relax Oil Massage -->
-<article class="product-card">
-  <div class="tag">🌿 עיסוי תאילנדי מרגיע</div>
-  <h3 class="product-title">
-    <span>Thai Relax Oil Massage</span><span> | </span><span>עיסוי תאילנדי מרגיע</span>
-  </h3>
-  <p>
-    עיסוי גוף מלא בסגנון תאילנדי רגוע, בקצב איטי וזורם עם שמנים איכותיים ומגע עמוק ועדין.
-    משחרר מתחים, מרפה את השרירים ומאזן את מערכת העצבים.
-    מתאים למי שמחפש חוויית רוגע עמוקה ופינוק אמיתי.
-  </p>
-  <p class="price">60 דק׳ – 150₾</p>
-  <div class="duration-options">
-    <label>
-      <input type="radio" name="dur-thai-relax" value="60" checked />
-      <span data-min="60">60 דק׳</span>
-    </label>
-  </div>
-  <button class="button"
-          data-book-btn
-          data-treatment-key="body-thai-relax-oil"
-          data-radio-group="dur-thai-relax"
-          data-i18n="landing.treatment.book">
-    להזמנת הטיפול
-  </button>
-</article>
-<!-- 🔥 Thai Hot Oil Massage -->
-<article class="product-card">
-  <div class="tag">🔥 עיסוי תאילנדי בשמן חם</div>
+        <!-- 🔥 Thai Hot Oil Massage -->
+        <article class="product-card">
+          <div class="product-card__image">
+            <img src="images/treatments/thai-hot-oil-massage.jpg" alt="Thai Hot Oil Massage" />
+          </div>
+          <div class="product-card__content">
+            <div class="tag">🔥 עיסוי תאילנדי בשמן חם</div>
 
-  <h3 class="product-title">
-    <span>Thai Hot Oil Massage</span><span> | </span><span>עיסוי תאילנדי בשמן חם</span>
-  </h3>
+            <h3 class="product-title">
+              <span>Thai Hot Oil Massage</span><span> | </span><span>עיסוי תאילנדי בשמן חם</span>
+            </h3>
 
-  <p>
-    עיסוי גוף מלא בטכניקות תאילנדיות זורמות בשילוב שמן חם ואיכותי.
-    החום מסייע בהרפיית השרירים ומאפשר עבודה עמוקה ונעימה יותר.
-    התנועות מדויקות ואיטיות, משחררות מתחים ומשפרות את זרימת הדם.
-    הטיפול כולל גם עיסוי פנים עדין.
-  </p>
+            <p>
+              עיסוי גוף מלא בטכניקות תאילנדיות זורמות בשילוב שמן חם ואיכותי.
+              החום מסייע בהרפיית השרירים ומאפשר עבודה עמוקה ונעימה יותר.
+              התנועות מדויקות ואיטיות, משחררות מתחים ומשפרות את זרימת הדם.
+              הטיפול כולל גם עיסוי פנים עדין.
+            </p>
 
-  <p class="price">60 דק׳ – 170₾</p>
+            <p class="price">60 דק׳ – 170₾</p>
 
-  <div class="duration-options">
-    <label>
-      <input type="radio" name="dur-thai-hot-oil" value="60" checked />
-      <span data-min="60">60 דק׳</span>
-    </label>
-  </div>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-thai-hot-oil" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
 
-  <button class="button"
-          data-book-btn
-          data-treatment-key="body-thai-hot-oil"
-          data-radio-group="dur-thai-hot-oil"
-          data-i18n="landing.treatment.book">
-    להזמנת הטיפול
-  </button>
-</article>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-thai-hot-oil"
+                    data-radio-group="dur-thai-hot-oil"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
+        </article>
 
-<!-- 🌿 Aroma Oil Therapeutic Massage -->
-<article class="product-card">
-  <div class="tag">🌿 עיסוי ארומתרפי בשמנים אתריים</div>
-  <h3 class="product-title">
-    <span>Aroma Oil Therapeutic Massage</span><span> | </span><span>עיסוי ארומתרפי בשמנים אתריים</span>
-  </h3>
-  <p>
-    עיסוי גוף מלא בטכניקות תאילנדיות זורמות, עם שמנים אתריים טבעיים בהתאמה אישית.
-    במהלך העיסוי המטופל שואף את ניחוח השמנים, המשפיעים דרך חוש הריח ומרגיעים את המערכת העצבית.
-    השמנים חודרים לעור, משחררים מתחים ומרפים שרירים עמוקים.
-    הטיפול יוצר תחושת רוגע, איזון פנימי והתחדשות מלאה.
-  </p>
-  <p class="price">60 דק׳ – 170₾</p>
-  <div class="duration-options">
-    <label>
-      <input type="radio" name="dur-aroma" value="60" checked />
-      <span data-min="60">60 דק׳</span>
-    </label>
-  </div>
-  <button class="button"
-          data-book-btn
-          data-treatment-key="body-aroma-oil-therapeutic"
-          data-radio-group="dur-aroma"
-          data-i18n="landing.treatment.book">
-    להזמנת הטיפול
-  </button>
-</article>
+        <!-- 🌿 Aroma Oil Therapeutic Massage -->
+        <article class="product-card">
+          <div class="product-card__image">
+            <img src="images/treatments/aroma-oil-therapeutic-massage.jpg" alt="Aroma Oil Therapeutic Massage" />
+          </div>
+          <div class="product-card__content">
+            <div class="tag">🌿 עיסוי ארומתרפי בשמנים אתריים</div>
+            <h3 class="product-title">
+              <span>Aroma Oil Therapeutic Massage</span><span> | </span><span>עיסוי ארומתרפי בשמנים אתריים</span>
+            </h3>
+            <p>
+              עיסוי גוף מלא בטכניקות תאילנדיות זורמות, עם שמנים אתריים טבעיים בהתאמה אישית.
+              במהלך העיסוי המטופל שואף את ניחוח השמנים, המשפיעים דרך חוש הריח ומרגיעים את המערכת העצבית.
+              השמנים חודרים לעור, משחררים מתחים ומרפים שרירים עמוקים.
+              הטיפול יוצר תחושת רוגע, איזון פנימי והתחדשות מלאה.
+            </p>
+            <p class="price">60 דק׳ – 170₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-aroma" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-aroma-oil-therapeutic"
+                    data-radio-group="dur-aroma"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
+        </article>
 
         <!-- ✨ Thai Vitamin E Cream Massage -->
         <article class="product-card">
-          <div class="tag">✨ עיסוי תאילנדי עם קרם ויטמין E</div>
-          <h3 class="product-title">
-            <span>Thai Vitamin E Cream Massage</span><span> | </span><span>עיסוי תאילנדי עם קרם ויטמין E</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי בשילוב קרם מועשר בויטמין E להזנה עמוקה של העור.
-            מסייע בשיפור גמישות העור ובהפחתת יובש.
-            משלב רוגע וטיפוח קוסמטי.
-            יוצר תחושת רכות והרפיה כללית.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 170₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-vit-e" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/thai-vitamin-e-cream-massage.jpg" alt="Thai Vitamin E Cream Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-vitamin-e"
-                  data-radio-group="dur-vit-e"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">✨ עיסוי תאילנדי עם קרם ויטמין E</div>
+            <h3 class="product-title">
+              <span>Thai Vitamin E Cream Massage</span><span> | </span><span>עיסוי תאילנדי עם קרם ויטמין E</span>
+            </h3>
+            <p>
+              עיסוי תאילנדי בשילוב קרם מועשר בויטמין E להזנה עמוקה של העור.
+              מסייע בשיפור גמישות העור ובהפחתת יובש.
+              משלב רוגע וטיפוח קוסמטי.
+              יוצר תחושת רכות והרפיה כללית.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 170₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-vit-e" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-vitamin-e"
+                    data-radio-group="dur-vit-e"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
         <!-- 🥥 Thai Coconut Oil Massage -->
         <article class="product-card">
-          <div class="tag">🥥 עיסוי תאילנדי עם שמן קוקוס</div>
-          <h3 class="product-title">
-            <span>Thai Coconut Oil Massage</span><span> | </span><span>עיסוי תאילנדי עם שמן קוקוס</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי עדין בשילוב שמן קוקוס טבעי.
-            מזין את העור, מעניק לחות עמוקה ותחושת רכות ממושכת.
-            התנועות זורמות ומאזנות את הגוף והנפש.
-            מתאים במיוחד לעור יבש או רגיש.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 170₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-coconut" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/thai-coconut-oil-massage.jpg" alt="Thai Coconut Oil Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-coconut-oil"
-                  data-radio-group="dur-coconut"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
-        </article>
-                <!-- 🌿 Thai Aloe Vera Massage -->
-        <article class="product-card">
-          <div class="tag">🌿 עיסוי תאילנדי עם אלוורה</div>
-          <h3 class="product-title">
-            <span>Thai Aloe Vera Massage</span><span> | </span><span>עיסוי תאילנדי עם אלוורה</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי עדין בשילוב ג׳ל אלוורה טבעי.
-            האלוורה מרגיעה, מקררת ומזינה את העור תוך שמירה על לחות וגמישות.
-            התנועות הרכות משחררות מתחים שריריים קלים.
-            מתאים במיוחד לעור רגיש ולאחר חשיפה לשמש.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 170₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-aloe" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__content">
+            <div class="tag">🥥 עיסוי תאילנדי עם שמן קוקוס</div>
+            <h3 class="product-title">
+              <span>Thai Coconut Oil Massage</span><span> | </span><span>עיסוי תאילנדי עם שמן קוקוס</span>
+            </h3>
+            <p>
+              עיסוי תאילנדי עדין בשילוב שמן קוקוס טבעי.
+              מזין את העור, מעניק לחות עמוקה ותחושת רכות ממושכת.
+              התנועות זורמות ומאזנות את הגוף והנפש.
+              מתאים במיוחד לעור יבש או רגיש.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 170₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-coconut" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-coconut-oil"
+                    data-radio-group="dur-coconut"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-aloe-vera"
-                  data-radio-group="dur-aloe"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
         </article>
 
+        <!-- 🌿 Thai Aloe Vera Massage -->
+        <article class="product-card">
+          <div class="product-card__image">
+            <img src="images/treatments/thai-aloe-vera-massage.jpg" alt="Thai Aloe Vera Massage" />
+          </div>
+          <div class="product-card__content">
+            <div class="tag">🌿 עיסוי תאילנדי עם אלוורה</div>
+            <h3 class="product-title">
+              <span>Thai Aloe Vera Massage</span><span> | </span><span>עיסוי תאילנדי עם אלוורה</span>
+            </h3>
+            <p>
+              עיסוי תאילנדי עדין בשילוב ג׳ל אלוורה טבעי.
+              האלוורה מרגיעה, מקררת ומזינה את העור תוך שמירה על לחות וגמישות.
+              התנועות הרכות משחררות מתחים שריריים קלים.
+              מתאים במיוחד לעור רגיש ולאחר חשיפה לשמש.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 170₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-aloe" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-aloe-vera"
+                    data-radio-group="dur-aloe"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
+        </article>
 
         <!-- 🔥 Thai Balm Massage -->
         <article class="product-card">
-          <div class="tag">🔥 עיסוי תאילנדי עם באלם</div>
-          <h3 class="product-title">
-            <span>Thai Balm Massage</span><span> | </span><span>עיסוי תאילנדי עם באלם</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי ממוקד עם באלם תאילנדי ייעודי.
-            מסייע בהפחתת כאבים, נוקשות ודלקות מקומיות.
-            מתבצע בלחיצות עמוקות על אזורי עומס.
-            מתאים לשרירים תפוסים.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 170₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-balm" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/thai-balm-massage.jpg" alt="Thai Balm Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-thai-balm"
-                  data-radio-group="dur-balm"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">🔥 עיסוי תאילנדי עם באלם</div>
+            <h3 class="product-title">
+              <span>Thai Balm Massage</span><span> | </span><span>עיסוי תאילנדי עם באלם</span>
+            </h3>
+            <p>
+              עיסוי תאילנדי ממוקד עם באלם תאילנדי ייעודי.
+              מסייע בהפחתת כאבים, נוקשות ודלקות מקומיות.
+              מתבצע בלחיצות עמוקות על אזורי עומס.
+              מתאים לשרירים תפוסים.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 170₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-balm" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-thai-balm"
+                    data-radio-group="dur-balm"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
         <!-- 🏃 Sports Massage -->
         <article class="product-card">
-          <div class="tag">🏃 עיסוי ספורט</div>
-          <h3 class="product-title">
-            <span>Sports Massage</span><span> | </span><span>עיסוי ספורט</span>
-          </h3>
-          <p>
-            עיסוי אינטנסיבי לשחרור עומסים מפעילות גופנית.
-            משלב טכניקות עומק ומתיחות.
-            מסייע בהתאוששות ומניעת פציעות.
-            מתאים לספורטאים ולאנשים פעילים.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 170₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-sports" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/sports-massage.jpg" alt="Sports Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-sports"
-                  data-radio-group="dur-sports"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">🏃 עיסוי ספורט</div>
+            <h3 class="product-title">
+              <span>Sports Massage</span><span> | </span><span>עיסוי ספורט</span>
+            </h3>
+            <p>
+              עיסוי אינטנסיבי לשחרור עומסים מפעילות גופנית.
+              משלב טכניקות עומק ומתיחות.
+              מסייע בהתאוששות ומניעת פציעות.
+              מתאים לספורטאים ולאנשים פעילים.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 170₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-sports" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-sports"
+                    data-radio-group="dur-sports"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
         <!-- 💪 Deep Tissue Thai Massage (removed "Cream") -->
         <article class="product-card">
-          <div class="tag">💪 עיסוי תאילנדי עמוק (דיפ טישיו) – פרימיום</div>
-          <h3 class="product-title">
-            <span>Deep Tissue Thai Massage</span><span> | </span><span>עיסוי תאילנדי עמוק (דיפ טישיו) – פרימיום</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי עמוק במיוחד לשכבות השריר הפנימיות.
-            משלב לחץ חזק לעבודה טיפולית מדויקת.
-            מטפל בעומסים וכאבים כרוניים.
-            מיועד למטופלים מנוסים.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 170₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-deep-cream" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/deep-tissue-thai-massage.jpg" alt="Deep Tissue Thai Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-deep-tissue-cream"
-                  data-radio-group="dur-deep-cream"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">💪 עיסוי תאילנדי עמוק (דיפ טישיו) – פרימיום</div>
+            <h3 class="product-title">
+              <span>Deep Tissue Thai Massage</span><span> | </span><span>עיסוי תאילנדי עמוק (דיפ טישיו) – פרימיום</span>
+            </h3>
+            <p>
+              עיסוי תאילנדי עמוק במיוחד לשכבות השריר הפנימיות.
+              משלב לחץ חזק לעבודה טיפולית מדויקת.
+              מטפל בעומסים וכאבים כרוניים.
+              מיועד למטופלים מנוסים.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 170₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-deep-cream" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-deep-tissue-cream"
+                    data-radio-group="dur-deep-cream"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
-                <!-- ⚡ Karsai Massage -->
+        <!-- ⚡ Karsai Massage -->
         <article class="product-card">
-          <div class="tag">⚡ עיסוי תאילנדי קארסאי</div>
-          <h3 class="product-title">
-            <span>Karsai Massage</span><span> | </span><span>עיסוי תאילנדי קארסאי</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי מסורתי מתקדם מהרפואה העתיקה.
-            מתמקד באזורים אנרגטיים עמוקים.
-            טיפול עוצמתי ונישתי.
-            מיועד למטופלים מנוסים בלבד.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 180₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-karsai" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/karsai-massage.jpg" alt="Karsai Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-karsai"
-                  data-radio-group="dur-karsai"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">⚡ עיסוי תאילנדי קארסאי</div>
+            <h3 class="product-title">
+              <span>Karsai Massage</span><span> | </span><span>עיסוי תאילנדי קארסאי</span>
+            </h3>
+            <p>
+              עיסוי תאילנדי מסורתי מתקדם מהרפואה העתיקה.
+              מתמקד באזורים אנרגטיים עמוקים.
+              טיפול עוצמתי ונישתי.
+              מיועד למטופלים מנוסים בלבד.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 180₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-karsai" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-karsai"
+                    data-radio-group="dur-karsai"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
-                <!-- 🌼 Thai Herbal Compress Massage -->
+        <!-- 🌼 Thai Herbal Compress Massage -->
         <article class="product-card">
-          <div class="tag">🌼 עיסוי תאילנדי בקומפרסים צמחיים</div>
-          <h3 class="product-title">
-            <span>Thai Herbal Compress Massage</span><span> | </span><span>עיסוי תאילנדי בקומפרסים צמחיים</span>
-          </h3>
-          <p>
-            עיסוי מסורתי עם שקיות צמחים תאילנדיים מחוממות.
-            החום והעשבים מסייעים בהרגעת כאבים והפחתת דלקת.
-            משולב עם עיסוי ידני עמוק.
-            חוויה טיפולית ייחודית.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 190₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-thai-comp-body" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/thai-herbal-compress-massage.jpg" alt="Thai Herbal Compress Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-thai-comp"
-                  data-radio-group="dur-thai-comp-body"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">🌼 עיסוי תאילנדי בקומפרסים צמחיים</div>
+            <h3 class="product-title">
+              <span>Thai Herbal Compress Massage</span><span> | </span><span>עיסוי תאילנדי בקומפרסים צמחיים</span>
+            </h3>
+            <p>
+              עיסוי מסורתי עם שקיות צמחים תאילנדיים מחוממות.
+              החום והעשבים מסייעים בהרגעת כאבים והפחתת דלקת.
+              משולב עם עיסוי ידני עמוק.
+              חוויה טיפולית ייחודית.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 190₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-thai-comp-body" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-thai-comp"
+                    data-radio-group="dur-thai-comp-body"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
-         <!-- 🩺 Thai Therapeutic Massage -->
+        <!-- 🩺 Thai Therapeutic Massage -->
         <article class="product-card">
-          <div class="tag">🩺 עיסוי תאילנדי טיפולי</div>
-          <h3 class="product-title">
-            <span>Thai Therapeutic Massage</span><span> | </span><span>עיסוי תאילנדי טיפולי</span>
-          </h3>
-          <p>
-            עיסוי תאילנדי טיפולי עמוק וממוקד.
-            מטפל בכאבי גב, צוואר ושרירים תפוסים כרונית.
-            משפר טווח תנועה ומפחית עומסים.
-            מיועד למי שמחפש טיפול אמיתי.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 200₾</p>
-          <div class="duration-options">
-            <label>
-              <input type="radio" name="dur-thai-ther" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/thai-therapeutic-massage.jpg" alt="Thai Therapeutic Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-thai-ther"
-                  data-radio-group="dur-thai-ther"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">🩺 עיסוי תאילנדי טיפולי</div>
+            <h3 class="product-title">
+              <span>Thai Therapeutic Massage</span><span> | </span><span>עיסוי תאילנדי טיפולי</span>
+            </h3>
+            <p>
+              עיסוי תאילנדי טיפולי עמוק וממוקד.
+              מטפל בכאבי גב, צוואר ושרירים תפוסים כרונית.
+              משפר טווח תנועה ומפחית עומסים.
+              מיועד למי שמחפש טיפול אמיתי.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 200₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-thai-ther" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-thai-ther"
+                    data-radio-group="dur-thai-ther"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
         <!-- 🔥 Hot Stone Massage -->
         <article class="product-card">
-          <div class="tag">🔥 עיסוי אבנים חמות</div>
-          <h3 class="product-title">
-            <span>Hot Stone Massage</span><span> | </span><span>עיסוי אבנים חמות</span>
-          </h3>
-          <p>
-            עיסוי גוף מלא באמצעות אבני בזלת חמימות.
-            החום חודר לרקמות ומשחרר מתחים עמוקים.
-            משפר זרימת דם ומרפה שרירים.
-            מתאים לעייפות ומתח מצטבר.
-            הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
-          </p>
-          <p class="price">60 דק׳ – 200₾</p>
-          <div class="duration-options" style="display:none;">
-            <label>
-              <input type="radio" name="dur-body-stone" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/hot-stone-massage.jpg" alt="Hot Stone Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="body-hot-stone"
-                  data-radio-group="dur-body-stone"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">🔥 עיסוי אבנים חמות</div>
+            <h3 class="product-title">
+              <span>Hot Stone Massage</span><span> | </span><span>עיסוי אבנים חמות</span>
+            </h3>
+            <p>
+              עיסוי גוף מלא באמצעות אבני בזלת חמימות.
+              החום חודר לרקמות ומשחרר מתחים עמוקים.
+              משפר זרימת דם ומרפה שרירים.
+              מתאים לעייפות ומתח מצטבר.
+              הטיפול מתבצע כעיסוי גוף מלא וכולל גם עיסוי פנים.
+            </p>
+            <p class="price">60 דק׳ – 200₾</p>
+            <div class="duration-options" style="display:none;">
+              <label>
+                <input type="radio" name="dur-body-stone" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="body-hot-stone"
+                    data-radio-group="dur-body-stone"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
-
-
-<!-- 🦶 Thai Foot Massage -->
-<article class="product-card">
-  <div class="tag">🦶 טיפולי כפות רגליים</div>
-  <h3 class="product-title">
-    <span>Thai Foot Massage</span><span> | </span><span>עיסוי כפות רגליים</span>
-  </h3>
-  <p>
-    עיסוי כפות רגליים מרגיע לשחרור עייפות.
-    משפר זרימת דם ומעניק תחושת קלילות.
-  </p>
-  <p class="price">30 דק׳ – 80₾ · 60 דק׳ – 120₾</p>
-  <div class="duration-options">
-    <label>
-      <input type="radio" name="dur-foot" value="30" checked />
-      <span data-min="30">30 דק׳</span>
-    </label>
-    <label>
-      <input type="radio" name="dur-foot" value="60" />
-      <span data-min="60">60 דק׳</span>
-    </label>
-  </div>
-  <button class="button"
-          data-book-btn
-          data-treatment-key="foot-massage"
-          data-radio-group="dur-foot"
-          data-i18n="landing.treatment.book">
-    להזמנת הטיפול
-  </button>
-</article>
+        <!-- 🦶 Thai Foot Massage -->
+        <article class="product-card">
+          <div class="product-card__image">
+            <img src="images/treatments/thai-foot-massage.jpg" alt="Thai Foot Massage" />
+          </div>
+          <div class="product-card__content">
+            <div class="tag">🦶 טיפולי כפות רגליים</div>
+            <h3 class="product-title">
+              <span>Thai Foot Massage</span><span> | </span><span>עיסוי כפות רגליים</span>
+            </h3>
+            <p>
+              עיסוי כפות רגליים מרגיע לשחרור עייפות.
+              משפר זרימת דם ומעניק תחושת קלילות.
+            </p>
+            <p class="price">30 דק׳ – 80₾ · 60 דק׳ – 120₾</p>
+            <div class="duration-options">
+              <label>
+                <input type="radio" name="dur-foot" value="30" checked />
+                <span data-min="30">30 דק׳</span>
+              </label>
+              <label>
+                <input type="radio" name="dur-foot" value="60" />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="foot-massage"
+                    data-radio-group="dur-foot"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
+        </article>
 
         <!-- 🦶 Thai Reflexology Foot Massage -->
         <article class="product-card">
-          <div class="tag">🦶 עיסוי תאילנדי כפות רגליים רפלקסולוגי</div>
-          <h3 class="product-title">
-            <span>Thai Reflexology Foot Massage</span><span> | </span><span>עיסוי תאילנדי כפות רגליים רפלקסולוגי</span>
-          </h3>
-          <p>
-            עיסוי רפלקסולוגי תאילנדי עם לחיצות עמוקות ומשחה חריפה.
-            משפיע על מערכות הגוף דרך נקודות השתקפות בכפות הרגליים.
-            טיפול ממוקד ויעיל.
-          </p>
-          <p class="price">60 דק׳ – 140₾</p>
-          <div class="duration-options" style="display:none;">
-            <label>
-              <input type="radio" name="dur-foot-ref" value="60" checked />
-              <span data-min="60">60 דק׳</span>
-            </label>
+          <div class="product-card__image">
+            <img src="images/treatments/thai-reflexology-foot-massage.jpg" alt="Thai Reflexology Foot Massage" />
           </div>
-          <button class="button"
-                  data-book-btn
-                  data-treatment-key="foot-reflexology"
-                  data-radio-group="dur-foot-ref"
-                  data-i18n="landing.treatment.book">
-            להזמנת הטיפול
-          </button>
+          <div class="product-card__content">
+            <div class="tag">🦶 עיסוי תאילנדי כפות רגליים רפלקסולוגי</div>
+            <h3 class="product-title">
+              <span>Thai Reflexology Foot Massage</span><span> | </span><span>עיסוי תאילנדי כפות רגליים רפלקסולוגי</span>
+            </h3>
+            <p>
+              עיסוי רפלקסולוגי תאילנדי עם לחיצות עמוקות ומשחה חריפה.
+              משפיע על מערכות הגוף דרך נקודות השתקפות בכפות הרגליים.
+              טיפול ממוקד ויעיל.
+            </p>
+            <p class="price">60 דק׳ – 140₾</p>
+            <div class="duration-options" style="display:none;">
+              <label>
+                <input type="radio" name="dur-foot-ref" value="60" checked />
+                <span data-min="60">60 דק׳</span>
+              </label>
+            </div>
+            <button class="button"
+                    data-book-btn
+                    data-treatment-key="foot-reflexology"
+                    data-radio-group="dur-foot-ref"
+                    data-i18n="landing.treatment.book">
+              להזמנת הטיפול
+            </button>
+          </div>
         </article>
 
       </div>
