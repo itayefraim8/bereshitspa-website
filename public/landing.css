@@ -416,3 +416,17 @@ body.landing-page {
     height: 20px !important;
   }
 }
+/* הסרת מסגרות מהדגלים */
+
+.lang-btn {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.lang-btn img {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
