@@ -728,68 +728,7 @@
     <img src="assets/icons/whatsapp.svg" alt="WhatsApp" />
   </a>
 
-  <!-- מודאל הזמנה (נשמר לעתיד, אם תרצה לחזור לסליקה ישירה) -->
-  <div class="booking-modal hidden" id="bookingModal" aria-hidden="true">
-    <div class="booking-backdrop" data-booking-close></div>
 
-    <section class="booking-dialog" aria-modal="true" role="dialog" aria-labelledby="bookingTitle">
-      <button class="booking-close" type="button" data-booking-close>&times;</button>
-
-      <h2 id="bookingTitle" data-i18n="landing.booking.title">הזמנת טיפול</h2>
-      <p class="booking-treatment" id="bookingSummary" data-i18n="landing.booking.summary">
-        נא לבחור טיפול מהדף, ואז למלא פרטי קשר ותאריך.
-      </p>
-
-      <form id="bookingForm">
-        <div class="booking-row">
-          <label for="fullName" data-i18n="landing.booking.name">שם מלא</label>
-          <input id="fullName" name="name" type="text" required />
-        </div>
-
-        <div class="booking-row">
-          <label for="phone" data-i18n="landing.booking.phone">טלפון ליצירת קשר (WhatsApp)</label>
-          <input id="phone" name="phone" type="tel" required />
-        </div>
-
-        <div class="booking-row two-cols">
-          <div>
-            <label for="date" data-i18n="landing.booking.date">תאריך טיפול</label>
-            <input id="date" name="date" type="date" required />
-          </div>
-          <div>
-            <label for="time" data-i18n="landing.booking.time">שעת טיפול</label>
-            <select id="time" name="time" required>
-              <option value="" data-i18n="landing.booking.chooseTime">בחר/י שעה</option>
-              <option>10:00</option>
-              <option>12:00</option>
-              <option>14:00</option>
-              <option>16:00</option>
-              <option>18:00</option>
-              <option>20:00</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="booking-row">
-          <label data-i18n="landing.booking.duration">משך הטיפול</label>
-          <div class="duration-options" id="bookingDurations"></div>
-        </div>
-
-        <div class="booking-row">
-          <label for="notes" data-i18n="landing.booking.notes">העדפות / הערות (אופציונלי)</label>
-          <textarea id="notes" name="notes" rows="3"></textarea>
-        </div>
-
-        <p class="booking-note" data-i18n="landing.booking.note">
-          התשלום מתבצע בכרטיס אשראי מאובטח דרך Stripe. אישור הזמנה יישלח אליך אוטומטית.
-        </p>
-
-        <button type="submit" class="booking-submit" data-i18n="landing.booking.payCta">
-          מעבר לתשלום מאובטח
-        </button>
-      </form>
-    </section>
-  </div>
 
   <script src="landing-landing.js" type="module"></script>
 </body>
