@@ -721,41 +721,57 @@
 <footer class="lux-footer">
   <div class="lux-footer__inner">
 
+    <!-- שעות פעילות -->
     <div class="lux-footer__col">
       <h3 class="lux-footer__title">
         <span class="icon">🕒</span>
-        שעות פעילות
+        <span data-i18n="footer.hours.title">שעות פעילות</span>
       </h3>
 
-      <p class="lux-footer__text"><strong>יום ראשון:</strong> 11:00–22:00</p>
-      <p class="lux-footer__text"><strong>יום שני:</strong> 11:00–22:00</p>
-      <p class="lux-footer__text"><strong>יום שלישי:</strong> 11:00–22:00</p>
-      <p class="lux-footer__text"><strong>יום רביעי:</strong> 11:00–22:00</p>
-      <p class="lux-footer__text"><strong>יום חמישי:</strong> 11:00–22:00</p>
-      <p class="lux-footer__text"><strong>יום שישי:</strong> 11:00 – כניסת שבת</p>
-      <p class="lux-footer__text"><strong>מוצ״ש:</strong> חצי שעה לאחר יציאת שבת</p>
+      <p class="lux-footer__text" data-i18n="footer.hours.sun">יום ראשון: 11:00–22:00</p>
+      <p class="lux-footer__text" data-i18n="footer.hours.mon">יום שני: 11:00–22:00</p>
+      <p class="lux-footer__text" data-i18n="footer.hours.tue">יום שלישי: 11:00–22:00</p>
+      <p class="lux-footer__text" data-i18n="footer.hours.wed">יום רביעי: 11:00–22:00</p>
+      <p class="lux-footer__text" data-i18n="footer.hours.thu">יום חמישי: 11:00–22:00</p>
+      <p class="lux-footer__text" data-i18n="footer.hours.fri">יום שישי: 11:00 – כניסת שבת</p>
+      <p class="lux-footer__text" data-i18n="footer.hours.sat">מוצ״ש: חצי שעה לאחר יציאת שבת</p>
     </div>
 
+    <!-- מיקום וכתובת -->
     <div class="lux-footer__col">
       <h3 class="lux-footer__title">
         <span class="icon">📍</span>
-        מיקום וכתובת
+        <span data-i18n="footer.location.title">מיקום וכתובת</span>
       </h3>
 
       <div class="lux-footer__map">
         <iframe
-          src="https://www.google.com/maps?q=Batumi&output=embed"
+          src="https://www.google.com/maps?q=Vaja+Pshavela+8,+Batumi&output=embed"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          aria-label="מפת מיקום">
+          aria-label="Map location">
         </iframe>
       </div>
 
-      <p class="lux-footer__text"><strong>Batumi, Georgia</strong></p>
-      <p class="lux-footer__text">Bereshit Spa</p>
       <p class="lux-footer__text">
-        <a href="https://wa.me/995599078676" target="_blank" rel="noopener">
-          WhatsApp להזמנות: +995 599 078 676
+        <strong data-i18n="footer.location.address1">Vaja Pshavela 8</strong><br>
+        <span data-i18n="footer.location.address2">Batumi, Georgia</span>
+      </p>
+
+      <p class="lux-footer__text">
+        <a href="https://www.google.com/maps/search/?api=1&query=Vaja+Pshavela+8,+Batumi"
+           target="_blank"
+           rel="noopener"
+           data-i18n="footer.location.navigate">
+          ניווט למיקום
+        </a>
+      </p>
+
+      <p class="lux-footer__text">
+        <a href="https://wa.me/995599078676"
+           target="_blank"
+           rel="noopener"
+           data-i18n="footer.location.whatsapp">
+          WhatsApp להזמנות
         </a>
       </p>
     </div>
@@ -763,7 +779,7 @@
   </div>
 
   <div class="lux-footer__bottom">
-    <p>© Bereshit Spa · כל הזכויות שמורות</p>
+    <p data-i18n="footer.bottom.copy">© Bereshit Spa · כל הזכויות שמורות</p>
   </div>
 </footer>
   <!-- כפתור וואטסאפ צף -->
