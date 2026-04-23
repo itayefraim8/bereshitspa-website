@@ -919,3 +919,8 @@ body.landing-page {
     height: 9px;
   }
 }
+.video-slide__video {
+  height: 520px;
+  object-fit: cover;
+  border-radius: 18px;
+}
