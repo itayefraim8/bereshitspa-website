@@ -802,7 +802,25 @@ function setupFlagshipSlider() {
   goTo(0, false);
   startAuto();
 }
+// ===== Scroll reveal for treatment cards =====
+function setupScrollReveal() {
+  const cards = document.querySelectorAll('.product-card');
+  if (!cards.length) return;
 
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  cards.forEach((card) => observer.observe(card));
+}
 // ===== אתחול =====
 document.addEventListener('DOMContentLoaded', () => {
   const lang = getLang();
@@ -810,6 +828,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupLangButtons();
   setupTreatmentButtons();
   setupVideoSlider();
-  // setupVideoSlider(); // לא צריך לסליידר טיפולים
   setupFlagshipSlider();
+  setupScrollReveal(); // 🔥 זה מה שחסר
 });

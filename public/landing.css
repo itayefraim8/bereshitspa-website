@@ -924,3 +924,23 @@ body.landing-page {
   object-fit: cover;
   border-radius: 18px;
 }
+/* ===== Scroll reveal ===== */
+.product-card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.product-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* במובייל אפשר אפקט קצת חזק יותר */
+@media (max-width: 640px) {
+  .product-card {
+    transform: translateY(38px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+}
