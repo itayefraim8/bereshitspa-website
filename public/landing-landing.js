@@ -42,9 +42,6 @@ function applyLang(lang) {
   }
 }
 
-
-
-
 // ===== מילון טקסטים =====
 const LOCAL_STRINGS = {
   he: {
@@ -84,6 +81,24 @@ const LOCAL_STRINGS = {
     'landing.booking.notes': 'העדפות / הערות (אופציונלי)',
     'landing.booking.note': 'התשלום מתבצע בכרטיס אשראי מאובטח דרך Stripe. אישור הזמנה יישלח אליך אוטומטית.',
     'landing.booking.payCta': 'מעבר לתשלום מאובטח',
+
+    // footer
+    'footer.hours.title': 'שעות פעילות',
+    'footer.hours.sun': 'יום ראשון: 11:00–22:00',
+    'footer.hours.mon': 'יום שני: 11:00–22:00',
+    'footer.hours.tue': 'יום שלישי: 11:00–22:00',
+    'footer.hours.wed': 'יום רביעי: 11:00–22:00',
+    'footer.hours.thu': 'יום חמישי: 11:00–22:00',
+    'footer.hours.fri': 'יום שישי: 11:00 – כניסת שבת',
+    'footer.hours.sat': 'מוצ״ש: חצי שעה לאחר יציאת שבת',
+
+    'footer.location.title': 'מיקום וכתובת',
+    'footer.location.address1': 'Vaja Pshavela 8',
+    'footer.location.address2': 'Batumi, Georgia',
+    'footer.location.navigate': 'ניווט למיקום',
+    'footer.location.whatsapp': 'WhatsApp להזמנות',
+
+    'footer.bottom.copy': '© Bereshit Spa · כל הזכויות שמורות'
   },
 
   en: {
@@ -118,6 +133,24 @@ const LOCAL_STRINGS = {
     'landing.booking.notes': 'Preferences / notes (optional)',
     'landing.booking.note': 'Payment is processed via secure Stripe credit card. A confirmation will be sent automatically.',
     'landing.booking.payCta': 'Proceed to secure payment',
+
+    // footer
+    'footer.hours.title': 'Opening Hours',
+    'footer.hours.sun': 'Sunday: 11:00–22:00',
+    'footer.hours.mon': 'Monday: 11:00–22:00',
+    'footer.hours.tue': 'Tuesday: 11:00–22:00',
+    'footer.hours.wed': 'Wednesday: 11:00–22:00',
+    'footer.hours.thu': 'Thursday: 11:00–22:00',
+    'footer.hours.fri': 'Friday: 11:00 – Until Shabbat begins',
+    'footer.hours.sat': 'Saturday night: Half an hour after Shabbat ends',
+
+    'footer.location.title': 'Location & Address',
+    'footer.location.address1': 'Vaja Pshavela 8',
+    'footer.location.address2': 'Batumi, Georgia',
+    'footer.location.navigate': 'Navigate to location',
+    'footer.location.whatsapp': 'WhatsApp for bookings',
+
+    'footer.bottom.copy': '© Bereshit Spa · All Rights Reserved'
   },
 
   ru: {
@@ -152,6 +185,24 @@ const LOCAL_STRINGS = {
     'landing.booking.notes': 'Пожелания / примечания (необязательно)',
     'landing.booking.note': 'Оплата проводится банковской картой через защищённый сервис Stripe. Подтверждение придёт автоматически.',
     'landing.booking.payCta': 'Перейти к безопасной оплате',
+
+    // footer
+    'footer.hours.title': 'Часы работы',
+    'footer.hours.sun': 'Воскресенье: 11:00–22:00',
+    'footer.hours.mon': 'Понедельник: 11:00–22:00',
+    'footer.hours.tue': 'Вторник: 11:00–22:00',
+    'footer.hours.wed': 'Среда: 11:00–22:00',
+    'footer.hours.thu': 'Четверг: 11:00–22:00',
+    'footer.hours.fri': 'Пятница: 11:00 – До наступления шаббата',
+    'footer.hours.sat': 'Субботний вечер: Через полчаса после окончания шаббата',
+
+    'footer.location.title': 'Местоположение и адрес',
+    'footer.location.address1': 'Vaja Pshavela 8',
+    'footer.location.address2': 'Batumi, Georgia',
+    'footer.location.navigate': 'Открыть маршрут',
+    'footer.location.whatsapp': 'WhatsApp для бронирования',
+
+    'footer.bottom.copy': '© Bereshit Spa · Все права защищены'
   },
 
   ka: {
@@ -186,6 +237,24 @@ const LOCAL_STRINGS = {
     'landing.booking.notes': 'სურვილები / შენიშვნები (არასავალდებულო)',
     'landing.booking.note': 'გადახდა ხორციელდება უსაფრთხოდ, Stripe-ის ბარათის გადახდის სისტემით. დადასტურება ავტომატურად გამოგეგზავნებათ.',
     'landing.booking.payCta': 'გადასვლა უსაფრთხო გადახდაზე',
+
+    // footer
+    'footer.hours.title': 'სამუშაო საათები',
+    'footer.hours.sun': 'კვირა: 11:00–22:00',
+    'footer.hours.mon': 'ორშაბათი: 11:00–22:00',
+    'footer.hours.tue': 'სამშაბათი: 11:00–22:00',
+    'footer.hours.wed': 'ოთხშაბათი: 11:00–22:00',
+    'footer.hours.thu': 'ხუთშაბათი: 11:00–22:00',
+    'footer.hours.fri': 'პარასკევი: 11:00 – შაბათის დაწყებამდე',
+    'footer.hours.sat': 'შაბათის საღამო: შაბათის დასრულებიდან ნახევარი საათის შემდეგ',
+
+    'footer.location.title': 'მდებარეობა და მისამართი',
+    'footer.location.address1': 'Vaja Pshavela 8',
+    'footer.location.address2': 'Batumi, Georgia',
+    'footer.location.navigate': 'გეზის გახსნა',
+    'footer.location.whatsapp': 'WhatsApp დაჯავშნისთვის',
+
+    'footer.bottom.copy': '© Bereshit Spa · ყველა უფლება დაცულია'
   }
 };
 
@@ -253,7 +322,7 @@ const TREATMENTS_META = {
 
   // ===== BODY / BACK =====
   'back-basic': {
-    tag: { he: '💪 עיסוי תאילנדי עמוק בשמן', en: '💪 Deep Thai Oil Back–Neck–Shoulders', ru: '💪 Глубокий тайский масляный (спина–шея–плечи)', ka: '💪 ღრმა თაილანდური ზეთოვანი (ზურგი–კისერი–მხრები)' },
+    tag: { he: '💪 עיסוי תאילנדי עמוק בשמן', en: '💪 Deep Thai Oil Back–Neck–Shoulders', ru: '💪 Глубокий тайский масляный (спина–шея–плечи)', ka: '💪 ღრმა თაილანდური ზეთოვანი (ზურგი–კיסერი–მხრები)' },
     name: { he: 'Deep Thai Oil Back–Neck–Shoulders Massage | עיסוי תאילנדי עמוק בשמן', en: 'Deep Thai Oil Back–Neck–Shoulders Massage', ru: 'Глубокий тайский масляный массаж спины, шеи и плеч', ka: 'ღრმა თაილანდური ზეთოვანი მასაჟი ზურგის, კისრისა და მხრების' },
     desc: {
       he: 'עיסוי תאילנדי טיפולי בשמן המתמקד באזורי עומס מרכזיים. משלב לחיצות עמוקות, עבודה מדויקת עם אמות ומרפקים. מסייע בהפחתת כאבי צוואר, כתפיים וגב עליון. מתאים לעומס יומיומי וישיבה ממושכת.',
@@ -731,8 +800,6 @@ function setupFlagshipSlider() {
   startAuto();
 }
 
-
-
 // ===== אתחול =====
 document.addEventListener('DOMContentLoaded', () => {
   const lang = getLang();
@@ -743,4 +810,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // setupVideoSlider(); // לא צריך לסליידר טיפולים
   setupFlagshipSlider();
 });
-
