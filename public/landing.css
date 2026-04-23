@@ -559,3 +559,112 @@ body.landing-page {
     font-size: 0.9rem;
   }
 }
+/* ===== Luxury Footer ===== */
+
+.lux-footer {
+  margin-top: 70px;
+  background: #ffffff;
+  border-top: 1px solid #ece7e2;
+  padding: 50px 20px 20px;
+}
+
+.lux-footer__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+/* כותרות */
+.lux-footer__title {
+  margin-bottom: 16px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2e2a29;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* אייקון */
+.lux-footer__title .icon {
+  font-size: 1rem;
+}
+
+/* טקסט */
+.lux-footer__text {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  color: #6a6461;
+  line-height: 1.8;
+}
+
+/* קישור */
+.lux-footer__text a {
+  color: #8a8667;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lux-footer__text a:hover {
+  text-decoration: underline;
+}
+
+/* מפה */
+.lux-footer__map {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.lux-footer__map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* תחתית */
+.lux-footer__bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid #eee7e1;
+}
+
+.lux-footer__bottom p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #8a837f;
+}
+
+/* ===== מובייל ===== */
+
+@media (max-width: 900px) {
+  .lux-footer__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .lux-footer__title {
+    justify-content: center;
+  }
+
+  .lux-footer__map {
+    height: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .lux-footer {
+    padding: 40px 14px 18px;
+  }
+
+  .lux-footer__text {
+    font-size: 0.9rem;
+  }
+}
