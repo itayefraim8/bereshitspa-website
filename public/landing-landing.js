@@ -680,9 +680,12 @@ function goTo(i) {
   const max = slides.length;
   index = (i + max) % max;
 
-  // ✅ תמיד מזיזים שמאלה ב־100% לכל שקף (זה עובד נכון גם ב־RTL)
+  // תמיד מזיזים שמאלה ב־100% לכל שקף
   track.style.transform = `translateX(${-index * 100}%)`;
-  setDots();
+
+  setActiveDot();
+  pauseAllVideos();
+  playActiveVideo();
 }
 
 
